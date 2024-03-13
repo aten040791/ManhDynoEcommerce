@@ -1,0 +1,17 @@
+{
+  "name": "manhdynoecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "git-branch-is": "^4.0.0",
+    "husky": "^9.0.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "postinstall": "npx husky install"
+  },
+  "author": "",
+  "license": "ISC"
+}

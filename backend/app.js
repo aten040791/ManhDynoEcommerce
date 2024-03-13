@@ -1,10 +1,9 @@
 const express = require("express");
-const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const app = express();
 
-require("./backend/config/connection.js");
+require("./config/config.js");
 
 dotenv.config();
 
