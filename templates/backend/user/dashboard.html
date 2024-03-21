@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Blog Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="sidebar__logo-title">CodingBlog</span>
+        </div>
+        <ul class="sidebar__nav">
+            <li>
+                <a href="./dashboard.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="sidebar__nav-title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <div class="sidebar__link-dropdown">
+                    <a href="./category/categories/categories.html">
+                        <i class='bx bx-collection'></i>
+                        <span class="sidebar__nav-title">Category</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sidebar__nav-submenu">
+                    <li><a class="sidebar__nav-title" href="./category/categories/categories.html">Category</a></li>
+                    <li><a href="./category/categories/categories.html">Categories</a></li>
+                    <li><a href="./category/create/create-category.html">Create Category</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="sidebar__link-dropdown">
+                    <a href="./post/views/views-post.html">
+                        <i class='bx bx-book-alt'></i>
+                        <span class="sidebar__nav-title">Posts</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sidebar__nav-submenu">
+                    <li><a class="sidebar__nav-title" href="./post/views/views-post.html">Post</a></li>
+                    <li><a href="./post/views/views-post.html">Posts</a></li>
+                    <li><a href="./post/create/create-post.html">Create Post</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="sidebar__nav-title">Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="sidebar__nav-title">Chart</span>
+                </a>
+            </li>
+            <li>
+                <div class="sidebar__link-dropdown">
+                    <a href="#">
+                        <i class='bx bx-plug'></i>
+                        <span class="sidebar__nav-title">Plugins</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sidebar__nav-submenu">
+                    <li><a class="sidebar__nav-title" href="#">Plugins</a></li>
+                    <li><a href="#">UI Face</a></li>
+                    <li><a href="#">Pigments</a></li>
+                    <li><a href="#">Box Icons</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-compass'></i>
+                    <span class="sidebar__nav-title">Explore</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-history'></i>
+                    <span class="sidebar__nav-title">History</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="sidebar__nav-title">Setting</span>
+                </a>
+            </li>
+            <li>
+                <div class="sidebar__profile">
+                    <div class="sidebar__profile-content">
+                        <img src="./images/avatar/avatar14.jpg" alt="profileImg">
+                    </div>
+                    <div class="sidebar__profile-info">
+                        <div class="sidebar__profile-name">Dinomanh</div>
+                        <div class="sidebar__profile-job">Web Desginer</div>
+                    </div>
+                    <i class='bx bx-log-out'></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="main__header">
+            <div class="main__header-search">
+                <i class='bx bx-menu'></i>
+                <form>
+                    <div class="header__search">
+                        <i class='bx bx-search header__search-icon'></i>
+                        <input type="search" class="header__search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+            <div class="main__header-action">
+                <div class="header__language">
+                    <div class="header__lang-selected">
+                        <img src="./images/flags/united-states.png" alt="">
+                        <span class="text">English</span>
+                    </div>
+                </div>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-bell icon'></i>
+                    <span class="badge">5</span>
+                </a>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-moon icon'></i>
+                </a>
+                <div class="main__header-profile">
+                    <img src="./images/avatar/avatar14.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="main__dashboard">
+            Main Dashboard
+        </div>
+    </div>
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>
+</body>
+
+</html>
