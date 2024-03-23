@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- config tailwind css -->
+</head>
+
+<body>
+
+    <!-- HEADER SECTION START -->
+
+    <section>
+        <header class="header-container">
+            <div>
+                <img src="../assets/images/Logo.svg" alt="logo">
+            </div>
+        </header>
+    </section>
+
+    <!-- HEADER SECTION END -->
+
+    <!-- LOGIN FORM START -->
+
+    <section class="form-section">
+        <div class="form-container">
+            <h1 class="form-title">
+                Login
+            </h1>
+            <form action="" class="form" method="POST" id="form">
+                <div class="form-group">
+                    <label for="email" class="form-label">
+                        Email
+                    </label>
+                    <input type="email" id="email" placeholder="Enter Email" required class="form-input" />
+                    <div class="error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        Password
+                    </label>
+                    <input type="password" id="password" placeholder="Enter Password" required class="form-input" />
+                    <div class="error"></div>
+                </div>
+                <button type="submit">
+                    Sign in
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- LOGIN FORM END -->
+</body>
+
+</html>
