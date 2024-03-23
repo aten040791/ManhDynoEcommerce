@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- config tailwind css -->
+</head>
+
+<body>
+
+    <!-- HEADER SECTION START -->
+
+    <section>
+        <header class="container mx-auto px-5 flex justify-between py-4 items-center">
+            <div>
+                <img class="w-16" src="../assets/Logo.svg" alt="logo">
+            </div>
+            <div class="flex gap-x-9 items-center">
+                <ul class="flex gap-x-5 font-semibold">
+                    <li class="relative group">
+                        <a href="#" class="px-4 py-2">Home</a>
+                        <span
+                            class="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">/</span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#" class="px-4 py-2">Articles</a>
+                        <span
+                            class="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">/</span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#" class="px-4 py-2">Page</a>
+                        <span
+                            class="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">/</span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#" class="px-4 py-2">Pricing</a>
+                        <span
+                            class="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">/</span>
+                    </li>
+                    <li class="relative group">
+                        <a href="#" class="px-4 py-2">FAQ</a>
+                        <span
+                            class="cursor-pointer text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100">/</span>
+                    </li>
+                </ul>
+                <button 
+                    class="mt-5 lg:mt-0 border-2 border-blue-500 px-6 py-2 rounded-full text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transition-all duration-300">
+                    Sign in
+                </button>
+            </div>
+        </header>
+    </section>
+
+    <!-- HEADER SECTION END -->
+
+    <!-- LOGIN FORM START -->
+
+    <section class="container mx-auto px-5 py-10">
+        <div class="w-full max-w-sm mx-auto">
+            <h1 class="font-roboto text-2xl font-bold text-center text-[#0D2436] mb-8">
+                Sign in
+            </h1>
+            <form action="">
+                <!-- <div class="flex flex-col mb-6 w-full">
+                    <label for="name" class="text-[#5a7184] font-semibold block">
+                        Name
+                    </label>
+                    <input type="text" id="name" placeholder="Enter name">
+                </div> -->
+                <div class="flex flex-col mb-6 w-full">
+                    <label for="email" class="text-[#5a7184] font-semibold block">
+                        Email
+                    </label>
+                    <input type="email" id="email" placeholder="Enter Email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        class="placeholder:text-[#959ead] text-dark-hard mt-3 rounded-lg px-5 py-4 font-semibold block outline-none border" />
+                </div>
+                <div class="flex flex-col mb-6 w-full">
+                    <label for="password" class="text-[#5a7184] font-semibold block">
+                        Password
+                    </label>
+                    <input type="password" id="password" placeholder="Enter Password"
+                        class="placeholder:text-[#959ead] text-dark-hard mt-3 rounded-lg px-5 py-4 font-semibold block outline-none border" />
+                </div>
+                <a href="./forgot-password.html" class="text-sm font-semibold text-[#1565D8]">
+                    Forgot password?
+                </a>
+                <button type="submit"
+                    class="bg-[#1565D8] text-white font-bold text-lg py-4 px-8 w-full rounded-lg my-6 disabled:opacity-70 disabled:cursor-not-allowed">
+                    Sign in
+                </button>
+                <p class="text-sm font-semibold text-[#5a7184]">
+                    Do not have an account ?
+                    <a href="#" class="text-[#1565D8]">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+
+
+    <!-- LOGIN FORM END -->
+
+
+    <!-- FOOTER SECTION START -->
+    <section class="bg-[#0D2436]">
+        <footer
+            class="container mx-auto grid grid-cols-10 px-5 py-10 gap-y-10 gap-x-5 md:pt-20 md:grid-cols-12 lg:grid-cols-10 lg:gap-x-10">
+            <div class="col-span-5 md:col-span-4 lg:col-span-2">
+                <h3 class="text-[#5A7184] font-bold md:text-lg">Product</h3>
+                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                    <li>
+                        <a href="#">Landingpage</a>
+                    </li>
+                    <li>
+                        <a href="#">Features</a>
+                    </li>
+                    <li>
+                        <a href="#">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#">Referral Program</a>
+                    </li>
+                    <li>
+                        <a href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-5 md:col-span-4 lg:col-span-2">
+                <h3 class="text-[#5A7184] font-bold md:text-lg">Services</h3>
+                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                    <li>
+                        <a href="#">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#">Design</a>
+                    </li>
+                    <li>
+                        <a href="#">Themes</a>
+                    </li>
+                    <li>
+                        <a href="#">Illustrations</a>
+                    </li>
+                    <li>
+                        <a href="#">UI Kit</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-5 md:col-span-4 md:col-start-5 lg:col-start-auto lg:col-span-2">
+                <h3 class="text-[#5A7184] font-bold md:text-lg">Company</h3>
+                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Careers</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-5 md:col-span-4 lg:col-span-2">
+                <h3 class="text-[#5A7184] font-bold md:text-lg">More</h3>
+                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                    <li>
+                        <a href="#">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#">License</a>
+                    </li>
+                    <li>
+                        <a href="#">Changelog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-10 md:order-first md:col-span-4 lg:col-span-2">
+                <img src="../assets/Logo.svg" alt="logo" class="brightness-0 invert mx-auto md:mx-0" />
+                <p class="text-sm text-[#5A7184] text-center mt-4 md:text-left md:text-base lg:text-sm">
+                    Build a modern and creative website with crealand
+                </p>
+            </div>
+            <div class="hidden md:flex flex-col items-center space-y-4 md:col-span-12 lg:col-span-10">
+                <!-- <div class="bg-primary text-white p-3 rounded-full">
+                        <AiFillHeart class="w-7 h-auto" />
+                    </div> -->
+                <p class="font-bold italic text-[#5A7184]">
+                    Copyright © 2024.
+                </p>
+            </div>
+        </footer>
+    </section>
+
+    <!-- FOOTER SECTION END -->
+    <script src="taiwind-config.js"></script>
+</body>
+
+</html>
