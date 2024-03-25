@@ -1,8 +1,8 @@
 function deleteUser() {
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
-            confirmButton: "btn-cancel",
-            cancelButton: "btn-delete"
+            confirmButton: "modal__btn  modal__btn-delete",
+            cancelButton: "modal__btn modal__btn-cancel"
         },
         buttonsStyling: false
     });
