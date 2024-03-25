@@ -401,6 +401,8 @@
 
 /* =============== END HEADER DASHBOARD ====================*/
 
+/* =============== START TABLE ====================*/
+
 .table {
   margin: 0 15px;
   margin-top: 20px;
@@ -470,6 +472,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .table__header-btn span {
@@ -501,8 +504,9 @@
   width: 5%;
 }
 .table__body thead th:nth-child(3),
-.table__body thead th:nth-child(4) {
-  width: 20%;
+.table__body thead th:nth-child(4),
+.table__body thead th:nth-child(5) {
+  width: 15%;
 }
 .table__body thead th:last-child {
   width: 10%;
@@ -545,6 +549,7 @@
 .delete:hover {
   background: #c82333;
 }
+
 .modal__btn {
   display: inline-block;
   font-weight: normal;
@@ -561,6 +566,9 @@
   border-radius: 0.25rem;
   transition: all 0.15s ease-in-out;
   color: #fff;
+}
+.modal__btn:hover {
+  cursor: pointer;
 }
 .modal__btn-create {
   background-color: #28a745;
