@@ -92,6 +92,7 @@ function updateCategory() {
       confirmButtonText: "Update",
       cancelButtonText: "Cancel",
       reverseButtons: true,
+
       title: "Edit category",
       input: "text",
       inputValue: "ReactJs",
@@ -117,7 +118,6 @@ function updateCategory() {
       }
     });
 }
-
 
 function addNewLanguage() {
   const obj = {
@@ -296,4 +296,3 @@ function deleteLanguage() {
       }
     });
 }
-

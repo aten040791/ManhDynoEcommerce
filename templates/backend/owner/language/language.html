@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<!-- Coding by CodingNepal | www.codingnepalweb.com -->
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title> Blog Dashboard</title>
+    <title>Create new post</title>
     <link rel="stylesheet" href="./styles.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/super-build/ckeditor.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
         </div>
         <ul class="sidebar__nav">
             <li class="sidebar__nav-item">
-                <a href="./dashboard.html">
+                <a href="../../dashboard/dashboard.html">
                     <i class='bx bx-grid-alt'></i>
                     <span class="sidebar__nav-title">Dashboard</span>
                 </a>
@@ -37,19 +38,6 @@
                     <li><a href="../category/index/categories.html">Categories</a></li>
                 </ul>
             </li>
-            <li class="sidebar__nav-item showMenu">
-                <div class="sidebar__link-dropdown">
-                    <a href="#">
-                        <i class="ri-list-view"></i>
-                        <span class="sidebar__nav-title">Language</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sidebar__nav-submenu">
-                    <li><a class="sidebar__nav-title" href="../language/language.html">Language</a></li>
-                    <li><a href="../language/manage/manage.html">Manage Language</a></li>
-                </ul>
-            </li>
             <li class="sidebar__nav-item">
                 <div class="sidebar__link-dropdown">
                     <a href="#">
@@ -60,7 +48,6 @@
                 </div>
                 <ul class="sidebar__nav-submenu">
                     <li><a class="sidebar__nav-title" href="../language/language.html">Language</a></li>
-                   
                     <li><a href="../language/manage/manage.html" class="active">Manage Language</a></li>
                 </ul>
             </li>
@@ -147,6 +134,7 @@
                 <div class="header__language">
                     <div class="header__lang-selected">
                         <img src="../assets/images/flags/united-states.png" alt="">
+
                         <span class="text">English</span>
                     </div>
                 </div>
@@ -163,12 +151,33 @@
             </div>
         </div>
         <div class="main__dashboard">
-            Main Dashboard
+            <div class="form">
+                <div class="form__title">
+                    <h2>Create New Post</h2>
+                </div>
+                <div class="alert__message error hide">
+                    <p>This is an error message</p>
+                </div>
+                <form action="">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" placeholder="Title..." />
+                    <label for="category">Select category:</label>
+                    <select id="category" name="category">
+                        <option value="1">Travel</option>
+                        <option value="2">Art</option>
+                        <option value="3">Science & Technology</option>
+                    </select>
+                    <div id="editor">
+                    </div>
+                    <button type="submit" class="btn">Publish</button>
+                </form>
+            </div>
         </div>
 
 
     </div>
-    <script src="../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/editor.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
 </body>
 
 </html>

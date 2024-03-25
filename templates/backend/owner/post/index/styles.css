@@ -22,7 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 /* =============== START SIDEBAR ====================*/
@@ -400,7 +399,6 @@
 
 /* =============== END HEADER DASHBOARD ====================*/
 
-
 /* =============== START TABLE ====================*/
 
 .table {
@@ -674,4 +672,3 @@
 }
 
 /* =============== END PAGINATION ====================*/
-
