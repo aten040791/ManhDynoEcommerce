@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Blog Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="sidebar__logo-title">CodingBlog</span>
+        </div>
+        <ul class="sidebar__nav">
+            <li class="sidebar__nav-item">
+                <a href="./index.html">
+                    <i class='bx bx-user'></i>
+                    <span class="sidebar__nav-title">User</span>
+                </a>
+            </li>
+            <li class="sidebar__nav-item">
+                <div class="sidebar__profile">
+                    <div class="sidebar__profile-content">
+                        <img src="../assets/images/avatar/avatar14.jpg" alt="profileImg">
+                    </div>
+                    <div class="sidebar__profile-info">
+                        <div class="sidebar__profile-name">Tien Duc</div>
+                        <div class="sidebar__profile-job">Web Desginer</div>
+                    </div>
+                    <i class='bx bx-log-out'></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="main__header">
+            <div class="main__header-search">
+                <i class='bx bx-menu'></i>
+                <form>
+                    <div class="header__search">
+                        <i class='bx bx-search header__search-icon'></i>
+                        <input type="search" class="header__search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+            <div class="main__header-action">
+                <div class="header__language">
+                    <div class="header__lang-selected">
+                        <img src="../assets/images/flags/united-kingdom.png" alt="">
+                        <span class="text">English</span>
+                    </div>
+                </div>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-bell icon'></i>
+                    <span class="badge">5</span>
+                </a>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-moon icon'></i>
+                </a>
+                <div class="main__header-profile">
+                    <img src="../assets/images/avatar/avatar14.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="table">
+            <div class="table__container">
+                <div class="table__header">
+                    <p>Users</p>
+                    <div class="table__header-action">
+                        <div class="table__header-search">
+                            <i class='bx bx-search header__search-icon'></i>
+                            <input type="search" class="header__search-input" placeholder="Search...">
+                        </div>
+                    </div>
+                </div>
+                <div class="table__body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Created at</th>
+                                <th>Update at</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>25/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>24/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>24/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>24/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>24/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>24/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>24/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Tiến Đức</td>
+                                <td>tienduc@gmail.com</td>
+                                <td>24/03/2024</td>
+                                <td>25/03/2024</td>
+                                <td>
+                                    <button class="btn delete" onClick="deleteUser()"><i
+                                            class='bx bx-trash'></i></button>
+                                </td>
+                            </tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- <div class="pagination">
+            <div class="pagination__container">
+
+                <button class="pagination__btn center" id="startBtn" disabled>
+                    <i class="fa-solid fa-angles-left"></i>
+                </button>
+                <button class="pagination__btn center pagination__btn-prevNext" id="prev" disabled>
+                    <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <div class="pagination__btn-links center">
+                    <a href="#" class="active center">1</a>
+                    <a href="#" class="center">2</a>
+                    <a href="#" class="center">3</a>
+                    <a href="#" class="center">4</a>
+                    <a href="#" class="center">5</a>
+                </div>
+                <button class="pagination__btn center pagination__btn-prevNext" id="next">
+                    <i class="fa-solid fa-angle-right"></i>
+                </button>
+                <button class="pagination__btn center" id="endBtn">
+                    <i class="fa-solid fa-angles-right"></i>
+                </button>
+
+            </div>
+        </div> -->
+    </div>
+
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+</body>
+
+</html>
