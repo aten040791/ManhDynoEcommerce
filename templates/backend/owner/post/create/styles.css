@@ -457,6 +457,12 @@ form {
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
+.form__select-language .select__menu-btn img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
 .form__select {
   display: flex;
   gap: 20px;
@@ -475,6 +481,13 @@ form {
   width: 100%;
   z-index: 100;
   margin-top: 27px;
+}
+.select__menu-img {
+  display: flex;
+  align-items: center;
+}
+.select__menu-img img {
+  margin-right: 8px;
 }
 
 .form .select__menu .select__menu-btn {
@@ -541,7 +554,6 @@ form {
   margin-bottom: 0.3rem;
 }
 
-
 .form__control-thumbnail {
   display: flex;
   flex-direction: column;
@@ -565,6 +577,13 @@ form {
 .btn:hover {
   background: #0000ff;
   color: var(--white-color);
+}
+
+.form__select-language .select__option img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 /* ========================= END OF FORM ============== */

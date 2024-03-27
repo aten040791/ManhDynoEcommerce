@@ -33,14 +33,22 @@ for (var i = 0; i < optionsMenu.length; i++) {
   options.forEach((option) => {
     option.addEventListener("click", () => {
       let selectedOption = option.querySelector(".menu__option-text").innerText;
+      const selectMenuBtn = option.parentElement.parentElement.querySelector(
+        ".select__menu-img img"
+      );
+      console.log(selectedOption);
+      if (selectMenuBtn) {
+        let srcImg = option.querySelector("img").src;
+        selectMenuBtn.src = srcImg;
+        selectMenuBtn.classList.remove("hide");
+      }
       sBtn_text.innerText = selectedOption;
       option.parentElement.parentElement.classList.remove("active");
     });
   });
 }
 
-
 var logOutBtn = document.querySelector(".bx-log-out");
-logOutBtn.addEventListener("click", function() {
+logOutBtn.addEventListener("click", function () {
   window.location.href = "../login/index.html";
 });
