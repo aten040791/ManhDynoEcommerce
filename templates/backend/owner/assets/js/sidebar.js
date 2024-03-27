@@ -21,3 +21,20 @@ console.log(sidebarBtn);
 sidebarBtn.addEventListener("click", () => {
   sidebar.classList.toggle("close");
 });
+
+const optionsMenu = document.querySelectorAll(".select__menu");
+for (var i = 0; i < optionsMenu.length; i++) {
+  const selectBtn = optionsMenu[i].querySelector(".select__menu-btn");
+  selectBtn.addEventListener("click", () => {
+    selectBtn.parentElement.classList.toggle("active");
+  });
+  const options = optionsMenu[i].querySelectorAll(".select__option");
+  const sBtn_text = optionsMenu[i].querySelector(".select__title");
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      let selectedOption = option.querySelector(".menu__option-text").innerText;
+      sBtn_text.innerText = selectedOption;
+      option.parentElement.parentElement.classList.remove("active");
+    });
+  });
+}

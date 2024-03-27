@@ -163,12 +163,56 @@
                 <form action="">
                     <label for="title">Title:</label>
                     <input type="text" id="title" placeholder="Title..." />
-                    <label for="category">Select category:</label>
-                    <select id="category" name="category">
-                        <option value="1">Travel</option>
-                        <option value="2">Art</option>
-                        <option value="3">Science & Technology</option>
-                    </select>
+                    <div class="form__select">
+                        <div class="form__select-category">
+                            <label for="category">Select cate:</label>
+                            <div class="select__menu">
+                                <div class="select__menu-btn">
+                                    <span class="select__title">Select category</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                </div>
+                                <ul class="select__menu-options">
+                                    <li class="select__option">
+                                        <span class="menu__option-text ">Travel</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <span class="menu__option-text">Art</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <span class="menu__option-text">Science & Technology</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form__select-language">
+                            <label for="category">Select language:</label>
+                            <div class="select__menu">
+                                <div class=" select__menu-btn">
+                                    <span class="select__lang-title select__title">Select language</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                </div>
+                                <ul class="select__menu-options">
+                                    <li class="select__option">
+                                        <img src="../../assets/images/flags/united-states.png" />
+                                        <span class="menu__option-text">English-US(en_US)</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <img src="../../assets/images/flags/uk.png" />
+                                        <span class="menu__option-text ">English-UK(en_UK)</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <img src="../../assets/images/flags/vietnam.png" alt="">
+                                        <span class="menu__option-text ">Tiếng Việt(vi_VI)</span>
+                                    </li>
+                                    <li class=" select__option">
+                                        <img src="../../assets/images/flags/france.png" alt="">
+                                        <span class="menu__option-text ">France(fr_FR)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="editor">Content:</label>
                     <div id="editor">
                     </div>
                     <button type="submit" class="btn">Publish</button>
