@@ -8,7 +8,45 @@ function deleteCategory() {
   });
   swalWithBootstrapButtons
     .fire({
-      title: "Are you sure?",
+      title: "Are you sure want to delete this category?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Cancel",
+      reverseButtons: true,
+    })
+    .then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire({
+          title: "Deleted!",
+          text: "Category has been deleted.",
+          icon: "success",
+        });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          text: "Cancelled delete category!",
+          icon: "error",
+        });
+      }
+    });
+}
+
+function deletePost() {
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "modal__btn modal__btn-delete",
+      cancelButton: "modal__btn modal__btn-cancel",
+    },
+    buttonsStyling: false,
+  });
+  swalWithBootstrapButtons
+    .fire({
+      title: "Are you sure want to delete this post?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
