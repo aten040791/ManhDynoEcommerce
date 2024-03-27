@@ -11,3 +11,8 @@ console.log(sidebarBtn);
 sidebarBtn.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 });
+
+var logOutBtn = document.querySelector(".bx-log-out");
+logOutBtn.addEventListener("click", function() {
+  window.location.href = "../sign-in/sign-in.html";
+});

@@ -38,3 +38,9 @@ for (var i = 0; i < optionsMenu.length; i++) {
     });
   });
 }
+
+
+var logOutBtn = document.querySelector(".bx-log-out");
+logOutBtn.addEventListener("click", function() {
+  window.location.href = "../login/index.html";
+});
