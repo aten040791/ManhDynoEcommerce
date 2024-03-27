@@ -503,10 +503,12 @@
 .table__body thead th:first-child {
   width: 5%;
 }
-.table__body thead th:nth-child(3),
+.table__body thead th:nth-child(3) {
+  width: 15%;
+}
 .table__body thead th:nth-child(4),
 .table__body thead th:nth-child(5) {
-  width: 15%;
+  width: 20%;
 }
 .table__body thead th:last-child {
   width: 10%;

@@ -467,6 +467,7 @@ form {
   display: flex;
   flex-direction: column;
   flex: 1;
+
   position: relative;
 }
 .form .select__menu {
@@ -540,10 +541,6 @@ form {
   margin-bottom: 0.3rem;
 }
 
-
-select {
-  width: 40%;
-}
 
 .form__control-thumbnail {
   display: flex;
