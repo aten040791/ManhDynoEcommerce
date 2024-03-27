@@ -11,8 +11,8 @@ function deleteUser() {
         text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel!",
+        confirmButtonText: "Delete",
+        cancelButtonText: "Cancel",
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
