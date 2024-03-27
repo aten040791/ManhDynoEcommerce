@@ -551,6 +551,10 @@ form {
   font-weight: 500;
   margin-bottom: 0.3rem;
 }
+select {
+  width: 40%;
+}
+
 
 .form__control-thumbnail {
   display: flex;
