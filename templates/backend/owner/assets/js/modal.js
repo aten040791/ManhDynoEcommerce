@@ -58,7 +58,7 @@ function deletePost() {
       if (result.isConfirmed) {
         swalWithBootstrapButtons.fire({
           title: "Deleted!",
-          text: "Category has been deleted.",
+          text: "Post has been deleted.",
           icon: "success",
         });
       } else if (
@@ -67,7 +67,7 @@ function deletePost() {
       ) {
         swalWithBootstrapButtons.fire({
           title: "Cancelled",
-          text: "Cancelled delete category!",
+          text: "Cancelled delete post!",
           icon: "error",
         });
       }
