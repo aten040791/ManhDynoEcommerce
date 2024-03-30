@@ -11,6 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 
 <body>
@@ -105,6 +109,7 @@
                 <div class="table__header">
                     <p>Posts</p>
                     <div class="table__header-action">
+                        <input type="text" name="datetimes" class="table__header-datetime"/>
                         <div class="table__header-search">
                             <i class='bx bx-search header__search-icon'></i>
                             <input type="search" class="header__search-input" placeholder="Search...">
@@ -302,8 +307,9 @@
             </div>
         </div>
     </div>
+    <script src="../assets/js/sidebar.js"></script>
     <script src="../assets/js/modal.js"></script>
-    <script src="../assets/js/modal.js"></script>
+    <script src="../assets//js/daterange.js"></script>
 </body>
 
 </html>
