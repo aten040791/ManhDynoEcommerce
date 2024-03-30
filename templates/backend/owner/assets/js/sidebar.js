@@ -52,3 +52,49 @@ var logOutBtn = document.querySelector(".bx-log-out");
 logOutBtn.addEventListener("click", function () {
   window.location.href = "../login/index.html";
 });
+
+let availableKeywords = [
+  "Learn about ReacJS for beginners",
+  "Học về ReactJS cho người mới bắt đầu",
+  "Tutorial about JS language for beginners",
+  "Hướng dẫn về ngôn ngữ JS cho người mới bắt đầu",
+  "Learn about set up ReacJS project for beginners",
+  "Học về cách tạo dự án ReactJS cho người mới bắt đầu",
+  "Learn about NodeJS for beginners",
+  "Học về NodeJS cho người mới bắt đầu",
+  "Learn about create NodeJS project for beginners",
+  "Học về cách tạo dự án NodeJS cho người mới bắt đầu",
+];
+const resultsBox = document.querySelector(".form__search-suggestion");
+const inputBox = document.querySelector("#input-box");
+const iconDrop = document.querySelector("#icon-drop");
+
+inputBox.addEventListener("keyup", function () {
+  resultsBox.classList.remove("hide");
+  let result = [];
+  let input = inputBox.value;
+  if (input.length) {
+    iconDrop.classList.remove("hide");
+    result = availableKeywords.filter((keyword) => {
+      return keyword.toLowerCase().includes(input.toLowerCase());
+    });
+  }
+  display(result);
+  if (!result.length) {
+    iconDrop.classList.add("hide");
+    resultsBox.classList.add("hide");
+  }
+});
+
+function display(result) {
+  const content = result.map((list) => {
+    return "<li onclick=selectInput(this)><span>" + list + "</span></li>";
+  });
+  resultsBox.innerHTML = "<ul>" + content.join("") + "</ul>";
+}
+
+function selectInput(list) {
+  inputBox.value = list.children[0].innerHTML;
+  iconDrop.classList.add("hide");
+  resultsBox.classList.add("hide");
+}

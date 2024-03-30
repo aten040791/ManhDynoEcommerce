@@ -576,6 +576,14 @@
   border-radius: 5px;
 }
 
+.table__body-flag {
+  width: 45px;
+  height: 45px;
+}
+.table__body-flag img {
+  width: 100%;
+  object-fit: contain;
+}
 .table__body thead th {
   position: sticky;
   top: 0px;
@@ -589,13 +597,14 @@
   width: 5%;
 }
 
-.table__body thead th:nth-child(3) {
-  width: 15%;
+.table__body thead th:nth-child(3),
+.table__body thead th:nth-child(4) {
+  width: 8%;
 }
+.table__body thead th:nth-child(5),
+.table__body thead th:nth-child(6) {
+  width: 18%;
 
-.table__body thead th:nth-child(4),
-.table__body thead th:nth-child(5) {
-  width: 20%;
 }
 
 .table__body thead th:last-child {
@@ -634,23 +643,21 @@
   border-radius: 6px;
   cursor: pointer;
   padding: 8px;
-  margin-left: 3px;
+  width: 50px;
+  height: 50px;
 }
 
-.edit {
+.table__body .edit {
   background: #ffc107;
   color: #21251f !important;
 }
-
-.edit:hover {
+.table__body .edit:hover {
   background: #e0a800;
 }
-
-.delete {
+.table__body .delete {
   background: #dc3545;
 }
-
-.delete:hover {
+.table__body .delete:hover {
   background: #c82333;
 }
 

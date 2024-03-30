@@ -518,6 +518,7 @@
 
 .table__body tbody tr {
   border-bottom: 1px solid #dddddd;
+  height: 60px;
 }
 .table__body tbody tr:hover {
   background-color: #f5f7fa;
@@ -530,19 +531,20 @@
   border-radius: 6px;
   cursor: pointer;
   padding: 8px;
-  margin-left: 3px;
+  width: 50px;
+  height: 50px;
 }
-.edit {
+.table__body .edit {
   background: #ffc107;
   color: #21251f !important;
 }
-.edit:hover {
+.table__body .edit:hover {
   background: #e0a800;
 }
-.delete {
+.table__body .delete {
   background: #dc3545;
 }
-.delete:hover {
+.table__body .delete:hover {
   background: #c82333;
 }
 .modal__btn {

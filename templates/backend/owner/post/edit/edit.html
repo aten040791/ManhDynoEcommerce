@@ -110,9 +110,16 @@
                 <div class="alert__message error hide">
                     <p>This is an error message</p>
                 </div>
-                <form action="">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" placeholder="Title..." />
+                <form>
+                    <div class="form__search">
+                        <label for="title">Title:</label>
+                        <div class="form__search-input">
+                            <input type="text" id="input-box" autocomplete="off" name="title" placeholder="Title..." />
+                            <i id="icon-drop" class="ri-arrow-down-s-fill hide"></i>
+                        </div>
+                        <div class="form__search-suggestion hide">
+                        </div>
+                    </div>
                     <div class="form__select">
                         <div class="form__select-category">
                             <label for="category">Category:</label>

@@ -438,11 +438,77 @@
   color: var(--color-green);
 }
 
+.form__search {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form__search-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.form__search-input input {
+  padding: 0.8rem 1.4rem;
+  background: var(--white-color);
+  border-radius: 5px;
+  resize: none;
+  flex: 1;
+  font-size: 0.9rem;
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.form__search-input i {
+  position: absolute;
+  right: 3px;
+  top: 20%;
+  font-size: 26px;
+}
+
+.form__search-suggestion {
+  position: absolute;
+  top: 104%;
+  width: 100%;
+  z-index: 1000;
+  border-radius: 5px;
+  background: var(--white-color);
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.form__search-suggestion ul li {
+  list-style: none;
+  border-radius: 3px;
+  padding: 15px 10px;
+}
+.form__search-suggestion ul li span {
+  cursor: pointer;
+}
+.form__search-suggestion li {
+  /* margin-left: 15px; */
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form__search-suggestion li span {
+  margin-left: 15px;
+}
+.form__search-suggestion {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.form__search-suggestion ul li:hover {
+  background: #e9f3ff;
+}
+
 form {
   display: flex;
   flex-direction: column;
 }
-.form input,
+
 .form textarea,
 .form select {
   padding: 0.8rem 1.4rem;
@@ -456,12 +522,15 @@ form {
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
+
 .form__select-language .select__menu-btn img {
   width: 38px;
   height: 38px;
   object-fit: contain;
 }
+
 .form__select {
+  margin-top: 10px;
   display: flex;
   gap: 20px;
   margin-bottom: 65px;
@@ -471,6 +540,7 @@ form {
   display: flex;
   flex-direction: column;
   flex: 1;
+
   position: relative;
 }
 .form .select__menu {
@@ -576,12 +646,14 @@ form {
   background: #0000ff;
   color: var(--white-color);
 }
+
 .form__select-language .select__option img {
   width: 38px;
   height: 38px;
   object-fit: contain;
   overflow: hidden;
 }
+
 /* ========================= END OF FORM ============== */
 
 .ck-editor__editable[role="textbox"] {
@@ -592,19 +664,22 @@ form {
   margin: 20px auto;
 }
 
-::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: var(--white-color);
 }
 
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--white-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #c1c1c1;
 }
-
 /* =============== START PAGINATION ====================*/
 .pagination {
   display: flex;
