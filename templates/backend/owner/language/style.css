@@ -695,15 +695,28 @@
   background: #4070f4;
 }
 
+
+.swal2-html-container  h4{
+  margin-top: 20px;
+}
+
 .locale-flag {
   width: 10%;
   height: 10%;
   
 }
 .swal2-input {
-  width: 98%;
+
+    width: 98%;
+
     margin-left: 0;
     margin-right: 0px;
 }
+
+#newFlag{
+  margin-top: 10px;
+  padding: 11px;
+}
+
 
 /* =============== END PAGINATION ====================*/
