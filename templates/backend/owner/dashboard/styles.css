@@ -387,4 +387,13 @@
   font-size: 16px;
 }
 
+.active{
+  background: #4070f4;
+}
+
+.sidebar__nav-item.active i, 
+.sidebar__nav-item.active a span {
+  color: #fff;
+}
+
 /* =============== END HEADER DASHBOARD ====================*/

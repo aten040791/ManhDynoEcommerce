@@ -682,11 +682,28 @@
   background: #4070f4;
 }
 
+.active{
+  background: #4070f4;
+}
+
+.sidebar__nav-item.active i, 
+.sidebar__nav-item.active a span {
+  color: #fff;
+}
+.sidebar__nav-title.active {
+  color: #fff;
+  background: #4070f4;
+}
+
 .locale-flag {
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 50%;
+  width: 10%;
+  height: 10%;
+  
+}
+.swal2-input {
+  width: 98%;
+    margin-left: 0;
+    margin-right: 0px;
 }
 
 /* =============== END PAGINATION ====================*/

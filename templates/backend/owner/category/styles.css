@@ -659,6 +659,15 @@
   background: #4070f4;
 }
 
+.active{
+  background: #4070f4;
+}
+
+.sidebar__nav-item.active i, 
+.sidebar__nav-item.active a span {
+  color: #fff;
+}
+
 /* =============== END PAGINATION ====================*/
 ::-webkit-scrollbar {
   height: 8px;
