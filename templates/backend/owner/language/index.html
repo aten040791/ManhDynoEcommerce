@@ -1,275 +1,229 @@
 <!DOCTYPE html>
 <!-- Coding by CodingNepal | www.codingnepalweb.com -->
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Blog Dashboard</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </head>
 
-  <body>
-    <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      const newLanguage = urlParams.get("newLanguage");
-      const newLocale = urlParams.get("newLocale");
-      const newFlag = urlParams.get("newFlag");
-      console.log(newLanguage, newLocale, newFlag);
-    </script>
-    <div class="sidebar">
-      <div class="sidebar__logo">
-        <i class="bx bxl-c-plus-plus"></i>
-        <span class="sidebar__logo-title">CodingBlog</span>
-      </div>
-      <ul class="sidebar__nav">
-        <li class="sidebar__nav-item">
-          <a href="../dashboard/index.html">
-            <i class="bx bx-grid-alt"></i>
-            <span class="sidebar__nav-title">Dashboard</span>
-          </a>
-        </li>
-        <li class="sidebar__nav-item">
-          <div class="sidebar__link-dropdown">
-              <a href="../category/index.html">
-                  <i class="ri-list-view"></i>
-                  <span class="sidebar__nav-title">Category</span>
-              </a>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog Dashboard</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const newLanguage = urlParams.get("newLanguage");
+    const newLocale = urlParams.get("newLocale");
+    const newFlag = urlParams.get("newFlag");
+    console.log(newLanguage, newLocale, newFlag);
+  </script>
+  <div class="sidebar">
+    <div class="sidebar__logo">
+      <i class="bx bxl-c-plus-plus"></i>
+      <span class="sidebar__logo-title">CodingBlog</span>
+    </div>
+    <ul class="sidebar__nav">
+      <li class="sidebar__nav-item">
+        <a href="../dashboard/index.html">
+          <i class="bx bx-grid-alt"></i>
+          <span class="sidebar__nav-title">Dashboard</span>
+        </a>
       </li>
-        <li class="sidebar__nav-item active">
-          <a href="./index.html">
-            <i class="ri-translate-2"></i>
-            <span class="sidebar__nav-title ">Language</span>
+      <li class="sidebar__nav-item">
+        <div class="sidebar__link-dropdown">
+          <a href="../category/index.html">
+            <i class="ri-list-view"></i>
+            <span class="sidebar__nav-title">Category</span>
           </a>
-        </li>
-        <li class="sidebar__nav-item">
-          <div class="sidebar__link-dropdown">
-            <a href="#">
-              <i class="ri-blogger-line"></i>
-              <span class="sidebar__nav-title">Post</span>
-            </a>
-            <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+      </li>
+      <li class="sidebar__nav-item active">
+        <a href="./index.html">
+          <i class="ri-translate-2"></i>
+          <span class="sidebar__nav-title ">Language</span>
+        </a>
+      </li>
+      <li class="sidebar__nav-item">
+        <div class="sidebar__link-dropdown">
+          <a href="#">
+            <i class="ri-blogger-line"></i>
+            <span class="sidebar__nav-title">Post</span>
+          </a>
+          <i class="bx bxs-chevron-down arrow"></i>
+        </div>
+        <ul class="sidebar__nav-submenu">
+          <li>
+            <a class="sidebar__nav-title" href="../post/index.html">Post</a>
+          </li>
+          <li><a href="../post/index.html">Posts</a></li>
+          <li><a href="../post/create/create.html">Create Post</a></li>
+        </ul>
+      </li>
+
+      <li class="sidebar__nav-item">
+        <div class="sidebar__profile">
+          <div class="sidebar__profile-content">
+            <img src="../assets/images/avatar/avatar14.jpg" alt="profileImg" />
           </div>
-          <ul class="sidebar__nav-submenu">
-            <li>
-              <a class="sidebar__nav-title" href="../post/index.html">Post</a>
-            </li>
-            <li><a href="../post/index.html">Posts</a></li>
-            <li><a href="../post/create/create.html">Create Post</a></li>
-          </ul>
-        </li>
-    
-        <li class="sidebar__nav-item">
-          <div class="sidebar__profile">
-            <div class="sidebar__profile-content">
-              <img
-                src="../assets/images/avatar/avatar14.jpg"
-                alt="profileImg"
-              />
-            </div>
-            <div class="sidebar__profile-info">
-              <div class="sidebar__profile-name">Dinomanh</div>
-              <div class="sidebar__profile-job">Web Desginer</div>
-            </div>
-            <i class="bx bx-log-out"></i>
+          <div class="sidebar__profile-info">
+            <div class="sidebar__profile-name">Dinomanh</div>
+            <div class="sidebar__profile-job">Web Desginer</div>
           </div>
-        </li>
-      </ul>
+          <i class="bx bx-log-out"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="main__header">
+      <div class="main__header-search">
+        <i class="bx bx-menu"></i>
+        <form>
+          <div class="header__search">
+            <i class="bx bx-search header__search-icon"></i>
+            <input type="search" class="header__search-input" placeholder="Search..." />
+          </div>
+        </form>
+      </div>
+      <div class="main__header-action">
+        <div class="header__language">
+          <div class="header__lang-selected">
+            <img src="../assets/images/flags/united-states.png" alt="" />
+            <span class="text">English</span>
+          </div>
+        </div>
+        <a href="#" class="header__action-icon">
+          <i class="bx bx-bell icon"></i>
+        </a>
+        <a href="#" class="header__action-icon">
+          <i class="bx bx-moon icon"></i>
+        </a>
+        <div class="main__header-profile">
+          <img src="../assets/images/avatar/avatar14.jpg" alt="" />
+        </div>
+      </div>
     </div>
-    <div class="main">
-      <div class="main__header">
-        <div class="main__header-search">
-          <i class="bx bx-menu"></i>
-          <form>
-            <div class="header__search">
+
+    <div class="table">
+      <div class="table__container">
+        <div class="table__header">
+          <p>Language</p>
+          <div class="table__header-action">
+            <div class="table__header-search">
               <i class="bx bx-search header__search-icon"></i>
-              <input
-                type="search"
-                class="header__search-input"
-                placeholder="Search..."
-              />
+              <input type="search" class="header__search-input" placeholder="Search..." />
             </div>
-          </form>
-        </div>
-        <div class="main__header-action">
-          <div class="header__language">
-            <div class="header__lang-selected">
-              <img src="../assets/images/flags/united-states.png" alt="" />
-              <span class="text">English</span>
+            <div class="table__header-btn" onClick="addNewLanguage()">
+              <i class="bx bx-plus"></i>
+              <span>Add New</span>
             </div>
           </div>
-          <a href="#" class="header__action-icon">
-            <i class="bx bx-bell icon"></i>
-            <span class="badge">5</span>
-          </a>
-          <a href="#" class="header__action-icon">
-            <i class="bx bx-moon icon"></i>
-          </a>
-          <div class="main__header-profile">
-            <img src="../assets/images/avatar/avatar14.jpg" alt="" />
-          </div>
         </div>
-      </div>
+        <div class="table__body">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Locale</th>
+                <th>Flag</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>English</td>
+                <td>en-US</td>
+                <td>
+                  <div class="table__body-flag">
+                    <img class="table__body-flag" src="../assets/images/flags/united-states.png" />
+                  </div>
+                </td>
+                <td>
+                  <a class="btn edit" onClick="updateLanguage()"><i class='bx bx-edit'></i></a>
+                  <a class="btn delete" onClick="deleteLanguage()"><i class='ri-delete-bin-line'></i></a>
+                </td>
 
-      <div class="table">
-        <div class="table__container">
-          <div class="table__header">
-            <p>Language</p>
-            <div class="table__header-action">
-              <div class="table__header-search">
-                <i class="bx bx-search header__search-icon"></i>
-                <input
-                  type="search"
-                  class="header__search-input"
-                  placeholder="Search..."
-                />
-              </div>
-              <div class="table__header-btn" onClick="addNewLanguage()">
-                <i class="bx bx-plus"></i>
-                <span>Add New</span>
-              </div>
-            </div>
-          </div>
-          <div class="table__body">
-            <table>
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Name</th>
-
-                  <th>Locale</th>
-                  <th>Flag</th>
-
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>English</td>
-                  <td>en-US</td>
-                  <td><img src="https://eurotravel.com.vn/wp-content/uploads/2023/05/quoc-ky-dau-tien-cua-nuoc-my-voi-13-sao-dai-dien-cho-13-bang-ngay-so-khai.png" class="locale-flag" alt=""></td>
-
-                  <td>
-                    <button class="btn edit" onClick="updateLanguage()">
-                      <i class="bx bx-edit-alt"></i>
-                    </button>
-                    <button class="btn delete" onClick="deleteLanguage()">
-                      <i class="bx bx-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Tiếng Việt</td>
-                  <td>vi-VI</td>
-                  <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/225px-Flag_of_Vietnam.svg.png" class="locale-flag" alt=""></td>
-
-                  <td>
-                    <button class="btn edit" onClick="updateLanguage()">
-                      <i class="bx bx-edit-alt"></i>
-                    </button>
-                    <button class="btn delete" onClick="deleteLanguage()">
-                      <i class="bx bx-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>한국어</td>
-                  <td>ko-KR</td>
-                  <td><img src="https://eurotravel.com.vn/wp-content/uploads/2023/05/quoc-ky-han-quoc-thoi-vuong-trieu-joseon.png" class="locale-flag" alt=""></td>
-
-                  <td>
-                    <button class="btn edit" onClick="updateLanguage()">
-                      <i class="bx bx-edit-alt"></i>
-                    </button>
-                    <button class="btn delete" onClick="deleteLanguage()">
-                      <i class="bx bx-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>日本語</td>
-                  <td>ja-JP</td>
-                  <td><img src="https://visanuocngoai.vn/wp-content/uploads/2021/02/hinh-anh-quoc-ky-nhat-ban-1024x493.jpg" class="locale-flag" alt=""></td>
-
-                  <td>
-                    <button class="btn edit" onClick="updateLanguage()">
-                      <i class="bx bx-edit-alt"></i>
-                    </button>
-                    <button class="btn delete" onClick="deleteLanguage()">
-                      <i class="bx bx-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Italiano</td>
-                  <td>it-IT</td>
-                  <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png" class="locale-flag" alt=""></td>
-
-                  <td>
-                    <button class="btn edit" onClick="updateLanguage()">
-                      <i class="bx bx-edit-alt"></i>
-                    </button>
-                    <button class="btn delete" onClick="deleteLanguage()">
-                      <i class="bx bx-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="pagination">
-        <div class="pagination__container">
-          <button class="pagination__btn center" id="startBtn" disabled>
-            <i class="fa-solid fa-angles-left"></i>
-          </button>
-          <button
-            class="pagination__btn center pagination__btn-prevNext"
-            id="prev"
-            disabled
-          >
-            <i class="fa-solid fa-angle-left"></i>
-          </button>
-          <div class="pagination__btn-links center">
-            <a href="#" class="active center">1</a>
-            <a href="#" class="center">2</a>
-            <a href="#" class="center">3</a>
-            <a href="#" class="center">4</a>
-            <a href="#" class="center">5</a>
-          </div>
-          <button
-            class="pagination__btn center pagination__btn-prevNext"
-            id="next"
-          >
-            <i class="fa-solid fa-angle-right"></i>
-          </button>
-          <button class="pagination__btn center" id="endBtn">
-            <i class="fa-solid fa-angles-right"></i>
-          </button>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Tiếng Việt</td>
+                <td>vi-VI</td>
+                <td>
+                  <div class="table__body-flag">
+                    <img class="table__body-flag" src="../assets/images/flags/vietnam.png" />
+                  </div>
+                </td>
+                <td>
+                  <a class="btn edit" onClick="updateLanguage()"><i class='bx bx-edit'></i></a>
+                  <a class="btn delete" onClick="deleteLanguage()"><i class='ri-delete-bin-line'></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>English</td>
+                <td>en-UK</td>
+                <td>
+                  <div class="table__body-flag">
+                    <img class="table__body-flag" src="../assets/images/flags/uk.png" />
+                  </div>
+                </td>
+                <td>
+                  <a class="btn edit" onClick="updateLanguage()"><i class='bx bx-edit'></i></a>
+                  <a class="btn delete" onClick="deleteLanguage()"><i class='ri-delete-bin-line'></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>France</td>
+                <td>fr-FR</td>
+                <td>
+                  <div class="table__body-flag">
+                    <img class="table__body-flag" src="../assets/images/flags/france.png" />
+                  </div>
+                </td>
+                <td>
+                  <a class="btn edit" onClick="updateLanguage()"><i class='bx bx-edit'></i></a>
+                  <a class="btn delete" onClick="deleteLanguage()"><i class='ri-delete-bin-line'></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-    <script src="../assets/js/sidebar.js"></script>
-    <script src="../assets/js/modal.js"></script>
-  </body>
+
+    <div class="pagination">
+      <div class="pagination__container">
+        <button class="pagination__btn center" id="startBtn" disabled>
+          <i class="fa-solid fa-angles-left"></i>
+        </button>
+        <button class="pagination__btn center pagination__btn-prevNext" id="prev" disabled>
+          <i class="fa-solid fa-angle-left"></i>
+        </button>
+        <div class="pagination__btn-links center">
+          <a href="#" class="active center">1</a>
+          <a href="#" class="center">2</a>
+          <a href="#" class="center">3</a>
+          <a href="#" class="center">4</a>
+          <a href="#" class="center">5</a>
+        </div>
+        <button class="pagination__btn center pagination__btn-prevNext" id="next">
+          <i class="fa-solid fa-angle-right"></i>
+        </button>
+        <button class="pagination__btn center" id="endBtn">
+          <i class="fa-solid fa-angles-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/modal.js"></script>
+</body>
+
 </html>

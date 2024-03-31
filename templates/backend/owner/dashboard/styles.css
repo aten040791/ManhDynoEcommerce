@@ -14,6 +14,9 @@
   --red-color: #ff0000;
   --blue-light-color: #e4e9f7;
 }
+body {
+  background: var(--grey-light-color-2);
+}
 
 /* =============== START SIDEBAR ====================*/
 .sidebar {
@@ -387,11 +390,11 @@
   font-size: 16px;
 }
 
-.active{
+.active {
   background: #4070f4;
 }
 
-.sidebar__nav-item.active i, 
+.sidebar__nav-item.active i,
 .sidebar__nav-item.active a span {
   color: #fff;
 }
@@ -425,7 +428,7 @@
 
   .main__header-profile img {
     width: 48px;
-    height: 48px
+    height: 48px;
   }
 
   .header__language {
@@ -433,7 +436,6 @@
     margin-right: 8px;
   }
 }
-
 
 @media screen and (max-width: 890px) {
   .header__language {

@@ -102,7 +102,7 @@ function addNewCategory() {
       if (result.isConfirmed) {
         swalWithBootstrapButtons.fire({
           title: "Created Successfully",
-          text: "Category has been deleted.",
+          text: "Category has been created.",
           icon: "success",
         });
       } else if (result.dismiss === Swal.DismissReason.cancel) {
