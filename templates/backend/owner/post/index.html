@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Blog Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="sidebar__logo-title">CodingBlog</span>
+        </div>
+        <ul class="sidebar__nav">
+            <li class="sidebar__nav-item">
+                <a href="../dashboard/index.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="sidebar__nav-title">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar__nav-item ">
+                <div class="sidebar__link-dropdown">
+                    <a href="../category/index.html">
+                        <i class="ri-list-view"></i>
+                        <span class="sidebar__nav-title">Category</span>
+                    </a>
+                </div>
+            </li>
+            <li class="sidebar__nav-item">
+                <a href="../language/index.html">
+                    <i class="ri-translate-2"></i>
+                    <span class="sidebar__nav-title">Language</span>
+                </a>
+            </li>
+            <li class="sidebar__nav-item showMenu">
+                <div class="sidebar__link-dropdown">
+                    <a href="#">
+                        <i class="ri-blogger-line"></i>
+                        <span class="sidebar__nav-title">Post</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sidebar__nav-submenu">
+                    <li><a class="sidebar__nav-title" href="./index.html">Post</a></li>
+                    <li><a href="./index.html" class="active">Posts</a></li>
+                    <li><a href="./create/create.html">Create Post</a></li>
+                </ul>
+            </li>
+            <li class="sidebar__nav-item">
+                <div class="sidebar__profile">
+                    <div class="sidebar__profile-content">
+                        <img src="../assets/images/avatar/avatar14.jpg" alt="profileImg">
+                    </div>
+                    <div class="sidebar__profile-info">
+                        <div class="sidebar__profile-name">Dinomanh</div>
+                        <div class="sidebar__profile-job">Web Desginer</div>
+                    </div>
+                    <i class='bx bx-log-out'></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="main__header">
+            <div class="main__header-search">
+                <i class='bx bx-menu'></i>
+                <form>
+                    <div class="header__search">
+                        <i class='bx bx-search header__search-icon'></i>
+                        <input type="search" class="header__search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+            <div class="main__header-action">
+                <div class="header__language">
+                    <div class="header__lang-selected">
+                        <img src="../assets/images/flags/united-states.png" alt="">
+                        <span class="text">English</span>
+                    </div>
+                </div>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-bell icon'></i>
+                </a>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-moon icon'></i>
+                </a>
+                <div class="main__header-profile">
+                    <img src="../assets/images/avatar/avatar14.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="table">
+            <div class="table__container">
+                <div class="table__header">
+                    <p>Posts</p>
+                    <div class="table__header-action">
+                        <input type="text" name="datetimes" class="table__header-datetime" />
+                        <div class="table__header-search">
+                            <i class='bx bx-search header__search-icon'></i>
+                            <input type="search" class="header__search-input" placeholder="Search...">
+                        </div>
+                        <a class="table__header-btn" href="./create/create.html">
+                            <i class='bx bx-plus'></i>
+                            <span>Add New</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="table__body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Language</th>
+                                <th>Created at</th>
+                                <th>Update at</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="./view/view.html">Learn about ReacJS for beginners</a>
+                                </td>
+                                <td>ReactJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/uk.png" />
+                                    </div>
+                                </td>
+                                </td>
+                                <td>20/03/2024 20:06:35</td>
+                                <td>10/07/2024 11:45:45</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <a href="./view/view.html">Học về ReactJS cho người mới bắt đầu</a>
+                                </td>
+                                <td>ReactJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/vietnam.png" />
+                                    </div>
+                                </td>
+                                <td>10/03/2024 11:22:05</td>
+                                <td>10/07/2024 06:12:40</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>
+                                    <a href="./view/view.html">Tutorial about JS language for beginners</a>
+                                </td>
+                                <td>JS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/united-states.png" />
+                                    </div>
+                                </td>
+                                <td>10/03/2024 11:22:05</td>
+                                <td>10/07/2024 06:12:40</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>
+                                    <a href="./view/view.html">Hướng dẫn về ngôn ngữ JS cho người mới bắt đầu</a>
+                                </td>
+                                <td>JS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/vietnam.png" />
+                                    </div>
+                                </td>
+                                <td>10/03/2024 11:22:05</td>
+                                <td>10/07/2024 06:12:40</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>
+                                    <a href="./view/view.html">Learn about set up ReacJS project for beginners</a>
+                                </td>
+                                <td>ReactJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/united-states.png" />
+                                    </div>
+                                </td>
+                                <td>10/03/2024 11:22:05</td>
+                                <td>10/07/2024 06:12:40</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>
+                                    < <a href="./view/view.html">Học về cách tạo dự án ReactJS cho người mới bắt đầu</a>
+                                </td>
+                                <td>ReactJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/vietnam.png" />
+                                    </div>
+                                </td>
+                                <td>10/03/2024 11:22:05</td>
+                                <td>10/07/2024 06:12:40</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>7</td>
+                                <td>
+                                    <a href="./view/view.html">Learn about NodeJS for beginners</a>
+                                </td>
+                                <td>NodeJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/uk.png" />
+                                    </div>
+                                </td>
+                                <td>20/03/2024 20:06:35</td>
+                                <td>10/07/2024 11:45:45</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>
+                                    <a href="./view/view.html">Học về NodeJS cho người mới bắt đầu</a>
+                                </td>
+                                <td>NodeJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/vietnam.png" />
+                                    </div>
+                                </td>
+                                <td>10/03/2024 11:22:05</td>
+                                <td>10/07/2024 06:12:40</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>
+                                    <a href="./view/view.html">Learn about create NodeJS project for beginners</a>
+                                </td>
+                                <td>NodeJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/uk.png" />
+                                    </div>
+                                </td>
+                                <td>20/03/2024 20:06:35</td>
+                                <td>10/07/2024 11:45:45</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>
+                                    <a href="./view/view.html">Học về cách tạo dự án NodeJS cho người mới bắt đầu</a>
+                                </td>
+                                <td>NodeJS</td>
+                                <td>
+                                    <div class="table__body-flag">
+                                        <img class="table__body-flag" src="../assets/images/flags/vietnam.png" />
+                                    </div>
+                                </td>
+
+
+                                <td>10/03/2024 11:22:05</td>
+                                <td>10/07/2024 06:12:40</td>
+                                <td>
+                                    <a class="btn edit" href="./edit/edit.html"><i class='bx bx-edit'></i></a>
+                                    <a class="btn delete" onClick="deletePost()"><i class='ri-delete-bin-line'></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="pagination">
+            <div class="pagination__container">
+
+                <button class="pagination__btn center" id="startBtn" disabled>
+                    <i class="fa-solid fa-angles-left"></i>
+                </button>
+                <button class="pagination__btn center pagination__btn-prevNext" id="prev" disabled>
+                    <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <div class="pagination__btn-links center">
+                    <a href="#" class="active center">1</a>
+                    <a href="#" class="center">2</a>
+                    <a href="#" class="center">3</a>
+                    <a href="#" class="center">4</a>
+                    <a href="#" class="center">5</a>
+                </div>
+                <button class="pagination__btn center pagination__btn-prevNext" id="next">
+                    <i class="fa-solid fa-angle-right"></i>
+                </button>
+                <button class="pagination__btn center" id="endBtn">
+                    <i class="fa-solid fa-angles-right"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/modal.js"></script>
+    <script src="../assets//js/daterange.js"></script>
+</body>
+
+</html>

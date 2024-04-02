@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create new post</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/super-build/ckeditor.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="sidebar__logo-title">CodingBlog</span>
+        </div>
+        <ul class="sidebar__nav">
+            <li class="sidebar__nav-item">
+                <a href="../../dashboard/index.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="sidebar__nav-title">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar__nav-item">
+                <div class="sidebar__link-dropdown">
+                    <a href="../../category/index.html">
+                        <i class="ri-list-view"></i>
+                        <span class="sidebar__nav-title">Category</span>
+                    </a>
+                </div>
+            </li>
+
+            <li class="sidebar__nav-item">
+                <a href="../../language/index.html">
+                    <i class="ri-translate-2"></i>
+                    <span class="sidebar__nav-title">Language</span>
+                </a>
+            </li>
+
+            <li class="sidebar__nav-item showMenu">
+                <div class="sidebar__link-dropdown">
+                    <a href="#">
+                        <i class="ri-blogger-line"></i>
+                        <span class="sidebar__nav-title">Post</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sidebar__nav-submenu">
+                    <li><a class="sidebar__nav-title" href="../index.html">Post</a></li>
+                    <li><a href="../index.html">Posts</a></li>
+                    <li><a href="../create/create.html" class="active">Create Post</a></li>
+                </ul>
+            </li>
+            <li class="sidebar__nav-item">
+                <div class="sidebar__profile">
+                    <div class="sidebar__profile-content">
+                        <img src="../../assets/images/avatar/avatar14.jpg" alt="profileImg">
+                    </div>
+                    <div class="sidebar__profile-info">
+                        <div class="sidebar__profile-name">Dinomanh</div>
+                        <div class="sidebar__profile-job">Web Desginer</div>
+                    </div>
+                    <i class='bx bx-log-out'></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="main__header">
+            <div class="main__header-search">
+                <i class='bx bx-menu'></i>
+                <form>
+                    <div class="header__search">
+                        <i class='bx bx-search header__search-icon'></i>
+                        <input type="search" class="header__search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+            <div class="main__header-action">
+                <div class="header__language">
+                    <div class="header__lang-selected">
+                        <img src="../../assets/images/flags/united-states.png" alt="">
+                        <span class="text">English</span>
+                    </div>
+                </div>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-bell icon'></i>
+                </a>
+                <a href="#" class="header__action-icon">
+                    <i class='bx bx-moon icon'></i>
+                </a>
+                <div class="main__header-profile">
+                    <img src="../../assets/images/avatar/avatar14.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="main__dashboard">
+            <div class="form">
+                <div class="form__title">
+                    <h2>Create New Post</h2>
+                </div>
+                <div class="alert__message error hide">
+                    <p>This is an error message</p>
+                </div>
+                <form>
+                    <div class="form__search">
+                        <label for="title">Title:</label>
+                        <div class="form__search-input">
+                            <input type="text" id="input-box" autocomplete="off" name="title" placeholder="Title..." />
+                            <i id="icon-drop" class="ri-arrow-down-s-fill hide"></i>
+                        </div>
+                        <div class="form__search-suggestion hide">
+                        </div>
+                    </div>
+                    <div class="form__select">
+                        <div class="form__select-category">
+                            <label for="category">Category:</label>
+                            <div class="select__menu">
+                                <div class="select__menu-btn">
+                                    <span class="select__title">Select category</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                </div>
+                                <ul class="select__menu-options">
+                                    <li class="select__option">
+                                        <span class="menu__option-text ">Travel</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <span class="menu__option-text">Art</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <span class="menu__option-text">Science & Technology</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form__select-language">
+                            <label for="category">Language:</label>
+                            <div class="select__menu">
+                                <div class="select__menu-btn">
+                                    <div class="select__menu-img">
+                                        <img class="hide" src="../../assets/images/flags/united-states.png" />
+                                        <span class="select__lang-title select__title">Select language</span>
+                                    </div>
+                                    <i class="bx bx-chevron-down"></i>
+                                </div>
+                                <ul class="select__menu-options">
+                                    <li class="select__option">
+                                        <img src="../../assets/images/flags/united-states.png" />
+                                        <span class="menu__option-text">English-US (en_US)</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <img src="../../assets/images/flags/uk.png" />
+                                        <span class="menu__option-text ">English-UK (en_UK)</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <img src="../../assets/images/flags/vietnam.png" alt="">
+                                        <span class="menu__option-text ">Tiếng Việt (vi_VI)</span>
+                                    </li>
+                                    <li class="select__option">
+                                        <img src="../../assets/images/flags/france.png" alt="">
+                                        <span class="menu__option-text ">France (fr_FR)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="editor">Content:</label>
+                    <div id="editor">
+                    </div>
+                    <button type="submit" class="btn">Publish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/js/editor.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    appearance: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f4f4f4; */
+  }
+  
+  .signin-text {
+    font-family: "Roboto";
+    font-size: 36px;
+    font-weight: bold;
+    color: #183b56;
+    line-height: 48px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .signup-form {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    /* background: #fff; */
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .signup-form form {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  .signup-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #576171;
+    font-size: 18px;
+  }
+  
+  .signup-form input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .signup-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1565d8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .signup-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .signup-form input::placeholder {
+    font-size: 15px;
+  }
+  .signup-form p {
+    color: #576171;
+    font-size: 14px;
+  }
+  
+  .forgot-text {
+    display: block;
+    text-align: left;
+    color: #1565d8;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .register-text {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 10px;
+    color: #1565d8;
+  }
+  
