@@ -1,6 +1,6 @@
 $(function () {
     $('input[name="datetimes"]').daterangepicker({
-        timePicker: true,
+        // timePicker: true,
         timePicker24Hour: true,
         timePickerSeconds: true,
         applyButtonClasses: "applyButton",
@@ -8,7 +8,7 @@ $(function () {
         startDate: moment().startOf('hour'),
         endDate: moment().startOf('hour').add(32, 'hour'),
         locale: {
-            format: 'DD/MM/YYYY hh:mm:ss'
+            format: 'DD/MM/YYYY'
         }
     });
 });
