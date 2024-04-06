@@ -182,9 +182,13 @@ function addNewLanguage() {
       html: `
       <input id="newLanguage" type="text" placeholder="Input new Language name..." class="swal2-input required">
       <input id="newLocale" type="text" placeholder="Input Locale..." class="swal2-input required" >
-      <h4>Upload flag image</h4>
-      <input id="newFlag" type="file" accept="image/*" class="swal2-input">
+      <h4>Flag image</h4>
+      <div id="preview">
+      <input id="newFlag" type="file" accept="image/*" class="swal2-input"  >
+      </div>
+      
     `,
+
       preConfirm: function () {
         obj.language = document.getElementById("newLanguage").value.trim();
         obj.locale = document.getElementById("newLocale").value.trim();
@@ -206,7 +210,6 @@ function addNewLanguage() {
 
         // Update UI or display success message using SweetAlert
         else {
-          console.log(obj);
           swalWithBootstrapButtons.fire({
             title: "Created Successfully",
             text: "Language, Locale and Flag have been created.",
@@ -225,6 +228,27 @@ function addNewLanguage() {
         });
       }
     });
+
+  const newFlagInput = document.getElementById("newFlag");
+  newFlagInput.addEventListener("change", function () {
+    const file = this.files[0];
+    const img = document.createElement("img");
+    const label = document.querySelector("label[for='newFlag']");
+
+    img.src = URL.createObjectURL(file);
+
+    // Lấy tham chiếu đến container hiển thị ảnh
+    const previewContainer = document.getElementById("preview");
+
+    // Loại bỏ ảnh cũ nếu có
+    const existingImg = previewContainer.querySelector("img");
+    if (existingImg) {
+      previewContainer.removeChild(existingImg);
+    }
+
+    // Hiển thị ảnh mới
+    previewContainer.appendChild(img);
+  });
 }
 
 function updateLanguage() {
