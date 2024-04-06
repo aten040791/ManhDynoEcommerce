@@ -1,4 +1,8 @@
 /* Header */
+body {
+    background-color: #2d2d30;
+}
+
 .header-container {
     display: flex;
     padding-top: 1rem;
@@ -32,12 +36,12 @@
     line-height: 2rem;
     font-weight: 700;
     text-align: center;
-    color: #0D2436;
+    color: #94a0f9;
 }
 
 .form-group {
     display: flex;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     flex-direction: column;
     width: 100%;
 }
@@ -45,7 +49,7 @@
 .form-label {
     display: block;
     font-weight: 600;
-    color: #5a7184;
+    color: #86c2f3;
 }
 
 .form-input {
@@ -56,7 +60,7 @@
     border-width: 1px;
     outline-style: none;
     font-weight: 600;
-    color: #0D2436;
+    color: #579ed3;
 }
 
 #form button {
@@ -68,7 +72,6 @@
     line-height: 1.75rem;
     font-weight: 700;
     color: #ffffff;
-    background-color: #1565D8;
+    background-color: #307de8;
 
 }
-
