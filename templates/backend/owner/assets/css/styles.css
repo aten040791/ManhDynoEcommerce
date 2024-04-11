@@ -1,16 +1,169 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+.dropdown-divider {
+  height: 0;
+  margin: 8px 0;
+  overflow: hidden;
+  border-top: 1px solid #e9ebec;
+  opacity: 1;
 }
-:root {
-  --white-color: #fff;
-  --blue-color: #4070f4;
-  --grey-color: #707070;
-  --grey-color-light: #aaa;
-  --grey-light-color: #aaa;
-  --red-color: #ff0000;
-  --blue-light-color: #e4e9f7;
+.btn-add {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: #57d8a1;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 650;
+  padding-right: 10px;
+}
+.btn-action {
+  background-color: #e1ebfd;
+  color: #299cdb;
+  border-radius: 3.2px;
+  padding: 5px 8px;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+.btn-action.show,
+.btn-action:hover {
+  background: #3577f1;
+  color: #fff;
+}
+
+.nav-item span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ck-editor__editable[role="textbox"] {
+  min-height: 450px;
+}
+.ck-content .image {
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+.bg-edit {
+  background: #ffc107;
+  color: #343a40;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+.bg-delete {
+  background: #dc3545;
+  opacity: 0.8;
+  color: #fff;
+  border-radius: 5px;
+}
+.bg-delete:hover,
+.bg-edit:hover {
+  opacity: 1;
+}
+.bg-delete:hover {
+  color: #fff;
+}
+
+.bg-suggest {
+  background: #f8f9fa;
+}
+
+.bg-hover:hover {
+  background: #e9f3ff;
+  cursor: pointer;
+}
+
+.text-hover:hover {
+  color: #5e72e4;
+}
+
+.modal__btn {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space-collapse: collapse;
+  text-wrap: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  margin: 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+  color: #fff;
+}
+
+.modal__btn:hover {
+  cursor: pointer;
+}
+
+.modal__btn-create {
+  background-color: #28a745;
+  border-color: #28a745;
+  outline: none;
+}
+
+.modal__btn-update {
+  background-color: #4070f4;
+  border-color: #4070f4;
+  outline: none;
+}
+
+.modal__btn-delete {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  outline: none;
+}
+
+.modal__btn-cancel {
+  background-color: #28a745;
+  border-color: #28a745;
+  outline: none;
+}
+
+.swal2-html-container h4 {
+  margin-top: 20px;
+}
+
+.locale-flag {
+  width: 10%;
+  height: 10%;
+}
+.swal2-input {
+  width: 98%;
+  margin-left: 0;
+  margin-right: 0px;
+}
+
+#newFlag {
+  margin-top: 10px;
+  padding: 11px;
+}
+
+#select-menu-btn.icon-down i {
+  transform: rotate(180deg);
+  transition: 0.4s;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+
+  background-color: var(--white-color);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #c1c1c1;
 }
