@@ -261,12 +261,21 @@
                     <div class="card mb-4">
                         <div class="card-header pb-0 d-flex justify-content-between">
                             <h4>Language</h4>
-                            <button class="btn-add" type="button" onClick="addNewLanguage()">
-                                <span class="btn-inner--icon"><i class="ri-add-line align-bottom me-1"></i></span>
-                                <span class="btn-inner--text">Add New</span>
-                            </button>
+                            <div class="d-flex">
+                                <div class="ms-md-auto pe-md-3 align-items-center">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-body"><i class="fas fa-search"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                    </div>
+                                </div>
+                                <button class="btn-add" type="button" onClick="addNewLanguage()">
+                                    <span class="btn-inner--icon"><i class="ri-add-line align-bottom me-1"></i></span>
+                                    <span class="btn-inner--text">Add New</span>
+                                </button>
+                            </div>
                         </div>
-
+                        <hr class="bg-dark" />
                         <div class="card-body px-0 pt-0 pb-2 mt-1">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
