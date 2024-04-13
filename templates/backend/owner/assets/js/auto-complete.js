@@ -14,22 +14,25 @@ const resultsBox = document.querySelector("#form_search-suggestion");
 const inputBox = document.querySelector("#input-title-box");
 const iconDrop = document.querySelector("#icon-drop");
 
-inputBox.addEventListener("keyup", function () {
-  resultsBox.classList.remove("d-none");
-  let result = [];
-  let input = inputBox.value;
-  if (input.length) {
-    iconDrop.classList.remove("d-none");
-    result = availableKeywords.filter((keyword) => {
-      return keyword.toLowerCase().includes(input.toLowerCase());
-    });
-  }
-  display(result);
-  if (!result.length) {
-    iconDrop.classList.add("d-none");
-    resultsBox.classList.add("d-none");
-  }
-});
+if (inputBox) {
+  inputBox.addEventListener("keyup", function () {
+    resultsBox.classList.remove("d-none");
+    let result = [];
+    let input = inputBox.value;
+    if (input.length) {
+      iconDrop.classList.remove("d-none");
+      result = availableKeywords.filter((keyword) => {
+        return keyword.toLowerCase().includes(input.toLowerCase());
+      });
+    }
+    display(result);
+    if (!result.length) {
+      iconDrop.classList.add("d-none");
+      resultsBox.classList.add("d-none");
+    }
+  });
+}
+
 
 function display(result) {
   const content = result.map((list) => {
