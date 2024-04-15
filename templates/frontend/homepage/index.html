@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -36,8 +36,6 @@
           <span class="sidebar__logo-title">CodingBlog</span>
         </div>
         <ul class="header__nav" id="header__nav">
-          
-
           <li>
             <a href="./index.html"><i class="fa-solid fa-house"></i>Home</a>
           </li>
@@ -115,6 +113,7 @@
           <li>
             <a href="../../backend/owner/pages/sign-in/index.html">Sign In</a>
           </li>
+          
         </ul>
         <div class="header__action">
           <i class="fa-solid fa-user hide"></i>
@@ -162,18 +161,17 @@
       <div class="row">
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/1.svg" />
+            <img class="card-img" src="../assets/images/post/1.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../user/post/index.html " class="link-to-detail">
-                    Future of Work
+                  <a href="../user/post/index.html " class="link-to-detail">Future of Work
                   </a>
                   <p class="description">
                     Majority of people will work in jobs that don't exist today.
                   </p>
                 </div>
-
+              </div>
                 <div class="author-info">
                   <div class="author-avatar">
                     <img
@@ -181,7 +179,7 @@
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
+                  <div id="author-name">
                     <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
                     <div class="author-verify">
                       <i class="ri-checkbox-circle-fill"></i>
@@ -190,13 +188,13 @@
                   </div>
                   <div class="publish-date">02 May</div>
                 </div>
-              </div>
+              
             </div>
           </div>
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/2.svg" />
+            <img class="card-img" src="../assets/images/post/2.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
@@ -216,8 +214,8 @@
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify">
                       <i class="ri-checkbox-circle-fill"></i>
                       <p>Verified writer</p>
@@ -231,7 +229,7 @@
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/3.svg" />
+            <img class="card-img" src="../assets/images/post/3.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
@@ -251,8 +249,8 @@
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify">
                       <i class="ri-checkbox-circle-fill"></i>
                       <p>Verified writer</p>
@@ -266,7 +264,7 @@
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/4.svg" />
+            <img class="card-img" src="../assets/images/post/4.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
@@ -286,8 +284,8 @@
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify">
                       <i class="ri-checkbox-circle-fill"></i>
                       <p>Verified writer</p>
@@ -301,7 +299,7 @@
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/5.svg" />
+            <img class="card-img" src="../assets/images/post/5.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
@@ -321,8 +319,8 @@
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify" ">
                     <i class="ri-checkbox-circle-fill"></i>
                     <p>Verified writer</p>
@@ -336,7 +334,7 @@
       </div>
       <div class="col-4 mt-5">
         <div class="card">
-          <img class="card-img" src="../assets/images/6.svg" />
+          <img class="card-img" src="../assets/images/post/6.svg" />
           <div class="card-body">
             <div class="article-header">
               <div>
@@ -356,8 +354,8 @@
                     alt="Author's Avatar"
                   />
                 </div>
-                <div>
-                  <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                <div id="author-name">
+                  <a href="#" class="author-name">VCCorp</a>
                   <div class="author-verify">
                     <i class="ri-checkbox-circle-fill"></i>
                     <p>Verified writer</p>
@@ -441,7 +439,15 @@
   <script>
     function changeLanguage(language, flagPath) {
       const languageButton = document.getElementById("languageDropdown");
-      languageButton.innerHTML = `<img src="${flagPath}" alt="${language}" style="width: 20px;"> ${language}`;
+      languageButton.innerHTML = `<img src="${flagPath}" alt="${language}" style="width: 20px;"> ${language} `;
     }
+
+    
+        const iconBars = document.querySelector(".fa-bars");
+        const headerNav = document.querySelector("#header__nav");
+        iconBars.addEventListener("click", () => {
+            headerNav.classList.toggle("active");
+        })
+    
   </script>
 </html>
