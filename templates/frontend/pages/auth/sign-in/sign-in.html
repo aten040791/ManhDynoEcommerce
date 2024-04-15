@@ -4,104 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 
 <body>
 
-    <!-- HEADER SECTION START -->
+    <!-- HEADER  START -->
+    <div class="header">
+        <div class="header__logo">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span>Coding Blog</span>
+        </div>
+        <ul class="header__nav" id="header__nav">
+            <li><a href="../../home/index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="#"><i class="fa-solid fa-circle-info"></i>About</a></li>
+            <li><a href="../../category/index.html"><i class="fa-solid fa-list"></i>Categories</a></li>
+            <li><a href="#"><i class="fa-regular fa-message"></i>Contact</a></li>
+            <li><a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a></li>
+            <li><a href="../../auth/sign-in/sign-in.html">Sign In</a></li>
+        </ul>
+        <div class="header__action">
+            <i class="fa-solid fa-user hide"></i>
+            <i class="fa-solid fa-bars hide"></i>
+        </div>
+    </div>
 
-    <section>
-        <header class="header-container">
-            <div>
-                <img src="../../assets/images/Logo.svg" alt="logo">
-            </div>
-            <div class="navbar">
-                <ul class="list">
-
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Articles</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Page</a>
-
-                    <li>
-                        <a href="#">Pricing</a>
-                    </li>
-
-                    <li>
-                        <a href="#">FAQ</a>
-                    </li>
-                </ul>
-                <button
-                    class="mt-5 lg:mt-0 border-2 border-blue-500 px-6 py-2 rounded-full text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transition-all duration-300">
-                    Sign in
-                </button>
-            </div>
-        </header>
-    </section>
-
-    <!-- HEADER SECTION END -->
+    <!-- HEADER  END -->
 
     <!-- LOGIN FORM START -->
-
-    <section class="form-section">
-        <div class="form-container">
-            <h1 class="form-title">
+    <div class="form">
+        <div class="form__container">
+            <h2 class="form__title">
                 Sign In
-            </h1>
-            <form action="" class="form" method="POST" id="form">
-                <div class="form-group">
-                    <label for="email" class="form-label">
+            </h2>
+            <form id="form" action="../../home/index.html">
+                <div class="form__control">
+                    <label for="email" class="form__label">
                         Email:
                     </label>
-                    <input type="email" id="email" placeholder="Enter your mail..." required class="form-input" />
+                    <input type="text" id="email" placeholder="Enter your email..." class="form__email-input" />
                     <div class="error"></div>
                 </div>
 
-                <div class="form-group">
-                    <label for="password" class="form-label">
+                <div class="form__control">
+                    <label for="password" class="form__label">
                         Password:
                     </label>
-                    <input type="password" id="password" placeholder="Enter your password..." required
-                        class="form-input" />
+                    <input type="password" id="password" placeholder="Enter your password..." autocomplete="on"
+                        class="form__password-input" />
                     <div class="error"></div>
                 </div>
 
-                <a href="../forgot-password/forgot-password.html" class="forgot-password">
-                    Forgot password?
+                <a href="../forgot-password/forgot-password.html" class="form__forgot-pass">
+                    Forgot your password?
                 </a>
 
-                <button type="submit">
-                    Sign in
+                <button type="submit" class="form__btn">
+                    Sign In
                 </button>
 
-                <p class="mgs">
-                    Do not have an account ?
+                <p>
+                    Don't have an account?
                     <a href="#" class="sign-up">Sign up</a>
                 </p>
-
             </form>
         </div>
-    </section>
-
-
-
+    </div>
     <!-- LOGIN FORM END -->
 
 
     <!-- FOOTER SECTION START -->
-    <section>
-        <footer class="footer-container">
-            <div class="footer-group">
+    <footer>
+        <div class="footer__container">
+            <div class="footer__group-icon">
+                <div class="footer__logo">
+                    <i class='bx bxl-c-plus-plus'></i>
+                    <span>Coding Blog</span>
+                </div>
+                <p>
+                    Build a modern and creative website with crealand
+                </p>
+            </div>
+            <div class="footer__group">
                 <h3>Product</h3>
-                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                <ul>
                     <li>
                         <a href="#">Landingpage</a>
                     </li>
@@ -119,9 +109,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="footer-group">
+            <div class="footer__group">
                 <h3>Services</h3>
-                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                <ul>
                     <li>
                         <a href="#">Documentation</a>
                     </li>
@@ -139,9 +129,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="footer-group">
+            <div class="footer__group">
                 <h3>Company</h3>
-                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                <ul>
                     <li>
                         <a href="#">About</a>
                     </li>
@@ -156,9 +146,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="footer-group">
+            <div class="footer__group">
                 <h3>More</h3>
-                <ul class="text-[#959EAD] text-sm mt-5 space-y-4 md:text-base">
+                <ul>
                     <li>
                         <a href="#">Documentation</a>
                     </li>
@@ -170,24 +160,24 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="copyright">
+            <p>
+                Copyright © 2024.
+            </p>
+        </div>
 
-            <div class="footer-icon">
-                <img src="../../assets/images/Logo.svg" alt="logo" class="brightness-0 invert mx-auto md:mx-0" />
-                <p>
-                    Build a modern and creative website with crealand
-                </p>
-            </div>
-
-            <div class="copyright">
-                <p>
-                    Copyright © 2024.
-                </p>
-            </div>
-
-        </footer>
-    </section>
+    </footer>
 
     <!-- FOOTER SECTION END -->
+    <script src="../../../assets/js/validator.js"></script>
+    <script>
+        const iconBars = document.querySelector(".fa-bars");
+        const headerNav = document.querySelector("#header__nav");
+        iconBars.addEventListener("click", () => {
+            headerNav.classList.toggle("active");
+        })
+    </script>
 </body>
 
 </html>
