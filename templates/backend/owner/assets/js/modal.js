@@ -180,9 +180,15 @@ function addNewLanguage() {
       reverseButtons: true,
       title: "Create new Language",
       html: `
-      <input id="newLanguage" type="text" placeholder="Input new Language name..." class="swal2-input required">
-      <input id="newLocale" type="text" placeholder="Input Locale..." class="swal2-input required" >
-      <h4>Upload flag image</h4>
+      <div> 
+      <label for="newLanguage" class="language-label">Language Name</label>
+      <input id="newLanguage" type="text" class="swal2-input required">
+      </div>
+      <div>
+      <label for="newLocale" class="locale-label">Locale</label>
+      <input id="newLocale" type="text"  class="swal2-input required" >
+      </div>
+      <h4>Flag image</h4>
       <input id="newFlag" type="file" accept="image/*" class="swal2-input">
     `,
       preConfirm: function () {
@@ -250,9 +256,15 @@ function updateLanguage() {
       reverseButtons: true,
       title: "Update Language",
       html: `
-      <input id="newLanguage" type="text" placeholder="Input new Language name..." class="swal2-input required">
-      <input id="newLocale" type="text" placeholder="Input Locale..." class="swal2-input required" >
-      <h4>Upload flag image</h4>
+      <div> 
+      <label for="newLanguage" class="language-label">Language Name</label>
+      <input id="newLanguage" type="text" class="swal2-input required">
+      </div>
+      <div>
+      <label for="newLocale" class="locale-label">Locale</label>
+      <input id="newLocale" type="text"  class="swal2-input required" >
+      </div>
+      <h4>Flag image</h4>
       <input id="newFlag" type="file" accept="image/*" class="swal2-input">
     `,
       preConfirm: function () {
