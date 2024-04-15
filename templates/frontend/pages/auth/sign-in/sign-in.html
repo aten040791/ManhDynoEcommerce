@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <!-- config tailwind css -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
     <!-- HEADER SECTION START -->
+
     <section>
         <header class="header-container">
             <div>
@@ -49,30 +49,51 @@
 
     <!-- HEADER SECTION END -->
 
-    <!-- FORGOT PASSWORD FORM START -->
+    <!-- LOGIN FORM START -->
 
     <section class="form-section">
         <div class="form-container">
             <h1 class="form-title">
-                Forgot password
+                Sign In
             </h1>
             <form action="" class="form" method="POST" id="form">
                 <div class="form-group">
                     <label for="email" class="form-label">
-                        Enter your email address
+                        Email:
                     </label>
-                    <input type="email" id="email" placeholder="Enter email address" required class="form-input" />
+                    <input type="email" id="email" placeholder="Enter your mail..." required class="form-input" />
+                    <div class="error"></div>
                 </div>
-                <button type="submit" onclick="window.location='../change-password/change-password.html';">
-                    Continue
+
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        Password:
+                    </label>
+                    <input type="password" id="password" placeholder="Enter your password..." required
+                        class="form-input" />
+                    <div class="error"></div>
+                </div>
+
+                <a href="../forgot-password/forgot-password.html" class="forgot-password">
+                    Forgot password?
+                </a>
+
+                <button type="submit">
+                    Sign in
                 </button>
+
+                <p class="mgs">
+                    Do not have an account ?
+                    <a href="#" class="sign-up">Sign up</a>
+                </p>
+
             </form>
         </div>
     </section>
 
 
 
-    <!-- FORGOT PASSWORD FORM END -->
+    <!-- LOGIN FORM END -->
 
 
     <!-- FOOTER SECTION START -->
@@ -165,8 +186,8 @@
 
         </footer>
     </section>
+
     <!-- FOOTER SECTION END -->
-    <script src="../../assets/js/validator.js"></script>
 </body>
 
 </html>
