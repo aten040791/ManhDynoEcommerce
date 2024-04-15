@@ -7,20 +7,20 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/images/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
     <title>
-        Manage User
+        Manage Category
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <link id="pagestyle" href="../../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-    <link href="../assets/css/styles.css" rel="stylesheet" />
+    <link href="../../assets/css/styles.css" rel="stylesheet" />
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -33,7 +33,7 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-    <div class="min-height-300 bg-dark position-absolute w-100"></div>
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav  z-index-2 bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 ps ps--active-y"
         id="sidenav-main">
@@ -43,14 +43,14 @@
             <a class="navbar-brand m-0"
                 href=" https://demos.creative-tim.com/argon-dashboard-pro/pages/dashboards/default.html "
                 target="_blank">
-                <img src="../assets/images/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+                <img src="../../assets/images/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold">Coding Blog</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse w-auto h-auto ps" id="sidenav-collapse-main">
             <ul class="navbar-nav d-flex flex-column">
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="../dashboard/index.html" class="nav-link" aria-controls="dashboardsExamples" role="button"
                         aria-expanded="false">
                         <div class="ms-2 text-center d-flex align-items-center justify-content-center">
@@ -61,14 +61,47 @@
                 </li>
                 <li class="nav-item mt-3">
                     <h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">PAGES</h6>
-                </li> -->
-                <li class="nav-item active">
-                    <a href="../User/index.html" class="nav-link active" aria-controls="applicationsExamples"
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#post-drop" class="nav-link " aria-controls="pagesExamples"
                         role="button" aria-expanded="false">
                         <div class="ms-2 text-center d-flex align-items-center justify-content-center">
-                            <i class="ri-user-3-fill text-dark text-lg opacity-10"></i>
+                            <i class="ri-blogger-line text-warning text-lg opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-3 active">User</span>
+                        <span class="nav-link-text ms-3">Post</span>
+                    </a>
+                    <div class="collapse" id="post-drop">
+                        <ul class="nav ms-4">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="../post/index.html">
+                                    <span class="sidenav-normal">Posts</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../post/create/create.html">
+                                    <span class="sidenav-normal">Create</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a href="../category/index.html" class="nav-link active" aria-controls="applicationsExamples"
+                        role="button" aria-expanded="false">
+                        <div class="ms-2 text-center d-flex align-items-center justify-content-center">
+                            <i class="ri-list-view text-info text-lg opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-3 active">Category</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../language/index.html" class="nav-link " aria-controls="ecommerceExamples" role="button"
+                        aria-expanded="false">
+                        <div class="ms-2 text-center d-flex align-items-center justify-content-center">
+
+                            <i class="ri-translate text-success text-lg opacity-10 "></i>
+                        </div>
+                        <span class="nav-link-text ms-3">Language</span>
                     </a>
                 </li>
             </ul>
@@ -76,7 +109,7 @@
         <div class="nav-item position-absolute bottom-0 w-100">
             <div class="d-flex ms-3 justify-content-between align-items-center">
                 <div class="d-flex">
-                    <img src="../assets/images/avatar/avatar14.jpg" class="rounded avatar" style="width:50px;"
+                    <img src="../../assets/images/avatar/avatar14.jpg" class="rounded avatar" style="width:50px;"
                         alt="Avatar" />
                     <div class="d-flex flex-column ms-2">
                         <h5 class="text-sm text-primary"><strong>John Doe</strong></h5>
@@ -99,9 +132,9 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white"
                                 href="javascript:;">Dashboard</a></li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">User</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Category</li>
                     </ol>
-                    <h6 class="font-weight-bolder text-white mb-0">User</h6>
+                    <h6 class="font-weight-bolder text-white mb-0">Category</h6>
                 </nav>
                 <!-- End Breadcrumb -->
 
@@ -117,7 +150,7 @@
                         <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
-                                <span class="d-sm-inline d-none"></span>
+                                <span class="d-sm-inline d-none">Sign In</span>
                             </a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -226,18 +259,24 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
-                        <div class="card-header pb-0 d-flex justify-content-between mb-3">
-                            <h4>Users</h4>
-                            <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                                <div class="input-group">
-                                    <span class="input-group-text text-body"><i class="fas fa-search"
-                                            aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" placeholder="Search ...">
+                        <div class="card-header pb-0 d-flex justify-content-between">
+                            <h4>Categories</h4>
+                            <div class="d-flex">
+                                <div class="ms-md-auto pe-md-3 align-items-center">
+                                    <div class="input-group">
+                                        <span class="input-group-text text-body"><i class="fas fa-search"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                    </div>
                                 </div>
+                                <button class="btn-add" type="button" onClick="addNewCategory()">
+                                    <span class="btn-inner--icon"><i class="ri-add-line align-bottom me-1"></i></span>
+                                    <span class="btn-inner--text">Add New</span>
+                                </button>
                             </div>
                         </div>
-                        <hr class="bg-dark border-2 mt-n1"/>
-                        <div class="card-body px-0 pt-0 pb-2">
+                        <hr class="bg-dark"/>
+                        <div class="card-body px-0 pt-0 pb-2 mt-1">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>
@@ -248,10 +287,7 @@
                                             </th>
                                             <th
                                                 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                                Name</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
-                                                Email</th>
+                                                Title</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                                 Updated at</th>
@@ -260,6 +296,7 @@
                                                 Created at</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+
                                             </th>
                                         </tr>
                                     </thead>
@@ -268,331 +305,291 @@
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">1</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">2</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">3</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">4</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
-                                            </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+
+                                                    ReactJs
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">5</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">6</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">7</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">8</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
+
                                         </tr>
                                         <tr>
                                             <td class="text-center py-3" width="2%">
                                                 <span class="text-secondary text-xs font-weight-bold">9</span>
                                             </td>
-                                            <td class="text-start" width="10%">
+                                            <td class="text-start">
                                                 <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
+                                                    ReactJs</span>
                                             </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">10/07/2024
                                                 </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
+                                            <td class="align-middle text-start" width="12%">
+                                                <span class="text-secondary text-xs font-weight-bold ms-5">11/02/2024
+                                                </span>
                                             </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
+
                                             <td class="align-middle text-center text-sm" width="10%">
                                                 <div class="aligin-middle d-flex justify-content-center">
+                                                    <a href="#" class="bg-edit align-middle px-2 py-1 me-3"
+                                                        onClick="updateCategory()">
+                                                        <i class="ri-edit-line"></i>
+                                                    </a>
+
                                                     <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
+                                                        onClick="deleteCategory()">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </div>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center py-3" width="2%">
-                                                <span class="text-secondary text-xs font-weight-bold">10</span>
-                                            </td>
-                                            <td class="text-start" width="10%">
-                                                <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
-                                            </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
-                                                </span>
-                                            </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
-                                            </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
-                                            <td class="align-middle text-center text-sm" width="10%">
-                                                <div class="aligin-middle d-flex justify-content-center">
-                                                    <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
-                                                        <i class="ri-delete-bin-line"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center py-3" width="2%">
-                                                <span class="text-secondary text-xs font-weight-bold">1</span>
-                                            </td>
-                                            <td class="text-start" width="10%">
-                                                <span class="text-secondary text-sm font-weight-bolder ms-3">
-                                                    Tien Duc</span>
-                                            </td>
-                                            <td class="align-middle justify-content-start text-start">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-bold ms-3">example@gmail.com
-                                                </span>
-                                            </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">17/04/2024
-                                                    15:00:00</span>
-                                            </td>
-                                            <td class="align-middle text-center" width="12%">
-                                                <span class="text-secondary text-xs font-weight-bold ms-5">24/04/2024
-                                                    16:20:00</span>
-                                            </td>
-                                            <td class="align-middle text-center text-sm" width="10%">
-                                                <div class="aligin-middle d-flex justify-content-center">
-                                                    <a href="#" class="bg-delete align-middle px-2 py-1 me-3"
-                                                        onClick="deleteUser()">
-                                                        <i class="ri-delete-bin-line"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -629,10 +626,11 @@
                                     document.write(new Date().getFullYear())
                                 </script>,
                                 made with <i class="fa fa-heart"></i> by
-                                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Tien Duc
-                                    Nguyen</a>
+                                <a href="https://www.creative-tim.com" class="font-weight-bold"
+                                    target="_blank">Dinomanh</a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </footer>
@@ -640,11 +638,11 @@
     </main>
 
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="../assets/js/modal.js"></script>
+    <script src="../../assets/js/core/popper.min.js"></script>
+    <script src="../../assets/js/core/bootstrap.min.js"></script>
+    <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../../assets/js/modal.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -656,7 +654,7 @@
     </script>
 
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/argon-dashboard.js"></script>
+    <script src="../../assets/js/argon-dashboard.js"></script>
 </body>
 
 </html>
