@@ -539,69 +539,70 @@ input:focus {
   overflow: hidden;
   background-color: #1565d8;
   color: #fff;
-  
+
   outline: none; /* Remove focus outline */
 }
 
-/* ================================================================= FOOTER =============================== */
-
-.container-fluid .footer-clean {
-  margin-top: 100px;
-  padding: 50px 0;
-  background-color: #0d2436;
-  color: #fff;
+/* ============================================ START OF FOOTER =========================================== */
+footer{
+  display:flex;
+  flex-direction:column;
+  background-color:#0D2436;
+  color: #5A7184;
+  font-size:14px;
 }
-.footer-clean .row-footer {
-  margin-top: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 115px;
-  margin-right: 115px;
-}
-
-.footer-clean h3 {
-  margin-top: 0;
-  margin-bottom: 28px;
-  font-weight: bold;
-  font-size: 28px;
-  color: #5a7184;
+.footer__container{
+  color:#959ead;
+  font-size:14px;
+  grid-template-columns: repeat(5, 1fr);
+  display:grid;
+  gap:40px;
+  margin-bottom:10px;
+  padding:20px 20px;
 }
 
-.footer-clean ul {
-  padding: 0;
-  list-style: none;
-  line-height: 2.6;
-  font-size: 16px;
-  margin-bottom: 0;
+.footer__group-icon .footer__logo{
+font-size:24px;
+align-items:center;
+text-align:center;
+display:flex;
+font-weight:500;
+margin-bottom:20px;
+color:#1565D8;
+}
+.footer__group-icon p{
+  color:#959ead;
+  font-size:14px;
+  margin-left:3px;
+  
+}
+.footer__group-icon .footer__logo i{
+  font-size:32px;
+}
+.footer__group{
+  line-height:30px;
 }
 
-.footer-clean ul a {
-  color: #959ead;
-  text-decoration: none;
-  opacity: 0.8;
+.footer__group ul li{
+  list-style:none;
+
+}
+.footer__group li a{
+  text-decoration:none;
+  color:#959ead;
+  font-size:14px;
+}
+.copyright{
+  text-align:center;
+  font-style: italic;
+  font-weight: 600;
+  color: #5A7184;
+}
+.copyright p{
+  margin: 0;
 }
 
-.footer-clean ul a:hover {
-  opacity: 1;
-}
-
-.footer-clean .footer-social,
-.footer-clean .company-info,
-.footer-clean .copyright {
-  display: flex;
-}
-.footer-clean .company-info i {
-  margin-left: -4px;
-  font-size: 24px;
-  margin-right: 2px;
-}
-.footer-clean .footer-social i {
-  font-size: 32px;
-  margin: 50px 10px;
-}
-.footer-clean .copyright i {
-  margin: 4px 5px 0 5px;
-}
+/* ============================================ END OF FOOTER =========================================== */
 
 @media (max-width: 767px) {
   .footer-clean .item {
@@ -669,7 +670,6 @@ input:focus {
 }
 
 @media (max-width: 1450px) {
-
   .author-name {
     width: 50%;
   }
@@ -688,7 +688,7 @@ input:focus {
   .header__action button,
   .header__action button:hover,
   .header__action .dropdown.show .btn-secondary.dropdown-toggle,
-  .header__action .dropdown .dropdown-toggle:focus  {
+  .header__action .dropdown .dropdown-toggle:focus {
     color: #000;
     background-color: #fff;
     border: none;
@@ -698,26 +698,25 @@ input:focus {
   }
   .header__action .dropdown-menu,
   .header__action .dropdown .btn-secondary,
-  .header__action .dropdown.show .dropdown-item{
+  .header__action .dropdown.show .dropdown-item {
     padding: 0px;
-    
   }
 
-  .header__action .dropdown.show .dropdown-item{
+  .header__action .dropdown.show .dropdown-item {
     padding: 4px;
   }
   .header__action .dropdown-menu a:hover {
     background-color: #c7bbe7;
   }
-  .header__action .dropdown .dropdown-toggle::after{
+  .header__action .dropdown .dropdown-toggle::after {
     margin-left: 0;
   }
-  .wrapper .header .header__action .btn-secondary:focus{
+  .wrapper .header .header__action .btn-secondary:focus {
     box-shadow: none;
   }
- 
+
   .wrapper .header .header__action .dropdown .btn img {
-    width:32px;
+    width: 32px;
   }
 
   .header__action i:first-child {
@@ -727,7 +726,7 @@ input:focus {
   .header__action i:last-child {
     font-size: 28px;
   }
-  
+
   .header__nav.active {
     display: block;
     position: absolute;
@@ -744,8 +743,6 @@ input:focus {
   .header__nav.active .dropdown button {
     display: none;
   }
-
-
 
   .header__nav.active li {
     margin: 0;
@@ -914,7 +911,7 @@ input:focus {
   .container-fluid .row {
     margin-top: 30px;
   }
-  .container-fluid .col-4.mt-5{
+  .container-fluid .col-4.mt-5 {
     padding: 0;
   }
   .footer-clean .row-footer {
@@ -966,7 +963,6 @@ input:focus {
 }
 
 @media (max-width: 500px) {
- 
   .author-info {
     margin-top: 20px;
   }
