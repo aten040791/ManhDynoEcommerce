@@ -18,7 +18,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -66,7 +69,7 @@
                 <img
                   src="../../../backend/owner/assets/images/flags/US.png"
                   alt="English"
-                  style="width: 20px"
+                  
                 />
                 English
               </button>
@@ -79,7 +82,7 @@
                   <img
                     src="../../../backend/owner/assets/images/flags/US.png"
                     alt="English"
-                    style="width: 20px"
+                    
                   />
                   English
                 </a>
@@ -91,7 +94,7 @@
                   <img
                     src="../../../backend/owner/assets/images/flags/VN.png"
                     alt="Tiếng Việt"
-                    style="width: 20px"
+                   
                   />
                   Tiếng Việt
                 </a>
@@ -103,7 +106,7 @@
                   <img
                     src="../../../backend/owner/assets/images/flags/FR.png"
                     alt="French"
-                    style="width: 20px"
+                   
                   />
                   Français
                 </a>
@@ -111,11 +114,67 @@
             </div>
           </li>
           <li>
-            <a href="../../../backend/owner/pages/sign-in/index.html">Sign In</a>
+            <a href="../../../backend/owner/pages/sign-in/index.html"
+              >Sign In</a
+            >
           </li>
-          
         </ul>
         <div class="header__action">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="languageDropdownResponsive"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img
+                src="../../../backend/owner/assets/images/flags/US.png"
+                alt="English"
+                
+              />
+              
+            </button>
+            <div class="dropdown-menu" aria-labelledby="languageDropdown">
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/US.png')"
+              >
+                <img
+                  src="../../../backend/owner/assets/images/flags/US.png"
+                  alt="English"
+                  
+                />
+                English
+              </a>
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/VN.png')"
+              >
+                <img
+                  src="../../../backend/owner/assets/images/flags/VN.png"
+                  alt="Tiếng Việt"
+                  
+                />
+                Tiếng Việt
+              </a>
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/FR.png')"
+              >
+                <img
+                  src="../../../backend/owner/assets/images/flags/FR.png"
+                  alt="French"
+                  
+                />
+                Français
+              </a>
+            </div>
+          </div>
           <i class="fa-solid fa-user hide"></i>
           <i class="fa-solid fa-bars hide"></i>
         </div>
@@ -165,30 +224,30 @@
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../post/index.html " class="link-to-detail">Future of Work
+                  <a href="../post/index.html " class="link-to-detail"
+                    >Future of Work
                   </a>
                   <p class="description">
                     Majority of people will work in jobs that don't exist today.
                   </p>
                 </div>
               </div>
-                <div class="author-info">
-                  <div class="author-avatar">
-                    <img
-                      src="../../assets/images/avatar.jpg"
-                      alt="Author's Avatar"
-                    />
-                  </div>
-                  <div id="author-name">
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
-                    <div class="author-verify">
-                      <i class="ri-checkbox-circle-fill"></i>
-                      <p>Verified writer</p>
-                    </div>
-                  </div>
-                  <div class="publish-date">02 May</div>
+              <div class="author-info">
+                <div class="author-avatar">
+                  <img
+                    src="../../assets/images/avatar.jpg"
+                    alt="Author's Avatar"
+                  />
                 </div>
-              
+                <div id="author-name">
+                  <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div class="author-verify">
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <p>Verified writer</p>
+                  </div>
+                </div>
+                <div class="publish-date">02 May</div>
+              </div>
             </div>
           </div>
         </div>
@@ -439,15 +498,19 @@
   <script>
     function changeLanguage(language, flagPath) {
       const languageButton = document.getElementById("languageDropdown");
-      languageButton.innerHTML = `<img src="${flagPath}" alt="${language}" style="width: 20px;"> ${language} `;
+      languageButton.innerHTML = `<img src="${flagPath}" alt="${language}"> ${language} `;
     }
 
-    
-        const iconBars = document.querySelector(".fa-bars");
-        const headerNav = document.querySelector("#header__nav");
-        iconBars.addEventListener("click", () => {
-            headerNav.classList.toggle("active");
-        })
-    
+    function changeLanguageResponsive(language, flagPath) {
+      const languageButtonResponsive = document.getElementById("languageDropdownResponsive");
+      languageButtonResponsive.innerHTML = `<img src="${flagPath}" alt="${language}" > ${language} `;
+    }
+
+ 
+    const iconBars = document.querySelector(".fa-bars");
+    const headerNav = document.querySelector("#header__nav");
+    iconBars.addEventListener("click", () => {
+      headerNav.classList.toggle("active");
+    });
   </script>
 </html>
