@@ -127,7 +127,7 @@
 }
 
 .swal2-html-container h4 {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .locale-flag {
@@ -139,10 +139,21 @@
   margin-left: 0;
   margin-right: 0px;
 }
+.swal2-container .language-label,
+.swal2-container .locale-label
+{
+  font-size: 14px;
+  position: absolute;
+  margin-left: 0;
+}
 
+#newLanguage,#newLocale {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 #newFlag {
   margin-top: 10px;
-  padding: 11px;
+  padding: 4px;
 }
 
 #select-menu-btn.icon-down i {
