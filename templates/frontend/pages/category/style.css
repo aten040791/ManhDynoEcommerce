@@ -20,6 +20,10 @@
     align-items: center;
 }
 
+.header .logo .bxl-c-plus-plus {
+    display: inline-block;
+}
+
 .header i {
     display: none;
 }
@@ -240,6 +244,78 @@
 
 
 /* ============================================ END OF ARTICLES =========================================== */
+
+
+/* ============================================ START OF FOOTER =========================================== */
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #0D2436;
+    color: #5A7184;
+    font-size: 14px;
+}
+
+.footer__container {
+    color: #959ead;
+    font-size: 14px;
+    grid-template-columns: repeat(5, 1fr);
+    display: grid;
+    gap: 40px;
+    margin-bottom: 10px;
+    padding: 20px 20px;
+}
+
+.footer__group-icon .footer__logo {
+    font-size: 24px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #1565D8;
+}
+
+.footer__group-icon p {
+    color: #959ead;
+    font-size: 14px;
+    margin-left: 3px;
+
+}
+
+.footer__group-icon .footer__logo i {
+    font-size: 32px;
+}
+
+.footer__group {
+    line-height: 30px;
+}
+
+.footer__group ul li {
+    list-style: none;
+
+}
+
+.footer__group li a {
+    text-decoration: none;
+    color: #959ead;
+    font-size: 14px;
+}
+
+.copyright {
+    text-align: center;
+    font-style: italic;
+    font-weight: 600;
+    color: #5A7184;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+
+/* ============================================ END OF FOOTER =========================================== */
+
+
 
 
 
