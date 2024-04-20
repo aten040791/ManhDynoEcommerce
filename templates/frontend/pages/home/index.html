@@ -18,7 +18,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
@@ -33,11 +36,9 @@
       <div class="header">
         <div class="logo">
           <i class="bx bxl-c-plus-plus"></i>
-          <span class="sidebar__logo-title">CodingBlog</span>
+          <span class="sidebar__logo-title">Coding Blog</span>
         </div>
         <ul class="header__nav" id="header__nav">
-          
-
           <li>
             <a href="./index.html"><i class="fa-solid fa-house"></i>Home</a>
           </li>
@@ -45,7 +46,7 @@
             <a href="#"><i class="fa-solid fa-circle-info"></i>About</a>
           </li>
           <li>
-            <a href="../user/category/index.html"
+            <a href="../category/index.html"
               ><i class="fa-solid fa-list"></i>Categories</a
             >
           </li>
@@ -66,9 +67,9 @@
                 aria-expanded="false"
               >
                 <img
-                  src="../../backend/owner/assets/images/flags/US.png"
+                  src="../../../backend/owner/assets/images/flags/US.png"
                   alt="English"
-                  style="width: 20px"
+                  
                 />
                 English
               </button>
@@ -76,63 +77,106 @@
                 <a
                   class="dropdown-item"
                   href="#"
-                  onclick="changeLanguage('English', '../../backend/owner/assets/images/flags/US.png')"
+                  onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')"
                 >
                   <img
-                    src="../../backend/owner/assets/images/flags/US.png"
+                    src="../../../backend/owner/assets/images/flags/US.png"
                     alt="English"
-                    style="width: 20px"
+                    
                   />
                   English
                 </a>
                 <a
                   class="dropdown-item"
                   href="#"
-                  onclick="changeLanguage('Tiếng Việt', '../../backend/owner/assets/images/flags/VN.png')"
+                  onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')"
                 >
                   <img
-                    src="../../backend/owner/assets/images/flags/VN.png"
+                    src="../../../backend/owner/assets/images/flags/VN.png"
                     alt="Tiếng Việt"
-                    style="width: 20px"
+                   
                   />
                   Tiếng Việt
                 </a>
                 <a
                   class="dropdown-item"
                   href="#"
-                  onclick="changeLanguage('Français', '../../backend/owner/assets/images/flags/FR.png')"
+                  onclick="changeLanguage('Français', '../../../backend/owner/assets/images/flags/FR.png')"
                 >
                   <img
-                    src="../../backend/owner/assets/images/flags/FR.png"
+                    src="../../../backend/owner/assets/images/flags/FR.png"
                     alt="French"
-                    style="width: 20px"
+                   
                   />
                   Français
                 </a>
               </div>
-
             </div>
           </li>
           <li>
-            <a href="../../backend/owner/pages/sign-in/index.html">Sign In</a>
+            <a href="../auth/sign-in/sign-in.html"
+              >Sign In</a
+            >
           </li>
         </ul>
         <div class="header__action">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="languageDropdownResponsive"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img
+                src="../../../backend/owner/assets/images/flags/US.png"
+                alt="English"
+                
+              />
+              
+            </button>
+            <div class="dropdown-menu" aria-labelledby="languageDropdown">
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/US.png')"
+              >
+                <img
+                  src="../../../backend/owner/assets/images/flags/US.png"
+                  alt="English"
+                  
+                />
+                English
+              </a>
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/VN.png')"
+              >
+                <img
+                  src="../../../backend/owner/assets/images/flags/VN.png"
+                  alt="Tiếng Việt"
+                  
+                />
+                Tiếng Việt
+              </a>
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/FR.png')"
+              >
+                <img
+                  src="../../../backend/owner/assets/images/flags/FR.png"
+                  alt="French"
+                  
+                />
+                Français
+              </a>
+            </div>
+          </div>
           <i class="fa-solid fa-user hide"></i>
           <i class="fa-solid fa-bars hide"></i>
-
-            </li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Faq</a></li>
-            <li>
-              <div class="sign-in">
-
-                <a href="../../backend/owner/login/index.html">Sign in</a>
-
-              </div>
-            </li>
-          </ul>
-
         </div>
       </div>
 
@@ -165,7 +209,7 @@
         </div>
         <div class="right-column-container">
           <img
-            src="../assets/images/LIve Chat.svg"
+            src="../../assets/images/LIve Chat.svg"
             alt="Descriptive Alt Text"
           />
         </div>
@@ -176,45 +220,44 @@
       <div class="row">
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/1.svg" />
+            <img class="card-img" src="../../assets/images/post/1.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../user/post/index.html " class="link-to-detail">
-                    Future of Work
+                  <a href="../post/index.html " class="link-to-detail"
+                    >Future of Work
                   </a>
                   <p class="description">
                     Majority of people will work in jobs that don't exist today.
                   </p>
                 </div>
-
-                <div class="author-info">
-                  <div class="author-avatar">
-                    <img
-                      src="../assets/images/avatar.jpg"
-                      alt="Author's Avatar"
-                    />
-                  </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
-                    <div class="author-verify">
-                      <i class="ri-checkbox-circle-fill"></i>
-                      <p>Verified writer</p>
-                    </div>
-                  </div>
-                  <div class="publish-date">02 May</div>
+              </div>
+              <div class="author-info">
+                <div class="author-avatar">
+                  <img
+                    src="../../assets/images/avatar.jpg"
+                    alt="Author's Avatar"
+                  />
                 </div>
+                <div id="author-name">
+                  <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div class="author-verify">
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <p>Verified writer</p>
+                  </div>
+                </div>
+                <div class="publish-date">02 May</div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/2.svg" />
+            <img class="card-img" src="../../assets/images/post/2.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../user/post/index.html " class="link-to-detail">
+                  <a href="../post/index.html " class="link-to-detail">
                     Why Use External It Support
                   </a>
                   <p class="description">
@@ -226,12 +269,12 @@
                 <div class="author-info">
                   <div class="author-avatar">
                     <img
-                      src="../assets/images/avatar.jpg"
+                      src="../../assets/images/avatar.jpg"
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify">
                       <i class="ri-checkbox-circle-fill"></i>
                       <p>Verified writer</p>
@@ -245,11 +288,11 @@
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/3.svg" />
+            <img class="card-img" src="../../assets/images/post/3.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../user/post/index.html " class="link-to-detail">
+                  <a href="../post/index.html " class="link-to-detail">
                     Future of Learning
                   </a>
                   <p class="description">
@@ -261,12 +304,12 @@
                 <div class="author-info">
                   <div class="author-avatar">
                     <img
-                      src="../assets/images/avatar.jpg"
+                      src="../../assets/images/avatar.jpg"
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify">
                       <i class="ri-checkbox-circle-fill"></i>
                       <p>Verified writer</p>
@@ -280,11 +323,11 @@
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/4.svg" />
+            <img class="card-img" src="../../assets/images/post/4.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../user/post/index.html " class="link-to-detail">
+                  <a href="../post/index.html " class="link-to-detail">
                     Help Finding Information Online
                   </a>
 
@@ -296,12 +339,12 @@
                 <div class="author-info">
                   <div class="author-avatar">
                     <img
-                      src="../assets/images/avatar.jpg"
+                      src="../../assets/images/avatar.jpg"
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify">
                       <i class="ri-checkbox-circle-fill"></i>
                       <p>Verified writer</p>
@@ -315,11 +358,11 @@
         </div>
         <div class="col-4 mt-5">
           <div class="card">
-            <img class="card-img" src="../assets/images/5.svg" />
+            <img class="card-img" src="../../assets/images/post/5.svg" />
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../user/post/index.html " class="link-to-detail">
+                  <a href="../post/index.html " class="link-to-detail">
                     How Does An Lcd Screen Work
                   </a>
                   <p class="description">
@@ -331,12 +374,12 @@
                 <div class="author-info">
                   <div class="author-avatar">
                     <img
-                      src="../assets/images/avatar.jpg"
+                      src="../../assets/images/avatar.jpg"
                       alt="Author's Avatar"
                     />
                   </div>
-                  <div>
-                    <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify" ">
                     <i class="ri-checkbox-circle-fill"></i>
                     <p>Verified writer</p>
@@ -350,11 +393,11 @@
       </div>
       <div class="col-4 mt-5">
         <div class="card">
-          <img class="card-img" src="../assets/images/6.svg" />
+          <img class="card-img" src="../../assets/images/post/6.svg" />
           <div class="card-body">
             <div class="article-header">
               <div>
-                <a href="../user/post/index.html " class="link-to-detail">
+                <a href="../post/index.html " class="link-to-detail">
                   Headset No Longer Wired For Sound
                 </a>
                 <p class="description">
@@ -366,12 +409,12 @@
               <div class="author-info">
                 <div class="author-avatar">
                   <img
-                    src="../assets/images/avatar.jpg"
+                    src="../../assets/images/avatar.jpg"
                     alt="Author's Avatar"
                   />
                 </div>
-                <div>
-                  <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
+                <div id="author-name">
+                  <a href="#" class="author-name">VCCorp</a>
                   <div class="author-verify">
                     <i class="ri-checkbox-circle-fill"></i>
                     <p>Verified writer</p>
@@ -391,71 +434,118 @@
       </a>
     </div>
   </body>
-  <div class="footer-clean">
-    <footer>
-      <div class="container">
-        <div class="row-footer justify-content-center">
-          <div class="col-sm-4 col-md-3 item">
-            <h3>Product</h3>
-            <ul>
-              <li><a href="#">Landing Page</a></li>
-              <li><a href="#">Feature</a></li>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Referral Program</a></li>
-              <li><a href="#">Pricing</a></li>
-            </ul>
+ 
+  <!-- FOOTER SECTION START -->
+<footer>
+  <div class="footer__container">
+      <div class="footer__group-icon">
+          <div class="footer__logo">
+              <i class='bx bxl-c-plus-plus'></i>
+              <span>Coding Blog</span>
           </div>
-          <div class="col-sm-4 col-md-3 item">
-            <h3>Services</h3>
-            <ul>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Theme</a></li>
-              <li><a href="#">Illustrations</a></li>
-              <li><a href="#">UI Kit</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-3 item">
-            <h3>Company</h3>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Terms</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Careers</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-3 item">
-            <h3>More</h3>
-            <ul>
-              <li><a href="#">Documentation</a></li>
-              <li><a href="#">License</a></li>
-              <li><a href="#">Changelog</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-social justify-content-center">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-snapchat"></i>
-          <i class="fa-brands fa-telegram"></i>
-        </div>
-        <div class="company-info justify-content-center">
-          <i class="bx bxl-c-plus-plus"></i>
-          <span class="sidebar__logo-title">CodingBlog</span>
-        </div>
-        <div class="copyright justify-content-center">
-          <p>Copyright</p>
-          <i class="fa-regular fa-copyright"></i>
-          <p>2024</p>
-        </div>
+          <p>
+              Build a modern and creative website with crealand
+          </p>
       </div>
-    </footer>
+      <div class="footer__group">
+          <h3>Product</h3>
+          <ul>
+              <li>
+                  <a href="#">Landingpage</a>
+              </li>
+              <li>
+                  <a href="#">Features</a>
+              </li>
+              <li>
+                  <a href="#">Documentation</a>
+              </li>
+              <li>
+                  <a href="#">Referral Program</a>
+              </li>
+              <li>
+                  <a href="#">Pricing</a>
+              </li>
+          </ul>
+      </div>
+      <div class="footer__group">
+          <h3>Services</h3>
+          <ul>
+              <li>
+                  <a href="#">Documentation</a>
+              </li>
+              <li>
+                  <a href="#">Design</a>
+              </li>
+              <li>
+                  <a href="#">Themes</a>
+              </li>
+              <li>
+                  <a href="#">Illustrations</a>
+              </li>
+              <li>
+                  <a href="#">UI Kit</a>
+              </li>
+          </ul>
+      </div>
+      <div class="footer__group">
+          <h3>Company</h3>
+          <ul>
+              <li>
+                  <a href="#">About</a>
+              </li>
+              <li>
+                  <a href="#">Terms</a>
+              </li>
+              <li>
+                  <a href="#">Privacy Policy</a>
+              </li>
+              <li>
+                  <a href="#">Careers</a>
+              </li>
+          </ul>
+      </div>
+      <div class="footer__group">
+          <h3>More</h3>
+          <ul>
+              <li>
+                  <a href="#">Documentation</a>
+              </li>
+              <li>
+                  <a href="#">License</a>
+              </li>
+              <li>
+                  <a href="#">Changelog</a>
+              </li>
+          </ul>
+      </div>
   </div>
+  <div class="copyright">
+      <p>
+          Copyright © 2024.
+      </p>
+  </div>
+
+</footer>
+
+<!-- FOOTER SECTION END -->
 
   <script>
     function changeLanguage(language, flagPath) {
       const languageButton = document.getElementById("languageDropdown");
-      languageButton.innerHTML = `<img src="${flagPath}" alt="${language}" style="width: 20px;"> ${language}`;
+      languageButton.innerHTML = `<img src="${flagPath}" alt="${language}"> ${language} `;
     }
+
+    function changeLanguageResponsive(language, flagPath) {
+      const languageButtonResponsive = document.getElementById("languageDropdownResponsive");
+      languageButtonResponsive.innerHTML = `<img src="${flagPath}" alt="${language}" > ${language} `;
+    }
+
+ 
+    const iconBars = document.querySelector(".fa-bars");
+    const headerNav = document.querySelector("#header__nav");
+    iconBars.addEventListener("click", () => {
+      headerNav.classList.toggle("active");
+    });
   </script>
 </html>
+

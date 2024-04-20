@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <!-- config tailwind css -->
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="../../script/script.js"></script>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <section>
         <header class="header-container">
             <div>
-                <img src="../../assets/images/Logo.svg" alt="logo">
+                <img src="../../../assets/images/Logo.svg" alt="logo">
             </div>
             <div class="navbar">
                 <ul class="list">
@@ -48,41 +48,52 @@
         </header>
     </section>
 
-
     <!-- HEADER SECTION END -->
 
-    <!-- CHANGE PASSWORD FORM START -->
+    <!-- LOGIN FORM START -->
 
     <section class="form-section">
         <div class="form-container">
             <h1 class="form-title">
-                Change your password
+                Wellcome to ehya blog
             </h1>
             <form action="" class="form" method="POST" id="form">
                 <div class="form-group">
-                    <label for="password" class="form-label">
-                        Enter your new password
+                    <label for="email" class="form-label">
+                        Email
                     </label>
-                    <input type="password" id="password" placeholder="Enter new password" class="form-input" />
+                    <input type="email" id="email" placeholder="Enter Email" required class="form-input" />
+                    <div class="error"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="password" class="form-label">
-                        Confirm your new password
+                        Password
                     </label>
-                    <input type="password" id="password2" placeholder="Confirm your password" class="form-input" />
+                    <input type="password" id="password" placeholder="Enter Password" required class="form-input" />
+                    <div class="error"></div>
                 </div>
 
-                <button onclick="window.location='../sign-in/sign-in.html';" type="submit">
-                    Reset
+                <a href="../forgot-password/forgot-password.html" class="forgot-password">
+                    Forgot password?
+                </a>
+
+                <button type="submit">
+                    Sign in
                 </button>
+
+                <p class="mgs">
+                    Do not have an account ?
+                    <a href="#" class="sign-up">Sign up</a>
+                </p>
+
             </form>
         </div>
     </section>
 
 
 
-    <!-- CHANGE PASSWORD FORM END -->
+    <!-- LOGIN FORM END -->
 
 
     <!-- FOOTER SECTION START -->
@@ -161,7 +172,7 @@
             </div>
 
             <div class="footer-icon">
-                <img src="../../assets/images/Logo.svg" alt="logo" class="brightness-0 invert mx-auto md:mx-0" />
+                <img src="../../../assets/images/Logo.svg" alt="logo" class="brightness-0 invert mx-auto md:mx-0" />
                 <p>
                     Build a modern and creative website with crealand
                 </p>
@@ -175,8 +186,8 @@
 
         </footer>
     </section>
+
     <!-- FOOTER SECTION END -->
-    <script defer src="../../assets/js/validator.js"></script>
 </body>
 
 </html>
