@@ -25,125 +25,72 @@
 }
 
 /* ============================================ START OF HEADER =========================================== */
-
-.header {
+.header{
     margin: 0 150px;
-    padding: 35px 0;
-    display: flex;
+    padding: 36px 0;
+    display:flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .header .logo .bxl-c-plus-plus {
-    display: inline-block;
-  }
-  
-  .header i {
+}
+
+.header__nav i,.header__action i{
+    display:none;
+}
+.header__action{
     display: none;
-  }
-  
-  .header__action {
-    display: none;
-  }
-  
-  .header__logo {
-    width: 78px;
-    margin-top: 11px;
-  }
-  
-  .header__logo img {
-    width: 100%;
-    object-fit: contain;
-  }
-  
-  .header__nav {
-    margin-bottom: 0px;
-    display: flex;
-  }
-  
-  .header__nav li {
+}
+.header__logo{
+   display: flex;
+   align-items: center;
+   color:var(--blue-color);
+   font-size:20px;
+   font-weight:600;
+}
+
+.header__logo i{
+    font-size:39px;
+}
+
+.header__logo img{
+    width:100%;
+    object-fit: contain;    
+}   
+
+.header__nav{
+    display:flex;
+}
+
+.header__nav li{
     list-style: none;
-    padding: 13px 18px;
-    margin-left: 12px;
-    border-radius: 10px;
-  }
-  
-  .header__nav li a {
+    padding:13px 18px;
+    margin-left:12px;
+    border-radius:10px;
+}
+.header__nav li a{
     text-decoration: none;
-    color: #1c3a5c;
-    font-weight: 500;
-  }
-  
-  .header__nav li:not(:last-child):hover {
-    background: #f3f4f4;
-    cursor: pointer;
-  }
-  
-  .header__nav li:last-child a {
-    justify-content: center;
-    color: #1565d8;
-    font-weight: 800;
-    padding: 10px 25px;
-    border: 2px solid #1565d8;
-    border-radius: 16px;
-    font-size: 16px;
-  }
-  
-  .header__nav li:last-child:hover a {
-    overflow: hidden;
-    background: #1565d8;
-    color: #fff;
-  }
-  
-  .header__nav .dropdown a i {
-    display: block;
-  }
-  
-  .wrapper .header .header__nav .has-children,
-  .wrapper .header .header__nav .has-children:hover {
-    background: none;
-    margin-top: 7px;
-    padding: 0;
-  }
-  .has-children .dropdown img {
-    margin-bottom: 2px;
-    width: 32px;
-  }
-  .wrapper .header__nav .has-children .dropdown-menu {
-    margin-left: -3px;
-    padding: 0;
-  }
-  .wrapper .header__nav .has-children .dropdown .btn-secondary {
-    padding-bottom: 0;
-    color: #000;
-    background-color: #bdfdff;
-    border: none;
-  }
-  
-  .wrapper .header__nav .has-children .dropdown a:hover {
-    background-color: #c7bbe7;
-  }
-  .has-children .dropdown .dropdown-item {
-    padding: 10px 10px;
-  }
-  
-  .header__action .fa-solid.fa-user{
-    font-size: 23px;
-  }
-  
-  .logo {
-    display: inline-flex;
-    align-items: center;
-    float: left;
-    color: var(--blue-color);
-    font-weight: 600;
-    font-size: 26px;
-  }
-  
-  .logo i {
-    /* margin-top: 4px; */
-    font-size: 36px;
-  }
+    color:#1C3A5C;
+    font-weight:500;
+}
+
+.header__nav li:not(:last-child):hover{
+    background:#F3F4F4;
+    cursor:pointer;
+}
+
+.header__nav li:last-child a{
+    color:#1565D8;
+    font-weight:800;
+    padding:10px 35px;
+    border: 2px solid #1565D8;
+    border-radius:16px;
+    font-size:16px;
+}
+
+.header__nav li:last-child:hover a{
+    overflow:hidden;
+    background:#1565D8;
+    color:#fff;
+}
 
 
 /* ============================================ END OF HEADER =========================================== */
@@ -161,7 +108,6 @@
    text-align:center;
    font-size:30px;
    color: #0D2436;
-   font-weight:bold;
 }
 
 .form__container{
@@ -236,8 +182,6 @@
 
 /* ============================================ START OF FOOTER =========================================== */
 footer{
-    margin-top:50px;
-    padding: 30px 150px ;
     display:flex;
     flex-direction:column;
     background-color:#0D2436;
@@ -251,6 +195,7 @@ footer{
     display:grid;
     gap:40px;
     margin-bottom:10px;
+    padding:20px 20px;
 }
 
 .footer__group-icon .footer__logo{
@@ -279,12 +224,6 @@ color:#1565D8;
     list-style:none;
   
 }
-
-.footer__group ul li:first-child a{
-  font-size:17px;
-  font-weight:600;
-  color: #5A7184;
-}
 .footer__group li a{
     text-decoration:none;
     color:#959ead;
@@ -307,14 +246,6 @@ color:#1565D8;
         padding: 28px 0;
         margin: 0 100px;
     }
-
-    .footer__container{
-        gap:30px;
-       
-      }
-      footer{
-        padding: 30px 100px;
-      }
 
  }
 
