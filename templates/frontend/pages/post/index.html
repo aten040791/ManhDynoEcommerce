@@ -8,21 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <title>Detail Post</title>
 </head>
 
 <body>
     <div class="header">
         <div class="header__logo">
-            <img src="../../assets/images/logo/logo.svg" />
+            <i class='bx bxl-c-plus-plus'></i>
+            <span>Coding Blog</span>
         </div>
         <ul class="header__nav" id="header__nav">
-            <li><a href="../../home/index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="../home/index.html"><i class="fa-solid fa-house"></i>Home</a></li>
             <li><a href="#"><i class="fa-solid fa-circle-info"></i>About</a></li>
             <li><a href="../category/index.html"><i class="fa-solid fa-list"></i>Categories</a></li>
             <li><a href="#"><i class="fa-regular fa-message"></i>Contact</a></li>
             <li><a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a></li>
-            <li><a href="../../../backend/owner/pages/sign-in/index.html">Sign In</a></li>
+            <li><a href="../auth/sign-in/sign-in.html">Sign In</a></li>
         </ul>
         <div class="header__action">
             <i class="fa-solid fa-user hide"></i>
@@ -32,7 +34,11 @@
     <div class="container">
         <div class="post">
             <div class="breadcrumb">
-                <span> Home / Blog / Education</span>
+                <span>
+                    <a href="../home/index.html">Home</a>
+                    /<a href="../category/"> Education</a>
+                    /<a href="index.html"> Help children get better education</a>
+                </span>
             </div>
             <div class="image">
                 <img src="../../assets/images/post/lap-top-education.jpg" alt="">
@@ -73,8 +79,8 @@
             <div class="title">
                 Latest Post
             </div>
-            <div class="articles__grid">
-                <div class="article__item">
+            <div class="articles__list">
+                <a class="article__item" href="index.html">
                     <div class="article__item-img">
                         <img src="../../assets/images/article/machine.png" />
                     </div>
@@ -87,8 +93,9 @@
                             Jun 27, 2022
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
+
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/girl.png" />
                     </div>
@@ -101,8 +108,8 @@
                             Jun 27, 2022
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/man.png" />
                     </div>
@@ -115,8 +122,9 @@
                             Jun 26, 2019
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
+
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/ipad.png" />
                     </div>
@@ -129,8 +137,9 @@
                             Nov 11, 2022
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
+
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/figma-icon.png" />
                     </div>
@@ -143,7 +152,8 @@
                             Jun 05, 2024
                         </span>
                     </div>
-                </div>
+                </a>
+
             </div>
             <div class="tags">
                 <div class="title">
@@ -151,39 +161,41 @@
                 </div>
                 <ul>
                     <li>
-                        <span class="medical">
+                        <a href="../category/index.html">
                             Medical
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="lifestyle">
+
+                        <a href="../category/index.html">
                             Lifestyle
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="learn">
+
+                        <a href="../category/index.html">
                             Learn
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="healthy">
+                        <a href="../category/index.html">
                             Healthy
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="food">
+                        <a href="../category/index.html">
                             Food
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="diet">
+                        <a href="../category/index.html">
                             Diet
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="education">
+                        <a href="../category/index.html">
                             Education
-                        </span>
+                        </a>
                     </li>
                 </ul>
             </div>

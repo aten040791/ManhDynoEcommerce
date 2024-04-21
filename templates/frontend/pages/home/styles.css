@@ -217,6 +217,7 @@ nav ul li a:hover {
   display: none;
 }
 
+
 .sign-in {
   margin-right: 20px;
 }
@@ -238,9 +239,11 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
 }
+
 .dropdown .dropdown-btn i {
   display: block;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -275,6 +278,7 @@ nav ul li a:hover {
   border-bottom-right-radius: 4px;
 }
 
+
 .dropdown:hover .dropbtn {
   background-color: #f8f8f8;
 }
@@ -286,7 +290,6 @@ nav ul li a:hover {
   align-items: center;
   justify-content: space-between;
   background-color: #f9fcfe;
-  /* padding-bottom: 20px; */
 
   /* padding: 20px; */
   /* max-width: 1200px; */
@@ -295,6 +298,7 @@ nav ul li a:hover {
 
 .left-column-container {
   /* height: 470px; */
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -386,7 +390,8 @@ input:focus {
 
 .popular-tags {
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 100px;
+  margin-bottom: 20px;
 }
 
 .popular-tags span {
@@ -494,10 +499,12 @@ input:focus {
 .card .card-body #author-name {
   max-width: 50%;
 }
+
 .card .card-body .author-name {
   font-style: italic;
   font-weight: 600;
   margin: 0;
+
   color: #5a7184;
   font-size: 18px;
 }
@@ -518,11 +525,13 @@ input:focus {
   justify-content: center;
   margin: 20px 0 20px 0; /* Or as much as needed for vertical alignment */
 }
+
 .row .card .card-img {
   border-radius: 1.25rem 1.25rem 0 0;
   height: 350px;
   object-fit: cover;
 }
+
 .centered-btn .custom-btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -769,6 +778,7 @@ color:#1565D8;
     display: none;
   }
 
+
   .container-fluid .row {
     margin: 0;
   }
@@ -802,6 +812,7 @@ color:#1565D8;
   .card-body .article-header p {
     font-size: 14px;
   }
+
 
 
   .footer__container{
@@ -861,6 +872,7 @@ color:#1565D8;
     width: 100%; /* Menu chiếm toàn bộ chiều rộng */
   }
 
+
   nav ul {
     line-height: 30px;
   }
@@ -869,7 +881,9 @@ color:#1565D8;
     width: 100%; /* Mỗi li chiếm toàn bộ chiều rộng */
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
     /* z-index: 1; */
+
     border-radius: 5px;
+
   }
 
   #navbar li:last-child {
@@ -927,30 +941,6 @@ color:#1565D8;
 }
 
 @media (max-width: 768px) {
-  footer .footer__container .footer__group .h3, 
-  footer .footer__container .footer__group h3 {
-    font-size: 20px;
-}
-  .container-fluid .row {
-    /* margin-top: 30px; */
-  }
-  .container-fluid .col-4.mt-5 {
-    padding: 0;
-  }
-  .footer-clean .row-footer {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .card .card-body .author-name {
-    font-size: 18px;
-  }
-
-  .row .card .card-body #author-name {
-    max-width: 60%;
-  }
-  .card .card-body .author-verify p {
-    font-size: 14px;
-  }
   .hamburger-menu {
     margin-right: 30px;
   }
@@ -986,6 +976,7 @@ color:#1565D8;
 }
 
 
+
 @media (max-width: 500px) {
   .main-container p {
     margin-top: 0;
@@ -1004,6 +995,7 @@ color:#1565D8;
   .card .card-body .author-verify p {
     font-size: 14px;
   }
+
   .wrapper nav .navbar .logo {
     margin-left: 10px;
     margin-right: 0;
@@ -1040,6 +1032,7 @@ color:#1565D8;
     margin-right: 0;
   }
 }
+
 
 @media (max-width: 426px) {
   #author-name {
@@ -1153,3 +1146,4 @@ color:#1565D8;
     grid-template-columns:1fr;
 }
 }
+
