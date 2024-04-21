@@ -18,6 +18,7 @@
   --grey-light-color-2: #f3f3f9;
 }
 
+
 .hide {
   display: none;
 }
@@ -237,9 +238,6 @@ nav ul li a:hover {
 .dropdown-btn {
   display: flex;
   align-items: center;
-}
-.dropdown .dropdown-btn i {
-  display: block;
 }
 .dropdown-content {
   display: none;
