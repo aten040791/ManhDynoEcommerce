@@ -1,61 +1,59 @@
-const form = document.getElementById('form');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const password2 = document.getElementById('password2');
-
-form.addEventListener('submit', e => {
+const form = document.getElementById("form");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const errorEmail = document.querySelector(".form__email-error");
+const errorPassword = document.querySelector(".form__password-error");
+form.addEventListener("submit", (e) => {
+  const status = validateInputs();
+  if (!status) {
     e.preventDefault();
-    validateInputs();
+  }
 });
 
-const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-    errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success')
+function setError(element, errorMessage) {
+  const parent = element.parentElement;
+  if (parent.classList.contains("success")) {
+    parent.classList.remove("success");
+  }
+  parent.classList.add("error");
+  const errorMsg = parent.querySelector(".error");
+  errorMsg.innerText = errorMessage;
 }
 
-const setSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-    errorDisplay.innerText = '';
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
+function setSuccess(element) {
+  const parent = element.parentElement;
+  if (parent.classList.contains("error")) {
+    parent.classList.remove("error");
+  }
+  parent.classList.add("success");
+}
+const isValidEmail = (email) => {
+  const RegexEmail = /^[a-zA-Z0-9_-]{6,}@[a-zA-Z]+.[a-zA-Z]{2,}$/;
+  return RegexEmail.test(String(email).toLowerCase());
 };
 
-const isValidEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
 const validateInputs = () => {
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    const password2Value = password2.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  let status = true;
+  if (emailValue === "") {
+    setError(email, "Email is required");
+    status = false;
+  } else if (!isValidEmail(emailValue)) {
+    setError(email, "Email is not valid");
+    status = false;
+  } else {
+    setSuccess(email);
+  }
 
-    if (emailValue === '') {
-        setError(email, 'Email is required');
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
-    } else {
-        setSuccess(email);
-    }
-
-    if (passwordValue === '') {
-        setError(password, 'Password is required');
-    } else if (passwordValue.length < 8) {
-        setError(password, 'Password must be at least 8 character.')
-    } else {
-        setSuccess(password);
-    }
-
-    if (password2Value === '') {
-        setError(password2, 'Please confirm your password');
-    } else if (password2Value !== passwordValue) {
-        setError(password2, "Passwords doesn't match");
-    } else {
-        setSuccess(password2);
-    }
-
+  if (passwordValue === "") {
+    setError(password, "Password is required");
+    status = false;
+  } else if (passwordValue.length < 8) {
+    status = false;
+    setError(password, "Password must be at least 8 character");
+  } else {
+    setSuccess(password);
+  }
+  return status;
 };
