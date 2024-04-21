@@ -1,175 +1,125 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Home</title>
-    <link rel="stylesheet" href="./styles.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </head>
 
-  <body>
-    <div class="wrapper">
-      <div class="header">
-        <div class="logo">
-          <i class="bx bxl-c-plus-plus"></i>
-          <span class="sidebar__logo-title">Coding Blog</span>
-        </div>
-        <ul class="header__nav" id="header__nav">
-          <li>
-            <a href="./index.html"><i class="fa-solid fa-house"></i>Home</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-circle-info"></i>About</a>
-          </li>
-          <li>
-            <a href="../category/index.html"
-              ><i class="fa-solid fa-list"></i>Categories</a
-            >
-          </li>
-          <li>
-            <a href="#"><i class="fa-regular fa-message"></i>Contact</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a>
-          </li>
-          <li class="has-children">
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="languageDropdown"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <img
-                  src="../../../backend/owner/assets/images/flags/US.png"
-                  alt="English"
-                  
-                />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Home</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="logo">
+        <i class="bx bxl-c-plus-plus"></i>
+        <span class="sidebar__logo-title">Coding Blog</span>
+      </div>
+      <ul class="header__nav" id="header__nav">
+        <li>
+          <a href="./index.html"><i class="fa-solid fa-house"></i>Home</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-circle-info"></i>About</a>
+        </li>
+        <li>
+          <a href="../category/index.html"><i class="fa-solid fa-list"></i>Categories</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-regular fa-message"></i>Contact</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a>
+        </li>
+        <li class="has-children">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+              English
+            </button>
+            <div class="dropdown-menu" aria-labelledby="languageDropdown">
+              <a class="dropdown-item" href="#"
+                onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')">
+                <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
                 English
-              </button>
-              <div class="dropdown-menu" aria-labelledby="languageDropdown">
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')"
-                >
-                  <img
-                    src="../../../backend/owner/assets/images/flags/US.png"
-                    alt="English"
-                    
-                  />
-                  English
-                </a>
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')"
-                >
-                  <img
-                    src="../../../backend/owner/assets/images/flags/VN.png"
-                    alt="Tiếng Việt"
-                   
-                  />
-                  Tiếng Việt
-                </a>
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  onclick="changeLanguage('Français', '../../../backend/owner/assets/images/flags/FR.png')"
-                >
-                  <img
-                    src="../../../backend/owner/assets/images/flags/FR.png"
-                    alt="French"
-                   
-                  />
-                  Français
-                </a>
-              </div>
+              </a>
+              <a class="dropdown-item" href="#"
+                onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
+                <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
+                Tiếng Việt
+              </a>
+              <a class="dropdown-item" href="#"
+                onclick="changeLanguage('Français', '../../../backend/owner/assets/images/flags/FR.png')">
+                <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
+                Français
+              </a>
             </div>
-          </li>
-          <li>
-            <a href="../auth/sign-in/sign-in.html"
-              >Sign In</a
-            >
-          </li>
+          </div>
+        </li>
+        <li>
+          <a href="../auth/sign-in/sign-in.html">Sign In</a>
+        </li>
+      </ul>
+      <div class="header__action">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdownResponsive"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+
+          </button>
+          <div class="dropdown-menu" aria-labelledby="languageDropdown">
+            <a class="dropdown-item" href="#"
+              onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/US.png')">
+              <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+              English
+            </a>
+            <a class="dropdown-item" href="#"
+              onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/VN.png')">
+              <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
+              Tiếng Việt
+            </a>
+            <a class="dropdown-item" href="#"
+              onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/FR.png')">
+              <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
+              Français
+            </a>
+          </div>
+        </div>
+        </li>
+        <li>
+          <a href="../auth/sign-in/sign-in.html">Sign In</a>
+        </li>
         </ul>
         <div class="header__action">
           <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="languageDropdownResponsive"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <img
-                src="../../../backend/owner/assets/images/flags/US.png"
-                alt="English"
-                
-              />
-              
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdownResponsive"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+
             </button>
             <div class="dropdown-menu" aria-labelledby="languageDropdown">
-              <a
-                class="dropdown-item"
-                href="#"
-                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/US.png')"
-              >
-                <img
-                  src="../../../backend/owner/assets/images/flags/US.png"
-                  alt="English"
-                  
-                />
+              <a class="dropdown-item" href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/US.png')">
+                <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
                 English
               </a>
-              <a
-                class="dropdown-item"
-                href="#"
-                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/VN.png')"
-              >
-                <img
-                  src="../../../backend/owner/assets/images/flags/VN.png"
-                  alt="Tiếng Việt"
-                  
-                />
+              <a class="dropdown-item" href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/VN.png')">
+                <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
                 Tiếng Việt
               </a>
-              <a
-                class="dropdown-item"
-                href="#"
-                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/FR.png')"
-              >
-                <img
-                  src="../../../backend/owner/assets/images/flags/FR.png"
-                  alt="French"
-                  
-                />
+              <a class="dropdown-item" href="#"
+                onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/FR.png')">
+                <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
                 Français
               </a>
             </div>
@@ -190,11 +140,7 @@
             </p>
             <div class="search-bar">
               <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input
-                type="text"
-                placeholder="Search article"
-                class="search-input"
-              />
+              <input type="text" placeholder="Search article" class="search-input" />
               <button class="search-button">Search</button>
             </div>
 
@@ -207,10 +153,7 @@
           </div>
         </div>
         <div class="right-column-container">
-          <img
-            src="../../assets/images/LIve Chat.svg"
-            alt="Descriptive Alt Text"
-          />
+          <img src="../../assets/images/LIve Chat.svg" alt="Descriptive Alt Text" />
         </div>
       </div>
     </div>
@@ -223,8 +166,7 @@
             <div class="card-body">
               <div class="article-header">
                 <div>
-                  <a href="../post/index.html " class="link-to-detail"
-                    >Future of Work
+                  <a href="../post/index.html " class="link-to-detail">Future of Work
                   </a>
                   <p class="description">
                     Majority of people will work in jobs that don't exist today.
@@ -233,10 +175,7 @@
               </div>
               <div class="author-info">
                 <div class="author-avatar">
-                  <img
-                    src="../../assets/images/avatar.jpg"
-                    alt="Author's Avatar"
-                  />
+                  <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
                 </div>
                 <div id="author-name">
                   <a href="#" class="author-name">Địch Lệ Nhiệt Ba</a>
@@ -267,10 +206,7 @@
 
                 <div class="author-info">
                   <div class="author-avatar">
-                    <img
-                      src="../../assets/images/avatar.jpg"
-                      alt="Author's Avatar"
-                    />
+                    <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
                   </div>
                   <div id="author-name">
                     <a href="#" class="author-name">VCCorp</a>
@@ -302,10 +238,7 @@
 
                 <div class="author-info">
                   <div class="author-avatar">
-                    <img
-                      src="../../assets/images/avatar.jpg"
-                      alt="Author's Avatar"
-                    />
+                    <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
                   </div>
                   <div id="author-name">
                     <a href="#" class="author-name">VCCorp</a>
@@ -337,10 +270,7 @@
 
                 <div class="author-info">
                   <div class="author-avatar">
-                    <img
-                      src="../../assets/images/avatar.jpg"
-                      alt="Author's Avatar"
-                    />
+                    <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
                   </div>
                   <div id="author-name">
                     <a href="#" class="author-name">VCCorp</a>
@@ -372,179 +302,173 @@
 
                 <div class="author-info">
                   <div class="author-avatar">
-                    <img
-                      src="../../assets/images/avatar.jpg"
-                      alt="Author's Avatar"
-                    />
+                    <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
                   </div>
                   <div id="author-name">
                     <a href="#" class="author-name">VCCorp</a>
                     <div class="author-verify" ">
-                    <i class="ri-checkbox-circle-fill"></i>
-                    <p>Verified writer</p>
+                    <i class=" ri-checkbox-circle-fill"></i>
+                      <p>Verified writer</p>
+                    </div>
                   </div>
+                  <div class="publish-date">02 May</div>
                 </div>
-                <div class="publish-date">02 May</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 mt-5">
+          <div class="card">
+            <img class="card-img" src="../../assets/images/post/6.svg" />
+            <div class="card-body">
+              <div class="article-header">
+                <div>
+                  <a href="../post/index.html " class="link-to-detail">
+                    Headset No Longer Wired For Sound
+                  </a>
+                  <p class="description">
+                    A constant ability to learn will be on the most crucial
+                    skills.
+                  </p>
+                </div>
+
+                <div class="author-info">
+                  <div class="author-avatar">
+                    <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
+                  </div>
+                  <div id="author-name">
+                    <a href="#" class="author-name">VCCorp</a>
+                    <div class="author-verify">
+                      <i class="ri-checkbox-circle-fill"></i>
+                      <p>Verified writer</p>
+                    </div>
+                  </div>
+                  <div class="publish-date">02 May</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-4 mt-5">
-        <div class="card">
-          <img class="card-img" src="../../assets/images/post/6.svg" />
-          <div class="card-body">
-            <div class="article-header">
-              <div>
-                <a href="../post/index.html " class="link-to-detail">
-                  Headset No Longer Wired For Sound
-                </a>
-                <p class="description">
-                  A constant ability to learn will be on the most crucial
-                  skills.
-                </p>
-              </div>
 
-              <div class="author-info">
-                <div class="author-avatar">
-                  <img
-                    src="../../assets/images/avatar.jpg"
-                    alt="Author's Avatar"
-                  />
-                </div>
-                <div id="author-name">
-                  <a href="#" class="author-name">VCCorp</a>
-                  <div class="author-verify">
-                    <i class="ri-checkbox-circle-fill"></i>
-                    <p>Verified writer</p>
-                  </div>
-                </div>
-                <div class="publish-date">02 May</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="centered-btn">
+        <a href="#" class="custom-btn">
+          More articles <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
-    </div>
+</body>
 
-    <div class="centered-btn">
-      <a href="#" class="custom-btn">
-        More articles <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-  </body>
- 
-  <!-- FOOTER SECTION START -->
+<!-- FOOTER SECTION START -->
 <footer>
   <div class="footer__container">
-      <div class="footer__group-icon">
-          <div class="footer__logo">
-              <i class='bx bxl-c-plus-plus'></i>
-              <span>Coding Blog</span>
-          </div>
-          <p>
-              Build a modern and creative website with crealand
-          </p>
+    <div class="footer__group-icon">
+      <div class="footer__logo">
+        <i class='bx bxl-c-plus-plus'></i>
+        <span>Coding Blog</span>
       </div>
-      <div class="footer__group">
-          <h3>Product</h3>
-          <ul>
-              <li>
-                  <a href="#">Landingpage</a>
-              </li>
-              <li>
-                  <a href="#">Features</a>
-              </li>
-              <li>
-                  <a href="#">Documentation</a>
-              </li>
-              <li>
-                  <a href="#">Referral Program</a>
-              </li>
-              <li>
-                  <a href="#">Pricing</a>
-              </li>
-          </ul>
-      </div>
-      <div class="footer__group">
-          <h3>Services</h3>
-          <ul>
-              <li>
-                  <a href="#">Documentation</a>
-              </li>
-              <li>
-                  <a href="#">Design</a>
-              </li>
-              <li>
-                  <a href="#">Themes</a>
-              </li>
-              <li>
-                  <a href="#">Illustrations</a>
-              </li>
-              <li>
-                  <a href="#">UI Kit</a>
-              </li>
-          </ul>
-      </div>
-      <div class="footer__group">
-          <h3>Company</h3>
-          <ul>
-              <li>
-                  <a href="#">About</a>
-              </li>
-              <li>
-                  <a href="#">Terms</a>
-              </li>
-              <li>
-                  <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                  <a href="#">Careers</a>
-              </li>
-          </ul>
-      </div>
-      <div class="footer__group">
-          <h3>More</h3>
-          <ul>
-              <li>
-                  <a href="#">Documentation</a>
-              </li>
-              <li>
-                  <a href="#">License</a>
-              </li>
-              <li>
-                  <a href="#">Changelog</a>
-              </li>
-          </ul>
-      </div>
+      <p>
+        Build a modern and creative website with crealand
+      </p>
+    </div>
+    <div class="footer__group">
+      <h3>Product</h3>
+      <ul>
+        <li>
+          <a href="#">Landingpage</a>
+        </li>
+        <li>
+          <a href="#">Features</a>
+        </li>
+        <li>
+          <a href="#">Documentation</a>
+        </li>
+        <li>
+          <a href="#">Referral Program</a>
+        </li>
+        <li>
+          <a href="#">Pricing</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer__group">
+      <h3>Services</h3>
+      <ul>
+        <li>
+          <a href="#">Documentation</a>
+        </li>
+        <li>
+          <a href="#">Design</a>
+        </li>
+        <li>
+          <a href="#">Themes</a>
+        </li>
+        <li>
+          <a href="#">Illustrations</a>
+        </li>
+        <li>
+          <a href="#">UI Kit</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer__group">
+      <h3>Company</h3>
+      <ul>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Terms</a>
+        </li>
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="#">Careers</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer__group">
+      <h3>More</h3>
+      <ul>
+        <li>
+          <a href="#">Documentation</a>
+        </li>
+        <li>
+          <a href="#">License</a>
+        </li>
+        <li>
+          <a href="#">Changelog</a>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="copyright">
-      <p>
-          Copyright © 2024.
-      </p>
+    <p>
+      Copyright © 2024.
+    </p>
   </div>
 
 </footer>
 
 <!-- FOOTER SECTION END -->
 
-  <script>
-    function changeLanguage(language, flagPath) {
-      const languageButton = document.getElementById("languageDropdown");
-      languageButton.innerHTML = `<img src="${flagPath}" alt="${language}"> ${language} `;
-    }
+<script>
+  function changeLanguage(language, flagPath) {
+    const languageButton = document.getElementById("languageDropdown");
+    languageButton.innerHTML = `<img src="${flagPath}" alt="${language}"> ${language} `;
+  }
 
-    function changeLanguageResponsive(language, flagPath) {
-      const languageButtonResponsive = document.getElementById("languageDropdownResponsive");
-      languageButtonResponsive.innerHTML = `<img src="${flagPath}" alt="${language}" > ${language} `;
-    }
+  function changeLanguageResponsive(language, flagPath) {
+    const languageButtonResponsive = document.getElementById("languageDropdownResponsive");
+    languageButtonResponsive.innerHTML = `<img src="${flagPath}" alt="${language}" > ${language} `;
+  }
 
- 
-    const iconBars = document.querySelector(".fa-bars");
-    const headerNav = document.querySelector("#header__nav");
-    iconBars.addEventListener("click", () => {
-      headerNav.classList.toggle("active");
-    });
-  </script>
+
+  const iconBars = document.querySelector(".fa-bars");
+  const headerNav = document.querySelector("#header__nav");
+  iconBars.addEventListener("click", () => {
+    headerNav.classList.toggle("active");
+  });
+</script>
+
 </html>
-

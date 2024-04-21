@@ -859,6 +859,7 @@ color:#1565D8;
     width: 100%; /* Menu chiếm toàn bộ chiều rộng */
   }
 
+
   nav ul {
     line-height: 30px;
   }
@@ -867,7 +868,9 @@ color:#1565D8;
     width: 100%; /* Mỗi li chiếm toàn bộ chiều rộng */
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
     /* z-index: 1; */
+
     border-radius: 5px;
+
   }
 
   #navbar li:last-child {

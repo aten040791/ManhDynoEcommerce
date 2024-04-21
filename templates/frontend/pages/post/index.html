@@ -5,34 +5,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <title>Detail Post</title>
 </head>
 
 <body>
-    <div class="header">
-        <div class="header__logo">
-            <img src="../../assets/images/logo/logo.svg" />
-        </div>
-        <ul class="header__nav" id="header__nav">
-            <li><a href="../../home/index.html"><i class="fa-solid fa-house"></i>Home</a></li>
-            <li><a href="#"><i class="fa-solid fa-circle-info"></i>About</a></li>
-            <li><a href="../category/index.html"><i class="fa-solid fa-list"></i>Categories</a></li>
-            <li><a href="#"><i class="fa-regular fa-message"></i>Contact</a></li>
-            <li><a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a></li>
-            <li><a href="../../../backend/owner/pages/sign-in/index.html">Sign In</a></li>
-        </ul>
-        <div class="header__action">
-            <i class="fa-solid fa-user hide"></i>
-            <i class="fa-solid fa-bars hide"></i>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                <i class="bx bxl-c-plus-plus"></i>
+                <span class="sidebar__logo-title">Coding Blog</span>
+            </div>
+            <ul class="header__nav" id="header__nav">
+                <li>
+                    <a href="./index.html"><i class="fa-solid fa-house"></i>Home</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-circle-info"></i>About</a>
+                </li>
+                <li>
+                    <a href="../category/index.html"><i class="fa-solid fa-list"></i>Categories</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-regular fa-message"></i>Contact</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a>
+                </li>
+                <li class="has-children">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+                            English
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <a class="dropdown-item" href="#"
+                                onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')">
+                                <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+                                English
+                            </a>
+                            <a class="dropdown-item" href="#"
+                                onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
+                                <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
+                                Tiếng Việt
+                            </a>
+                            <a class="dropdown-item" href="#"
+                                onclick="changeLanguage('Français', '../../../backend/owner/assets/images/flags/FR.png')">
+                                <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
+                                Français
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="../auth/sign-in/index.html">Sign In</a>
+                </li>
+            </ul>
+            <div class="header__action">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdownResponsive"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <a class="dropdown-item" href="#"
+                            onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/US.png')">
+                            <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+                            English
+                        </a>
+                        <a class="dropdown-item" href="#"
+                            onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/VN.png')">
+                            <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
+                            Tiếng Việt
+                        </a>
+                        <a class="dropdown-item" href="#"
+                            onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/FR.png')">
+                            <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
+                            Français
+                        </a>
+                    </div>
+                </div>
+                <i class="fa-solid fa-user hide"></i>
+                <i class="fa-solid fa-bars hide"></i>
+            </div>
         </div>
     </div>
-    <div class="container">
-        <div class="post">
-            <div class="breadcrumb">
-                <span> Home / Blog / Education</span>
+    <div class="post__main">
+        <div class="post__container">
+            <div class="post__breadcrumb">
+                <span>
+                    <a class="text-decoration-none" href="../home/index.html">Home</a>
+                    /<a class="text-decoration-none" href="../category/"> Education</a>
+                    /<a class="text-decoration-none" href="index.html"> Help children get better education</a>
+                </span>
             </div>
             <div class="image">
                 <img src="../../assets/images/post/lap-top-education.jpg" alt="">
@@ -73,8 +146,8 @@
             <div class="title">
                 Latest Post
             </div>
-            <div class="articles__grid">
-                <div class="article__item">
+            <div class="articles__list">
+                <a class="article__item" href="index.html">
                     <div class="article__item-img">
                         <img src="../../assets/images/article/machine.png" />
                     </div>
@@ -87,8 +160,9 @@
                             Jun 27, 2022
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
+
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/girl.png" />
                     </div>
@@ -101,8 +175,8 @@
                             Jun 27, 2022
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/man.png" />
                     </div>
@@ -115,8 +189,9 @@
                             Jun 26, 2019
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
+
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/ipad.png" />
                     </div>
@@ -129,8 +204,9 @@
                             Nov 11, 2022
                         </span>
                     </div>
-                </div>
-                <div class="article__item">
+                </a>
+                <a class="article__item" href="index.html">
+
                     <div class="article__item-img">
                         <img class="gallery" src="../../assets/images/article/figma-icon.png" />
                     </div>
@@ -143,7 +219,8 @@
                             Jun 05, 2024
                         </span>
                     </div>
-                </div>
+                </a>
+
             </div>
             <div class="tags">
                 <div class="title">
@@ -151,45 +228,154 @@
                 </div>
                 <ul>
                     <li>
-                        <span class="medical">
+                        <a href="../category/index.html">
                             Medical
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="lifestyle">
+
+                        <a href="../category/index.html">
                             Lifestyle
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="learn">
+
+                        <a href="../category/index.html">
                             Learn
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="healthy">
+                        <a href="../category/index.html">
                             Healthy
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="food">
+                        <a href="../category/index.html">
                             Food
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="diet">
+                        <a href="../category/index.html">
                             Diet
-                        </span>
+                        </a>
                     </li>
                     <li>
-                        <span class="education">
+                        <a href="../category/index.html">
                             Education
-                        </span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
+
+        <!-- FOOTER SECTION START -->
+
+
+        <!-- FOOTER SECTION END -->
     </div>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__group-icon">
+                <div class="footer__logo">
+                    <i class='bx bxl-c-plus-plus'></i>
+                    <span>Coding Blog</span>
+                </div>
+                <p>
+                    Build a modern and creative website with crealand
+                </p>
+            </div>
+            <div class="footer__group">
+
+                <ul>
+                    <li><a href="#">Product</a></li>
+                    <li>
+                        <a href="#">Landingpage</a>
+                    </li>
+                    <li>
+                        <a href="#">Features</a>
+                    </li>
+                    <li>
+                        <a href="#">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#">Referral Program</a>
+                    </li>
+                    <li>
+                        <a href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__group">
+
+                <ul>
+                    <li><a href="#">Services</a></li>
+                    <li>
+                        <a href="#">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#">Design</a>
+                    </li>
+                    <li>
+                        <a href="#">Themes</a>
+                    </li>
+                    <li>
+                        <a href="#">Illustrations</a>
+                    </li>
+                    <li>
+                        <a href="#">UI Kit</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__group">
+
+                <ul>
+                    <li><a href="#">Company</a></li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Careers</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__group">
+
+                <ul>
+                    <li><a href="#">More</a></li>
+                    <li>
+                        <a href="#">Documentation</a>
+                    </li>
+                    <li>
+                        <a href="#">License</a>
+                    </li>
+                    <li>
+                        <a href="#">Changelog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>
+                Copyright © 2024.
+            </p>
+        </div>
+
+    </footer>
     <script>
+        function changeLanguage(language, flagPath) {
+            const languageButton = document.getElementById("languageDropdown");
+            languageButton.innerHTML = `<img src="${flagPath}" alt="${language}"> ${language} `;
+        }
+        function changeLanguageResponsive(language, flagPath) {
+            const languageButtonResponsive = document.getElementById("languageDropdownResponsive");
+            languageButtonResponsive.innerHTML = `<img src="${flagPath}" alt="${language}" > ${language} `;
+        }
         const iconBars = document.querySelector(".fa-bars");
         const headerNav = document.querySelector("#header__nav");
         iconBars.addEventListener("click", () => {
