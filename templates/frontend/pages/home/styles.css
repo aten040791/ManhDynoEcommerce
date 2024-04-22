@@ -26,7 +26,6 @@ body {
   font-weight: lighter;
 }
 
-
 /* ======================================================= START OF HEADER ============================================================= */
 /* Base styles for entire header */
 .header {
@@ -115,11 +114,12 @@ body {
   width: 32px;
 }
 
-.btn-secondary:not(:disabled):not(.disabled).active:focus, 
-.btn-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
 .show > .btn-secondary.dropdown-toggle:focus,
-.btn-secondary.focus, .btn-secondary:focus{
-  box-shadow:none !important;
+.btn-secondary.focus,
+.btn-secondary:focus {
+  box-shadow: none !important;
 }
 .wrapper .header__nav .has-children .dropdown-menu {
   margin-left: 1px;
@@ -289,11 +289,9 @@ nav ul li a:hover {
   background-color: #f8f8f8;
 }
 
-
 /* ==============================================================================END OF HEADER=========================================================*/
 
 /* ==============================================================================GIỚI THIỆU TRANG======================================================*/
-
 
 /* Main container styles */
 .main-container {
@@ -427,15 +425,7 @@ input:focus {
   background-color: #e2e2e2; /* Adjust as necessary */
 }
 
-
-
-
-
-
-
 /* =================================================================    Card (Các bài Post) ================================================================= */
-
-
 
 /* Container styles */
 .container-fluid {
@@ -592,7 +582,6 @@ input:focus {
   object-fit: cover;
 }
 
-
 /* ============================================ START OF FOOTER =========================================== */
 footer {
   display: flex;
@@ -602,7 +591,7 @@ footer {
   font-size: 14px;
 }
 .footer__container {
-  margin-left:132px;
+  margin-left: 132px;
   color: #959ead;
   font-size: 14px;
   grid-template-columns: repeat(5, 1fr);
@@ -653,13 +642,9 @@ footer {
 
 /* ============================================ END OF FOOTER =========================================== */
 
-
-
 /* ============================================ RESPONSIVE =========================================== */
 
-@media (max-width: 1400px) { 
-
-
+@media (max-width: 1400px) {
   /* ============================================ HEADER =========================================== */
   .header {
     margin: 0 25px;
@@ -674,7 +659,7 @@ footer {
   .header__nav.active {
     display: block;
     position: absolute;
-    right: 50px;
+    right: 24px;
     top: 75px;
     /* width: 100%; */
     border-radius: 5px;
@@ -698,7 +683,7 @@ footer {
     align-items: center;
     font-size: 18px;
   }
-  
+
   /* Header Action Styles */
   .header__action {
     display: flex;
@@ -749,8 +734,14 @@ footer {
   }
 
   /* ========================================= GIỚI THIỆU TRANG ======================================= */
-  
- 
+
+  .main-container .header-container h1 {
+    line-height: 44px;
+  }
+  .main-container .header-container p {
+    line-height: 28px;
+  }
+
   .left-column-container {
     margin-left: 0;
     width: 100%;
@@ -769,6 +760,11 @@ footer {
     display: flex;
   }
 
+  .left-column-container .popular-tags span {
+    display: flex;
+    align-items: center;
+  }
+
   /* ==========================================  CARD ===============================================*/
 
   .container-fluid .row {
@@ -776,15 +772,274 @@ footer {
     margin-right: -16px;
   }
 
- 
   .card-body .article-header p {
     font-size: 14px;
   }
-
 
   /* =========================================== FOOTER ==============================================*/
   .footer__container {
     margin-left: 16px;
   }
+}
+
+@media (max-width: 1200px) {
+  /* ============================================ HEADER =========================================== */
+
+  /* ========================================= GIỚI THIỆU TRANG ======================================= */
+
+  /* ==========================================  CARD ===============================================*/
+
+  .card .card-body .author-name {
+    font-size: 14px;
+  }
+  .author-verify i {
+    margin: 0;
+  }
+
+  .card .card-body .author-verify p {
+    font-size: 13px;
+  }
+
+  .publish-date {
+    font-size: 12px;
+    right: 28px;
+  }
+
+  /* =========================================== FOOTER ==============================================*/
+
+  .footer__group-icon .footer__logo {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .footer__group h3 {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 992px) {
+  /* =========================================================== Header ================================================================*/
+
+  .header .logo {
+    margin-left: -4px;
+  }
+
+  /* ========================================================= Giới thiệu trang ========================================================= */
+
+  .left-column-container h1 {
+    font-size: 36px;
+    margin-left: 25px;
+  }
+
+  .left-column-container p {
+    font-size: 16px;
+    margin-left: 25px;
+    margin-right: 50px;
+  }
+  .left-column-container .search-bar {
+    margin-left: 25px;
+    margin-right: 32px;
+  }
+  .left-column-container .popular-tags {
+    margin-left: 25px;
+    margin-right: 50px;
+  }
+  .left-column-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  .right-column-container {
+    display: none;
+  }
+
+  /* ========================================================= CARD ==================================================================== */
+
+  .container-fluid .row {
+    margin-left: -24px;
+  }
+  .card .card-body .author-name {
+    font-size: 18px;
+  }
+
+  .card .card-body #author-name {
+    max-width: 60%;
+  }
+  .card .card-body .author-verify p {
+    font-size: 14px;
+  }
+
+  .container-fluid .row .col-4 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .card-body .article-header p {
+    font-size: 16px;
+  }
+
+  .publish-date {
+    font-size: 13px;
+  }
+
+  /* ============================================== FOOTER ============================================== */
+  .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* ============================================== HEADER ============================================== */
+  /* ============================================== Giới thiệu trang ============================================== */
+
+  .left-column-container,
+  .right-column-container {
+    flex: 1 0 auto;
+  }
+
+  .left-column-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* ============================================== CARD ============================================== */
+
+  /* Điều chỉnh grid để chỉ hiển thị 1 card mỗi hàng */
+  .container-fluid .row .col-4 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .container-fluid .col-4.mt-5 {
+    padding: 0;
+  }
+
+  .container-fluid .row {
+    margin-left: 11px;
+    margin-right: 15px;
+  }
+
+  .row .card .card-body #author-name {
+    max-width: 60%;
+  }
+  .card .card-body .author-name {
+    font-size: 18px;
+  }
+
+  .card .card-body .author-verify p {
+    font-size: 14px;
+  }
+
+  .card-body h2 {
+    font-size: 28px;
+  }
+
+  /* ============================================== FOOTER ============================================== */
+
+  footer .footer__container .footer__group .h3,
+  footer .footer__container .footer__group h3 {
+    font-size: 20px;
+  }
+
+  .footer__group-icon .footer__logo {
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  
+  .author-info {
+    margin-top: 20px;
+  }
+  .description {
+    margin-top: 10px;
+  }
+  .card .card-body .author-name {
+    font-size: 18px;
+  }
+
+  .card .card-body .author-verify p {
+    font-size: 14px;
+  }
  
+  .left-column-container h1,
+  .left-column-container p {
+    display: none;
+  }
+  
+
+  .left-column-container .search-bar {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+  .left-column-container .popular-tags {
+    margin-left: 24px;
+    margin-right: 24px;
+    
+  }
+  .left-column-container .popular-tags button {
+    margin-bottom: 10px;
+  }
+
+  #author-name {
+    width: 150px;
+  }
+  .sidebar__logo-title {
+    font-size: 18px;
+  }
+  .logo i {
+    font-size: 18px;
+  }
+  .wrapper .header .header__action .dropdown .btn img,
+  .header__action .dropdown.show img {
+    width: 24px;
+  }
+
+  .author-avatar img {
+    width: 35px;
+    height: 35px;
+  }
+  .author-avatar {
+    margin-right: 2px;
+  }
+  .container-fluid .row {
+    /* margin-top: 100px;
+     */
+  }
+
+  .card .card-body .author-name {
+    font-size: 12px;
+  }
+  .card .card-body .author-verify p {
+    font-size: 12px;
+  }
+  .card .card-body .author-verify i {
+    line-height: 24px;
+    font-size: 10px;
+    margin-right: 0;
+  }
+  .card .card-body .article-header .description {
+    margin: 10px 0 0 0;
+  }
+  .author-info {
+    margin-top: 20px;
+    position: relative;
+  }
+  .footer-clean .col-sm-4 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .publish-date {
+    right: -12px;
+    padding: 0;
+    font-size: 12px;
+  }
+  .footer-clean .row-footer {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
 }
