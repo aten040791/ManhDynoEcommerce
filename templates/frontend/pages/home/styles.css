@@ -21,7 +21,14 @@
 .hide {
   display: none;
 }
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: lighter;
+}
 
+
+/* ======================================================= START OF HEADER ============================================================= */
+/* Base styles for entire header */
 .header {
   margin: 0 150px;
   padding: 35px 0;
@@ -30,18 +37,17 @@
   align-items: center;
 }
 
+/* Logo specific styles */
 .header .logo .bxl-c-plus-plus {
   display: inline-block;
 }
 
+/* General icon styles within header */
 .header i {
   display: none;
 }
 
-.header__action {
-  display: none;
-}
-
+/* Specific logo styling */
 .header__logo {
   width: 78px;
   margin-top: 11px;
@@ -52,6 +58,7 @@
   object-fit: contain;
 }
 
+/* Navigation styles */
 .header__nav {
   margin-bottom: 0px;
   display: flex;
@@ -95,78 +102,62 @@
   display: block;
 }
 
+/* Wrapper styles for dropdowns within navigation */
 .wrapper .header .header__nav .has-children,
 .wrapper .header .header__nav .has-children:hover {
   background: none;
-  margin-top: 7px;
+  margin-top: 4px;
   padding: 0;
 }
+
 .has-children .dropdown img {
   margin-bottom: 2px;
   width: 32px;
 }
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus, 
+.btn-secondary:not(:disabled):not(.disabled):active:focus, 
+.show > .btn-secondary.dropdown-toggle:focus,
+.btn-secondary.focus, .btn-secondary:focus{
+  box-shadow:none !important;
+}
 .wrapper .header__nav .has-children .dropdown-menu {
-  margin-left: -3px;
+  margin-left: 1px;
   padding: 0;
 }
+
 .wrapper .header__nav .has-children .dropdown .btn-secondary {
   padding-bottom: 0;
   color: #000;
-  background-color: #bdfdff;
+  background-color: #fff;
   border: none;
 }
 
 .wrapper .header__nav .has-children .dropdown a:hover {
   background-color: #c7bbe7;
 }
+
 .has-children .dropdown .dropdown-item {
   padding: 10px 10px;
 }
 
-.header__action .fa-solid.fa-user{
+.header__action {
+  display: none;
+}
+
+.header__action .fa-solid.fa-user {
   font-size: 23px;
 }
 
-body {
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: lighter;
-}
-body .container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.logo {
-  display: inline-flex;
-  /* line-height: 60px; */
-  /* position: fixed; */
-  float: left;
-  margin: 11px 0px;
-  color: var(--blue-color);
-  font-weight: 600;
-  font-size: 30px;
-  /* letter-spacing: 2px; */
-}
-
-.logo i {
-  margin-top: 4px;
-  font-size: 40px;
-}
-
-.hamburger-menu {
-  display: none;
-  cursor: pointer;
-  font-size: 24px; /* Size của icon */
-}
-
+/* General navigation styles */
 nav {
-  /* position: fixed; */
   width: 100%;
   line-height: 60px;
 }
+
 .nav {
-  display: flex; /* hoặc `block` nếu không phải dùng flex */
-  list-style-type: none; /* Bỏ bullet points cho li */
+  display: flex;
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
@@ -175,7 +166,6 @@ nav ul {
   line-height: 60px;
   list-style: none;
   background: rgba(0, 0, 0, 0);
-  /* overflow: hidden; */
   color: #000;
   padding: 0;
   text-align: right;
@@ -201,8 +191,25 @@ nav ul li a:hover {
   text-decoration: none;
 }
 
-.container-fluid .row .col-4 {
-  padding: 0 35px;
+/* Additional interface elements */
+.logo {
+  display: inline-flex;
+  float: left;
+  margin: 11px 0px;
+  color: var(--blue-color);
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.logo i {
+  margin-top: 4px;
+  font-size: 40px;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 .menu-icon {
@@ -220,27 +227,29 @@ nav ul li a:hover {
 .sign-in {
   margin-right: 20px;
 }
+
 .sign-in a {
   border-radius: 20px;
   padding: 5px 20px;
   border: 2px solid #4070f4;
-  /* margin: 0 20px; */
   color: #4070f4;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
-  font-family: sans-serif; /* Make sure you include a font-family */
+  font-family: sans-serif;
 }
 
 .dropdown-btn {
   display: flex;
   align-items: center;
 }
+
 .dropdown .dropdown-btn i {
   display: block;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -269,6 +278,7 @@ nav ul li a:hover {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
+
 .dropdown-content a:hover:last-child {
   background-color: #ddd;
   border-bottom-left-radius: 4px;
@@ -279,22 +289,22 @@ nav ul li a:hover {
   background-color: #f8f8f8;
 }
 
-/*                                                Container    */
 
+/* ==============================================================================END OF HEADER=========================================================*/
+
+/* ==============================================================================GIỚI THIỆU TRANG======================================================*/
+
+
+/* Main container styles */
 .main-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #f9fcfe;
-  /* padding-bottom: 20px; */
-
-  /* padding: 20px; */
-  /* max-width: 1200px; */
-  /* margin: auto; */
 }
 
+/* Left column within the main container */
 .left-column-container {
-  /* height: 470px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -303,13 +313,14 @@ nav ul li a:hover {
   width: 50%; /* Adjust as necessary */
 }
 
+/* Right column within the main container */
 .right-column-container {
+  display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   flex: 1;
   margin-right: 165px;
   width: 50%; /* Adjust as necessary */
-  display: flex;
-  justify-content: flex-end;
 }
 
 .right-column-container img {
@@ -317,6 +328,7 @@ nav ul li a:hover {
   height: auto;
 }
 
+/* Header styles within the main container */
 .main-container h1 {
   margin-left: 30px;
   line-height: 68px;
@@ -324,6 +336,7 @@ nav ul li a:hover {
   color: #183b56;
 }
 
+/* Paragraph styles within the main container */
 .main-container p {
   margin-left: 30px;
   color: #183b56;
@@ -332,6 +345,7 @@ nav ul li a:hover {
   margin-top: 50px;
 }
 
+/* Search bar styles */
 .search-bar {
   background-color: #eeecec;
   display: flex;
@@ -342,6 +356,7 @@ nav ul li a:hover {
   border-radius: 10px;
   margin-right: 20px;
 }
+
 .search-icon {
   position: absolute;
   font-size: 20px;
@@ -351,12 +366,9 @@ nav ul li a:hover {
 
 .search-bar input[type="text"] {
   background-color: #eeecec;
-
   margin-left: 30px;
   width: 100%;
   padding: 15px;
-  /* margin-right: 10px;  */
-  /* border: 1px solid #ccc; */
   border-radius: 8px;
   border: none;
   font-size: 16px;
@@ -384,6 +396,7 @@ input:focus {
   background-color: darkblue; /* Adjust as necessary */
 }
 
+/* Popular tags styles */
 .popular-tags {
   margin-top: 20px;
   margin-left: 30px;
@@ -414,59 +427,48 @@ input:focus {
   background-color: #e2e2e2; /* Adjust as necessary */
 }
 
-/* =================================================================    Card Styles ================================================================= */
+
+
+
+
+
+
+/* =================================================================    Card (Các bài Post) ================================================================= */
+
+
+
+/* Container styles */
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
 .container-fluid .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 115px;
-  margin-right: 135px;
+  margin-left: 104px;
+  margin-right: 124px;
 }
 
-.author-avatar {
-  margin-right: 10px;
-}
-.author-avatar img {
-  border-radius: 50%; /* Creates a circular avatar */
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
+.container-fluid .row .col-4 {
+  padding: 0 35px;
 }
 
-.author-info {
-  width: 100%;
-  position: absolute;
-  bottom: 5px;
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
-}
-
-.author-verify {
-  display: flex;
-}
-
-.author-verify i {
-  margin-right: 5px;
-}
-.publish-date {
-  position: absolute;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 500;
-  right: 40px;
-  padding-left: 15px; /* Adjust space between author and date as needed */
-}
-
+/* Card styles within the container */
 .container-fluid .card {
   position: relative;
   height: 100%;
-  border: 1px solid rgb(167 138 138 / 13%);
+  border: 1px solid rgb(167, 138, 138, 0.13);
   border-radius: 1.25rem;
   box-shadow: 0px 1px 0px #f9eaea;
 }
 
+.card .card-body {
+  /* Specific styles within card body */
+}
+
 .card .card-body h2 {
-  font-size: 28;
+  font-size: 28px;
   color: #183b56;
 }
 
@@ -477,6 +479,7 @@ input:focus {
   font-weight: 500;
   line-height: 1.2;
 }
+
 .card .card-body .link-to-detail:hover {
   text-decoration: none;
   color: #447ebf;
@@ -487,6 +490,7 @@ input:focus {
   font-size: 18px;
   color: #5a7184;
 }
+
 .card .card-body .article-header .description {
   margin-bottom: 70px;
 }
@@ -494,6 +498,7 @@ input:focus {
 .card .card-body #author-name {
   max-width: 50%;
 }
+
 .card .card-body .author-name {
   font-style: italic;
   font-weight: 600;
@@ -506,6 +511,7 @@ input:focus {
   text-decoration: none;
   color: #447ebf;
 }
+
 .card .card-body .author-verify p {
   margin: 0;
   font-size: 14px;
@@ -513,16 +519,49 @@ input:focus {
   padding: 3px 0;
 }
 
+/* Author avatar and related info */
+.author-avatar {
+  margin-right: 10px;
+}
+
+.author-avatar img {
+  border-radius: 50%; /* Creates a circular avatar */
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+}
+
+.author-info {
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.author-verify {
+  display: flex;
+}
+
+.author-verify i {
+  margin-right: 5px;
+}
+
+.publish-date {
+  position: absolute;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  right: 40px;
+  padding-left: 15px; /* Adjust space between author and date as needed */
+}
+
+/* Centered button styles */
 .centered-btn {
   display: flex;
   justify-content: center;
-  margin: 20px 0 20px 0; /* Or as much as needed for vertical alignment */
+  margin: 20px 0;
 }
-.row .card .card-img {
-  border-radius: 1.25rem 1.25rem 0 0;
-  height: 350px;
-  object-fit: cover;
-}
+
 .centered-btn .custom-btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -530,12 +569,12 @@ input:focus {
   color: #007bff;
   border: 2px solid #007bff;
   border-radius: 8px;
-  text-decoration: none; /* Remove underline from anchor tag */
+  text-decoration: none;
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.25);
   cursor: pointer;
-  display: inline-flex; /* Align text and icon */
-  align-items: center; /* Center the content vertically */
-  gap: 10px; /* Space between text and icon */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .custom-btn:focus,
@@ -543,66 +582,72 @@ input:focus {
   overflow: hidden;
   background-color: #1565d8;
   color: #fff;
-
-  outline: none; /* Remove focus outline */
+  outline: none;
 }
+
+/* Card image styles */
+.row .card .card-img {
+  border-radius: 1.25rem 1.25rem 0 0;
+  height: 350px;
+  object-fit: cover;
+}
+
 
 /* ============================================ START OF FOOTER =========================================== */
-footer{
-  display:flex;
-  flex-direction:column;
-  background-color:#0D2436;
-  color: #5A7184;
-  font-size:14px;
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #0d2436;
+  color: #5a7184;
+  font-size: 14px;
 }
-.footer__container{
-  color:#959ead;
-  font-size:14px;
+.footer__container {
+  margin-left:132px;
+  color: #959ead;
+  font-size: 14px;
   grid-template-columns: repeat(5, 1fr);
-  display:grid;
-  gap:40px;
-  margin-bottom:10px;
-  padding:20px 20px;
+  display: grid;
+  gap: 40px;
+  margin-bottom: 10px;
+  padding: 20px 20px;
 }
 
-.footer__group-icon .footer__logo{
-font-size:24px;
-align-items:center;
-text-align:center;
-display:flex;
-font-weight:500;
-margin-bottom:20px;
-color:#1565D8;
+.footer__group-icon .footer__logo {
+  font-size: 24px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #1565d8;
 }
-.footer__group-icon p{
-  color:#959ead;
-  font-size:14px;
-  margin-left:3px;
-  
+.footer__group-icon p {
+  color: #959ead;
+  font-size: 14px;
+  margin-left: 3px;
 }
-.footer__group-icon .footer__logo i{
-  font-size:32px;
+.footer__group-icon .footer__logo i {
+  font-size: 32px;
 }
-.footer__group{
-  line-height:30px;
+.footer__group {
+  line-height: 30px;
 }
 
-.footer__group ul li{
-  list-style:none;
-
+.footer__group ul li {
+  list-style: none;
 }
-.footer__group li a{
-  text-decoration:none;
-  color:#959ead;
-  font-size:14px;
+.footer__group li a {
+  text-decoration: none;
+  color: #959ead;
+  font-size: 14px;
 }
-.copyright{
-  text-align:center;
+.copyright {
+  text-align: center;
   font-style: italic;
   font-weight: 600;
-  color: #5A7184;
+  color: #5a7184;
 }
-.copyright p{
+.copyright p {
   margin: 0;
 }
 
@@ -736,7 +781,7 @@ color:#1565D8;
     position: absolute;
     right: 50px;
     top: 75px;
-    width: 164px;
+    width: 100%;
     border-radius: 5px;
     background: #fff;
     z-index: 9999;
@@ -803,11 +848,9 @@ color:#1565D8;
     font-size: 14px;
   }
 
-
-  .footer__container{
+  .footer__container {
     grid-template-columns: repeat(3, 1fr);
-}
-
+  }
 }
 @media (max-width: 1150px) {
   .card .card-body .author-name {
@@ -823,15 +866,15 @@ color:#1565D8;
   .row .card .card-body #author-name {
     max-width: 50%;
   }
-  .footer__container{
+  .footer__container {
     grid-template-columns: repeat(2, 1fr);
-}
-.footer__group-icon .footer__logo{
-    font-size:20px;
-}
-.footer__group-icon .footer__logo i{
-    font-size:32px;
-}
+  }
+  .footer__group-icon .footer__logo {
+    font-size: 20px;
+  }
+  .footer__group-icon .footer__logo i {
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -861,7 +904,6 @@ color:#1565D8;
     width: 100%; /* Menu chiếm toàn bộ chiều rộng */
   }
 
-
   nav ul {
     line-height: 30px;
   }
@@ -872,7 +914,6 @@ color:#1565D8;
     /* z-index: 1; */
 
     border-radius: 5px;
-
   }
 
   #navbar li:last-child {
@@ -930,10 +971,10 @@ color:#1565D8;
 }
 
 @media (max-width: 768px) {
-  footer .footer__container .footer__group .h3, 
+  footer .footer__container .footer__group .h3,
   footer .footer__container .footer__group h3 {
     font-size: 20px;
-}
+  }
   .container-fluid .row {
     /* margin-top: 30px; */
   }
@@ -987,7 +1028,6 @@ color:#1565D8;
     font-size: 28px;
   }
 }
-
 
 @media (max-width: 500px) {
   .main-container p {
@@ -1058,8 +1098,6 @@ color:#1565D8;
   .header__action .dropdown.show img {
     width: 24px;
   }
-
- 
 
   .author-avatar img {
     width: 35px;
@@ -1152,7 +1190,7 @@ color:#1565D8;
     margin-left: 0;
     margin-right: 0;
   }
-  .footer__container{
-    grid-template-columns:1fr;
-}
+  .footer__container {
+    grid-template-columns: 1fr;
+  }
 }
