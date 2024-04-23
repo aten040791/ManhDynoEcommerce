@@ -18,11 +18,16 @@
   --grey-light-color-2: #f3f3f9;
 }
 
-
 .hide {
   display: none;
 }
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: lighter;
+}
 
+/* ======================================================= START OF HEADER ============================================================= */
+/* Base styles for entire header */
 .header {
   margin: 0 150px;
   padding: 35px 0;
@@ -31,18 +36,17 @@
   align-items: center;
 }
 
+/* Logo specific styles */
 .header .logo .bxl-c-plus-plus {
   display: inline-block;
 }
 
+/* General icon styles within header */
 .header i {
   display: none;
 }
 
-.header__action {
-  display: none;
-}
-
+/* Specific logo styling */
 .header__logo {
   width: 78px;
   margin-top: 11px;
@@ -53,6 +57,7 @@
   object-fit: contain;
 }
 
+/* Navigation styles */
 .header__nav {
   margin-bottom: 0px;
   display: flex;
@@ -96,78 +101,66 @@
   display: block;
 }
 
+/* Wrapper styles for dropdowns within navigation */
 .wrapper .header .header__nav .has-children,
 .wrapper .header .header__nav .has-children:hover {
   background: none;
-  margin-top: 7px;
+  margin-top: 4px;
   padding: 0;
 }
+
 .has-children .dropdown img {
   margin-bottom: 2px;
   width: 32px;
 }
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus,
+.btn-secondary.focus,
+.btn-secondary:focus {
+  box-shadow: none !important;
+}
 .wrapper .header__nav .has-children .dropdown-menu {
-  margin-left: -3px;
+  margin-left: 1px;
   padding: 0;
 }
+
 .wrapper .header__nav .has-children .dropdown .btn-secondary {
   padding-bottom: 0;
   color: #000;
-  background-color: #bdfdff;
+  background-color: #fff;
   border: none;
 }
 
 .wrapper .header__nav .has-children .dropdown a:hover {
   background-color: #c7bbe7;
 }
+.wrapper .header__nav .has-children .dropdown button a:hover {
+  background-color: #fff;
+}
+
 .has-children .dropdown .dropdown-item {
   padding: 10px 10px;
 }
 
-.header__action .fa-solid.fa-user{
+.header__action {
+  display: none;
+}
+
+.header__action .fa-solid.fa-user {
   font-size: 23px;
 }
 
-body {
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: lighter;
-}
-body .container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.logo {
-  display: inline-flex;
-  /* line-height: 60px; */
-  /* position: fixed; */
-  float: left;
-  margin: 11px 0px;
-  color: var(--blue-color);
-  font-weight: 600;
-  font-size: 30px;
-  /* letter-spacing: 2px; */
-}
-
-.logo i {
-  margin-top: 4px;
-  font-size: 40px;
-}
-
-.hamburger-menu {
-  display: none;
-  cursor: pointer;
-  font-size: 24px; /* Size của icon */
-}
-
+/* General navigation styles */
 nav {
-  /* position: fixed; */
   width: 100%;
   line-height: 60px;
 }
+
 .nav {
-  display: flex; /* hoặc `block` nếu không phải dùng flex */
-  list-style-type: none; /* Bỏ bullet points cho li */
+  display: flex;
+  list-style-type: none;
   padding: 0;
   margin: 0;
 }
@@ -176,7 +169,6 @@ nav ul {
   line-height: 60px;
   list-style: none;
   background: rgba(0, 0, 0, 0);
-  /* overflow: hidden; */
   color: #000;
   padding: 0;
   text-align: right;
@@ -202,8 +194,25 @@ nav ul li a:hover {
   text-decoration: none;
 }
 
-.container-fluid .row .col-4 {
-  padding: 0 35px;
+/* Additional interface elements */
+.logo {
+  display: inline-flex;
+  float: left;
+  margin: 11px 0px;
+  color: var(--blue-color);
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.logo i {
+  margin-top: 4px;
+  font-size: 40px;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 .menu-icon {
@@ -221,24 +230,29 @@ nav ul li a:hover {
 .sign-in {
   margin-right: 20px;
 }
+
 .sign-in a {
   border-radius: 20px;
   padding: 5px 20px;
   border: 2px solid #4070f4;
-  /* margin: 0 20px; */
   color: #4070f4;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
-  font-family: sans-serif; /* Make sure you include a font-family */
+  font-family: sans-serif;
 }
 
 .dropdown-btn {
   display: flex;
   align-items: center;
 }
+
+.dropdown .dropdown-btn i {
+  display: block;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -267,6 +281,7 @@ nav ul li a:hover {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
+
 .dropdown-content a:hover:last-child {
   background-color: #ddd;
   border-bottom-left-radius: 4px;
@@ -277,22 +292,20 @@ nav ul li a:hover {
   background-color: #f8f8f8;
 }
 
-/*                                                Container    */
+/* ==============================================================================END OF HEADER=========================================================*/
 
+/* ==============================================================================GIỚI THIỆU TRANG======================================================*/
+
+/* Main container styles */
 .main-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #f9fcfe;
-  /* padding-bottom: 20px; */
-
-  /* padding: 20px; */
-  /* max-width: 1200px; */
-  /* margin: auto; */
 }
 
+/* Left column within the main container */
 .left-column-container {
-  /* height: 470px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -301,13 +314,14 @@ nav ul li a:hover {
   width: 50%; /* Adjust as necessary */
 }
 
+/* Right column within the main container */
 .right-column-container {
+  display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   flex: 1;
   margin-right: 165px;
   width: 50%; /* Adjust as necessary */
-  display: flex;
-  justify-content: flex-end;
 }
 
 .right-column-container img {
@@ -315,6 +329,7 @@ nav ul li a:hover {
   height: auto;
 }
 
+/* Header styles within the main container */
 .main-container h1 {
   margin-left: 30px;
   line-height: 68px;
@@ -322,6 +337,7 @@ nav ul li a:hover {
   color: #183b56;
 }
 
+/* Paragraph styles within the main container */
 .main-container p {
   margin-left: 30px;
   color: #183b56;
@@ -330,16 +346,19 @@ nav ul li a:hover {
   margin-top: 50px;
 }
 
+/* Search bar styles */
 .search-bar {
-  background-color: #eeecec;
+  /* background-color: #eeecec; */
   display: flex;
   position: relative;
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1); */
   margin-left: 30px;
   margin-top: 50px;
   border-radius: 10px;
   margin-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 0px;
 }
+
 .search-icon {
   position: absolute;
   font-size: 20px;
@@ -349,12 +368,9 @@ nav ul li a:hover {
 
 .search-bar input[type="text"] {
   background-color: #eeecec;
-
   margin-left: 30px;
   width: 100%;
   padding: 15px;
-  /* margin-right: 10px;  */
-  /* border: 1px solid #ccc; */
   border-radius: 8px;
   border: none;
   font-size: 16px;
@@ -382,6 +398,7 @@ input:focus {
   background-color: darkblue; /* Adjust as necessary */
 }
 
+/* Popular tags styles */
 .popular-tags {
   margin-top: 20px;
   margin-left: 30px;
@@ -412,59 +429,40 @@ input:focus {
   background-color: #e2e2e2; /* Adjust as necessary */
 }
 
-/* =================================================================    Card Styles ================================================================= */
+/* =================================================================    Card (Các bài Post) ================================================================= */
+
+/* Container styles */
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
 .container-fluid .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 115px;
-  margin-right: 135px;
+  margin-left: 104px;
+  margin-right: 124px;
 }
 
-.author-avatar {
-  margin-right: 10px;
-}
-.author-avatar img {
-  border-radius: 50%; /* Creates a circular avatar */
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
+.container-fluid .row .col-4 {
+  padding: 0 35px;
 }
 
-.author-info {
-  width: 100%;
-  position: absolute;
-  bottom: 5px;
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
-}
-
-.author-verify {
-  display: flex;
-}
-
-.author-verify i {
-  margin-right: 5px;
-}
-.publish-date {
-  position: absolute;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 500;
-  right: 40px;
-  padding-left: 15px; /* Adjust space between author and date as needed */
-}
-
+/* Card styles within the container */
 .container-fluid .card {
   position: relative;
   height: 100%;
-  border: 1px solid rgb(167 138 138 / 13%);
+  border: 1px solid rgb(167, 138, 138, 0.13);
   border-radius: 1.25rem;
   box-shadow: 0px 1px 0px #f9eaea;
 }
 
+.card .card-body {
+  /* Specific styles within card body */
+}
+
 .card .card-body h2 {
-  font-size: 28;
+  font-size: 28px;
   color: #183b56;
 }
 
@@ -475,6 +473,7 @@ input:focus {
   font-weight: 500;
   line-height: 1.2;
 }
+
 .card .card-body .link-to-detail:hover {
   text-decoration: none;
   color: #447ebf;
@@ -485,6 +484,7 @@ input:focus {
   font-size: 18px;
   color: #5a7184;
 }
+
 .card .card-body .article-header .description {
   margin-bottom: 70px;
 }
@@ -492,6 +492,7 @@ input:focus {
 .card .card-body #author-name {
   max-width: 50%;
 }
+
 .card .card-body .author-name {
   font-style: italic;
   font-weight: 600;
@@ -504,23 +505,58 @@ input:focus {
   text-decoration: none;
   color: #447ebf;
 }
+
 .card .card-body .author-verify p {
   margin: 0;
   font-size: 14px;
   font-style: italic;
   padding: 3px 0;
+  font-weight: 500;
 }
 
+/* Author avatar and related info */
+.author-avatar {
+  margin-right: 10px;
+}
+
+.author-avatar img {
+  border-radius: 50%; /* Creates a circular avatar */
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+}
+
+.author-info {
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.author-verify {
+  display: flex;
+}
+
+.author-verify i {
+  margin-right: 5px;
+}
+
+.publish-date {
+  position: absolute;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  right: 40px;
+  padding-left: 15px; /* Adjust space between author and date as needed */
+}
+
+/* Centered button styles */
 .centered-btn {
   display: flex;
   justify-content: center;
-  margin: 20px 0 20px 0; /* Or as much as needed for vertical alignment */
+  margin: 20px 0;
 }
-.row .card .card-img {
-  border-radius: 1.25rem 1.25rem 0 0;
-  height: 350px;
-  object-fit: cover;
-}
+
 .centered-btn .custom-btn {
   padding: 10px 20px;
   font-size: 16px;
@@ -528,12 +564,12 @@ input:focus {
   color: #007bff;
   border: 2px solid #007bff;
   border-radius: 8px;
-  text-decoration: none; /* Remove underline from anchor tag */
+  text-decoration: none;
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.25);
   cursor: pointer;
-  display: inline-flex; /* Align text and icon */
-  align-items: center; /* Center the content vertically */
-  gap: 10px; /* Space between text and icon */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .custom-btn:focus,
@@ -541,140 +577,80 @@ input:focus {
   overflow: hidden;
   background-color: #1565d8;
   color: #fff;
+  outline: none;
+}
 
-  outline: none; /* Remove focus outline */
+/* Card image styles */
+.row .card .card-img {
+  border-radius: 1.25rem 1.25rem 0 0;
+  height: 350px;
+  object-fit: cover;
 }
 
 /* ============================================ START OF FOOTER =========================================== */
-footer{
-  display:flex;
-  flex-direction:column;
-  background-color:#0D2436;
-  color: #5A7184;
-  font-size:14px;
+footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #0d2436;
+  color: #5a7184;
+  font-size: 14px;
 }
-.footer__container{
-  color:#959ead;
-  font-size:14px;
+.footer__container {
+  margin-left: 132px;
+  color: #959ead;
+  font-size: 14px;
   grid-template-columns: repeat(5, 1fr);
-  display:grid;
-  gap:40px;
-  margin-bottom:10px;
-  padding:20px 20px;
+  display: grid;
+  gap: 40px;
+  margin-bottom: 10px;
+  padding: 20px 20px;
 }
 
-.footer__group-icon .footer__logo{
-font-size:24px;
-align-items:center;
-text-align:center;
-display:flex;
-font-weight:500;
-margin-bottom:20px;
-color:#1565D8;
+.footer__group-icon .footer__logo {
+  font-size: 24px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #1565d8;
 }
-.footer__group-icon p{
-  color:#959ead;
-  font-size:14px;
-  margin-left:3px;
-  
+.footer__group-icon p {
+  color: #959ead;
+  font-size: 14px;
+  margin-left: 3px;
 }
-.footer__group-icon .footer__logo i{
-  font-size:32px;
+.footer__group-icon .footer__logo i {
+  font-size: 32px;
 }
-.footer__group{
-  line-height:30px;
+.footer__group {
+  line-height: 30px;
 }
 
-.footer__group ul li{
-  list-style:none;
-
+.footer__group ul li {
+  list-style: none;
 }
-.footer__group li a{
-  text-decoration:none;
-  color:#959ead;
-  font-size:14px;
+.footer__group li a {
+  text-decoration: none;
+  color: #959ead;
+  font-size: 14px;
 }
-.copyright{
-  text-align:center;
+.copyright {
+  text-align: center;
   font-style: italic;
   font-weight: 600;
-  color: #5A7184;
+  color: #5a7184;
 }
-.copyright p{
+.copyright p {
   margin: 0;
 }
 
 /* ============================================ END OF FOOTER =========================================== */
 
-@media (max-width: 767px) {
-  .footer-clean .item {
-    text-align: center;
-    padding-bottom: 20px;
-  }
-}
+/* ============================================ RESPONSIVE =========================================== */
 
-@media (max-width: 768px) {
-  .footer-clean .item.social {
-    text-align: center;
-  }
-}
-
-.footer-clean .item.social > a {
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-  margin-left: 10px;
-  margin-top: 22px;
-  color: inherit;
-  opacity: 0.75;
-}
-
-.footer-clean .item.social > a:hover {
-  opacity: 0.9;
-}
-
-@media (max-width: 991px) {
-  .footer-clean .item.social > a {
-    margin-top: 40px;
-  }
-  .footer-clean .row-footer {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-@media only screen and (max-width: 1662px) {
-  .left-column-container h1 {
-    font-size: 44px;
-  }
-
-  .left-column-container p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 767px) {
-  .footer-clean .item.social > a {
-    margin-top: 10px;
-  }
-}
-
-.footer-clean .copyright {
-  margin-top: 14px;
-  margin-bottom: 0;
-  font-size: 13px;
-  opacity: 0.6;
-}
-
-@media (max-width: 1450px) {
-  .author-name {
-    width: 50%;
-  }
+@media (max-width: 1400px) {
+  /* ============================================ HEADER =========================================== */
   .header {
     margin: 0 25px;
     padding: 20px 0;
@@ -682,6 +658,38 @@ color:#1565D8;
   .header i {
     display: block;
   }
+  .header__nav {
+    display: none;
+  }
+  .header__nav.active {
+    display: block;
+    position: absolute;
+    right: 24px;
+    top: 75px;
+    /* width: 100%; */
+    border-radius: 5px;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  }
+  .header__nav.active .dropdown,
+  .header__nav.active .dropdown button {
+    display: none;
+  }
+  .header__nav.active li,
+  .header__nav li:last-child {
+    margin: 0;
+    border-radius: 0;
+  }
+  .header__nav li a {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  /* Header Action Styles */
   .header__action {
     display: flex;
     align-items: center;
@@ -695,15 +703,21 @@ color:#1565D8;
     background-color: #fff;
     border: none;
   }
-  .header__action .dropdown.show img {
+  .header__action .dropdown.show img,
+  .wrapper .header .header__action .dropdown .btn img {
     width: 32px;
+  }
+
+  .header__action .dropdown-menu {
+    min-width: 124px;
+    position: absolute;
+    margin-left: -4px;
   }
   .header__action .dropdown-menu,
   .header__action .dropdown .btn-secondary,
   .header__action .dropdown.show .dropdown-item {
     padding: 0px;
   }
-
   .header__action .dropdown.show .dropdown-item {
     padding: 4px;
   }
@@ -716,11 +730,6 @@ color:#1565D8;
   .wrapper .header .header__action .btn-secondary:focus {
     box-shadow: none;
   }
-
-  .wrapper .header .header__action .dropdown .btn img {
-    width: 32px;
-  }
-
   .header__action i:first-child {
     font-size: 23px;
     margin-bottom: 1px;
@@ -729,111 +738,131 @@ color:#1565D8;
     font-size: 28px;
   }
 
-  .header__nav.active {
-    display: block;
-    position: absolute;
-    right: 50px;
-    top: 75px;
-    width: 164px;
-    border-radius: 5px;
-    background: #fff;
-    z-index: 9999;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  /* ========================================= GIỚI THIỆU TRANG ======================================= */
+
+  .main-container .header-container h1 {
+    line-height: 44px;
   }
-  .header__nav.active .dropdown,
-  .header__nav.active .dropdown button {
-    display: none;
+  .main-container .header-container p {
+    line-height: 28px;
   }
 
-  .header__nav.active li {
-    margin: 0;
-  }
-
-  .header__nav.active li {
-    border-radius: 0;
-  }
-  .header__nav li:last-child {
-    /* display: none; */
-  }
-
-  .header__nav li a {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    font-size: 18px;
-  }
-  .header__nav {
-    display: none;
-  }
-
-  .container-fluid .row {
-    margin: 0;
-  }
-  nav .navbar .logo {
-    margin-left: 80px;
-  }
-  nav ul {
-    padding-right: 0;
-  }
-  nav ul li {
-    padding: 15px 8px;
-  }
   .left-column-container {
     margin-left: 0;
     width: 100%;
   }
 
+  .right-column-container {
+    margin-right: 10px;
+  }
   .left-column-container h1 {
     font-size: 36px;
   }
-
   .left-column-container p {
     font-size: 16px;
   }
   .left-column-container .popular-tags {
     display: flex;
   }
-  .card-body h2 {
-    font-size: 20px;
+
+  .left-column-container .popular-tags span {
+    display: flex;
+    align-items: center;
   }
+
+  /* ==========================================  CARD ===============================================*/
+
+  .container-fluid .row {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
   .card-body .article-header p {
     font-size: 14px;
   }
 
-
-  .footer__container{
-    grid-template-columns: repeat(3, 1fr);
+  /* =========================================== FOOTER ==============================================*/
+  .footer__container {
+    margin-left: 16px;
+  }
 }
 
-}
-@media (max-width: 1150px) {
+@media (max-width: 1200px) {
+  /* ============================================ HEADER =========================================== */
+
+  /* ========================================= GIỚI THIỆU TRANG ======================================= */
+
+  /* ==========================================  CARD ===============================================*/
+
   .card .card-body .author-name {
     font-size: 14px;
   }
+  .author-verify i {
+    margin: 0;
+  }
 
   .card .card-body .author-verify p {
-    font-size: 10px;
+    font-size: 13px;
+  }
+
+  .publish-date {
+    font-size: 12px;
+    right: 28px;
+  }
+
+  /* =========================================== FOOTER ==============================================*/
+
+  .footer__group-icon .footer__logo {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .footer__group h3 {
+    font-size: 20px;
+    line-height: 1.6;
   }
 }
 
-@media (max-width: 900px) {
-  .row .card .card-body #author-name {
-    max-width: 50%;
-  }
-  .footer__container{
-    grid-template-columns: repeat(2, 1fr);
-}
-.footer__group-icon .footer__logo{
-    font-size:20px;
-}
-.footer__group-icon .footer__logo i{
-    font-size:32px;
-}
-}
+@media (max-width: 992px) {
+  /* =========================================================== Header ================================================================*/
 
-@media (max-width: 1280px) {
-  /* Header */
+  .header .logo {
+    margin-left: -4px;
+  }
+
+  /* ========================================================= Giới thiệu trang ========================================================= */
+
+  .left-column-container h1 {
+    font-size: 36px;
+    margin-left: 25px;
+  }
+
+  .left-column-container p {
+    font-size: 16px;
+    margin-left: 25px;
+    margin-right: 50px;
+  }
+  .left-column-container .search-bar {
+    margin-left: 25px;
+    margin-right: 32px;
+  }
+  .left-column-container .popular-tags {
+    margin-left: 25px;
+    margin-right: 50px;
+  }
+  .left-column-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  .right-column-container {
+    display: none;
+  }
+
+  /* ========================================================= CARD ==================================================================== */
+
+  .container-fluid .row {
+    margin-left: -24px;
+  }
   .card .card-body .author-name {
     font-size: 18px;
   }
@@ -845,78 +874,6 @@ color:#1565D8;
     font-size: 14px;
   }
 
-  nav .navbar .logo {
-    margin-left: 30px;
-  }
-  .hamburger-menu {
-    margin-right: 50px;
-    display: block;
-  }
-
-  nav #navbar {
-    display: none; /* Ẩn menu khi nút hamburger không được click */
-    flex-direction: column; /* Sắp xếp các menu item theo chiều dọc */
-    width: 100%; /* Menu chiếm toàn bộ chiều rộng */
-  }
-
-
-  nav ul {
-    line-height: 30px;
-  }
-  #navbar li {
-    text-align: center; /* Căn giữa nội dung */
-    width: 100%; /* Mỗi li chiếm toàn bộ chiều rộng */
-    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
-    /* z-index: 1; */
-
-    border-radius: 5px;
-
-  }
-
-  #navbar li:last-child {
-    box-shadow: none;
-  }
-
-  #navbar li a {
-    display: block; /* Cho a chiếm toàn bộ không gian của li */
-    padding: 10px; /* Thêm padding cho dễ nhấn */
-  }
-
-  #navbar.active {
-    display: block;
-    /* Thêm các styles cần thiết để hiển thị menu đầy đủ trong responsive layout */
-  }
-
-  .left-column-container h1 {
-    font-size: 36px;
-    margin-left: 25px;
-  }
-
-  .left-column-container p {
-    font-size: 16px;
-    margin-left: 25px;
-    margin-right: 50px;
-  }
-  .left-column-container .search-bar {
-    margin-left: 25px;
-    margin-right: 50px;
-  }
-  .left-column-container .popular-tags {
-    margin-left: 25px;
-    margin-right: 50px;
-  }
-  .left-column-container {
-    margin-left: 0;
-    width: 100%;
-  }
-  .right-column-container {
-    display: none;
-  }
-  #navbar.active {
-    display: block;
-    /* Thêm các styles cần thiết để hiển thị menu đầy đủ trong responsive layout */
-  }
-
   .container-fluid .row .col-4 {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
@@ -925,44 +882,33 @@ color:#1565D8;
   .card-body .article-header p {
     font-size: 16px;
   }
+
+  .publish-date {
+    font-size: 13px;
+  }
+
+  /* ============================================== FOOTER ============================================== */
+  .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 6px;
+  }
 }
 
 @media (max-width: 768px) {
-  footer .footer__container .footer__group .h3, 
-  footer .footer__container .footer__group h3 {
-    font-size: 20px;
-}
-  .container-fluid .row {
-    /* margin-top: 30px; */
-  }
-  .container-fluid .col-4.mt-5 {
-    padding: 0;
-  }
-  .footer-clean .row-footer {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .card .card-body .author-name {
-    font-size: 18px;
+  /* ============================================== HEADER ============================================== */
+  /* ============================================== Giới thiệu trang ============================================== */
+
+  .left-column-container,
+  .right-column-container {
+    flex: 1 0 auto;
   }
 
-  .row .card .card-body #author-name {
-    max-width: 60%;
-  }
-  .card .card-body .author-verify p {
-    font-size: 14px;
-  }
-  .hamburger-menu {
-    margin-right: 30px;
-  }
-  /* Ẩn hình ảnh trong .right-column-container */
-  .right-column-container {
-    display: none;
-  }
   .left-column-container {
     margin-left: 0;
     width: 100%;
   }
+
+  /* ============================================== CARD ============================================== */
 
   /* Điều chỉnh grid để chỉ hiển thị 1 card mỗi hàng */
   .container-fluid .row .col-4 {
@@ -971,32 +917,17 @@ color:#1565D8;
     max-width: 100%;
   }
 
+  .container-fluid .col-4.mt-5 {
+    padding: 0;
+  }
+
   .container-fluid .row {
-    margin-left: 15px;
+    margin-left: 11px;
     margin-right: 15px;
   }
 
-  .left-column-container,
-  .right-column-container {
-    flex: 1 0 auto;
-  }
-
-  .card-body h2 {
-    font-size: 28px;
-  }
-}
-
-
-@media (max-width: 500px) {
-  .main-container p {
-    margin-top: 0;
-    display: none;
-  }
-  .author-info {
-    margin-top: 20px;
-  }
-  .description {
-    margin-top: 10px;
+  .row .card .card-body #author-name {
+    max-width: 60%;
   }
   .card .card-body .author-name {
     font-size: 18px;
@@ -1005,78 +936,80 @@ color:#1565D8;
   .card .card-body .author-verify p {
     font-size: 14px;
   }
-  .wrapper nav .navbar .logo {
-    margin-left: 10px;
-    margin-right: 0;
-  }
-  .left-column-container h1 {
+
+  .card-body h2 {
     font-size: 28px;
+  }
+
+  /* ============================================== FOOTER ============================================== */
+
+  footer .footer__container .footer__group .h3,
+  footer .footer__container .footer__group h3 {
+    font-size: 20px;
+  }
+
+  .footer__group-icon .footer__logo {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  /*============================================================ HEADER ================================================================*/
+
+  .logo i {
+    font-size: 24px;
+  }
+
+  .sidebar__logo-title {
+    font-size: 20px;
+  }
+
+  .header__nav.active {
+    width: 100%;
+    right: 0;
+  }
+  /*============================================================ Giới thiệu trang ================================================================*/
+
+  .left-column-container h1,
+  .left-column-container p {
+    display: none;
+  }
+  .left-column-container .search-bar {
     margin-left: 24px;
     margin-right: 24px;
+    margin-top: 0;
   }
-  .left-column-container p {
-    font-size: 12px;
+
+  .left-column-container .popular-tags {
+    display: block;
     margin-left: 24px;
     margin-right: 24px;
   }
 
-  .left-column-container .search-bar {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-  .left-column-container .popular-tags {
-    margin-left: 24px;
-    margin-right: 24px;
-    display: block;
-  }
   .left-column-container .popular-tags button {
     margin-bottom: 10px;
   }
 
-  .navbar .sign-in {
-    margin-right: 0;
+  /*============================================================ CARD ================================================================*/
+  .author-info {
+    margin-top: 20px;
+  }
+  .description {
+    margin-top: 10px;
   }
 
-  .hamburger-menu {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 426px) {
   #author-name {
     width: 150px;
   }
-  .sidebar__logo-title {
-    font-size: 18px;
-  }
-  .logo i {
-    font-size: 18px;
-  }
-  .wrapper .header .header__action .dropdown .btn img,
-  .header__action .dropdown.show img {
-    width: 24px;
-  }
-
- 
 
   .author-avatar img {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
   }
   .author-avatar {
-    margin-right: 2px;
-  }
-  .container-fluid .row {
-    /* margin-top: 100px;
-     */
+    margin-right: 10px;
   }
 
-  .card .card-body .author-name {
-    font-size: 12px;
-  }
-  .card .card-body .author-verify p {
-    font-size: 12px;
-  }
   .card .card-body .author-verify i {
     line-height: 24px;
     font-size: 10px;
@@ -1089,68 +1022,16 @@ color:#1565D8;
     margin-top: 20px;
     position: relative;
   }
-  .footer-clean .col-sm-4 {
-    padding-left: 0;
-    padding-right: 0;
-  }
+
   .publish-date {
     right: -12px;
     padding: 0;
     font-size: 12px;
   }
-  .footer-clean .row-footer {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 
-@media (max-width: 374px) {
-  #author-name {
-    width: 100px;
-  }
-  .author-avatar img {
-    width: 35px;
-    height: 35px;
-  }
-  .author-avatar {
-    margin-right: 2px;
-  }
-  .container-fluid .row {
-    /* margin-top: 100px; */
-  }
+  /*============================================================ FOOTER ================================================================*/
 
-  .card .card-body .author-name {
-    font-size: 12px;
+  .footer__container {
+    grid-template-columns: repeat(1, 1fr);
   }
-  .card .card-body .author-verify p {
-    font-size: 12px;
-  }
-  .card .card-body .author-verify i {
-    line-height: 24px;
-    font-size: 10px;
-    margin-right: 0;
-  }
-  .card .card-body .article-header .description {
-    margin: 10px 0 0 0;
-  }
-  .author-info {
-    margin-top: 20px;
-    position: relative;
-  }
-  .footer-clean .col-sm-4 {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .publish-date {
-    right: -12px;
-    padding: 0;
-    font-size: 12px;
-  }
-  .footer-clean .row-footer {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .footer__container{
-    grid-template-columns:1fr;
-}
 }
