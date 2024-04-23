@@ -10,3 +10,9 @@ Sau đó vào packages.json và xem các script
 Bắt đầu từ `routes/api.js` trước, gọi controller và hàm tương ứng, kết nối với cơ sở dữ liệu sử dụng Sequelize
 
 Với api response đã được format thông qua `response.ok()`: Xem chi tiết ở `modules/auth/controllers/authController.js` hàm `helloWorld()`
+
+# Packages
+* Express-validator: Dùng để validate request (required, min-length, ...)
+* Multer: Thực hiện file upload
+* Body-parser: Xử lí form body
+* Jwt: tạo token jwt cho đăng nhập
