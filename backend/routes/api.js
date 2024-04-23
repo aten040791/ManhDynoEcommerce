@@ -1,13 +1,12 @@
 require('express-router-group');
 const express = require('express');
-const demoMiddleware = require('middlewares/demoMiddleware');
 const authController = require('modules/auth/controllers/authController');
 const categoriesController = require('modules/category/controllers/categoriesController');
 const router = express.Router({mergeParams: true})
 
 //Single routing
-//Format: router.get(path, middlewareArray: optional, controllerAction)
-router.get('/helloworld', [demoMiddleware], authController.helloWorld);
+//Format: router.get(path, middlewareArray: optional = [], controllerAction)
+router.get('/helloworld', authController.helloWorld);
 
 /** 
  * Nested routing
