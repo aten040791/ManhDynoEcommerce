@@ -21,6 +21,71 @@
     display: none;
 }
 
+.fw-600{
+  font-weight: 600;
+}
+
+.gap-2{
+  gap:6px;
+}
+
+
+.fsp-15{
+  font-size:15px;
+}
+.fsp-14{
+  font-size:14px;
+}
+.fsp-20{
+  font-size:20px;
+}
+.fsp-12{
+  font-size:12px;
+}
+
+
+
+.line-height-2{
+  line-height:2px;
+}
+
+
+.color-active{
+  color:var(--blue-color);
+}
+.color-disabled{
+  color:#0D2436;
+}
+.bg-active{
+  background:var(--blue-color);
+}
+
+
+
+.letter-spacing-2{
+  letter-spacing: 2px;
+}
+
+.w-70{
+  width:70%;
+}
+.w-30{
+  width:30%;
+}
+.hp-80{
+  height:80px;
+}
+
+.box-shawdow-1{
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px !important;
+}
+
+.h-fit-content{
+  height:fit-content;
+}
+
+
+
 /* ============================================ START OF HEADER =========================================== */
   
   .header {
@@ -29,7 +94,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
   }
   
   .header .logo .bxl-c-plus-plus {
@@ -60,41 +124,6 @@
   }
   
   .header__nav li {
-=======
-}
-
-.header__nav i,.header__action i{
-
-    display:none;
-}
-.header__action{
-    display: none;
-}
-.header__logo{
-
-   display: flex;
-   align-items: center;
-   color:var(--blue-color);
-   font-size:20px;
-   font-weight:600;
-}
-
-.header__logo i{
-    font-size:39px;
-}
-
-
-.header__logo img{
-    width:100%;
-    object-fit: contain;    
-}   
-
-.header__nav{
-    display:flex;
-}
-
-.header__nav li{
->>>>>>> 6c620290f4738c80ec0a0f8d2d9bc051a01f276d
     list-style: none;
     padding: 13px 18px;
     margin-left: 12px;
@@ -164,9 +193,6 @@
     font-size: 23px;
   }
   
-  
-  
-  
   .logo {
     display: inline-flex;
     float: left;
@@ -185,148 +211,13 @@
 /* ============================================ END OF HEADER =========================================== */
 
 
-
-.post__main{
-    display:flex;
-    margin: 0 150px 20px;
+.breadcrumb-item:hover a{ 
+   text-decoration: none;
 }
 
-
-.post__breadcrumb{
-    opacity:0.5;
-    margin: 25px 0 29px 29px;
-    font-size:14px;  
-    background: #fff; 
-  }
-
-<<<<<<< HEAD
-.post__breadcrumb a{
-=======
-
-.breadcrumb a{
->>>>>>> 6c620290f4738c80ec0a0f8d2d9bc051a01f276d
-    text-decoration:none;
-    color:#1C3A5C;
-    font-weight:500;
+.latest-post li:hover .title{
+  color:var(--blue-color);
 }
-
-.post__breadcrumb a:hover{
-    color:#1565D8;
-}
-
-
-/* ============================================ START OF DETAIL POST =========================================== */
-
-.post__container{
-    width: 70%;
-}
-.post__container .title{
-    margin:15px 0;
-    font-size:24px;
-}
-
-.image img{
-    width:100%;
-    object-fit: contain;
-}
-
-.category{
-    margin-top:25px;
-    margin-bottom:20px;
-    font-weight:400;
-    letter-spacing:3.2px;
-    color: #1565D8;
-}
-.content{
-    overflow-wrap: break-word;
-    margin:0 3px;
-}
-
-/* ============================================ END OF DETAIL POST =========================================== */
-
-
-
-
-/* ============================================ START OF ARTICLES =========================================== */
-.articles{
-    width:30%;
-}
-
-.articles{
-    margin: 24px 48px 0 48px;
-    padding: 10px 48px 48px 24px;
-    border-radius:10px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height:fit-content;
-}
-
-.articles .title{
-    font-size:20px;
-    font-weight:600;
-    margin-bottom:29px;
-    margin-top: 20px;
-}
-
-.article__item{
-    display:flex;
-    margin-bottom:30px;
-    text-decoration:none;
-}
-.article__item:hover .article__title{
-    color:var(--blue-color);
-
-}
-
-
-
-.article__item-text{
-    margin-left:24px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.article__title{
-    font-weight:500;
-    font-size:18px;
-    line-height:1.5;
-    color:#0D2436;
-}
-
-.article__date{
-    font-size:14px;
-    font-weight:400;
-    color:#0D2436;
-}
-
-
-.tags ul{
-    display: flex;
-    flex-wrap: wrap;
-    gap:12px;
-}
-
-
-.tags ul li {
-
-    list-style-type: none;
-    border-radius:8px;
-    background: #1565D8;
-    padding:10px 14px;
-
-    opacity:0.9;
-}
-.tags li a{
-    color:#fff;
-    text-decoration: none;
-}
-.tags ul li:hover{
-    opacity:1;
-    cursor:pointer;
-
-}
-
-/* ============================================ END OF ARTICLES =========================================== */
 
 
 
@@ -652,7 +543,6 @@ color:#1565D8;
     .header__logo i{
         font-size:32px;
     }
-<<<<<<< HEAD
     .footer__container{
       gap:10px;
      
@@ -663,9 +553,6 @@ color:#1565D8;
     footer{
       padding: 15px 20px;
     }
-=======
-
->>>>>>> 6c620290f4738c80ec0a0f8d2d9bc051a01f276d
  }
 
 @media only screen and (max-width: 576px){
