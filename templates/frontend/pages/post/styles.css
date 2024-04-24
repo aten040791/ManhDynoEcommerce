@@ -8,47 +8,16 @@
 :root {
     --white-color: #fff;
     --blue-color: #4070f4;
-    --grey-color: #707070;
-    --grey-color-light: #aaa;
     --red-color: #ff0000;
-    --blue-light-color: #e4e9f7;
-    --grey-light-color: #f3f3f9;
-    --text-color: #000;
-    --grey-light-color-2: #f3f3f9;
   }
 
-.hide{
-    display: none;
+.fs-0{
+  font-size:14px;
 }
 
 .fw-600{
-  font-weight: 600;
+  font-weight:600;
 }
-
-.gap-2{
-  gap:6px;
-}
-
-
-.fsp-15{
-  font-size:15px;
-}
-.fsp-14{
-  font-size:14px;
-}
-.fsp-20{
-  font-size:20px;
-}
-.fsp-12{
-  font-size:12px;
-}
-
-
-
-.line-height-2{
-  line-height:2px;
-}
-
 
 .color-active{
   color:var(--blue-color);
@@ -56,33 +25,40 @@
 .color-disabled{
   color:#0D2436;
 }
+.color-disabled-2{
+ color:#959ead;
+}
 .bg-active{
   background:var(--blue-color);
 }
+.bg-disabled{
+  background-color:#0D2436;
+}
 
-
+.hover-pointer:hover{
+  cursor:pointer;
+}
+.hover-color-active:hover .title{
+  color:var(--blue-color);
+}
 
 .letter-spacing-2{
   letter-spacing: 2px;
 }
 
-.w-70{
-  width:70%;
+.w-65{
+  width:65%;
 }
-.w-30{
-  width:30%;
+.w-35{
+  width:35%;
 }
-.hp-80{
-  height:80px;
+.w-20{
+  width:20%;
+}
+.w-80{
+  width:80%;
 }
 
-.box-shawdow-1{
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px !important;
-}
-
-.h-fit-content{
-  height:fit-content;
-}
 
 
 
@@ -200,7 +176,6 @@
     color: var(--blue-color);
     font-weight: 600;
     font-size: 30px;
-    /* letter-spacing: 2px; */
   }
   
   .logo i {
@@ -211,95 +186,8 @@
 /* ============================================ END OF HEADER =========================================== */
 
 
-.breadcrumb-item:hover a{ 
-   text-decoration: none;
-}
 
-.latest-post li:hover .title{
-  color:var(--blue-color);
-}
-
-
-
-
-/* ============================================ START OF FOOTER =========================================== */
-footer{
-    margin-top:50px;
-    padding: 30px 150px ;
-    display:flex;
-    flex-direction:column;
-    background-color:#0D2436;
-    color: #5A7184;
-    font-size:14px;
-}
-.footer__container{
-    color:#959ead;
-    font-size:14px;
-    grid-template-columns: repeat(5, 1fr);
-    display:grid;
-    gap:40px;
-    margin-bottom:10px;
-}
-
-.footer__group-icon .footer__logo{
-font-size:24px;
-align-items:center;
-text-align:center;
-display:flex;
-font-weight:500;
-margin-bottom:20px;
-color:#1565D8;
-}
-.footer__group-icon p{
-    color:#959ead;
-    font-size:14px;
-    margin-left:3px;
-    
-}
-.footer__group-icon .footer__logo i{
-    font-size:32px;
-}
-.footer__group{
-    line-height:30px;
-}
-
-.footer__group ul li{
-    list-style:none;
-  
-}
-
-.footer__group ul li:first-child a{
-  font-size:17px;
-  font-weight:600;
-  color: #5A7184;
-}
-.footer__group li a{
-    text-decoration:none;
-    color:#959ead;
-    font-size:14px;
-}
-.copyright{
-    text-align:center;
-    font-style: italic;
-    font-weight: 600;
-    color: #5A7184;
-}
-
-/* ============================================ END OF FOOTER =========================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
- @media only screen and (max-width: 1662px){
+ /* @media only screen and (max-width: 1662px){
     .post__main{
         margin: 0 100px;
     }
@@ -362,9 +250,9 @@ color:#1565D8;
     footer{
       padding: 30px 100px;
     }
- }
+ /* } */ 
 
- @media only screen and (max-width: 1372px){
+ /* @media only screen and (max-width: 1372px){
     .post__main{
         margin: 0 60px;
     }
@@ -431,9 +319,9 @@ color:#1565D8;
     footer{
       padding: 20px 60px;
     }
- }
+ /* } */ 
 
- @media only screen and (max-width: 1132px){
+ /* @media only screen and (max-width: 1132px){
      .post__main{
         margin: 0 50px;
       }
@@ -526,9 +414,9 @@ color:#1565D8;
       padding: 15px 50px;
     }
 
- }
+ /* } */ 
 
- @media only screen and (max-width: 992px)
+ /* @media only screen and (max-width: 992px)
  {
     .post__main{
         margin: 0 20px; 
@@ -553,9 +441,9 @@ color:#1565D8;
     footer{
       padding: 15px 20px;
     }
- }
+ } */
 
-@media only screen and (max-width: 576px){
+/* @media only screen and (max-width: 576px){
     .post__main{
         margin: 0 10px;
     }
@@ -602,20 +490,15 @@ color:#1565D8;
     footer{
       padding: 15px 10px;
     }
+/* } */ 
+
+@media only screen and (max-width: 1200px){
+  /* .article{
+    background:var(--red-color);
+  } */
 }
 
-@media only screen and (max-width: 375px){
-    .articles__grid{
-        grid-template-columns: 1fr;
-        gap:5px;
-     }
-     .footer__container{
-        grid-template-columns:1fr;
-    }
-
-}
-
-@media (max-width: 1450px) {
+/* @media (max-width: 1450px) { */
     .header {
       margin: 0 25px;
       padding: 20px 0;
