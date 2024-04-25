@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Sign In</title>
+    <title>Recover Password</title>
 </head>
 
 <body>
@@ -20,9 +20,10 @@
         <div class="d-flex container justify-content-center px-0 vh-70 mt-5">
             <div class="w-100 mw-450 py-4">
                 <h2 class="text-center fw-bold fs-3">
-                    Sign In
+                    Recover password
                 </h2>
-                <form id="form" action="../../home/index.html">
+                <form id="form" action="../reset-password/index.html">
+
                     <div class="form__control d-flex flex-column mt-4">
                         <label for="email" class="color-disabled-3 fw-600">
                             Email:
@@ -31,28 +32,14 @@
                             class="border-none px-2 outline-none box-shadow-border py-3 ps-3 rounded-3" />
                         <div class="error"></div>
                     </div>
-
-                    <div class="form__control d-flex flex-column mt-4 mb-1">
-                        <label for="password" class="color-disabled-3 fw-600">
-                            Password:
-                        </label>
-                        <input type="password" id="password" placeholder="Enter your password..." autocomplete="on"
-                            class="border-none px-2 outline-none box-shadow-border py-3 ps-3 rounded-3" />
-                        <div class="error"></div>
-                    </div>
-
-                    <a href="../recover-password/index.html" class="color-active-2 fw-600 fs-0 fst-italic">
-                        Forgot your password?
-                    </a>
-
                     <button type="submit"
                         class=" text-light opacity-90 py-3 border-none outline-none w-100 rounded-3 fw-bold pe-auto bg-active hover-opacity my-2">
-                        Sign In
+                        Send
                     </button>
 
                     <p>
-                        Don't have an account?
-                        <a href="../sign-up/index.html" class="color-active">Sign up</a>
+                        Remember your password
+                        <a href="../sign-in/index.html" class="color-active">Sign In</a>
                     </p>
                 </form>
             </div>
