@@ -12,12 +12,93 @@
   --grey-color: #707070;
   --grey-color-light: #aaa;
   --red-color: #ff0000;
-  --blue-light-color: #e4e9f7;
+  --blue-light-color: #1089ff;
   --grey-light-color: #f3f3f9;
   --text-color: #000;
   --grey-light-color-2: #f3f3f9;
 }
+.fs-0{
+  font-size:14px;
+}
 
+.fs-18{
+  font-size:18px;
+}
+
+.p-24{
+  padding:24px;
+}
+
+.fw-600{
+  font-weight:600;
+}
+
+.color-active{
+  color:var(--blue-color);
+}
+.color-disabled{
+  color:#0D2436;
+}
+.color-disabled-2{
+ color:#959ead;
+}
+.bg-active{
+  background:var(--blue-color) !important;
+}
+.bg-light-active{
+  background:var(--blue-light-color) !important;
+}
+.bg-disabled{
+  background-color:#0D2436;
+}
+.border-none{
+  border:none !important;
+}
+.outline-none{
+  outline:none !important;
+}
+.border-radius-none{
+  border-radius:0 !important;
+}
+.hover-pointer:hover{
+  cursor:pointer;
+}
+.hover-color-active:hover .title{
+  color:var(--blue-color);
+}
+.hover-color-white:hover a{
+  color:#fff;
+}
+
+.letter-spacing-2{
+  letter-spacing: 2px;
+}
+
+.w-65{
+  width:65%;
+}
+.w-35{
+  width:35%;
+}
+.w-20{
+  width:20%;
+}
+.w-80{
+  width:80%;
+}
+.wm-80{
+  max-width:80px;
+}
+.py-9{
+  padding: 9px 0;
+}
+
+.wp-130{
+  width:130px !important;
+}
+.hp-45{
+  height:45px !important;
+}
 .hide {
   display: none;
 }
@@ -81,6 +162,11 @@ body {
   cursor: pointer;
 }
 
+.header__nav.active li:not(:last-child):hover {
+  background: #f3f4f4;
+  cursor: pointer;
+}
+
 .header__nav li:last-child a {
   justify-content: center;
   color: #1565d8;
@@ -134,7 +220,7 @@ body {
 }
 
 .wrapper .header__nav .has-children .dropdown a:hover {
-  background-color: #c7bbe7;
+  background-color: #f3f4f4;
 }
 .wrapper .header__nav .has-children .dropdown button a:hover {
   background-color: #fff;
@@ -467,6 +553,7 @@ input:focus {
 }
 
 .card .card-body .link-to-detail {
+  text-decoration: none;
   font-size: 2rem;
   color: #183b56;
   margin-bottom: 0.5rem;
@@ -494,6 +581,7 @@ input:focus {
 }
 
 .card .card-body .author-name {
+  text-decoration: none;
   font-style: italic;
   font-weight: 600;
   margin: 0;
@@ -605,6 +693,11 @@ footer {
   margin-bottom: 10px;
   padding: 20px 20px;
 }
+.rounded-start {
+  border-bottom-left-radius: .25rem !important ;
+  border-top-left-radius: .25rem  !important;
+  padding-left: .5rem ;
+}
 
 .footer__group-icon .footer__logo {
   font-size: 24px;
@@ -635,16 +728,25 @@ footer {
   color: #959ead;
   font-size: 14px;
 }
-.copyright {
-  text-align: center;
-  font-style: italic;
-  font-weight: 600;
-  color: #5a7184;
-}
-.copyright p {
-  margin: 0;
+ 
+.hover-color-white a{
+  font-size: 1rem;
 }
 
+.copyright p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.email-input,
+.email-submit {
+  font-size: 16px;
+}
+
+.bg-disabled .pt-3{
+  margin-left: 164px;
+  margin-right: 180px;
+}
 /* ============================================ END OF FOOTER =========================================== */
 
 /* ============================================ RESPONSIVE =========================================== */
@@ -662,6 +764,7 @@ footer {
     display: none;
   }
   .header__nav.active {
+    padding: 0;
     display: block;
     position: absolute;
     right: 24px;
@@ -722,7 +825,7 @@ footer {
     padding: 4px;
   }
   .header__action .dropdown-menu a:hover {
-    background-color: #c7bbe7;
+    background-color: #f3f4f4;
   }
   .header__action .dropdown .dropdown-toggle::after {
     margin-left: 0;
@@ -782,8 +885,10 @@ footer {
   }
 
   /* =========================================== FOOTER ==============================================*/
-  .footer__container {
-    margin-left: 16px;
+  
+  .bg-disabled .pt-3{
+    margin-left: 44px;
+    margin-right: 44px;
   }
 }
 
@@ -812,15 +917,7 @@ footer {
 
   /* =========================================== FOOTER ==============================================*/
 
-  .footer__group-icon .footer__logo {
-    font-size: 19px;
-    margin-bottom: 14px;
-  }
-
-  .footer__group h3 {
-    font-size: 20px;
-    line-height: 1.6;
-  }
+  
 }
 
 @media (max-width: 992px) {
@@ -888,9 +985,10 @@ footer {
   }
 
   /* ============================================== FOOTER ============================================== */
-  .footer__container {
-    grid-template-columns: repeat(3, 1fr);
-    margin-left: 6px;
+ 
+  .bg-disabled .pt-3{
+    margin-left: 36px;
+    margin-right: 44px;
   }
 }
 
@@ -1031,7 +1129,8 @@ footer {
 
   /*============================================================ FOOTER ================================================================*/
 
-  .footer__container {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  .email-input,
+.email-submit {
+  font-size: 12px;
+}
 }
