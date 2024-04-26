@@ -16,6 +16,7 @@
   font-size:14px;
 }
 
+
 .fs-18{
   font-size:18px;
 }
@@ -208,7 +209,6 @@
   header .header-sign-in, header .header-nav{
    display:none !important;
   }
-
   .header-nav.active{
     display: block !important;
     position:absolute;
@@ -251,6 +251,7 @@
   }
   /*================= END OF HEADER =============== */
 }
+
 
 @media (max-width: 576px) {
   main,footer,header{
