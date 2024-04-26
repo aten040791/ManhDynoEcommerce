@@ -20,119 +20,54 @@
 <!-------------------------------------------------------------------------------- HEADER------------------------------------------------------------------------->
 
 <body>
-  <div class="wrapper">
-    <div class="header ">
-      <div class="logo">
-        <i class="bx bxl-c-plus-plus"></i>
-        <span class="sidebar__logo-title">Coding Blog</span>
-      </div>
 
-      <ul class="header__nav" id="header__nav">
-        <li>
-          <a href="./index.html"><i class="fa-solid fa-house"></i>Home</a>
-        </li>
-        <li>
-          <a href="../category/index.html"><i class="fa-solid fa-list"></i>Categories</a>
-        </li>
-
-        <li class="has-children">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
-              <a href="#">English</a>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="languageDropdown">
-              <a class="dropdown-item" href="#"
-                onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')">
-                <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
-                English
-              </a>
-              <a class="dropdown-item" href="#"
-                onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
-                <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
-                Tiếng Việt
-              </a>
-              <a class="dropdown-item" href="#"
-                onclick="changeLanguage('Français', '../../../backend/owner/assets/images/flags/FR.png')">
-                <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
-                Français
-              </a>
-            </div>
-          </div>
-        </li>
-        <li>
-          <a href="../auth/sign-in/index.html">Sign In</a>
-        </li>
-      </ul>
-
-      <!---------------------------------------------Chỗ này là cái Language khi thu nhỏ màn hình--------------------------------------------------------------->
-
-      <div class="header__action">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdownResponsive"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
-          </button>
-          <div class="dropdown-menu" aria-labelledby="languageDropdown">
-            <a class="dropdown-item" href="#"
-              onclick="changeLanguageResponsive('English', '../../../backend/owner/assets/images/flags/US.png')">
-              <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
-              English
-            </a>
-            <a class="dropdown-item" href="#"
-              onclick="changeLanguageResponsive('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
-              <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
-              Tiếng Việt
-            </a>
-            <a class="dropdown-item" href="#"
-              onclick="changeLanguageResponsive('Français', '../../../backend/owner/assets/images/flags/FR.png')">
-              <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
-              Français
-            </a>
-          </div>
-        </div>
-        <i class="fa-solid fa-user hide"></i>
-        <i class="fa-solid fa-bars hide"></i>
-      </div>
-    </div>
-  </div>
-  <!------------------------------------------------------------------------HEADER END------------------------------------------------------------------------------>
-
-  <!-------------------------------------------------------GIỚI THIỆU TRANG---------------------------------------------------------------->
-
-  <div class="main-container">
-    <div class="left-column-container">
-      <div class="header-container">
-        <h1>Read the most interesting articles</h1>
+  <!-- START OF BANNER -->
+  <div class="banner container d-flex algin-item-center justify-content-between">
+    <div class="d-flex justify-content-between flex-column w-50 mt-5">
+      <div class="banner-text mt-5">
+        <h2 class="h2">Read the most interesting articles</h2>
         <p class="description">
           Explore a wide range of topics updated weekly to enrich your daily
           reading experience. Join our community and discover something new
           with every visit!
         </p>
-        <div class="search-bar">
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input type="text" placeholder="Search article" class="search-input bg-transparent" />
-          <button class="search-button">Search</button>
+        <div class="search-bar rounded-3 box-shadow-1 position-relative">
+          <i class="fa-solid fa-magnifying-glass ms-4 position-absolute fs-5 top-50 start-0 translate-middle"></i>
+          <input type="text" placeholder="Search article" class="outline-none border-none ms-4 p-3 rounded-3" />
+          <button
+            class="search-button h-75 rounded-8 text-light border-none cursor-pointer position-absolute px-2 bg-active end-0 translate-middle-y top-50 me-2">Search</button>
         </div>
 
-        <div class="popular-tags">
-          <span>Popular Tags: </span>
-          <button>Design</button>
-          <button>User Experience</button>
-          <button>User Interfaces</button>
+        <div class="mt-4 popular-tags d-flex fw-600">
+          <span class="fst-italic  color-disabled-2 me-2">Popular Tags: </span>
+
+          <ul class="list-unstyled d-flex flex-wrap gap-2">
+            <li>
+              <a href="#"
+                class=" hover-bg-disabled text-decoration-none px-3 py-2  rounded-3 cursor-pointer fst-italic fs-0 bg-light-active-2">
+                Design
+              </a>
+            </li>
+            <li><a href="#"
+                class=" hover-bg-disabled text-decoration-none px-3 py-2  rounded-3 cursor-pointer fst-italic fs-0 bg-light-active-2">User
+                Experience</a></li>
+            <li><a href="#"
+                class=" hover-bg-disabled text-decoration-none px-3 py-2 rounded-3 cursor-pointer fst-italic fs-0 bg-light-active-2">User
+                Interfaces</a></li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="right-column-container">
-      <img src="../../assets/images/LIve Chat.svg" alt="Descriptive Alt Text" />
+    <div class="w-50 banner-img">
+      <img src="../../assets/images/LIve Chat.svg" alt="Descriptive Alt Text" class="mw-100 h-auto" />
     </div>
   </div>
+  <!-- END OF BANNER -->
 
-  <!------------------------------------------------------------------------CARD(POST)------------------------------------------------------------------------------>
 
-  <div class="container-fluid mt-2">
-    <div class="row">
+  <!-- START OF CARD POST -->
+  <div class="container p-0">
+    <!-- <div class="row">
       <div class="col-4 mt-5">
         <div class="card">
           <img class="card-img" src="../../assets/images/post/1.svg" />
@@ -274,154 +209,133 @@
                 </div>
                 <div id="author-name">
                   <a href="#" class="author-name">VCCorp</a>
-                  <div class="author-verify" ">
-                      <p>02 May, 2019</p>
+                  <div class="author-verify">
+                    <p>02 May, 2019</p>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class=" col-4 mt-5">
-                    <div class="card">
-                      <img class="card-img" src="../../assets/images/post/6.svg" />
-                      <div class="card-body">
-                        <div class="article-header">
-                          <div>
-                            <a href="../post/index.html " class="link-to-detail">
-                              Headset No Longer Wired For Sound
-                            </a>
-                            <p class="description">
-                              A constant ability to learn will be on the most crucial
-                              skills.
-                            </p>
-                          </div>
-
-                          <div class="author-info">
-                            <div class="author-avatar">
-                              <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
-                            </div>
-                            <div id="author-name">
-                              <a href="#" class="author-name">VCCorp</a>
-                              <div class="author-verify">
-                                <p>02 May, 2019</p>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="centered-btn">
-                  <a href="#" class="custom-btn">
-                    More articles <i class="fas fa-arrow-right"></i>
-                  </a>
-                </div>
+        <div class="card">
+          <img class="card-img" src="../../assets/images/post/6.svg" />
+          <div class="card-body">
+            <div class="article-header">
+              <div>
+                <a href="../post/index.html " class="link-to-detail">
+                  Headset No Longer Wired For Sound
+                </a>
+                <p class="description">
+                  A constant ability to learn will be on the most crucial
+                  skills.
+                </p>
               </div>
 
-              <!---------------------------------------------------------------------- FOOTER SECTION START --------------------------------------------------------------->
-              <footer class="bg-disabled">
-                <div class=" pt-3">
-                  <!-- START OF FOOTER INFO -->
-                  <div class="row">
-                    <div class="col-md-6 col-lg-8  px-0">
-                      <div class="row">
-                        <div class="col-md-4  mb-md-0 mb-4">
-                          <h2 class="text-light fs-18 mb-3">About</h2>
-                          <ul class="list-unstyled">
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block  text-decoration-none color-disabled-2">Out
-                                story</a></li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Awards</a></li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Our Team</a></li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Career</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-md-4 mb-md-0 mb-4">
-                          <h2 class="text-light fs-18 mb-3">Company</h2>
-                          <ul class="list-unstyled">
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Our services</a>
-                            </li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Clients</a></li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Contact</a></li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Press</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-md-4 mb-md-0 mb-4">
-                          <h2 class="text-light fs-18 mb-3">Company</h2>
-                          <ul class="list-unstyled">
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Our services</a>
-                            </li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Clients</a></li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Contact</a></li>
-                            <li class="hover-color-white"><a href="#"
-                                class="d-block text-decoration-none color-disabled-2">Press</a></li>
-                          </ul>
-                        </div>
-
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 px-0">
-                      <h2 class="text-light fs-18 mb-3">Subcribe</h2>
-                      <form action="#">
-                        <div class="d-flex mb-0">
-                          <input type="text"
-                            class="border-none py-9 w-75 ps-2 outline-none border-radius-none rounded-start email-input"
-                            placeholder="Enter email address...">
-                          <button type="submit"
-                            class="w-25 hp-45 border-radius-none border-none outline-none rounded-end text-light bg-light-active email-submit">Subscribe</button>
-                        </div>
-                        <span class="d-inline-block color-disabled-2 fs-0 mt-1 title">Get digital marketing updates in
-                          your
-                          mailbox</span>
-                      </form>
-                    </div>
-                  </div>
-                  <!-- END OF FOOTER INFO -->
-
-                  <!-- START OF FOOTER COPYRIGHT -->
-                  <div class="copyright row mt-3 border-top border-secondary d-flex">
-                    <div class="col-6 align-items-center d-flex p-0">
-                      <p class="copyright mb-0 color-disabled-2">
-                        Copyright &copy;
-                        2024 All rights reserved.
-                      </p>
-                    </div>
-                    <div class="social col-6 fs-3 bg-transparent p-0">
-                      <ul class="p-0 d-flex mb-0 gap-3 list-unstyled justify-content-end mt-2">
-                        <li class="ftco-animate text-light">
-                          <i class='bx bxl-twitter'></i>
-                        </li>
-                        <li class="ftco-animate text-light">
-                          <i class='bx bxl-facebook-square'></i>
-                        </li>
-                        <li class="ftco-animate text-light">
-                          <i class='bx bxl-instagram'></i>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- END OF FOOTER COPYRIGHT -->
+              <div class="author-info">
+                <div class="author-avatar">
+                  <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
                 </div>
-              </footer>
+                <div id="author-name">
+                  <a href="#" class="author-name">VCCorp</a>
+                  <div class="author-verify">
+                    <p>02 May, 2019</p>
+                  </div>
+                </div>
 
-              <script src="../../assets/js/nav-bar.js"></script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="row row-cols-1 row-cols-md-2 g-4 row-cols-lg-3">
+      <div class="col">
+        <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+          <img src="../../assets/images/post/blog39.jpg" class="card-img-top rounded-top-10"
+            alt="Hollywood Sign on The Hill" />
+          <div class="card-body">
+            <h5 class="card-title">Future of Work</h5>
+            <p class="card-text">
+              Majority of people will work in jobs that don't exist today.
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">
+                <img class="rounded-circle wp-50" src="../../assets/images/avatar.jpg" alt="">
+                <a href="#" class="text-decoration-none color-disabled">ManhDyno</a>
+              </div>
+              <span>02 May,2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+          <img src="../../assets/images/post/blog40.jpg" class="card-img-top rounded-top-10" alt="Palm Springs Road" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a short card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col ">
+        <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+          <img src="../../assets/images/post/blog41.jpg" class="card-img-top rounded-top-10"
+            alt="Los Angeles Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+              additional content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col ">
+        <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+          <img src="../../assets/images/post/blog42.jpg" class="card-img-top rounded-top-10" alt="Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+          <img src="../../assets/images/post/blog43.jpg" class="card-img-top rounded-top-10"
+            alt="Los Angeles Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+              additional content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+          <img src="../../assets/images/post/blog44.jpg" class="card-img-top rounded-top-10" alt="Skyscrapers" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="centered-btn">
+      <a href="#" class="custom-btn">
+        More articles <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+  <!-- END OF CARD POST -->
+  <script src="../../assets/js/nav-bar.js"></script>
 </body>
-
 
 </html>

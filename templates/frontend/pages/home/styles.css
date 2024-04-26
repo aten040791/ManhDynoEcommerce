@@ -48,6 +48,9 @@
 .bg-light-active{
   background:var(--blue-light-color) !important;
 }
+.bg-light-active-2{
+  background-color: #e2ecfb !important; 
+}
 .bg-disabled{
   background-color:#0D2436;
 }
@@ -68,6 +71,9 @@
 }
 .hover-color-white:hover a{
   color:#fff;
+}
+.hover-bg-disabled:hover{
+  background-color: #e2e2e2!important; 
 }
 
 .letter-spacing-2{
@@ -92,6 +98,12 @@
 .py-9{
   padding: 9px 0;
 }
+.rounded-8{
+  border-radius:8px;
+}
+.rounded-10{
+  border-radius:10px !important;
+}
 
 .wp-130{
   width:130px !important;
@@ -102,667 +114,24 @@
 .hide {
   display: none;
 }
-body {
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: lighter;
-}
-
-/* ======================================================= START OF HEADER ============================================================= */
-/* Base styles for entire header */
-.header {
-  margin: 0 150px;
-  padding: 35px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Logo specific styles */
-.header .logo .bxl-c-plus-plus {
-  display: inline-block;
-}
-
-/* General icon styles within header */
-.header i {
-  display: none;
-}
-
-/* Specific logo styling */
-.header__logo {
-  width: 78px;
-  margin-top: 11px;
-}
-
-.header__logo img {
-  width: 100%;
-  object-fit: contain;
-}
-
-/* Navigation styles */
-.header__nav {
-  margin-bottom: 0px;
-  display: flex;
-}
-
-.header__nav li {
-  list-style: none;
-  padding: 13px 18px;
-  margin-left: 12px;
-  border-radius: 10px;
-}
-
-.header__nav li a {
-  text-decoration: none;
-  color: #1c3a5c;
-  font-weight: 500;
-}
-
-.header__nav li:not(:last-child):hover {
-  background: #f3f4f4;
-  cursor: pointer;
-}
-
-.header__nav.active li:not(:last-child):hover {
-  background: #f3f4f4;
-  cursor: pointer;
-}
-
-.header__nav li:last-child a {
-  justify-content: center;
-  color: #1565d8;
-  font-weight: 800;
-  padding: 10px 25px;
-  border: 2px solid #1565d8;
-  border-radius: 16px;
-  font-size: 16px;
-}
-
-.header__nav li:last-child:hover a {
-  overflow: hidden;
-  background: #1565d8;
-  color: #fff;
-}
-
-.header__nav .dropdown a i {
-  display: block;
-}
-
-/* Wrapper styles for dropdowns within navigation */
-.wrapper .header .header__nav .has-children,
-.wrapper .header .header__nav .has-children:hover {
-  background: none;
-  margin-top: 4px;
-  padding: 0;
-}
-
-.has-children .dropdown img {
-  margin-bottom: 2px;
-  width: 32px;
-}
-
-.btn-secondary:not(:disabled):not(.disabled).active:focus,
-.btn-secondary:not(:disabled):not(.disabled):active:focus,
-.show > .btn-secondary.dropdown-toggle:focus,
-.btn-secondary.focus,
-.btn-secondary:focus {
-  box-shadow: none !important;
-}
-.wrapper .header__nav .has-children .dropdown-menu {
-  margin-left: 1px;
-  padding: 0;
-}
-
-.wrapper .header__nav .has-children .dropdown .btn-secondary {
-  padding-bottom: 0;
-  color: #000;
-  background-color: #fff;
-  border: none;
-}
-
-.wrapper .header__nav .has-children .dropdown a:hover {
-  background-color: #f3f4f4;
-}
-.wrapper .header__nav .has-children .dropdown button a:hover {
-  background-color: #fff;
-}
-
-.has-children .dropdown .dropdown-item {
-  padding: 10px 10px;
-}
-
-.header__action {
-  display: none;
-}
-
-.header__action .fa-solid.fa-user {
-  font-size: 23px;
-}
-
-
-
-/* Additional interface elements */
-.logo {
-  display: inline-flex;
-  float: left;
-  margin: 11px 0px;
-  color: var(--blue-color);
-  font-weight: 600;
-  font-size: 30px;
-}
-
-.logo i {
-  margin-top: 4px;
-  font-size: 40px;
-}
-
-.hamburger-menu {
-  display: none;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-.menu-icon {
-  line-height: 60px;
-  width: 100%;
-  background: #000;
-  text-align: right;
-  box-sizing: border-box;
-  padding: 15px 24px;
-  cursor: pointer;
-  color: #fff;
-  display: none;
-}
-
-.sign-in {
-  margin-right: 20px;
-}
-
-.sign-in a {
-  border-radius: 20px;
-  padding: 5px 20px;
-  border: 2px solid #4070f4;
-  color: #4070f4;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  font-family: sans-serif;
-}
-
-.dropdown-btn {
-  display: flex;
-  align-items: center;
-}
-
-.dropdown .dropdown-btn i {
-  display: block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  margin-left: -20px;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 4px;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 0 20px;
-  text-decoration: none;
-  display: flex;
-  border-bottom: 1px solid #ccc;
-}
-
-.dropdown-content a:last-child {
-  border-bottom: none;
-}
-
-.dropdown-content a:hover:first-child {
-  background-color: #ddd;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.dropdown-content a:hover:last-child {
-  background-color: #ddd;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #f8f8f8;
-}
-
-/* ==============================================================================END OF HEADER=========================================================*/
-
-/* ==============================================================================GIỚI THIỆU TRANG======================================================*/
-
-/* Main container styles */
-.main-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #f9fcfe;
-}
-
-/* Left column within the main container */
-.left-column-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  margin-left: 120px;
-  width: 50%; /* Adjust as necessary */
-}
-
-/* Right column within the main container */
-.right-column-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex: 1;
-  margin-right: 165px;
-  width: 50%; /* Adjust as necessary */
-}
-
-.right-column-container img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Header styles within the main container */
-.main-container h1 {
-  margin-left: 30px;
-  line-height: 68px;
-  font-size: 70px;
-  color: #183b56;
-}
-
-/* Paragraph styles within the main container */
-.main-container p {
-  margin-left: 30px;
-  color: #183b56;
-  line-height: 36px;
-  font-size: 24px;
-  margin-top: 50px;
-}
-
-/* Search bar styles */
-.search-bar {
-  /* background-color: #eeecec; */
-  display: flex;
-  position: relative;
-  /* box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1); */
-  margin-left: 30px;
-  margin-top: 50px;
-  border-radius: 10px;
-  margin-right: 20px;
+.box-shadow-1{
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 0px;
 }
-
-.search-icon {
-  position: absolute;
-  font-size: 20px;
-  color: gray;
-  margin: 16px 0px 0 10px;
-}
-
-.search-bar input[type="text"] {
-  background-color: #eeecec;
-  margin-left: 30px;
-  width: 100%;
-  padding: 15px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
-}
-
-input:focus {
-  outline: none;
-}
-
-.search-bar button {
-  height: 70%;
-  margin-right: 10px;
-  margin-top: 9px;
-  position: absolute;
-  right: 0;
-  padding: 0 10px;
-  background-color: blue; /* Adjust as necessary */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.search-bar button:hover {
-  background-color: darkblue; /* Adjust as necessary */
-}
-
-/* Popular tags styles */
-.popular-tags {
-  margin-top: 20px;
-  margin-left: 30px;
-}
-
-.popular-tags span {
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 500;
-  margin-right: 20px;
-  color: #5a7184;
-}
-
-.popular-tags button {
-  padding: 5px 10px;
-  margin-right: 10px;
-  background-color: #e2ecfb; /* Adjust as necessary */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: var(--blue-color);
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 500;
-}
-
-.popular-tags button:hover {
-  background-color: #e2e2e2; /* Adjust as necessary */
-}
-
-/* =================================================================    Card (Các bài Post) ================================================================= */
-
-/* Container styles */
-.container-fluid {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.container-fluid .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 104px;
-  margin-right: 124px;
-}
-
-.container-fluid .row .col-4 {
-  padding: 0 35px;
-}
-
-/* Card styles within the container */
-.container-fluid .card {
-  position: relative;
-  height: 100%;
-  border: 1px solid rgb(167, 138, 138, 0.13);
-  border-radius: 1.25rem;
-  box-shadow: 0px 1px 0px #f9eaea;
-}
-
-.card .card-body {
-  /* Specific styles within card body */
-}
-
-.card .card-body h2 {
-  font-size: 28px;
-  color: #183b56;
-}
-
-.card .card-body .link-to-detail {
-  text-decoration: none;
-  font-size: 2rem;
-  color: #183b56;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.card .card-body .link-to-detail:hover {
-  text-decoration: none;
-  color: #447ebf;
-}
-
-.card .card-body p {
-  margin-top: 8px;
-  font-size: 18px;
-  color: #5a7184;
-}
-
-.card .card-body .article-header .description {
-  margin-bottom: 70px;
-}
-
-.card .card-body #author-name {
-  max-width: 50%;
-}
-
-.card .card-body .author-name {
-  text-decoration: none;
-  font-style: italic;
-  font-weight: 600;
-  margin: 0;
-  color: #5a7184;
-  font-size: 18px;
-}
-
-.card .card-body .author-name:hover {
-  text-decoration: none;
-  color: #447ebf;
-}
-
-.card .card-body .author-verify p {
-  margin: 0;
-  font-size: 14px;
-  font-style: italic;
-  padding: 3px 0;
-  font-weight: 500;
-}
-
-/* Author avatar and related info */
-.author-avatar {
-  margin-right: 10px;
-}
-
-.author-avatar img {
-  border-radius: 50%; /* Creates a circular avatar */
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-}
-
-.author-info {
-  width: 100%;
-  position: absolute;
-  bottom: 5px;
-  display: flex;
-  align-items: center;
-}
-
-.author-verify {
-  display: flex;
-}
-
-.author-verify i {
-  margin-right: 5px;
-}
-
-.publish-date {
-  position: absolute;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 500;
-  right: 40px;
-  padding-left: 15px; /* Adjust space between author and date as needed */
-}
-
-/* Centered button styles */
-.centered-btn {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.centered-btn .custom-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: white;
-  color: #007bff;
-  border: 2px solid #007bff;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.25);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.custom-btn:focus,
-.custom-btn:hover {
-  overflow: hidden;
-  background-color: #1565d8;
-  color: #fff;
-  outline: none;
-}
-
-/* Card image styles */
-.row .card .card-img {
-  border-radius: 1.25rem 1.25rem 0 0;
-  height: 350px;
-  object-fit: cover;
-}
-
-/* ============================================ START OF FOOTER =========================================== */
-footer {
-  display: flex;
-  flex-direction: column;
-  background-color: #0d2436;
-  color: #5a7184;
-  font-size: 14px;
-}
-
-.rounded-start {
-  border-bottom-left-radius: .25rem !important ;
-  border-top-left-radius: .25rem  !important;
-  padding-left: .5rem ;
+.rounded-top-10{
+  border-top-left-radius:10px !important;
+  border-top-right-radius:10px !important;
 }
 
 
- 
-.hover-color-white a{
-  font-size: 1rem;
+.wp-50{
+  width:50px;
+  height:50px;
 }
 
-.copyright p {
-  margin: 0;
-  font-size: 16px;
-}
-
-.email-input,
-.email-submit {
-  font-size: 16px;
-}
-
-.bg-disabled .pt-3{
-  margin-left: 164px;
-  margin-right: 180px;
-}
-/* ============================================ END OF FOOTER =========================================== */
 
 /* ============================================ RESPONSIVE =========================================== */
 
 @media (max-width: 1400px) {
-  /* ============================================ HEADER =========================================== */
-  .header {
-    margin: 0 25px;
-    padding: 20px 0;
-  }
-  .header i {
-    display: block;
-  }
-  .header__nav {
-    display: none;
-  }
-  .header__nav.active {
-    padding: 0;
-    display: block;
-    position: absolute;
-    right: 24px;
-    top: 75px;
-    /* width: 100%; */
-    border-radius: 5px;
-    background: #fff;
-    z-index: 9999;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  }
-  .header__nav.active .dropdown,
-  .header__nav.active .dropdown button {
-    display: none;
-  }
-  .header__nav.active li,
-  .header__nav li:last-child {
-    margin: 0;
-    border-radius: 0;
-  }
-  .header__nav li a {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    font-size: 18px;
-  }
-
-  /* Header Action Styles */
-  .header__action {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  .header__action button,
-  .header__action button:hover,
-  .header__action .dropdown.show .btn-secondary.dropdown-toggle,
-  .header__action .dropdown .dropdown-toggle:focus {
-    color: #000;
-    background-color: #fff;
-    border: none;
-  }
-  .header__action .dropdown.show img,
-  .wrapper .header .header__action .dropdown .btn img {
-    width: 32px;
-  }
-
-  .header__action .dropdown-menu {
-    min-width: 124px;
-    position: absolute;
-    margin-left: -4px;
-  }
-  .header__action .dropdown-menu,
-  .header__action .dropdown .btn-secondary,
-  .header__action .dropdown.show .dropdown-item {
-    padding: 0px;
-  }
-  .header__action .dropdown.show .dropdown-item {
-    padding: 4px;
-  }
-  .header__action .dropdown-menu a:hover {
-    background-color: #f3f4f4;
-  }
-  .header__action .dropdown .dropdown-toggle::after {
-    margin-left: 0;
-  }
-  .wrapper .header .header__action .btn-secondary:focus {
-    box-shadow: none;
-  }
-  .header__action i:first-child {
-    font-size: 23px;
-    margin-bottom: 1px;
-  }
-  .header__action i:last-child {
-    font-size: 28px;
-  }
 
   /* ========================================= GIỚI THIỆU TRANG ======================================= */
 
@@ -807,18 +176,9 @@ footer {
     font-size: 14px;
   }
 
-  /* =========================================== FOOTER ==============================================*/
-  
-  .bg-disabled .pt-3{
-    margin-left: 44px;
-    margin-right: 44px;
-  }
 }
 
 @media (max-width: 1200px) {
-  /* ============================================ HEADER =========================================== */
-
-  /* ========================================= GIỚI THIỆU TRANG ======================================= */
 
   /* ==========================================  CARD ===============================================*/
 
@@ -837,18 +197,10 @@ footer {
     font-size: 12px;
     right: 28px;
   }
-
-  /* =========================================== FOOTER ==============================================*/
-
   
 }
 
 @media (max-width: 992px) {
-  /* =========================================================== Header ================================================================*/
-
-  .header .logo {
-    margin-left: -4px;
-  }
 
   /* ========================================================= Giới thiệu trang ========================================================= */
 
@@ -907,16 +259,10 @@ footer {
     font-size: 13px;
   }
 
-  /* ============================================== FOOTER ============================================== */
- 
-  .bg-disabled .pt-3{
-    margin-left: 36px;
-    margin-right: 44px;
-  }
 }
 
 @media (max-width: 768px) {
-  /* ============================================== HEADER ============================================== */
+ 
   /* ============================================== Giới thiệu trang ============================================== */
 
   .left-column-container,
@@ -931,7 +277,6 @@ footer {
 
   /* ============================================== CARD ============================================== */
 
-  /* Điều chỉnh grid để chỉ hiển thị 1 card mỗi hàng */
   .container-fluid .row .col-4 {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -968,20 +313,7 @@ footer {
 }
 
 @media (max-width: 576px) {
-  /*============================================================ HEADER ================================================================*/
 
-  .logo i {
-    font-size: 24px;
-  }
-
-  .sidebar__logo-title {
-    font-size: 20px;
-  }
-
-  .header__nav.active {
-    width: 100%;
-    right: 0;
-  }
   /*============================================================ Giới thiệu trang ================================================================*/
 
   .left-column-container h1,
@@ -1042,11 +374,4 @@ footer {
     padding: 0;
     font-size: 12px;
   }
-
-  /*============================================================ FOOTER ================================================================*/
-
-  .email-input,
-.email-submit {
-  font-size: 12px;
-}
 }
