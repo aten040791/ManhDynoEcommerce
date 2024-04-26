@@ -10,11 +10,79 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Sign In</title>
 </head>
 
 <body>
-
+    <header>
+        <div class="container p-0 d-flex py-3 gap-2 position-relative">
+            <div class="logo container-fluid p-0  fw-600 color-active m-0 fs-5 d-flex align-items-center ">
+                <i class="bx bxl-c-plus-plus fs-1"></i>
+                Coding Blog
+            </div>
+            <div class="header-nav d-flex align-items-center gap-2" id="header-nav">
+                <div class="header-nav-item hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="../../home/index.html">
+                        <i class="fa-solid fa-house d-none"></i>
+                        Home
+                    </a>
+                </div>
+                <div class="header-nav-item hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="../../category/index.html">
+                        <i class="fa-solid fa-list d-none"></i>
+                        Categories
+                    </a>
+                </div>
+                <div class="header-nav-item sign-out d-none hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="index.html">
+                        <i class="ri-logout-box-r-line fs-5"></i>
+                        Sign out
+                    </a>
+                </div>
+            </div>
+            <div class="header-lang">
+                <div class="dropdown">
+                    <button
+                        class="btn btn-secondary bg-transparent border-color color-disabled dropdown-toggle border-none outline-none"
+                        type="button" id="lang-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="../../../assets/images/flag/US.png" alt="English" class="w-40" />
+                        <a class="text-decoration-none color-disabled fw-600" href="./index.html">
+                            English</a>
+                    </button>
+                    <div class="dropdown-menu p-0 " aria-labelledby="lang-dropdown">
+                        <a class="dropdown-item" href="#"
+                            onclick="changeLanguage('English', '../../../assets/images/flag/US.png')">
+                            <img class="w-40" src="../../../assets/images/flag/US.png" alt="English" />
+                            English
+                        </a>
+                        <a class="dropdown-item" href="#"
+                            onclick="changeLanguage('Tiếng Việt', '../../../assets/images/flag/VN.png')">
+                            <img class="w-40" src="../../../assets/images/flag/VN.png" alt="Tiếng Việt" />
+                            Tiếng Việt
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-sign-in mw-120 hover-pointer hover-bg-active hover-color-white justify-content-center rounded-pill 
+                d-flex align-items-center border color-active border-3 border-primary">
+                <a href="index.html" class="text-decoration-none fw-bold ">Sign In</a>
+            </div>
+            <div class="header-avatar d-none">
+                <i class="fa-solid fa-user align"></i>
+            </div>
+            <div class="header-bars d-none">
+                <i class="fa-solid fa-bars" id="icon-bars"></i>
+            </div>
+        </div>
+        <!-- END OF HEADER  -->
+    </header>
     <!-- START OF LOGIN FORM  -->
     <main>
         <div class="d-flex container justify-content-center px-0 vh-70 mt-5">
@@ -154,11 +222,9 @@
             <!-- END OF FOOTER COPYRIGHT -->
         </div>
     </footer>
-
+    <script src="../../../assets/js/nav-bar.js"></script>
     <script src="../../../assets/js/validator.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+
 </body>
 
 </html>

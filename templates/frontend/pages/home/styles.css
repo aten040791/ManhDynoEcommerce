@@ -76,8 +76,9 @@
 .hover-bg-active:hover{
   background:var(--blue-color);
 }
-.hover-color-white:hover a{
-  color:#fff;
+.hover-color-white:hover,
+  .hover-color-white:hover a{
+  color:#fff !important;
 }
 .letter-spacing-2{
   letter-spacing: 2px;
