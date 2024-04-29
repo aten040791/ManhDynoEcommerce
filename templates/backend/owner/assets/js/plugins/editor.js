@@ -276,3 +276,42 @@ CKEDITOR.ClassicEditor.create(document.getElementById("editor-vn"), {
     "CaseChange",
   ],
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const optionsMenu = document.querySelectorAll("#select-menu");
+  const textEditor = document.querySelectorAll(".ck-editor__main");
+
+  for (var i = 0; i < optionsMenu.length; i++) {
+    const selectBtn = optionsMenu[i].querySelector("#select-menu-btn");
+    selectBtn.addEventListener("click", () => {
+      selectBtn.classList.toggle("icon-down");
+      selectBtn.parentElement
+        .querySelector("#select-options")
+        .classList.toggle("d-none");
+    });
+    const options = optionsMenu[i].querySelectorAll("#select-option");
+    const sBtn_text = optionsMenu[i].querySelector("#select-title");
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        let selectedOption = option.querySelector(
+          "#select-option-text"
+        ).innerText;
+        sBtn_text.innerText = selectedOption;
+        option.parentElement.classList.add("d-none");
+        option.parentElement.parentElement.parentElement
+          .querySelector("#select-menu-btn")
+          .classList.toggle("icon-down");
+      });
+    });
+  }
+  for (var i = 0; i < textEditor.length; i++) {
+    textEditor[i].addEventListener("click", () => {
+      for (var i = 0; i < optionsMenu.length; i++) {
+        const selectBtn = optionsMenu[i].querySelector("#select-menu-btn");
+        const selectOptions = optionsMenu[i].querySelector("#select-options");
+        selectBtn.classList.toggle("icon-down");
+        selectOptions.classList.add("d-none");
+      }
+    });
+  }
+});
