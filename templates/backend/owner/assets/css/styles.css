@@ -5,6 +5,10 @@
   border-top: 1px solid #e9ebec;
   opacity: 1;
 }
+
+.w-60{
+  width: 65% !important;
+}
 .btn-add {
   border: none;
   box-shadow: none;

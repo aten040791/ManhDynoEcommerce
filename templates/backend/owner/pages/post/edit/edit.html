@@ -183,24 +183,15 @@
                             <div class="d-flex gap-2 position-relative">
                                 <div
                                     class="tab-item mb-2 active fs-6 pt-2 px-3 d-flex gap-1 align-items-center bg-white opacity-6 cursor-pointer">
-                                    <img src="../../../assets/images/flags/uk.png" alt="flag-uk">
-                                    English-UK
+                                    <img src="../../../assets/images/flags/US.png" alt="flag-uk">
+                                    English-US
                                 </div>
                                 <div
                                     class="tab-item mb-2 fs-6 pt-2 px-3 d-flex gap-1 align-items-center bg-white opacity-6 cursor-pointer">
                                     <img src="../../../assets/images/flags/VN.png" alt="flag-vn">
                                     Tiếng Việt
                                 </div>
-                                <div
-                                    class="tab-item mb-2 fs-6  pt-2 px-3  d-flex gap-1 align-items-center bg-white opacity-6 cursor-pointer">
-                                    <img src="../../../assets/images/flags/US.png" alt="flag-vn">
-                                    English-US
-                                </div>
-                                <div
-                                    class="tab-item mb-2 fs-6  pt-2 px-3  d-flex gap-1 align-items-center bg-white opacity-6 cursor-pointer">
-                                    <img src="../../../assets/images/flags/FR.png" alt="flag-vn">
-                                    France
-                                </div>
+
                                 <div class="line bg-primary position-absolute rounded"></div>
                             </div>
                             <div>
@@ -331,126 +322,8 @@
                                     <button type="button" class="btn btn-success form-control">Cập nhật</button>
                                 </div>
                             </div>
-                            <div class="tab-pane card-body">
-                                <h5 class="font-weight-bolder">Edit Post</h5>
-                                <div class="row mt-3">
-                                    <div class="position-relative z-index-3">
-                                        <label for="title">Title:</label>
-                                        <div class="d-flex align-middle position-relative">
-                                            <input class="form-control" name="title" id="input-title-box" type="text"
-                                                placeholder="Input title of blog..." onfocus="focused(this)"
-                                                onfocusout="defocused(this)">
-                                            <i id="icon-drop" class="ri-arrow-down-s-fill  position-absolute end-0 top-50 translate-middle fs-4 d-none
-                                        "></i>
-                                            <div id="form_search-suggestion"
-                                                class="position-absolute bg-gray-100 d-none top-100 rounded w-100 overflow-auto max-height-150">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex mt-4 mb-6 position-relative z-index-2">
-                                    <div class="col-12">
-                                        <div class="form-group d-flex position-relative flex-column">
-                                            <label for="title">Category:</label>
-                                            <div id="select-menu" class="position-absolute w-100 top-100 left-0">
-                                                <div id="select-menu-btn"
-                                                    class="d-flex rounded pe-auto border text-sm pe-1 align-items-center justify-content-between">
-                                                    <span class="ms-2" id="select-title">Select category</span>
-                                                    <i id="icon-toggle" class="ri-arrow-drop-down-line fs-3"></i>
-                                                </div>
-                                                <ul id="select-options"
-                                                    class="list-group overflow-auto max-height-300 d-none">
-                                                    <li id="select-option" class="list-group-item bg-hover">
-                                                        <span id="select-option-text" class="text-sm">Travel</span>
-                                                    </li>
-                                                    <li id="select-option" class="list-group-item bg-hover">
-                                                        <span id="select-option-text" class="text-sm">Art</span>
-                                                    </li>
-                                                    <li id="select-option" class="list-group-item bg-hover">
-                                                        <span id="select-option-text" class="text-sm">IT</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex mt-4">
-                                    <div class="d-flex form-group">
-                                        <label>Description</label>
-                                        <p class="text-muted text-xs ms-1">
-                                            (optional):
-                                        </p>
-                                    </div>
-                                    <div class="mt-n3">
-                                        <div id="editor-us" class="row ms-1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-3 px-2">
-                                    <button type="button" class="btn btn-success form-control">Publish</button>
-                                </div>
-                            </div>
-                            <div class="tab-pane card-body">
-                                <h5 class="font-weight-bolder">Modifier le message</h5>
-                                <div class="row mt-3">
-                                    <div class="position-relative z-index-3">
-                                        <label for="title">
-                                            Titre:</label>
-                                        <div class="d-flex align-middle position-relative">
-                                            <input class="form-control" name="title" id="input-title-box" type="text"
-                                                placeholder="saisir le titre du blog..." onfocus="focused(this)"
-                                                onfocusout="defocused(this)">
-                                            <i id="icon-drop" class="ri-arrow-down-s-fill  position-absolute end-0 top-50 translate-middle fs-4 d-none
-                                        "></i>
-                                            <div id="form_search-suggestion"
-                                                class="position-absolute bg-gray-100 d-none top-100 rounded w-100 overflow-auto max-height-150">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex mt-4 mb-6 position-relative z-index-2">
-                                    <div class="col-12">
-                                        <div class="form-group d-flex position-relative flex-column">
-                                            <label for="title">
-                                                Catégorie:</label>
-                                            <div id="select-menu" class="position-absolute w-100 top-100 left-0">
-                                                <div id="select-menu-btn"
-                                                    class="d-flex rounded pe-auto border text-sm pe-1 align-items-center justify-content-between">
-                                                    <span class="ms-2" id="select-title">Choisir une catégorie</span>
-                                                    <i id="icon-toggle" class="ri-arrow-drop-down-line fs-3"></i>
-                                                </div>
-                                                <ul id="select-options"
-                                                    class="list-group overflow-auto max-height-300 d-none">
-                                                    <li id="select-option" class="list-group-item bg-hover">
-                                                        <span id="select-option-text" class="text-sm">Voyage</span>
-                                                    </li>
-                                                    <li id="select-option" class="list-group-item bg-hover">
-                                                        <span id="select-option-text" class="text-sm">Art</span>
-                                                    </li>
-                                                    <li id="select-option" class="list-group-item bg-hover">
-                                                        <span id="select-option-text" class="text-sm">Technologie</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row d-flex mt-4">
-                                    <div class="d-flex form-group">
-                                        <label>Description</label>
-                                        <p class="text-muted text-xs ms-1">
-                                            (facultatif):
-                                        </p>
-                                    </div>
-                                    <div class="mt-n3">
-                                        <div id="editor-fr" class="row ms-1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-3 px-2">
-                                    <button type="button" class="btn btn-success form-control">Publish</button>
-                                </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -459,22 +332,7 @@
         </div>
 
 
-        <footer class="footer pt-3">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6 mb-lg-0 mb-4">
-                        <div class="copyright text-center text-sm text-muted text-lg-start">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>2024,
-                            made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Dinomanh</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
         </div>
     </main>
 
@@ -485,7 +343,6 @@
     <script src="../../../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../../../assets/js/plugins/editor.js"></script>
     <script src="../../../assets/js/auto-complete.js"></script>
-    <script src="../../../assets/js/select-drop.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -521,10 +378,6 @@
 
 
     </script>
-
-
-
-
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../../assets/js/argon-dashboard.js"></script>
 
