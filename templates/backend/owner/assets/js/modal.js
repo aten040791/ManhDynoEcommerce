@@ -178,18 +178,20 @@ function addNewLanguage() {
       confirmButtonText: "Create",
       cancelButtonText: "Cancel",
       reverseButtons: true,
-      title: "Create new Language",
+      title: "Create New Language",
       html: `
-      <div> 
-      <label for="newLanguage" class="language-label">Language Name</label>
+      <div class="container"> 
+      <label for="newLanguage" class="label">Name:</label>
       <input id="newLanguage" type="text" class="swal2-input required">
       </div>
-      <div>
-      <label for="newLocale" class="locale-label">Locale</label>
+      <div class="container">
+      <label for="newLocale" class="label">Locale:</label>
       <input id="newLocale" type="text"  class="swal2-input required" >
       </div>
-      <h4>Flag image</h4>
-      <input id="newFlag" type="file" accept="image/*" class="swal2-input">
+     <div class="container">
+     <label for="newFlag"  class="label">Flag image:</label>
+     <input id="newFlag" type="file" accept="image/*" class="swal2-input">
+     </div>
     `,
       preConfirm: function () {
         obj.language = document.getElementById("newLanguage").value.trim();
@@ -197,7 +199,6 @@ function addNewLanguage() {
         obj.flag = document.getElementById("newFlag").files[0];
 
         if (!obj.language || !obj.locale || !obj.flag) {
-          // Improved error message based on missing field(s)
           let errorMessage = "You need to provide: ";
 
           swalWithBootstrapButtons.fire({
@@ -205,13 +206,7 @@ function addNewLanguage() {
             text: "Please fill in all required fields.",
             icon: "error",
           });
-        }
-
-        // Your logic to create the new language and locale here (e.g., send data to server)
-        // ...
-
-        // Update UI or display success message using SweetAlert
-        else {
+        } else {
           console.log(obj);
           swalWithBootstrapButtons.fire({
             title: "Created Successfully",
@@ -256,16 +251,18 @@ function updateLanguage() {
       reverseButtons: true,
       title: "Update Language",
       html: `
-      <div> 
-      <label for="newLanguage" class="language-label">Language Name</label>
+      <div class="container"> 
+      <label for="newLanguage" class="label">Name:</label>
       <input id="newLanguage" type="text" class="swal2-input required">
       </div>
-      <div>
-      <label for="newLocale" class="locale-label">Locale</label>
+      <div class="container">
+      <label for="newLocale" class="label">Locale:</label>
       <input id="newLocale" type="text"  class="swal2-input required" >
       </div>
-      <h4>Flag image</h4>
-      <input id="newFlag" type="file" accept="image/*" class="swal2-input">
+     <div class="container">
+     <label for="newFlag"  class="label">Flag image:</label>
+     <input id="newFlag" type="file" accept="image/*" class="swal2-input">
+     </div>
     `,
       preConfirm: function () {
         obj.language = document.getElementById("newLanguage").value.trim();

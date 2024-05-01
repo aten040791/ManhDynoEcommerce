@@ -187,20 +187,29 @@
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
-            <div class="card-header pb-0 d-flex justify-content-between">
-              <h4>Posts</h4>
-              <div class="d-flex">
-                <input type="text" name="datetimes" class="input-group-text me-3" />
-                <div class="ms-md-auto pe-md-3 align-items-center">
+            <div class="card-header pb-0 p-4 d-flex gap-2 gap-lg-0 flex-column flex-lg-row justify-content-between">
+              <div class="d-flex align-items-center justify-content-between">
+                <h4>Posts</h4>
+                <a class="d-flex d-lg-none bg-success align-items-center justify-content-center p-2 rounded
+                                  text-sm text-white font-weight-bolder" href="./create/create.html">
+                  <span class="me-1"><i class="ri-add-line"></i></span>
+                  <span class="fs-0">Add New</span>
+                </a>
+              </div>
+              <div class="d-flex justify-content-between flex-column flex-sm-row gap-3">
+                <div class="d-flex justify-content-start justify-content-md-center align-items-center">
+                  <input type="text" name="datetimes" class="input-group-text" />
+                </div>
+                <div class="d-flex align-items-center mw-250">
                   <div class="input-group">
                     <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                     <input type="text" class="form-control" placeholder="Search...">
                   </div>
                 </div>
-                <a class="d-flex bg-success align-items-center justify-content-center ps-2 pe-3 rounded
+                <a class="d-none d-lg-flex bg-success align-items-center justify-content-center p-2 rounded
                                 text-sm text-white font-weight-bolder" href="./create/create.html">
                   <span class="me-1"><i class="ri-add-line"></i></span>
-                  <span>Add New</span>
+                  <span class="fs-0">Add New</span>
                 </a>
               </div>
             </div>
@@ -705,24 +714,6 @@
           </div>
         </div>
       </div>
-
-      <footer class="footer pt-3">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Dinomanh</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </footer>
     </div>
   </main>
 
@@ -743,20 +734,6 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
-  <script>
-    $(function () {
-      $('input[name="datetimes"]').daterangepicker({
-        // timePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
-        locale: {
-          format: 'DD/MM/YYYY'
-        }
-      });
-    });
-  </script>
-
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../../assets/js/argon-dashboard.js"></script>
 </body>
 
