@@ -19,5 +19,9 @@ module.exports = {
 
     aDummyXXX: (req, res) => {
         let a = 9;
+    },
+
+    stupidCode: (req, res) => {
+        console.log('1111')
     }
 }
