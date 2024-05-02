@@ -8,6 +8,6 @@ module.exports = {
 
     dummyCodeTestChatGPT: (req, res) => {
         const categories = "hihihi"
-        return 'abc'
+        return 'abcdef'
     }
 }
