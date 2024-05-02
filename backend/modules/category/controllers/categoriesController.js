@@ -13,5 +13,9 @@ module.exports = {
 
     aSmartFn: (req, res) => {
         console.log('xxxx')
+    },
+
+    aDummyXXX: (req, res) => {
+        let a = 9;
     }
 }
