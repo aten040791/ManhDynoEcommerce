@@ -11,5 +11,5 @@ jobs:
         # model: gpt-3.5-turbo
         # max_tokens: 4096
         env:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
