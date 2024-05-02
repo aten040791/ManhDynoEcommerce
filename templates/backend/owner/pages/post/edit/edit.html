@@ -22,6 +22,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link href="../../../assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/super-build/ckeditor.js"></script>
+
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -184,21 +185,23 @@
                                 <div
                                     class="tab-item mb-2 active fs-6 pt-2 px-3 d-flex gap-1 align-items-center bg-white opacity-6 cursor-pointer">
                                     <img src="../../../assets/images/flags/US.png" alt="flag-uk">
-                                    English-US
+                                    <span class="">English</span>
                                 </div>
+
                                 <div
                                     class="tab-item mb-2 fs-6 pt-2 px-3 d-flex gap-1 align-items-center bg-white opacity-6 cursor-pointer">
                                     <img src="../../../assets/images/flags/VN.png" alt="flag-vn">
-                                    Tiếng Việt
+                                    <span class="">Tiếng Việt</span>
                                 </div>
-
                                 <div class="line bg-primary position-absolute rounded"></div>
+                                <div class="line d-sm-none d-block bg-primary position-absolute rounded">
+                                </div>
                             </div>
                             <div>
-                                <a class="d-flex bg-success align-items-center me-3 py-2 justify-content-center ps-2 pe-3 rounded
+                                <a class="d-none d-sm-flex bg-success align-items-center me-3 py-2 justify-content-center ps-2 pe-3 rounded
                                 text-sm text-white font-weight-bolder" href="../create/create.html">
                                     <span class="me-1"><i class="ri-add-line"></i></span>
-                                    <span>New Language</span>
+                                    New Language
                                 </a>
                             </div>
                         </div>
@@ -206,7 +209,16 @@
                         <!-- Tab content -->
                         <div class="tab-content">
                             <div class="tab-pane card-body active">
-                                <h5 class="font-weight-bolder">Edit Post</h5>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h5 class="font-weight-bolder">Edit Post</h5>
+                                    <div>
+                                        <a class="d-flex d-sm-none bg-success align-items-center me-3 py-2 justify-content-center ps-2 pe-3 rounded
+                                    text-sm text-white font-weight-bolder" href="../create/create.html">
+                                            <span class="me-1"><i class="ri-add-line"></i></span>
+                                            New Language
+                                        </a>
+                                    </div>
+                                </div>
                                 <div class="row mt-3">
                                     <div class="position-relative z-index-3">
                                         <label for="title">Title:</label>
@@ -266,7 +278,17 @@
                                 </div>
                             </div>
                             <div class="tab-pane card-body">
-                                <h5 class="font-weight-bolder">Chỉnh sửa bài viết</h5>
+                                <div
+                                    class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between">
+                                    <h5 class="font-weight-bolder">Chỉnh sửa bài viết</h5>
+                                    <div>
+                                        <a class="d-flex d-sm-none bg-success  align-items-center me-3 py-2 justify-content-center ps-2 pe-3 rounded
+                                    text-sm text-white font-weight-bolder" href="../create/create.html">
+                                            <span class="me-1"><i class="ri-add-line"></i></span>
+                                            Thêm ngôn ngữ mới
+                                        </a>
+                                    </div>
+                                </div>
                                 <div class="row mt-3">
                                     <div class="position-relative z-index-3">
                                         <label for="title">Tiêu đề:</label>
@@ -326,6 +348,8 @@
 
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -380,6 +404,9 @@
     </script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../../../assets/js/argon-dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 

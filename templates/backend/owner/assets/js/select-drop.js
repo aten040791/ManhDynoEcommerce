@@ -28,20 +28,22 @@ document.addEventListener("DOMContentLoaded", function () {
           selectMenuBtn.classList.remove("d-none");
           sBtn_text.classList.add("ms-1");
         }
-        sBtn_text.innerText = selectedOption;
+
+        sBtn_text.innerHTML = selectedOption.trim();
+
         option.parentElement.classList.add("d-none");
         option.parentElement.parentElement.parentElement
           .querySelector("#select-menu-btn")
-          .classList.toggle("icon-down");
+          .classList.remove("icon-down");
       });
     });
   }
   const toggleDropdown = (elementDropdown, index) => {
     for (var i = 0; i < optionsMenu.length; i++) {
+      const selectBtn = optionsMenu[i].querySelector("#select-menu-btn");
+      const selectOptions = optionsMenu[i].querySelector("#select-options");
       if (optionsMenu[i] !== elementDropdown[index]) {
-        const selectBtn = optionsMenu[i].querySelector("#select-menu-btn");
-        const selectOptions = optionsMenu[i].querySelector("#select-options");
-        selectBtn.classList.toggle("icon-down");
+        selectBtn.classList.remove("icon-down");
         selectOptions.classList.add("d-none");
       }
     }
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       for (var i = 0; i < optionsMenu.length; i++) {
         const selectBtn = optionsMenu[i].querySelector("#select-menu-btn");
         const selectOptions = optionsMenu[i].querySelector("#select-options");
-        selectBtn.classList.toggle("icon-down");
+        selectBtn.classList.remove("icon-down");
         selectOptions.classList.add("d-none");
       }
     });
