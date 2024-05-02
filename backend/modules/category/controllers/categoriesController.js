@@ -9,6 +9,7 @@ module.exports = {
     dummyCodeTestChatGPT: (req, res) => {
         const categories = "hihihi"
         cl categories = 'xxx'
+        an error
         return 'abcdef'
     },
 
