@@ -9,6 +9,7 @@ module.exports = {
     dummyCodeTestChatGPT: (req, res) => {
         const categories = "hihihi"
 <<<<<<< HEAD
+<<<<<<< HEAD
         return 'abcdef'
     },
 
@@ -18,5 +19,9 @@ module.exports = {
 
         return 'abc'
 >>>>>>> e9f0552 (Test chatgpt)
+=======
+
+        return 'abc'
+>>>>>>> 07e5d1c (Test chatgpt)
     }
 }
