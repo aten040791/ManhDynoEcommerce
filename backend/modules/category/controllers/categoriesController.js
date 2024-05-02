@@ -9,5 +9,9 @@ module.exports = {
     dummyCodeTestChatGPT: (req, res) => {
         const categories = "hihihi"
         return 'abcdef'
+    },
+
+    aSmartFn: (req, res) => {
+        console.log('xxxx')
     }
 }
