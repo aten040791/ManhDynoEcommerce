@@ -4,5 +4,11 @@ module.exports = {
             success: true,
             data: []
         })
+    },
+
+    dummyCodeTestChatGPT: (req, res) => {
+        const categories = "hihihi"
+
+        return 'abc'
     }
 }
