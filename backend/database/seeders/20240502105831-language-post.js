@@ -3,12 +3,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface) {
-    const [languages] = await queryInterface.sequelize.query(
+    let [languages] = await queryInterface.sequelize.query(
       `SELECT id from languages;`
     );
-    const [posts] = await queryInterface.sequelize.query(
-      `SELECT id from posts;`
-    );
+
+    let [posts] = await queryInterface.sequelize.query(`SELECT id from posts;`);
+
+    languages = languages.sort((a, b) => a.id - b.id);
+    posts = posts.sort((a, b) => a.id - b.id);
 
     await queryInterface.bulkInsert("Language_Posts", [
       {

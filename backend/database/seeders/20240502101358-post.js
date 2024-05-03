@@ -3,12 +3,12 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface) {
-    const [users] = await queryInterface.sequelize.query(
-      `SELECT id from users;`
-    );
-    const [categories] = await queryInterface.sequelize.query(
+    let [users] = await queryInterface.sequelize.query(`SELECT id from users;`);
+    let [categories] = await queryInterface.sequelize.query(
       `SELECT id from categories;`
     );
+    users = users.sort((a, b) => a.id - b.id);
+    categories = categories.sort((a, b) => a.id - b.id);
 
     await queryInterface.bulkInsert("Posts", [
       {
