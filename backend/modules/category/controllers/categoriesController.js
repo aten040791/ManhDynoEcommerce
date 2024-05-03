@@ -9,6 +9,7 @@ module.exports = {
     dummyCodeTestChatGPT: (req, res) => {
         const categories = "hihihi"
 <<<<<<< HEAD
+<<<<<<< HEAD
         cl categories = 'xxx'
         an error
         return 'abcdef'
@@ -26,6 +27,8 @@ module.exports = {
         console.log('1111')
 =======
 
+=======
+>>>>>>> 1b53867 (Test chatgpt)
         return 'abc'
 >>>>>>> 9ee5010 (Test chatgpt)
     }
