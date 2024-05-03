@@ -1,5 +1,5 @@
 const rs = require('services/response');
-const userService = require('../services/userService');
+const userService = require('modules/user/services/userService');
 
 const getAllUsers = async (req, res) => {
     try {
