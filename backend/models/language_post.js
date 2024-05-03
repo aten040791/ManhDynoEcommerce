@@ -6,10 +6,12 @@ module.exports = (sequelize, DataTypes) => {
       Language_Post.belongsTo(models.Language, {
         targetKey: "id",
         foreignKey: "language_id",
+        as: "language",
       });
       Language_Post.belongsTo(models.Post, {
         targetKey: "id",
         foreignKey: "post_id",
+        as: "post",
       });
     }
   }
@@ -35,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Language_Post",
+      timestamps: false,
     }
   );
   return Language_Post;

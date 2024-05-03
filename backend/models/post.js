@@ -6,11 +6,13 @@ module.exports = (sequelize, DataTypes) => {
       Post.belongsTo(models.Category, {
         targetKey: "id",
         foreignKey: "category_id",
+        as: "category",
       });
 
       Post.belongsTo(models.User, {
         targetKey: "id",
         foreignKey: "user_id",
+        as: "user",
       });
 
       Post.hasMany(models.Language_Post);
@@ -20,9 +22,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       category_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
       user_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
       related_id: {
         type: DataTypes.INTEGER,
@@ -45,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Post",
+      timestamps: false,
     }
   );
   return Post;

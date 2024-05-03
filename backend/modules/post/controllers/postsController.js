@@ -3,10 +3,10 @@ const postService = require("../services/postServices");
 module.exports = {
   index: async (req, res) => {
     try {
-      const res = await postService.index();
+      const response = await postService.index();
       return res.status(200).send({
         success: true,
-        data: [],
+        data: response,
       });
     } catch (error) {
       return res.status(404).send({

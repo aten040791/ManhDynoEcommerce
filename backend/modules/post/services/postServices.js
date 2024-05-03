@@ -1,21 +1,17 @@
-const Post = require("../../../models").Post;
+const model = require("../../../models/index");
+const Post = model.Post;
 module.exports = {
-  index: async (res, data) => {
-    try {
-      const res = Post.findAll();
-      console.log(res);
-      return res.status(200).send({
-        success: true,
-        ...data,
-        status: 200,
-        message: "ok",
-      });
-    } catch (error) {
-      return res.status(404).send({
-        success: false,
-        status: 404,
-        message: "Cannot find resouces",
-      });
-    }
-  },
+  index: () =>
+    new Promise(async (resolve, reject) => {
+      try {
+        const response = await Post.findAll({});
+        resolve({
+          data: response,
+        });
+      } catch (err) {
+        reject({
+          data: err,
+        });
+      }
+    }),
 };
