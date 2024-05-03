@@ -10,4 +10,9 @@
 Tạo 1 bài post mới:
   + TH1: Bài post ko nằm trong categories nào, ko nằm trong related post nào, user_id sẽ check ở middleware
   kiểm tra user hợp lệ thông qua email(có giá trị unique)
-  + 
+  + TH2: Bài post nằm trong 1 categories đã có sẵn nhưng không thuộc related_id nào cả
+  + TH3: Bài post nằm trong 1 categories và có related_id tức là bài post cha với ngôn ngữ mặc định
+
++ TH1: tạm thời truyền luôn userId vì chưa có login chính thức để kiểm tra user hợp lệ qua token 
+  nên chỉ check user có tồn tại trong hệ thống hay không 
+  + http://localhost:3000/posts/:userId/create

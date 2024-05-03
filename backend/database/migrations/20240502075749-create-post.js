@@ -34,6 +34,7 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING(100),
+        unique: true,
       },
       content: {
         type: Sequelize.TEXT,
