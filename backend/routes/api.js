@@ -2,6 +2,7 @@ require('express-router-group');
 const express = require('express');
 const authController = require('modules/auth/controllers/authController');
 const categoriesController = require('modules/category/controllers/categoriesController');
+const userController = require('modules/user/controllers/userController');
 const router = express.Router({mergeParams: true})
 
 //Single routing
