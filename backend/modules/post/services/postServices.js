@@ -5,6 +5,21 @@ module.exports = {
     new Promise(async (resolve, reject) => {
       try {
         const response = await Post.findAll();
+
+        resolve({
+          data: response,
+        });
+      } catch (error) {
+        reject({
+          data: error,
+        });
+      }
+    }),
+
+  show: (postId) =>
+    new Promise(async (resolve, reject) => {
+      try {
+        const response = await Post.findByPk(postId);
         resolve({
           data: response,
         });
