@@ -2,6 +2,7 @@ require('express-router-group');
 const express = require('express');
 const authController = require('modules/auth/controllers/authController');
 const categoriesController = require('modules/category/controllers/categoriesController');
+const userController = require('modules/user/controllers/userController');
 const router = express.Router({mergeParams: true})
 
 //Single routing
@@ -16,6 +17,11 @@ router.get('/helloworld', authController.helloWorld);
  */
 router.group('/categories', (router) => {
     router.get('/', categoriesController.index)
+})
+
+router.group('/user', (router) => {
+    router.get('/', userController.getAllUsers);
+    router.delete('/', userController.deleteUser)
 })
 
 module.exports = router
