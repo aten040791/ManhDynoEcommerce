@@ -1,17 +1,17 @@
 const db = require('models')
 
 module.exports = {
-    getAllUsersService: () => new Promise(async (resolve, reject) => {
+    getAllUsersService: async() => {
         try {
             const response = await db.User.findAll();
-            resolve({
+            return {
                 data: response
-            });
+            }
         } catch (err) {
-            reject(err);
+            console.log(err);
         }
-    }),
-    deleteUserService: (uid) => new Promise(async (resolve, reject) => {
+    },
+    deleteUserService: async(uid) => {
         try {
             const user = await db.User.findOne({
                 where: { id: uid }
@@ -19,9 +19,8 @@ module.exports = {
             if (user) {
                 await user.destroy();
             }
-            resolve();
         } catch (err) {
-            reject(err);
+            console.log(err);
         }
-    }),
+    },
 }
