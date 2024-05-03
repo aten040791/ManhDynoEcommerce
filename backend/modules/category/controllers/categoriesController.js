@@ -23,6 +23,5 @@ module.exports = {
 
     stupidCode: (req, res) => {
         console.log('1111')
-        return 'abc'
     }
 }
