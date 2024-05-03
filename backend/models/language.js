@@ -13,9 +13,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: {
         type: DataTypes.STRING(20),
+        unique: true,
       },
       locale: {
         type: DataTypes.STRING(20),
+        unique: true,
       },
       flag: {
         type: DataTypes.STRING,

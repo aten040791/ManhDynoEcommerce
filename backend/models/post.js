@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       title: {
         type: DataTypes.STRING(100),
+        unique: true,
       },
       content: {
         type: DataTypes.TEXT,
