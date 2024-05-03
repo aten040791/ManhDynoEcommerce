@@ -22,6 +22,7 @@ router.group("/categories", (router) => {
 router.group("/posts", (router) => {
   router.get("/", postsController.index);
   router.get("/:postId", postsController.show);
+  router.post("/create", postsController.create);
 });
 
 module.exports = router;

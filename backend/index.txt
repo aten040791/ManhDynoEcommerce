@@ -1,18 +1,10 @@
-        category_id: categories[0].id,
-        user_id: users[2].id,
-        related_id: posts[0].id,
-        title: "Học về ReactJS cho người mới bắt đầu",
-        content: "Nội dung bài tìm hiểu về Reactjs cho người mới bắt đầu",
-        created_at: new Date(),
-        updated_at: new Date()
 
-
-Tạo 1 bài post mới:
-  + TH1: Bài post ko nằm trong categories nào, ko nằm trong related post nào, user_id sẽ check ở middleware
+Tạo 1 bài post mới: mặc định ngôn ngữ là tiếng anh(en-US)
+  + TH1: Bài post  ko nằm trong related post nào, user_id sẽ check ở middleware
   kiểm tra user hợp lệ thông qua email(có giá trị unique)
-  + TH2: Bài post nằm trong 1 categories đã có sẵn nhưng không thuộc related_id nào cả
-  + TH3: Bài post nằm trong 1 categories và có related_id tức là bài post cha với ngôn ngữ mặc định
+  + TH2: Bài post nằm trong 1 related_id tức là bài post cha với ngôn ngữ mặc định cần check xem
+  ngôn ngữ thêm vào có bị trùng với ngôn ngữ của cha hay không
 
-+ TH1: tạm thời truyền luôn userId vì chưa có login chính thức để kiểm tra user hợp lệ qua token 
-  nên chỉ check user có tồn tại trong hệ thống hay không 
-  + http://localhost:3000/posts/:userId/create
+TH1:http://localhost:3000/posts/create?userId=1&categoryId=1&lang=en-US(or vi-VI)
+
+TH2: http://localhost:3000/posts/create?userId=1&categoryId=1&relatedId=2&lang=en-US(or vi-VI)

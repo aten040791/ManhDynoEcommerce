@@ -53,4 +53,44 @@ module.exports = {
       });
     }
   },
+  create: async (req, res) => {
+    try {
+      const userId = req.query.userId || null;
+      const categoryId = req.query.categoryId || null;
+      const relatedId = req.query.relatedId || 0;
+      const language = req.query.language || "en-US";
+      const title = req.body.title || null;
+      const content = req.body.content || null;
+      console.log(userId, categoryId, relatedId, language, title, content);
+      if (!title && !content) {
+        return res.status(400).send({
+          success: false,
+          status: 400,
+          message: "Missing title or content of post ",
+        });
+      }
+
+      const response = await postService.create(
+        title,
+        content,
+        userId,
+        categoryId,
+        relatedId,
+        language
+      );
+
+      return res.status(200).send({
+        success: true,
+        data: response,
+        status: 200,
+        message: "ok",
+      });
+    } catch (error) {
+      return res.status(404).send({
+        success: false,
+        status: 404,
+        message: error,
+      });
+    }
+  },
 };
