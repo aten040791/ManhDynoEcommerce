@@ -4,13 +4,13 @@ module.exports = {
   index: () =>
     new Promise(async (resolve, reject) => {
       try {
-        const response = await Post.findAll({});
+        const response = await Post.findAll();
         resolve({
           data: response,
         });
-      } catch (err) {
+      } catch (error) {
         reject({
-          data: err,
+          data: error,
         });
       }
     }),

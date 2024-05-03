@@ -6,13 +6,15 @@ module.exports = {
       const response = await postService.index();
       return res.status(200).send({
         success: true,
-        data: response,
+        data: response.data,
+        status: 200,
+        message: "ok",
       });
     } catch (error) {
       return res.status(404).send({
         success: false,
         status: 404,
-        message: error.message,
+        message: error,
       });
     }
   },
