@@ -49,9 +49,8 @@ module.exports = {
       },
     ]);
 
-    const [posts] = await queryInterface.sequelize.query(
-      `SELECT id from posts;`
-    );
+    let [posts] = await queryInterface.sequelize.query(`SELECT id from posts;`);
+    posts = posts.sort((a, b) => a.id - b.id);
 
     await queryInterface.bulkInsert("Posts", [
       {
