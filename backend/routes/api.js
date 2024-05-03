@@ -18,4 +18,9 @@ router.group('/categories', (router) => {
     router.get('/', categoriesController.index)
 })
 
+router.group('/user', (router) => {
+    router.get('/', userController.getAllUsers);
+    router.delete('/', userController.deleteUser)
+})
+
 module.exports = router
