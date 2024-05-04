@@ -1,22 +1,15 @@
 const postService = require("../services/postServices");
-
+const rs = require("../../../services/response");
 module.exports = {
   index: async (req, res) => {
     try {
       const response = await postService.index();
-
-      return res.status(200).send({
-        success: true,
-        data: response.data,
-        status: 200,
-        message: "ok",
-      });
+      if (response) {
+        return rs.ok(res, response);
+      }
+      return rs.notFound(res);
     } catch (error) {
-      return res.status(404).send({
-        success: false,
-        status: 404,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
 
@@ -24,34 +17,15 @@ module.exports = {
     try {
       const postId = req.params.postId;
       if (!postId) {
-        return res.status(400).send({
-          success: false,
-          status: 400,
-          message: "Missing postId parameter",
-        });
+        return rs.missing(res, "Missing postId parameter");
       }
       const response = await postService.show(postId);
-
-      if (response.data) {
-        return res.status(200).send({
-          success: true,
-          data: response.data,
-          status: 200,
-          message: "ok",
-        });
-      } else {
-        return res.status(404).send({
-          success: false,
-          status: 404,
-          message: "Cannot find resouces",
-        });
+      if (response) {
+        return rs.ok(res, response);
       }
+      return rs.notFound(res);
     } catch (error) {
-      return res.status(404).send({
-        success: false,
-        status: 404,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
   create: async (req, res) => {
@@ -64,14 +38,10 @@ module.exports = {
       const content = req.body.content || null;
 
       if (!title && !content) {
-        return res.status(400).send({
-          success: false,
-          status: 400,
-          message: "Missing title or content of post ",
-        });
+        return rs.missing(res, "Missing title or content of post");
       }
 
-      const response = await postService.create(
+      const res = await postService.create(
         title,
         content,
         userId,
@@ -80,18 +50,15 @@ module.exports = {
         language
       );
 
-      return res.status(200).send({
-        success: true,
-        data: response,
-        status: 200,
-        message: "ok",
-      });
+      const { error, ...response } = res;
+
+      if (response) {
+        return rs.ok(res, response);
+      }
+
+      return rs.error(res, error);
     } catch (error) {
-      return res.status(404).send({
-        success: false,
-        status: 404,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
 };
