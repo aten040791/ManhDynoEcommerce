@@ -20,8 +20,8 @@ router.group('/categories', (router) => {
 })
 
 router.group('/user', (router) => {
-    router.get('/', userController.getAllUsers);
-    router.delete('/', userController.deleteUser)
+    router.get('/', userController.index);
+    router.delete('/', userController.destroy);
 })
 
 module.exports = router

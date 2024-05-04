@@ -1,7 +1,7 @@
-const db = require('models')
+const db = require('models');
 
 module.exports = {
-    getAllUsersService: async () => {
+    index: async () => {
         try {
             const response = await db.User.findAll();
             return {
@@ -11,7 +11,7 @@ module.exports = {
             console.log(err);
         }
     },
-    deleteUserService: async (uid) => {
+    destroy: async (uid) => {
         try {
             const user = await db.User.findOne({
                 where: { id: uid }

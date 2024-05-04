@@ -2,9 +2,9 @@ const rs = require('services/response');
 const userService = require('modules/user/services/userService');
 
 module.exports = {
-    getAllUsers: async (req, res) => {
+    index: async (req, res) => {
         try {
-            const users = await userService.getAllUsersService();
+            const users = await userService.index();
             if (users) {
                 return rs.ok(res, {
                     users
@@ -16,11 +16,11 @@ module.exports = {
             console.log(error);
         }
     },
-    deleteUser: async (req, res) => {
+    destroy: async (req, res) => {
         try {
             const id = req.query.id;
             if (id) {
-                await userService.deleteUserService(id);
+                await userService.destroy(id);
                 return rs.ok(res, {
                     mes: "Deleted user successfully"
                 });
