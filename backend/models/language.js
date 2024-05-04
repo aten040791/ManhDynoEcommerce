@@ -1,24 +1,25 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class Language extends Model {
     static associate(models) {
-      User.hasMany(models.Post, {
-        foreignKey: "user_id",
-        as: "post",
+      Language.hasMany(models.Language_Post, {
+        foreignKey: "language_id",
+        as: "language_post",
       });
     }
   }
-  User.init(
+  Language.init(
     {
-      username: {
+      name: {
         type: DataTypes.STRING(20),
-      },
-      email: {
-        type: DataTypes.STRING(30),
         unique: true,
       },
-      password: {
+      locale: {
+        type: DataTypes.STRING(20),
+        unique: true,
+      },
+      flag: {
         type: DataTypes.STRING,
       },
       created_at: {
@@ -32,9 +33,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "User",
+      modelName: "Language",
       timestamps: false,
     }
   );
-  return User;
+  return Language;
 };

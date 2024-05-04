@@ -16,6 +16,8 @@
                 "args": "after-used", 
                 "ignoreRestSiblings": false 
             }
-        ]
+        ],
+        "no-async-promise-executor": "error"
+   
     }
 }
