@@ -148,12 +148,8 @@
                     </div>
                     <ul class="navbar-nav justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-<<<<<<< HEAD
                             <a href="../../../../frontend/pages/auth/sign-in/index.html"
                                 class="nav-link text-white font-weight-bold px-0">
-=======
-                            <a href="../sign-in/index.html" class="nav-link text-white font-weight-bold px-0">
->>>>>>> 0f5df3e91373c466d96c38244b1a9dde63104698
                                 <i class="fa fa-user me-sm-1"></i>
                                 <span class="d-sm-inline d-none">Sign In</span>
                             </a>
@@ -188,17 +184,25 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
-                        <div class="card-header pb-0 d-flex justify-content-between">
-                            <h4>Categories</h4>
-                            <div class="d-flex">
-                                <div class="ms-md-auto pe-md-3 align-items-center">
+                        <div
+                            class="card-header d-flex pb-0 flex-sm-row flex-column justify-content-between gap-2 gap-sm-0">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h4>Categories</h4>
+                                <button class="btn-add p-2 d-flex d-sm-none" type="button" onClick="addNewCategory()">
+                                    <span class="btn-inner--icon"><i class="ri-add-line align-bottom me-1"></i></span>
+                                    <span class="btn-inner--text">Add New</span>
+                                </button>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div class="ms-md-auto pe-sm-3 p-0 align-items-center w-sm-auto w-100">
                                     <div class="input-group">
                                         <span class="input-group-text text-body"><i class="fas fa-search"
                                                 aria-hidden="true"></i></span>
                                         <input type="text" class="form-control" placeholder="Search...">
                                     </div>
                                 </div>
-                                <button class="btn-add" type="button" onClick="addNewCategory()">
+                                <button class="btn-add d-none d-sm-flex align-items-center py-0" type="button"
+                                    onClick="addNewCategory()">
                                     <span class="btn-inner--icon"><i class="ri-add-line align-bottom me-1"></i></span>
                                     <span class="btn-inner--text">Add New</span>
                                 </button>
@@ -217,9 +221,11 @@
                                             <th
                                                 class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                                 Title</th>
-                                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                                 Updated at</th>
-                                            <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
                                                 Created at</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">
@@ -545,24 +551,7 @@
                 </div>
             </div>
 
-            <footer class="footer pt-3  ">
-                <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-6 mb-lg-0 mb-4">
-                            <div class="copyright text-center text-sm text-muted text-lg-start">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>,
-                                made with <i class="fa fa-heart"></i> by
-                                <a href="https://www.creative-tim.com" class="font-weight-bold"
-                                    target="_blank">Dinomanh</a>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-            </footer>
         </div>
     </main>
 

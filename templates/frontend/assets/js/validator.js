@@ -1,10 +1,11 @@
 const form = document.getElementById("form");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-const errorEmail = document.querySelector(".form__email-error");
-const errorPassword = document.querySelector(".form__password-error");
+const confirmPassword = document.getElementById("confirm-password");
+
 form.addEventListener("submit", (e) => {
   const status = validateInputs();
+  console.log(status);
   if (!status) {
     e.preventDefault();
   }
@@ -33,12 +34,25 @@ const isValidEmail = (email) => {
 };
 
 const validateInputs = () => {
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
+  let passwordValue = "";
+  let emailValue = "";
+  let confirmPasswordValue = "";
+  if (email) {
+    emailValue = email.value.trim();
+  }
+  if (password) {
+    passwordValue = password.value.trim();
+  }
+  if (confirmPassword) {
+    confirmPasswordValue = confirmPassword.value.trim();
+  }
+
   let status = true;
   if (emailValue === "") {
-    setError(email, "Email is required");
-    status = false;
+    if (email) {
+      setError(email, "Email is required");
+      status = false;
+    }
   } else if (!isValidEmail(emailValue)) {
     setError(email, "Email is not valid");
     status = false;
@@ -47,13 +61,29 @@ const validateInputs = () => {
   }
 
   if (passwordValue === "") {
-    setError(password, "Password is required");
-    status = false;
+    if (password) {
+      setError(password, "Password is required");
+      status = false;
+    }
   } else if (passwordValue.length < 8) {
     status = false;
     setError(password, "Password must be at least 8 character");
   } else {
     setSuccess(password);
+  }
+  if (confirmPasswordValue === "") {
+    if (confirmPassword) {
+      setError(confirmPassword, "Confirm password is required");
+      status = false;
+    }
+  } else if (confirmPasswordValue !== passwordValue) {
+    status = false;
+    setError(
+      confirmPassword,
+      "The password and confirmation password do not match."
+    );
+  } else {
+    setSuccess(confirmPassword);
   }
   return status;
 };

@@ -7,381 +7,384 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <title>Detail Post</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="header">
-            <div class="logo">
-                <i class="bx bxl-c-plus-plus"></i>
-                <span class="sidebar__logo-title">Coding Blog</span>
-            </div>
-            <ul class="header__nav" id="header__nav">
-                <li>
-                    <a href="./index.html"><i class="fa-solid fa-house"></i>Home</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-solid fa-circle-info"></i>About</a>
-                </li>
-                <li>
-                    <a href="../category/index.html"><i class="fa-solid fa-list"></i>Categories</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-regular fa-message"></i>Contact</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a>
-                </li>
-                <li class="has-children">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
-                            English
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="languageDropdown">
-                            <a class="dropdown-item" href="#"
-                                onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')">
-                                <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
-                                English
-                            </a>
-                            <a class="dropdown-item" href="#"
-                                onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
-                                <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
-                                Tiếng Việt
-                            </a>
-                            <a class="dropdown-item" href="#"
-                                onclick="changeLanguage('Français', '../../../backend/owner/assets/images/flags/FR.png')">
-                                <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
-                                Français
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="../auth/sign-in/index.html">Sign In</a>
-                </li>
-            </ul>
-            <div class="header__action">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdownResponsive"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
 
+    <header>
+        <div class="container p-0 d-flex py-3 gap-2 position-relative">
+            <div class="logo container-fluid p-0  fw-600 color-active m-0 fs-5 d-flex align-items-center ">
+                <i class="bx bxl-c-plus-plus fs-1"></i>
+                Coding Blog
+            </div>
+            <div class="header-nav d-flex align-items-center gap-2" id="header-nav">
+                <div class="header-nav-item hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="../home/index.html">
+                        <i class="fa-solid fa-house d-none"></i>
+                        Home
+                    </a>
+                </div>
+                <div class="header-nav-item hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="../category/index.html">
+                        <i class="fa-solid fa-list d-none"></i>
+                        Categories
+                    </a>
+                </div>
+                <div class="header-nav-item sign-out d-none hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="../auth/sign-in/index.html">
+                        <i class="ri-logout-box-r-line fs-5"></i>
+                        Sign out
+                    </a>
+                </div>
+            </div>
+            <div class="header-lang">
+                <div class="dropdown">
+                    <button
+                        class="btn btn-secondary bg-transparent border-color color-disabled dropdown-toggle border-none outline-none"
+                        type="button" id="lang-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" class="w-40" />
+                        <a class="text-decoration-none color-disabled fw-600" href="./index.html">
+                            English</a>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                    <div class="dropdown-menu p-0 " aria-labelledby="lang-dropdown">
                         <a class="dropdown-item" href="#"
-                            onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/US.png')">
-                            <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+                            onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')">
+                            <img class="w-40" src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
                             English
                         </a>
                         <a class="dropdown-item" href="#"
-                            onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/VN.png')">
-                            <img src="../../../backend/owner/assets/images/flags/VN.png" alt="Tiếng Việt" />
+                            onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
+                            <img class="w-40" src="../../../backend/owner/assets/images/flags/VN.png"
+                                alt="Tiếng Việt" />
                             Tiếng Việt
                         </a>
-                        <a class="dropdown-item" href="#"
-                            onclick="changeLanguageResponsive('', '../../../backend/owner/assets/images/flags/FR.png')">
-                            <img src="../../../backend/owner/assets/images/flags/FR.png" alt="French" />
-                            Français
-                        </a>
                     </div>
                 </div>
-                <i class="fa-solid fa-user hide"></i>
-                <i class="fa-solid fa-bars hide"></i>
+            </div>
+            <div class="header-sign-in mw-120 hover-pointer hover-bg-active hover-color-white justify-content-center rounded-pill 
+                d-flex align-items-center border color-active border-3 border-primary">
+                <a href="../auth/sign-in/index.html" class="text-decoration-none fw-bold ">Sign In</a>
+            </div>
+            <div class="header-avatar d-none">
+                <i class="fa-solid fa-user align"></i>
+            </div>
+            <div class="header-bars d-none">
+                <i class="fa-solid fa-bars" id="icon-bars"></i>
             </div>
         </div>
-    </div>
-    <div class="post__main">
-        <div class="post__container">
-            <div class="post__breadcrumb">
-                <span>
-                    <a class="text-decoration-none" href="../home/index.html">Home</a>
-                    /<a class="text-decoration-none" href="../category/"> Education</a>
-                    /<a class="text-decoration-none" href="index.html"> Help children get better education</a>
-                </span>
-            </div>
-            <div class="image">
-                <img src="../../assets/images/post/lap-top-education.jpg" alt="">
-            </div>
-            <div class="category">
-                <span class="education">
-                    EDUCATION
-                </span>
-            </div>
-            <h3 class="title">
-                Help children get better education
-            </h3>
-            <span class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                rhoncus
-                aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                tristique<br />
-                senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin.<br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                rhoncus
-                aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                tristique
-                senectus et netus.
-                <br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                rhoncus
-                aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                tristique
-                senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et
-                molestie
-                ac feugiat sed lectus vestibulum.
-            </span>
-        </div>
-        <div class="articles">
-            <div class="title">
-                Latest Post
-            </div>
-            <div class="articles__list">
-                <a class="article__item" href="index.html">
-                    <div class="article__item-img">
-                        <img src="../../assets/images/article/machine.png" />
-                    </div>
-                    <div class="article__item-text">
-                        <div class="article__title">
-                            Help children get better education in the future over
-                            the whole world
-                        </div>
-                        <span class="article__date">
-                            Jun 27, 2022
-                        </span>
-                    </div>
-                </a>
-                <a class="article__item" href="index.html">
+        <!-- END OF HEADER  -->
+    </header>
 
-                    <div class="article__item-img">
-                        <img class="gallery" src="../../assets/images/article/girl.png" />
-                    </div>
-                    <div class="article__item-text">
-                        <div class="article__title">
-                            Help children get better education in the future over
-                            the whole world
-                        </div>
-                        <span class="article__date">
-                            Jun 27, 2022
-                        </span>
-                    </div>
-                </a>
-                <a class="article__item" href="index.html">
-                    <div class="article__item-img">
-                        <img class="gallery" src="../../assets/images/article/man.png" />
-                    </div>
-                    <div class="article__item-text">
-                        <div class="article__title">
-                            Help children get better education in the future over
-                            the whole world
-                        </div>
-                        <span class="article__date">
-                            Jun 26, 2019
-                        </span>
-                    </div>
-                </a>
-                <a class="article__item" href="index.html">
-
-                    <div class="article__item-img">
-                        <img class="gallery" src="../../assets/images/article/ipad.png" />
-                    </div>
-                    <div class="article__item-text">
-                        <div class="article__title">
-                            Help children get better education in the future over
-                            the whole world
-                        </div>
-                        <span class="article__date">
-                            Nov 11, 2022
-                        </span>
-                    </div>
-                </a>
-                <a class="article__item" href="index.html">
-
-                    <div class="article__item-img">
-                        <img class="gallery" src="../../assets/images/article/figma-icon.png" />
-                    </div>
-                    <div class="article__item-text">
-                        <div class="article__title">
-                            Help children get better education in the future over
-                            the whole world
-                        </div>
-                        <span class="article__date">
-                            Jun 05, 2024
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-            <div class="tags">
-                <div class="title">
-                    Tags
+    <main>
+        <!-- START OF POST  -->
+        <div class="post container d-flex p-0">
+            <!-- START OF POST DETAIL -->
+            <div class="post-detail w-65">
+                <!-- START OF BREADCRUMB -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb  bg-transparent mb-0 p-2 ps-0">
+                        <li class="breadcrumb-item"> <a href="../home/index.html" class="text-decoration-none">
+                                Home </a></li>
+                        <li class="breadcrumb-item"><a href="../category/index.html"
+                                class="text-decoration-none">Education</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Help children get better
+                            education
+                        </li>
+                    </ol>
+                </nav>
+                <!-- END OF BREADCRUMB -->
+                <img class="w-100" src="../../assets/images/post/blog39.jpg" alt="lap-top-education">
+                <div class="mt-3 mb-1 letter-spacing-2 post-cate">
+                    <span class="color-active">EDUCATION</span>
                 </div>
-                <ul>
-                    <li>
-                        <a href="../category/index.html">
-                            Medical
-                        </a>
-                    </li>
-                    <li>
-
-                        <a href="../category/index.html">
-                            Lifestyle
-                        </a>
-                    </li>
-                    <li>
-
-                        <a href="../category/index.html">
-                            Learn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../category/index.html">
-                            Healthy
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../category/index.html">
-                            Food
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../category/index.html">
-                            Diet
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../category/index.html">
-                            Education
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- FOOTER SECTION START -->
-
-
-        <!-- FOOTER SECTION END -->
-    </div>
-    <footer>
-        <div class="footer__container">
-            <div class="footer__group-icon">
-                <div class="footer__logo">
-                    <i class='bx bxl-c-plus-plus'></i>
-                    <span>Coding Blog</span>
-                </div>
-                <p>
-                    Build a modern and creative website with crealand
+                <h4 class="fw-bold"> Help children get better education</h4>
+                <p class="mt-2 lh-base content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
+                    rhoncus
+                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
+                    tristique senectus et netus.
+                    <br />
+                    Mattis pellentesque id nibh tortor id aliquet lectus proin
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
+                    rhoncus
+                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
+                    tristique
+                    senectus et netus.
+                    <br />
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
+                    rhoncus
+                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
+                    tristique
+                    senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et
+                    molestie
+                    ac feugiat sed lectus vestibulum.
+                    <br />
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
+                    rhoncus
+                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
+                    tristique
+                    senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et
+                    molestie
+                    ac feugiat sed lectus vestibulum.
                 </p>
             </div>
-            <div class="footer__group">
+            <!-- END OF POST DETAIL -->
 
-                <ul>
-                    <li><a href="#">Product</a></li>
-                    <li>
-                        <a href="#">Landingpage</a>
-                    </li>
-                    <li>
-                        <a href="#">Features</a>
-                    </li>
-                    <li>
-                        <a href="#">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#">Referral Program</a>
-                    </li>
-                    <li>
-                        <a href="#">Pricing</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer__group">
+            <!-- START OF ARTICLE-->
+            <div class="article p-24 w-35">
+                <!-- START OF LATEST POST -->
+                <div class="latest-post">
+                    <h4 class="fs-5 fw-bold mb-2 ">
+                        Latest Post
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                                <div class="w-20 latest-post-img wm-80">
+                                    <img src="../../assets/images/article/machine.png"
+                                        class="w-100 object-fit-contain" />
+                                </div>
+                                <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
+                                    <div class="title color-disabled">
+                                        Help children get better education in the future over
+                                        the whole world
+                                    </div>
+                                    <span class="fs-0 color-disabled date">
+                                        Jun 27, 2022
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                                <div class="w-20 latest-post-img wm-80">
+                                    <img src="../../assets/images/article/girl.png " class="w-100 object-fit-contain" />
+                                </div>
+                                <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
+                                    <div class="title color-disabled">
+                                        Help children get better education in the future over
+                                        the whole world
+                                    </div>
+                                    <span class="fs-0 color-disabled date">
+                                        Jun 27, 2022
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                                <div class="w-20 latest-post-img wm-80">
+                                    <img src="../../assets/images/article/man.png " class="w-100 object-fit-contain" />
+                                </div>
+                                <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
+                                    <div class=" title color-disabled">
+                                        Help children get better education in the future over
+                                        the whole world
+                                    </div>
+                                    <span class="fs-0 color-disabled date">
+                                        Jun 27, 2022
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                                <div class="w-20 latest-post-img wm-80">
+                                    <img src="../../assets/images/article/ipad.png " class="w-100 object-fit-contain" />
+                                </div>
+                                <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
+                                    <div class="title color-disabled">
+                                        Help children get better education in the future over
+                                        the whole world
+                                    </div>
+                                    <span class="fs-0 color-disabled date">
+                                        Jun 27, 2022
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                                <div class="w-20 latest-post-img wm-80">
+                                    <img src="../../assets/images/article/figma-icon.png "
+                                        class="w-100 object-fit-contain" />
+                                </div>
+                                <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
+                                    <div class="title color-disabled">
+                                        Help children get better education in the future over
+                                        the whole world
+                                    </div>
+                                    <span class="fs-0 color-disabled date">
+                                        Jun 27, 2022
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END OF LATEST POST -->
 
-                <ul>
-                    <li><a href="#">Services</a></li>
-                    <li>
-                        <a href="#">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#">Design</a>
-                    </li>
-                    <li>
-                        <a href="#">Themes</a>
-                    </li>
-                    <li>
-                        <a href="#">Illustrations</a>
-                    </li>
-                    <li>
-                        <a href="#">UI Kit</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer__group">
+                <!-- START OF TAGS -->
+                <div class="tags w-75">
+                    <h4 class="fs-5 fw-bold mb-2 ">
+                        Tags
+                    </h4>
+                    <ul class="d-flex flex-wrap list-unstyled gap-2 fs-0">
+                        <li class="bg-active p-2 rounded-3 hover-pointer">
+                            <a href="../category/index.html" class="text-light text-decoration-none">
+                                Medical
+                            </a>
+                        </li>
+                        <li class="bg-active p-2 rounded-3 hover-pointer">
+                            <a href="../category/index.html" class="text-light text-decoration-none">
+                                Lifestyle
+                            </a>
+                        </li>
+                        <li class="bg-active p-2  rounded-3 hover-pointer">
+                            <a href="../category/index.html" class="text-light text-decoration-none">
+                                Learn
+                            </a>
+                        </li>
+                        <li class="bg-active p-2 rounded-3 hover-pointer">
+                            <a href="../category/index.html" class="text-light text-decoration-none">
+                                Healthy
+                            </a>
+                        </li>
+                        <li class="bg-active p-2 rounded-3 hover-pointer">
+                            <a href="../category/index.html" class="text-light text-decoration-none ">
+                                Food
+                            </a>
+                        </li>
+                        <li class="bg-active p-2 rounded-3 hover-pointer">
+                            <a href="../category/index.html" class="text-light text-decoration-none">
+                                Education
+                            </a>
+                        </li>
 
-                <ul>
-                    <li><a href="#">Company</a></li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Careers</a>
-                    </li>
-                </ul>
+                    </ul>
+                </div>
+                <!-- END OF TAGS -->
             </div>
-            <div class="footer__group">
-
-                <ul>
-                    <li><a href="#">More</a></li>
-                    <li>
-                        <a href="#">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#">License</a>
-                    </li>
-                    <li>
-                        <a href="#">Changelog</a>
-                    </li>
-                </ul>
-            </div>
+            <!-- END OF ARTICLE -->
         </div>
-        <div class="copyright">
-            <p>
-                Copyright © 2024.
-            </p>
-        </div>
+        <!-- END OF POST -->
+    </main>
 
+
+    <footer class="bg-disabled">
+        <div class="container pt-3">
+            <!-- START OF FOOTER INFO -->
+            <div class="row">
+                <div class="col-md-6 col-lg-8  px-0">
+                    <div class="row">
+                        <div class="col-md-4  mb-md-0 mb-4">
+                            <h2 class="text-light fs-18 mb-3">About</h2>
+                            <ul class="list-unstyled">
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block  text-decoration-none color-disabled-2">Out
+                                        story</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Awards</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Our Team</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Career</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <h2 class="text-light fs-18 mb-3">Company</h2>
+                            <ul class="list-unstyled">
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Our services</a>
+                                </li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Clients</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Contact</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Press</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <h2 class="text-light fs-18 mb-3">Company</h2>
+                            <ul class="list-unstyled">
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Our services</a>
+                                </li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Clients</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Contact</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Press</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 px-0">
+                    <h2 class="text-light fs-18 mb-3">Subcribe</h2>
+                    <form action="#">
+                        <div class="d-flex mb-0">
+                            <input type="text"
+                                class="border-none py-9 w-75 ps-2 outline-none border-radius-none rounded-start"
+                                placeholder="Enter email address...">
+                            <button type="submit"
+                                class="w-25 hp-45 border-radius-none border-none outline-none rounded-end text-light bg-light-active">Subscribe</button>
+                        </div>
+                        <span class="d-inline-block color-disabled-2 fs-0 mt-1 title">Get digital marketing updates in
+                            your
+                            mailbox</span>
+                    </form>
+                </div>
+            </div>
+            <!-- END OF FOOTER INFO -->
+
+            <!-- START OF FOOTER COPYRIGHT -->
+            <div class="copyright row mt-3 border-top border-secondary d-flex">
+                <div class="col-6 align-items-center d-flex p-0">
+                    <p class="copyright mb-0 color-disabled-2">
+                        Copyright &copy;
+                        2024 All rights reserved.
+                    </p>
+                </div>
+                <div class="social col-6 fs-3 bg-transparent p-0">
+                    <ul class="p-0 d-flex mb-0 gap-3 list-unstyled justify-content-end mt-2">
+                        <li class="ftco-animate text-light">
+                            <i class='bx bxl-twitter'></i>
+                        </li>
+                        <li class="ftco-animate text-light">
+                            <i class='bx bxl-facebook-square'></i>
+                        </li>
+                        <li class="ftco-animate text-light">
+                            <i class='bx bxl-instagram'></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END OF FOOTER COPYRIGHT -->
+        </div>
     </footer>
-    <script>
-        function changeLanguage(language, flagPath) {
-            const languageButton = document.getElementById("languageDropdown");
-            languageButton.innerHTML = `<img src="${flagPath}" alt="${language}"> ${language} `;
-        }
-        function changeLanguageResponsive(language, flagPath) {
-            const languageButtonResponsive = document.getElementById("languageDropdownResponsive");
-            languageButtonResponsive.innerHTML = `<img src="${flagPath}" alt="${language}" > ${language} `;
-        }
-        const iconBars = document.querySelector(".fa-bars");
-        const headerNav = document.querySelector("#header__nav");
-        iconBars.addEventListener("click", () => {
-            headerNav.classList.toggle("active");
-        })
-    </script>
+    <script src="../../assets/js/nav-bar.js"></script>
 </body>
 
 </html>
