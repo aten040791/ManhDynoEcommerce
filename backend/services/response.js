@@ -7,11 +7,11 @@ module.exports = {
             message: 'ok',
         })
     },
-    notFound: () => {
-        return {
+    notFound: (res) => {
+        return res.status(404).send({
             success: false,
             status: 404,
             message: "Cannot find resouces"
-        }
+        })
     }
 }

@@ -1,5 +1,5 @@
 const rs = require('services/response');
-const userService = require('modules/user/services/userService')
+const userService = require('modules/user/services/userService');
 
 const getAllUsers = async (req, res) => {
     try {
@@ -24,7 +24,7 @@ const deleteUser = async (req, res) => {
             return rs.ok(res, {
                 mes: "Deleted user successfully"
             });
-        }else {
+        } else {
             return rs.notFound();
         }
     } catch (error) {

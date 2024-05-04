@@ -431,6 +431,7 @@ window.addEventListener("resize", navbarColorOnResize);
 function navbarColorOnResize() {
   if (window.innerWidth > 1200) {
     if (
+      referenceButtons &&
       referenceButtons.classList.contains("active") &&
       referenceButtons.getAttribute("data-class") === "bg-transparent"
     ) {
