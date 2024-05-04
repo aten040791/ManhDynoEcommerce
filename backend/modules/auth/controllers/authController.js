@@ -1,9 +1,2 @@
-const response = require("services/response")
-
-module.exports = {
-    helloWorld: (req, res) => {
-        return response.ok(res, {
-            data: 'hello world'
-        })
-    }
-}
+const languageService = require("../services/languageServices");
+const rs = require("../../../services/response");
