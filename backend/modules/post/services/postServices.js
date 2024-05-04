@@ -29,7 +29,6 @@ module.exports = {
 
   create: async (title, content, userId, categoryId, relatedId, language) => {
     try {
-      console.log(title, content, language);
       if (userId) {
         const checkUser = await model.User.findByPk(userId);
         if (!checkUser) {
