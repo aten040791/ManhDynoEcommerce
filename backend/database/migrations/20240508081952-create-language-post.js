@@ -31,6 +31,7 @@ module.exports = {
       },
       locale: {
         type: Sequelize.STRING(20),
+        allowNull: false,
       },
       created_at: {
         allowNull: false,

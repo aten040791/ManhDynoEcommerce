@@ -14,13 +14,16 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING(20),
         unique: true,
+        allowNull: false,
       },
       locale: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(10),
         unique: true,
+        allowNull: false,
       },
       flag: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,

@@ -1,5 +1,7 @@
 const model = require("../../../models");
 const { sequelize } = require("../../../models");
+
+const { Op } = require("sequelize");
 module.exports = {
   index: async () => {
     try {
@@ -35,6 +37,18 @@ module.exports = {
 
   create: async (title, content, userId, categoryId, relatedId, language) => {
     try {
+      if (title) {
+        const checkTitle = await model.Post.findOne({
+          where: {
+            title: title,
+          },
+        });
+        if (checkTitle) {
+          return {
+            error: "Title has been used",
+          };
+        }
+      }
       if (userId) {
         const checkUser = await model.User.findByPk(userId);
         if (!checkUser) {
@@ -46,33 +60,51 @@ module.exports = {
       if (categoryId) {
         const checkCategory = await model.Category.findByPk(categoryId);
         if (!checkCategory) {
-          return null;
+          return {
+            error: "Category not found",
+          };
         }
       }
       if (relatedId) {
         const checkPost = await model.Post.findByPk(relatedId);
         if (!checkPost) {
-          return null;
+          return {
+            error: "relatedId not found",
+          };
         }
       }
+      let checkLanguage = null;
       if (language) {
-        let localeRelatedPost = await model.Language_Post.findOne({
-          attributes: ["locale"],
+        checkLanguage = await model.Language.findOne({
           where: {
-            post_id: relatedId,
+            locale: language,
           },
         });
-        localeRelatedPost = localeRelatedPost.toJSON().locale;
-        if (localeRelatedPost.localeCompare(language) !== 0) {
-          return null;
+        if (!checkLanguage) {
+          return {
+            error: "Language not found",
+          };
+        }
+        let locales = await model.Post.findAll({
+          attributes: ["locale"],
+          where: {
+            [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
+          },
+        });
+        locales = locales.map((post) => post.dataValues.locale);
+        if (locales.includes(language)) {
+          return {
+            error: "Language has been used",
+          };
         }
       }
       const result = await sequelize.transaction(async (t) => {
-        const post = await model.Post.create(
+        const newPost = await model.Post.create(
           {
             user_id: userId,
             category_id: categoryId,
             related_id: relatedId,
+            locale: language,
             title: title,
             content: content,
             created_at: new Date(),
@@ -81,15 +113,17 @@ module.exports = {
           { transaction: t }
         );
 
-        // const language_post = await model.Language_Post.create(
-
-        //   {
-        //     transaction: t,
-        //   }
-        // );
-        // console.log(language_post);
-
-        return post;
+        await model.Language_Post.create(
+          {
+            language_id: checkLanguage.id,
+            post_id: newPost.id,
+            locale: language,
+            created_at: new Date(),
+            updated_at: new Date(),
+          },
+          { transaction: t }
+        );
+        return newPost;
       });
 
       return {
