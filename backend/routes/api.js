@@ -8,8 +8,8 @@ const router = express.Router({ mergeParams: true });
 
 //Single routing
 //Format: router.get(path, middlewareArray: optional = [], controllerAction)
-router.get("/helloworld", authController.helloWorld);
-router.get("/helloworld", authController.helloWorld);
+// router.get("/helloworld", authController.helloWorld);
+// router.get("/helloworld", authController.helloWorld);
 
 /**
 /**
@@ -21,6 +21,12 @@ router.get("/helloworld", authController.helloWorld);
 // router.group("/categories", (router) => {
 //   router.get("/", categoriesController.index);
 // });
+
+router.group("/auth", (router) => {
+  router.post("/create", authController.register);
+  router.post("/login", authController.login);
+  router.post("/forgot-password", authController.forgotPassword);
+});
 
 router.group("/languages", (router) => {
   router.get("/", languagesController.index);
