@@ -9,7 +9,9 @@ const router = express.Router({ mergeParams: true });
 //Single routing
 //Format: router.get(path, middlewareArray: optional = [], controllerAction)
 router.get("/helloworld", authController.helloWorld);
+router.get("/helloworld", authController.helloWorld);
 
+/**
 /**
  * Nested routing
  * Format: router.group(path, middlewareArray: optional = [], (router) => {
