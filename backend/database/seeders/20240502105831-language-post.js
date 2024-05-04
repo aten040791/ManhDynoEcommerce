@@ -16,36 +16,42 @@ module.exports = {
       {
         language_id: languages[0].id, //English
         post_id: posts[0].id,
+        locale: "en-US",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         language_id: languages[0].id, //English
         post_id: posts[1].id,
+        locale: "en-US",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         language_id: languages[0].id, //English
         post_id: posts[2].id,
+        locale: "en-US",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         language_id: languages[0].id, //English
         post_id: posts[3].id,
+        locale: "en-US",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         language_id: languages[1].id, //Tiếng Việt
         post_id: posts[4].id,
+        locale: "vi-VI",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         language_id: languages[1].id, //Tiếng Việt
         post_id: posts[5].id,
+        locale: "vi-VI",
         created_at: new Date(),
         updated_at: new Date(),
       },

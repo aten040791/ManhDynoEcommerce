@@ -1,87 +1,89 @@
 const model = require("../../../models/index");
 
 module.exports = {
-  index: () =>
-    new Promise(async (resolve, reject) => {
-      try {
-        const response = await model.Post.findAll();
-        resolve({
-          data: response,
-        });
-      } catch (error) {
-        reject({
-          data: error,
-        });
-      }
-    }),
+  index: async () => {
+    try {
+      const response = await model.Post.findAll({});
+      return {
+        data: response,
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
 
-  show: (postId) =>
-    new Promise(async (resolve, reject) => {
-      try {
-        const response = await model.Post.findByPk(postId);
-        resolve({
-          data: response,
-        });
-      } catch (error) {
-        reject({
-          data: error,
-        });
-      }
-    }),
+  show: async (postId) => {
+    try {
+      const response = await model.Post.findByPk(postId);
+      return {
+        data: response,
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
 
-  create: (title, content, userId, categoryId, relatedId, language) =>
-    new Promise(async (resolve, reject) => {
-      try {
-        console.log(title, content, language);
-        if (userId) {
-          const checkUser = await model.User.findByPk(userId);
-          if (!checkUser) {
-            resolve({
-              data: "User not found",
-            });
-          }
+  create: async (title, content, userId, categoryId, relatedId, language) => {
+    try {
+      console.log(title, content, language);
+      if (userId) {
+        const checkUser = await model.User.findByPk(userId);
+        if (!checkUser) {
+          return {
+            data: "User not found",
+          };
         }
-        if (categoryId) {
-          const checkCategory = await model.Category.findByPk(categoryId);
-          if (!checkCategory) {
-            resolve({
-              data: "Category not found",
-            });
-          }
-        }
-        if (relatedId) {
-          const checkPost = await model.Post.findByPk(relatedId);
-          if (!checkPost) {
-            resolve({
-              data: "Post not found",
-            });
-          }
-        }
-        if (language) {
-          console.log(language);
-          // const langRelated = model.Language_Post.findOne({
-          //   where: {
-          //     post_id: relatedId,
-          //   },
-          // });
-          // console.log(langRelated);
-        }
-        const response = await model.Post.create({
-          user_id: userId,
-          category_id: categoryId,
-          related_id: relatedId,
-          // title: title,
-          // content: content,
-          created_at: new Date(),
-          updated_at: new Date(),
-        });
-        resolve({
-          data: response,
-        });
-      } catch (error) {
-        reject({
-          data: error,
-        });
       }
-    }),
+      if (categoryId) {
+        const checkCategory = await model.Category.findByPk(categoryId);
+        if (!checkCategory) {
+          return {
+            data: "Category not found",
+          };
+        }
+      }
+      if (relatedId) {
+        const checkPost = await model.Post.findByPk(relatedId);
+        if (!checkPost) {
+          return {
+            data: "Related Post not found",
+          };
+        }
+      }
+      if (language) {
+        let localeRelatedPost = await model.Language_Post.findOne({
+          attributes: ["locale"],
+          where: {
+            post_id: relatedId,
+          },
+        });
+        localeRelatedPost = localeRelatedPost.toJSON().locale;
+        if (localeRelatedPost == language) {
+          return {
+            data: "Language has been used by related post",
+          };
+        }
+      }
+      const response = await model.Post.create({
+        user_id: userId,
+        category_id: categoryId,
+        related_id: relatedId,
+        title: title,
+        content: content,
+        created_at: new Date(),
+        updated_at: new Date(),
+      });
+      return {
+        data: response,
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
 };

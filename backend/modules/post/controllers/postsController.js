@@ -4,6 +4,7 @@ module.exports = {
   index: async (req, res) => {
     try {
       const response = await postService.index();
+
       return res.status(200).send({
         success: true,
         data: response.data,
@@ -61,7 +62,7 @@ module.exports = {
       const language = req.query.language || "en-US";
       const title = req.body.title || null;
       const content = req.body.content || null;
-      console.log(userId, categoryId, relatedId, language, title, content);
+
       if (!title && !content) {
         return res.status(400).send({
           success: false,

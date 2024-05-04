@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         as: "user",
       });
 
-      Post.hasMany(models.Language_Post);
+      Post.hasMany(models.Language_Post, {
+        foreignKey: "post_id",
+        as: "language_post",
+      });
     }
   }
   Post.init(
