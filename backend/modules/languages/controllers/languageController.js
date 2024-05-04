@@ -1,22 +1,16 @@
 const languageService = require("../services/languageServices");
+const rs = require("../../../services/response");
 
 module.exports = {
   index: async (req, res) => {
     try {
       const response = await languageService.index();
-
-      return res.status(200).send({
-        success: true,
-        data: response.data,
-        status: 200,
-        message: "ok",
-      });
+      if (response) {
+        return rs.ok(res, response);
+      }
+      return rs.notFound(res);
     } catch (error) {
-      return res.status(404).send({
-        success: false,
-        status: 404,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
 
@@ -24,62 +18,34 @@ module.exports = {
     try {
       const languageId = req.params.languageId;
       if (!languageId) {
-        return res.status(400).send({
-          success: false,
-          status: 400,
-          message: "Missing languageId parameter",
-        });
+        return rs.missing(res, missing.message);
       }
       const response = await languageService.show(languageId);
 
       if (response.data) {
-        return res.status(200).send({
-          success: true,
-          data: response.data,
-          status: 200,
-          message: "ok",
-        });
+        return rs.ok(res, response);
       } else {
-        return res.status(404).send({
-          success: false,
-          status: 404,
-          message: "Cannot find resouces",
-        });
+        return rs.notFound(res);
       }
     } catch (error) {
-      return res.status(404).send({
-        success: false,
-        status: 404,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
 
-  create: async (req, res) => {
+  store: async (req, res) => {
     try {
       const name = req.body.name || null;
       const locale = req.body.locale || null;
       const flag = req.body.flag || null;
 
       if (!name || !locale || !flag) {
-        return res.status(400).send({
-          data: "Missing required information",
-        });
+        return rs.missing(res, missing.message);
       }
 
-      const response = await languageService.create(name, locale, flag);
-      return res.status(200).send({
-        success: true,
-        data: response.data,
-        status: 200,
-        message: "ok",
-      });
+      const response = await languageService.store(name, locale, flag);
+      return rs.ok(res, response);
     } catch (error) {
-      return res.status(404).send({
-        success: false,
-        status: 404,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
 
@@ -95,18 +61,9 @@ module.exports = {
         locale,
         flag
       );
-      return res.status(200).send({
-        success: true,
-        data: response.data,
-        status: 200,
-        message: "ok",
-      });
+      return rs.ok(res, response);
     } catch (error) {
-      return res.status(500).send({
-        success: false,
-        status: 500,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
 
@@ -114,18 +71,9 @@ module.exports = {
     try {
       const languageId = req.params.languageId;
       const response = await languageService.destroy(languageId);
-      return res.status(200).send({
-        success: true,
-        data: response.data,
-        status: 200,
-        message: "ok",
-      });
+      return rs.ok(res, response);
     } catch (error) {
-      return res.status(500).send({
-        success: false,
-        status: 500,
-        message: error,
-      });
+      return rs.error(res, error.message);
     }
   },
 };

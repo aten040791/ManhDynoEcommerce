@@ -23,7 +23,7 @@ router.get("/helloworld", authController.helloWorld);
 router.group("/languages", (router) => {
   router.get("/", languagesController.index);
   router.get("/:languageId", languagesController.show);
-  router.post("/create", languagesController.create);
+  router.post("/create", languagesController.store);
   router.put("/:languageId", languagesController.update);
   router.delete("/:languageId", languagesController.destroy);
 });

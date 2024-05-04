@@ -27,7 +27,7 @@ module.exports = {
     }
   },
 
-  create: async (name, locale, flag) => {
+  store: async (name, locale, flag) => {
     try {
       console.log(name, locale, flag);
 
