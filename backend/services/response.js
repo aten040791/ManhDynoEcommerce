@@ -21,4 +21,11 @@ module.exports = {
       message: message,
     });
   },
+  authorization: (res, message) => {
+    return res.status(401).send({
+      success: false,
+      status: 401,
+      message: message,
+    });
+  },
 };

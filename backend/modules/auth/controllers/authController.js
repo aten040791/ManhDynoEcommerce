@@ -15,7 +15,17 @@ module.exports = {
         return rs.error(res, response.error);
       }
       if (response) {
-        return rs.ok(res, response);
+        res
+          .status(200)
+          .cookie("access_token", response.data.access_token, {
+            httpOnly: true,
+          })
+          .send({
+            success: true,
+            response,
+            status: 200,
+            message: "ok",
+          });
       }
     } catch (error) {
       return rs.error(res, error.message);
@@ -56,7 +66,6 @@ module.exports = {
       return rs.error(res, error.message);
     }
   },
-
   resetPassword: async (req, res) => {
     try {
       const { error } = validation.resetPassword(req.body);
