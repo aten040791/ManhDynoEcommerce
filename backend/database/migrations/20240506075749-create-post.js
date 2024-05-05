@@ -29,15 +29,26 @@ module.exports = {
         },
         allowNull: false,
       },
+      locale: {
+        type: Sequelize.STRING(20),
+        allowNull: false,
+      },
       related_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       title: {
         type: Sequelize.STRING(100),
         unique: true,
+        allowNull: false,
+      },
+      slug: {
+        type: Sequelize.STRING(150),
+        allowNull: false,
       },
       content: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,

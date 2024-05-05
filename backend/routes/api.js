@@ -8,8 +8,8 @@ const router = express.Router({ mergeParams: true });
 
 //Single routing
 //Format: router.get(path, middlewareArray: optional = [], controllerAction)
-router.get("/helloworld", authController.helloWorld);
-router.get("/helloworld", authController.helloWorld);
+// router.get("/helloworld", authController.helloWorld);
+// router.get("/helloworld", authController.helloWorld);
 
 /**
 /**
@@ -25,7 +25,7 @@ router.get("/helloworld", authController.helloWorld);
 router.group("/languages", (router) => {
   router.get("/", languagesController.index);
   router.get("/:languageId", languagesController.show);
-  router.post("/create", languagesController.store);
+  router.post("/create", languagesController.create);
   router.put("/:languageId", languagesController.update);
   router.delete("/:languageId", languagesController.destroy);
 });
@@ -34,6 +34,7 @@ router.group("/posts", (router) => {
   router.get("/", postsController.index);
   router.get("/:postId", postsController.show);
   router.post("/create", postsController.create);
+  // router.post("/update", postsController.update);
 });
 
 module.exports = router;

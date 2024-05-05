@@ -8,9 +8,7 @@ module.exports = {
         data: response,
       };
     } catch (error) {
-      return {
-        data: error.message,
-      };
+      throw new Error(error.message);
     }
   },
 
@@ -21,16 +19,12 @@ module.exports = {
         data: response,
       };
     } catch (error) {
-      return {
-        data: error.message,
-      };
+      throw new Error(error.message);
     }
   },
 
-  store: async (name, locale, flag) => {
+  create: async (name, locale, flag) => {
     try {
-      console.log(name, locale, flag);
-
       const response = await model.Language.create({
         name: name,
         locale: locale,
@@ -43,22 +37,22 @@ module.exports = {
       };
     } catch (error) {
       if (error.name === "SequelizeUniqueConstraintError") {
-        return {
-          data: "Language name or locale already exists",
-        };
+        const field = error.errors[0].path;
+        const data = `${
+          field.charAt(0).toUpperCase() + field.slice(1)
+        } already exists`;
+        throw new Error(data);
       }
-      return {
-        data: error.message,
-      };
+      throw new Error(error.message);
     }
   },
 
   update: async (id, name, locale, flag) => {
     try {
       const updateData = {};
-      if (name) updateData.name = name;
-      if (locale) updateData.locale = locale;
-      if (flag) updateData.flag = flag;
+      updateData.name = name;
+      updateData.locale = locale;
+      updateData.flag = flag;
       updateData.updated_at = new Date();
 
       const response = await model.Language.update(updateData, {
@@ -72,14 +66,10 @@ module.exports = {
           data: "Language updated successfully",
         };
       } else {
-        return {
-          data: "Language not found",
-        };
+        throw new Error("Language not found");
       }
     } catch (error) {
-      return {
-        data: error.message,
-      };
+      throw new Error(error.message);
     }
   },
 
@@ -95,14 +85,10 @@ module.exports = {
           data: "Language deleted successfully",
         };
       } else {
-        return {
-          data: "Language not found",
-        };
+        throw new Error("Language not found");
       }
     } catch (error) {
-      return {
-        data: error.message,
-      };
+      throw new Error(error.message);
     }
   },
 };

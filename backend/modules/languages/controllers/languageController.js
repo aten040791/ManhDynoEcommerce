@@ -1,5 +1,6 @@
 const languageService = require("../services/languageServices");
 const rs = require("../../../services/response");
+const validation = require("../../../validations/languageValidation");
 
 module.exports = {
   index: async (req, res) => {
@@ -16,10 +17,12 @@ module.exports = {
 
   show: async (req, res) => {
     try {
-      const languageId = req.params.languageId;
-      if (!languageId) {
-        return rs.missing(res, missing.message);
+      const { error } = validation.show(req.params);
+      if (error) {
+        return rs.error(res, error.details[0].message);
       }
+
+      const languageId = req.params.languageId;
       const response = await languageService.show(languageId);
 
       if (response.data) {
@@ -32,18 +35,19 @@ module.exports = {
     }
   },
 
-  store: async (req, res) => {
+  create: async (req, res) => {
     try {
-      const name = req.body.name || null;
-      const locale = req.body.locale || null;
-      const flag = req.body.flag || null;
-
-      if (!name || !locale || !flag) {
-        return rs.missing(res, missing.message);
+      const { error } = validation.create(req.body);
+      if (error) {
+        return rs.error(res, error.details[0].message);
       }
-
-      const response = await languageService.store(name, locale, flag);
-      return rs.ok(res, response);
+      const { name, locale, flag } = req.body;
+      const response = await languageService.create(name, locale, flag);
+      if (response) {
+        return rs.ok(res, response);
+      } else {
+        return rs.error(res, "Failed to create language");
+      }
     } catch (error) {
       return rs.error(res, error.message);
     }
@@ -51,17 +55,23 @@ module.exports = {
 
   update: async (req, res) => {
     try {
+      const { error } = validation.update({ ...req.body, ...req.params });
+      if (error) {
+        return rs.error(res, error.details[0].message);
+      }
       const languageId = req.params.languageId;
-      const name = req.body.name;
-      const locale = req.body.locale;
-      const flag = req.body.flag;
+      const { name, locale, flag } = req.body;
       const response = await languageService.update(
         languageId,
         name,
         locale,
         flag
       );
-      return rs.ok(res, response);
+      if (response) {
+        return rs.ok(res, response);
+      } else {
+        return rs.error(res, "Failed to update language");
+      }
     } catch (error) {
       return rs.error(res, error.message);
     }
@@ -69,9 +79,17 @@ module.exports = {
 
   destroy: async (req, res) => {
     try {
+      const { error } = validation.destroy(req.params);
+      if (error) {
+        return rs.error(res, error.details[0].message);
+      }
       const languageId = req.params.languageId;
       const response = await languageService.destroy(languageId);
-      return rs.ok(res, response);
+      if (response) {
+        return rs.ok(res, response);
+      } else {
+        return rs.error(res, "Failed to delete language");
+      }
     } catch (error) {
       return rs.error(res, error.message);
     }
