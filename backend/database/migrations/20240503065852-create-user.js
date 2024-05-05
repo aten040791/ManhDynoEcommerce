@@ -18,9 +18,9 @@ module.exports = {
         unique: true,
         allowNull: false,
       },
-      role: {
+      role_code: {
         type: Sequelize.STRING(10),
-        defaultValue: "owner",
+        defaultValue: 0, //[0:guest/user , 1: owner,2: super-admin]
         allowNull: false,
       },
       password: {

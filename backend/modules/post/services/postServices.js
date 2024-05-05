@@ -23,12 +23,14 @@ module.exports = {
     try {
       const postId = data.postId;
       const response = await model.Post.findByPk(postId);
-      if (response) {
+      if (!response) {
         return {
-          data: response,
+          error: "Post not found",
         };
       }
-      return null;
+      return {
+        data: response,
+      };
     } catch (error) {
       return {
         data: error.message,
@@ -86,7 +88,9 @@ module.exports = {
       if (language) {
         checkLanguage = await model.Language.findOne({
           where: {
-            locale: language,
+            locale: {
+              [Op.eq]: language,
+            },
           },
         });
         if (!checkLanguage) {
@@ -100,8 +104,8 @@ module.exports = {
             [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
           },
         });
-        locales = locales.map((post) => post.dataValues.locale);
-        if (locales.includes(language)) {
+        locales = locales.map((post) => post.dataValues.locale.toLowerCase());
+        if (locales.includes(language.toLowerCase())) {
           return {
             error: "Language has been used",
           };
@@ -113,7 +117,7 @@ module.exports = {
             user_id: userId,
             category_id: categoryId,
             related_id: relatedId,
-            locale: language,
+            locale: language.toLowerCase(),
             title: title,
             slug: slug,
             content: content,
@@ -165,13 +169,11 @@ module.exports = {
           };
         }
       }
-
       if (curPost.user_id != userId) {
         return {
           error: "No authorization",
         };
       }
-
       if (categoryId) {
         const checkCategory = await model.Category.findByPk(categoryId);
         if (!checkCategory) {
@@ -180,7 +182,6 @@ module.exports = {
           };
         }
       }
-
       if (language) {
         const checkLanguage = await model.Language.findOne({
           where: {
@@ -193,7 +194,6 @@ module.exports = {
           };
         }
       }
-
       let slug = curPost.slug;
       if (curPost.title !== title) {
         slug = slugify(title, {
@@ -204,14 +204,21 @@ module.exports = {
           trim: true,
         });
       }
-
-      return {
-        data: {
+      const response = await model.Post.update(
+        {
           title: title,
           category_id: categoryId,
           content: content,
           slug: slug,
         },
+        {
+          where: {
+            id: postId,
+          },
+        }
+      );
+      return {
+        data: response ? "Post updated successfully" : "Post updated failed",
       };
     } catch (error) {
       return {
@@ -233,13 +240,14 @@ module.exports = {
           post_id: checkPost.id,
         },
       });
-
-      // if (response) {
-      //   return {
-      //     data: response,
-      //   };
-      // }
-      return null;
+      const respone = await model.Post.destroy({
+        where: {
+          id: checkPost.id,
+        },
+      });
+      return {
+        data: respone ? "Post deleted successfully" : "Post deleted failed",
+      };
     } catch (error) {
       return {
         data: error.message,
