@@ -11,6 +11,9 @@ module.exports = {
       }
 
       const response = await authService.signIn(req.body);
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
       if (response) {
         return rs.ok(res, response);
       }
@@ -24,9 +27,11 @@ module.exports = {
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-
       const response = await authService.signUp(req.body);
 
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
       if (response) {
         return rs.ok(res, response);
       }
