@@ -1,6 +1,6 @@
 const postService = require("../services/postServices");
 const rs = require("../../../services/response");
-const validate = require("../../../helpers/validation.js");
+const validate = require("../../../validations/postValidation.js");
 
 module.exports = {
   index: async (req, res) => {
