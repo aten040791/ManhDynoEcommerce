@@ -12,13 +12,16 @@ module.exports = {
       name: {
         type: Sequelize.STRING(20),
         unique: true,
+        allowNull: false,
       },
       locale: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(10),
         unique: true,
+        allowNull: false,
       },
       flag: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,

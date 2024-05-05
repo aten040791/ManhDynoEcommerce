@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       locale: {
         type: DataTypes.STRING(20),
-        unique: true,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,

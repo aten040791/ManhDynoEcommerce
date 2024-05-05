@@ -33,13 +33,25 @@ module.exports = (sequelize, DataTypes) => {
       },
       related_id: {
         type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      locale: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
       },
       title: {
         type: DataTypes.STRING(100),
         unique: true,
+        allowNull: false,
+      },
+      slug: {
+        type: DataTypes.STRING(150),
+        allowNull: false,
       },
       content: {
         type: DataTypes.TEXT,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,
