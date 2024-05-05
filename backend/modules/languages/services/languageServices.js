@@ -8,7 +8,9 @@ module.exports = {
         data: response,
       };
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 
@@ -19,7 +21,9 @@ module.exports = {
         data: response,
       };
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 
@@ -38,12 +42,15 @@ module.exports = {
     } catch (error) {
       if (error.name === "SequelizeUniqueConstraintError") {
         const field = error.errors[0].path;
-        const data = `${
-          field.charAt(0).toUpperCase() + field.slice(1)
-        } already exists`;
-        throw new Error(data);
+        return {
+          error: `${
+            field.charAt(0).toUpperCase() + field.slice(1)
+          } already exists`,
+        };
       }
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 
@@ -66,10 +73,14 @@ module.exports = {
           data: "Language updated successfully",
         };
       } else {
-        throw new Error("Language not found");
+        return {
+          error: "Language not found",
+        };
       }
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 
@@ -85,10 +96,14 @@ module.exports = {
           data: "Language deleted successfully",
         };
       } else {
-        throw new Error("Language not found");
+        return {
+          error: "Language not found",
+        };
       }
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 };

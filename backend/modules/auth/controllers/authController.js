@@ -41,14 +41,30 @@ module.exports = {
     }
   },
 
-  forgotPassword: async (req, res) => {
+  recoverPassword: async (req, res) => {
     try {
-      const { error } = validation.forgotPassword(req.body);
+      const { error } = validation.recoverPassword(req.body);
+      if (error) {
+        return rs.error(res, error.details[0].message);
+      }
+      const email = req.body.email;
+      const response = await authService.recoverPassword(email);
+      if (response) {
+        return rs.ok(res, response);
+      }
+    } catch (error) {
+      return rs.error(res, error.message);
+    }
+  },
+
+  resetPassword: async (req, res) => {
+    try {
+      const { error } = validation.resetPassword(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
       const { email, newPassword, confirmPassword } = req.body;
-      const response = await authService.forgotPassword(
+      const response = await authService.resetPassword(
         email,
         newPassword,
         confirmPassword

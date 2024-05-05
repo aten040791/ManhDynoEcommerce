@@ -6,7 +6,9 @@ module.exports = {
   register: async (email, password, confirmPassword) => {
     try {
       if (password !== confirmPassword) {
-        throw new Error("Password and confirm password do not match");
+        return {
+          error: "Password and confirm password do not match",
+        };
       }
       const hashPassword = await bcrypt.hash(password, 10);
       const newUser = await model.User.create({
@@ -23,9 +25,13 @@ module.exports = {
       };
     } catch (error) {
       if (error.name === "SequelizeUniqueConstraintError") {
-        throw new Error("Email already exists");
+        return {
+          error: "Email already exists",
+        };
       }
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 
@@ -33,12 +39,16 @@ module.exports = {
     try {
       const user = await model.User.findOne({ where: { email } });
       if (!user) {
-        throw new Error("No user found with this email");
+        return {
+          error: "No user found with this email",
+        };
       }
 
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
-        throw new Error("Invalid password");
+        return {
+          error: "Invalid password",
+        };
       }
 
       const token = jwt.sign({ userId: user.id }, "secret-key", {
@@ -49,29 +59,52 @@ module.exports = {
 
       return { user: userWithoutPassword, token };
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 
-  forgotPassword: async (email, newPassword, confirmPassword) => {
+  recoverPassword: async (email) => {
+    try {
+      const user = await model.User.findOne({ where: { email } });
+      if (!user) {
+        return {
+          error: "No user found with this email",
+        };
+      }
+      return { user: user };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
+
+  resetPassword: async (email, newPassword, confirmPassword) => {
     try {
       if (newPassword !== confirmPassword) {
-        throw new Error("Password and confirm password do not match");
+        return {
+          error: "New password and confirm password do not match",
+        };
       }
       const user = await model.User.findOne({ where: { email } });
       if (!user) {
-        throw new Error("No user found with this email");
+        return {
+          error: "No user found with this email",
+        };
       }
       user.password = await bcrypt.hash(newPassword, 10);
       await user.save();
-
       const userWithoutPassword = { ...user.toJSON() };
       delete userWithoutPassword.password;
       return {
         user: userWithoutPassword,
       };
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        data: error.message,
+      };
     }
   },
 };

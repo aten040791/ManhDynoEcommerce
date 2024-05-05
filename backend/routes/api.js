@@ -25,7 +25,8 @@ const router = express.Router({ mergeParams: true });
 router.group("/auth", (router) => {
   router.post("/create", authController.register);
   router.post("/login", authController.login);
-  router.post("/forgot-password", authController.forgotPassword);
+  router.post("/recoverPassword", authController.recoverPassword);
+  router.post("/resetPassword", authController.resetPassword);
 });
 
 router.group("/languages", (router) => {

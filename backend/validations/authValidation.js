@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const { recoverPassword } = require("modules/auth/services/authService");
 
 module.exports = {
   register: (data) => {
@@ -22,7 +23,16 @@ module.exports = {
     });
   },
 
-  forgotPassword: (data) => {
+  recoverPassword: (data) => {
+    const schema = Joi.object({
+      email: Joi.string().email().required(),
+    });
+    return schema.validate(data, {
+      errors: { wrap: { label: "" } },
+    });
+  },
+
+  resetPassword: (data) => {
     const schema = Joi.object({
       email: Joi.string().email().required(),
       newPassword: Joi.string().min(8).required(),
