@@ -3,20 +3,14 @@ const rs = require("../../../services/response");
 const validation = require("../../../validations/authValidation");
 
 module.exports = {
-  register: async (req, res) => {
+  signIn: async (req, res) => {
     try {
-      const { error } = validation.register(req.body);
+      const { error } = validation.signIn(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
 
-      const { email, password, confirmPassword } = req.body;
-      const response = await authService.register(
-        email,
-        password,
-        confirmPassword
-      );
-
+      const response = await authService.signIn(req.body);
       if (response) {
         return rs.ok(res, response);
       }
@@ -24,35 +18,15 @@ module.exports = {
       return rs.error(res, error.message);
     }
   },
-
-  login: async (req, res) => {
+  signUp: async (req, res) => {
     try {
-      const { error } = validation.login(req.body);
+      const { error } = validation.signUp(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const { email, password } = req.body;
-      const response = await authService.login(email, password);
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
-    }
-  },
 
-  forgotPassword: async (req, res) => {
-    try {
-      const { error } = validation.forgotPassword(req.body);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const { email, newPassword, confirmPassword } = req.body;
-      const response = await authService.forgotPassword(
-        email,
-        newPassword,
-        confirmPassword
-      );
+      const response = await authService.signUp(req.body);
+
       if (response) {
         return rs.ok(res, response);
       }

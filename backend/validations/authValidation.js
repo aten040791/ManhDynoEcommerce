@@ -1,32 +1,25 @@
 const Joi = require("joi");
 
 module.exports = {
-  register: (data) => {
+  signIn: (data) => {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
+      email: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .required(),
       password: Joi.string().min(8).required(),
-      confirmPassword: Joi.string().min(8).required(),
     });
     return schema.validate(data, {
       errors: { wrap: { label: "" } },
     });
   },
 
-  login: (data) => {
+  signUp: (data) => {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-    });
-    return schema.validate(data, {
-      errors: { wrap: { label: "" } },
-    });
-  },
-
-  forgotPassword: (data) => {
-    const schema = Joi.object({
-      email: Joi.string().email().required(),
-      newPassword: Joi.string().min(8).required(),
-      confirmPassword: Joi.string().min(8).required(),
+      email: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .required(),
+      password: Joi.string().min(8).required(),
+      confirmPassword: Joi.ref("password").required(),
     });
     return schema.validate(data, {
       errors: { wrap: { label: "" } },

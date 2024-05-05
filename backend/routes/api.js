@@ -1,15 +1,13 @@
 require("express-router-group");
 const express = require("express");
 const authController = require("modules/auth/controllers/authController");
-// const categoriesController = require("modules/category/controllers/categoriesController");
 const postsController = require("modules/post/controllers/postsController");
 const languagesController = require("modules/languages/controllers/languageController");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
-  router.post("/create", authController.register);
-  router.post("/login", authController.login);
-  router.post("/forgot-password", authController.forgotPassword);
+  router.post("/sign-in", authController.signIn);
+  router.post("/sign-up", authController.signUp);
 });
 
 router.group("/languages", (router) => {

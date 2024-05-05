@@ -3,34 +3,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 module.exports = {
-  register: async (email, password, confirmPassword) => {
+  signIn: async (data) => {
     try {
-      if (password !== confirmPassword) {
-        throw new Error("Password and confirm password do not match");
-      }
-      const hashPassword = await bcrypt.hash(password, 10);
-      const newUser = await model.User.create({
-        email,
-        password: hashPassword,
-        username: "",
-        created_at: new Date(),
-        updated_at: new Date(),
-      });
-      const userWithoutPassword = { ...newUser.toJSON() };
-      delete userWithoutPassword.password;
-      return {
-        user: userWithoutPassword,
-      };
-    } catch (error) {
-      if (error.name === "SequelizeUniqueConstraintError") {
-        throw new Error("Email already exists");
-      }
-      throw new Error(error.message);
-    }
-  },
-
-  login: async (email, password) => {
-    try {
+      const { email, password } = data;
       const user = await model.User.findOne({ where: { email } });
       if (!user) {
         throw new Error("No user found with this email");
@@ -53,24 +28,26 @@ module.exports = {
     }
   },
 
-  forgotPassword: async (email, newPassword, confirmPassword) => {
+  signUp: async (data) => {
     try {
-      if (newPassword !== confirmPassword) {
-        throw new Error("Password and confirm password do not match");
-      }
-      const user = await model.User.findOne({ where: { email } });
-      if (!user) {
-        throw new Error("No user found with this email");
-      }
-      user.password = await bcrypt.hash(newPassword, 10);
-      await user.save();
-
-      const userWithoutPassword = { ...user.toJSON() };
+      const { email, password } = data;
+      const hashPassword = await bcrypt.hash(password, 10);
+      const newUser = await model.User.create({
+        email: email,
+        password: hashPassword,
+        username: email,
+        created_at: new Date(),
+        updated_at: new Date(),
+      });
+      const userWithoutPassword = { ...newUser.toJSON() };
       delete userWithoutPassword.password;
       return {
         user: userWithoutPassword,
       };
     } catch (error) {
+      if (error.name === "SequelizeUniqueConstraintError") {
+        throw new Error("Email already exists");
+      }
       throw new Error(error.message);
     }
   },
