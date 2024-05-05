@@ -1,7 +1,7 @@
 const model = require("../../../models");
 const { sequelize } = require("../../../models");
-
 const { Op } = require("sequelize");
+
 module.exports = {
   index: async () => {
     try {
@@ -19,8 +19,9 @@ module.exports = {
     }
   },
 
-  show: async (postId) => {
+  show: async (data) => {
     try {
+      const postId = data.postId;
       const response = await model.Post.findByPk(postId);
       if (response) {
         return {
@@ -35,8 +36,10 @@ module.exports = {
     }
   },
 
-  create: async (title, content, userId, categoryId, relatedId, language) => {
+  create: async (data) => {
     try {
+      const { title, content, userId, categoryId, relatedId, language } = data;
+      let slug = "";
       if (title) {
         const checkTitle = await model.Post.findOne({
           where: {
@@ -48,6 +51,13 @@ module.exports = {
             error: "Title has been used",
           };
         }
+        slug = title
+          .replace(/đ/g, "d") // Thay thế ký tự "đ" thành "d"
+          .normalize("NFKD") // Chuẩn hóa Unicode thành dạng "Compatibility Decomposition"
+          .replace(/[^\w\s-]/g, "") // Loại bỏ các ký tự không phải chữ cái, số, hoặc dấu gạch ngang
+          .split(" ")
+          .join("-")
+          .toLowerCase();
       }
       if (userId) {
         const checkUser = await model.User.findByPk(userId);
@@ -106,6 +116,7 @@ module.exports = {
             related_id: relatedId,
             locale: language,
             title: title,
+            slug: slug,
             content: content,
             created_at: new Date(),
             updated_at: new Date(),

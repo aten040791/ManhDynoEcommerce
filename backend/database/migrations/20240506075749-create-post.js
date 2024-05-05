@@ -42,8 +42,13 @@ module.exports = {
         unique: true,
         allowNull: false,
       },
+      slug: {
+        type: Sequelize.STRING(150),
+        allowNull: false,
+      },
       content: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       created_at: {
         allowNull: false,

@@ -1,16 +1,6 @@
 const postService = require("../services/postServices");
 const rs = require("../../../services/response");
-const Joi = require("joi");
-
-const {
-  userId,
-  cateId,
-  language,
-  postId,
-  relatedId,
-  title,
-  content,
-} = require("../../../helpers/validation");
+const validate = require("../../../helpers/validation.js");
 
 module.exports = {
   index: async (req, res) => {
@@ -27,13 +17,11 @@ module.exports = {
 
   show: async (req, res) => {
     try {
-      const error = Joi.object({ postId }).validate(req.params, {
-        errors: { wrap: { label: "" } },
-      });
+      const { error } = validate.show(req.params);
       if (error) {
-        rs.error(res, error);
+        return rs.error(res, error.details[0].message);
       }
-      const response = await postService.show(postId);
+      const response = await postService.show(req.params);
       if (response) {
         return rs.ok(res, response);
       }
@@ -44,33 +32,17 @@ module.exports = {
   },
   create: async (req, res) => {
     try {
-      const { error } = Joi.object({
-        userId,
-        cateId,
-        language,
-        relatedId,
-        title,
-        content,
-      }).validate(
-        { ...req.body, ...req.query },
-        { errors: { wrap: { label: "" } } }
-      );
+      const { error } = validate.create({ ...req.body, ...req.query });
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      // if (!title && !content) {
-      //   return rs.missing(res, "Missing title or content of post");
-      // }
-
-      // const response = await postService.create(res);
-
-      // if (response.error) {
-      //   return rs.error(res, response.error);
-      // }
-
-      // if (response) {
-      //   return rs.ok(res, response);
-      // }
+      const response = await postService.create({ ...req.body, ...req.query });
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
+      if (response) {
+        return rs.ok(res, response);
+      }
     } catch (error) {
       return rs.error(res, error.message);
     }
