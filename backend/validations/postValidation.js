@@ -29,4 +29,24 @@ module.exports = {
       errors: { wrap: { label: "" } },
     });
   },
+
+  update: (data) => {
+    const schema = Joi.object({
+      postId: Joi.number().required(),
+      title: Joi.string().min(10).max(100).required(),
+      content: Joi.string().required(),
+      userId: Joi.number().required(),
+      categoryId: Joi.number().required(),
+      language: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z_]{2,10}$"))
+        .required()
+        .messages({
+          "string.pattern.base": "Language locale is invalid",
+          "any.required": "Language locale is required",
+        }),
+    });
+    return schema.validate(data, {
+      errors: { wrap: { label: "" } },
+    });
+  },
 };

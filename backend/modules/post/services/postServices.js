@@ -1,5 +1,6 @@
 const model = require("../../../models");
 const { sequelize } = require("../../../models");
+const slugify = require("slugify");
 const { Op } = require("sequelize");
 
 module.exports = {
@@ -18,7 +19,6 @@ module.exports = {
       };
     }
   },
-
   show: async (data) => {
     try {
       const postId = data.postId;
@@ -35,7 +35,6 @@ module.exports = {
       };
     }
   },
-
   create: async (data) => {
     try {
       const { title, content, userId, categoryId, relatedId, language } = data;
@@ -51,13 +50,13 @@ module.exports = {
             error: "Title has been used",
           };
         }
-        slug = title
-          .replace(/đ/g, "d") // Thay thế ký tự "đ" thành "d"
-          .normalize("NFKD") // Chuẩn hóa Unicode thành dạng "Compatibility Decomposition"
-          .replace(/[^\w\s-]/g, "") // Loại bỏ các ký tự không phải chữ cái, số, hoặc dấu gạch ngang
-          .split(" ")
-          .join("-")
-          .toLowerCase();
+        slug = slugify(title, {
+          replacement: "-",
+          remove: undefined,
+          lower: true,
+          locale: "vi",
+          trim: true,
+        });
       }
       if (userId) {
         const checkUser = await model.User.findByPk(userId);
@@ -140,6 +139,107 @@ module.exports = {
       return {
         data: result,
       };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
+  update: async (data) => {
+    try {
+      const { title, content, userId, categoryId, language, postId } = data;
+      let curPost = null;
+      if (postId) {
+        curPost = await model.Post.findByPk(postId);
+        if (!curPost) {
+          return {
+            error: "Post not found",
+          };
+        }
+      }
+      if (userId) {
+        const checkUser = await model.User.findByPk(userId);
+        if (!checkUser) {
+          return {
+            error: "User not found",
+          };
+        }
+      }
+
+      if (curPost.user_id != userId) {
+        return {
+          error: "No authorization",
+        };
+      }
+
+      if (categoryId) {
+        const checkCategory = await model.Category.findByPk(categoryId);
+        if (!checkCategory) {
+          return {
+            error: "Category not found",
+          };
+        }
+      }
+
+      if (language) {
+        const checkLanguage = await model.Language.findOne({
+          where: {
+            locale: language,
+          },
+        });
+        if (!checkLanguage) {
+          return {
+            error: "Language not found",
+          };
+        }
+      }
+
+      let slug = curPost.slug;
+      if (curPost.title !== title) {
+        slug = slugify(title, {
+          replacement: "-",
+          remove: undefined,
+          lower: true,
+          locale: "vi",
+          trim: true,
+        });
+      }
+
+      return {
+        data: {
+          title: title,
+          category_id: categoryId,
+          content: content,
+          slug: slug,
+        },
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
+  destroy: async (data) => {
+    try {
+      const postId = data.postId;
+      const checkPost = await model.Post.findByPk(postId);
+      if (!checkPost) {
+        return {
+          error: "Post not found or has been deleted",
+        };
+      }
+      await model.Language_Post.destroy({
+        where: {
+          post_id: checkPost.id,
+        },
+      });
+
+      // if (response) {
+      //   return {
+      //     data: response,
+      //   };
+      // }
+      return null;
     } catch (error) {
       return {
         data: error.message,

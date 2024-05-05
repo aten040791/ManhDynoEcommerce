@@ -23,7 +23,8 @@ router.group("/posts", (router) => {
   router.get("/", postsController.index);
   router.get("/:postId", postsController.show);
   router.post("/create", postsController.create);
-  router.post("/update", postsController.update);
+  router.patch("/update/:postId", postsController.update);
+  router.delete("/delete/:postId", postsController.destroy);
 });
 
 module.exports = router;

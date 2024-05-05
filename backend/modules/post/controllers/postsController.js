@@ -14,7 +14,6 @@ module.exports = {
       return rs.error(res, error.message);
     }
   },
-
   show: async (req, res) => {
     try {
       const { error } = validate.show(req.params);
@@ -43,6 +42,46 @@ module.exports = {
       if (response) {
         return rs.ok(res, response);
       }
+    } catch (error) {
+      return rs.error(res, error.message);
+    }
+  },
+  update: async (req, res) => {
+    try {
+      const { error } = validate.update({
+        ...req.body,
+        ...req.query,
+        ...req.params,
+      });
+      if (error) {
+        return rs.error(res, error.details[0].message);
+      }
+      const response = await postService.update({
+        ...req.body,
+        ...req.query,
+        ...req.params,
+      });
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
+      if (response) {
+        return rs.ok(res, response);
+      }
+    } catch (error) {
+      return rs.error(res, error.message);
+    }
+  },
+  destroy: async (req, res) => {
+    try {
+      const { error } = validate.show(req.params);
+      if (error) {
+        return rs.error(res, error.details[0].message);
+      }
+      const response = await postService.destroy(req.params);
+      if (response) {
+        return rs.ok(res, response);
+      }
+      return rs.notFound(res);
     } catch (error) {
       return rs.error(res, error.message);
     }
