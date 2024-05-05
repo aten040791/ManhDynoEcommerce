@@ -6,10 +6,12 @@ module.exports = {
   index: async (req, res) => {
     try {
       const response = await postService.index();
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
       if (response) {
         return rs.ok(res, response);
       }
-      return rs.notFound(res);
     } catch (error) {
       return rs.error(res, error.message);
     }

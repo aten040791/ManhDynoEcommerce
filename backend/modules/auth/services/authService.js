@@ -54,7 +54,6 @@ module.exports = {
       };
     }
   },
-
   signUp: async (data) => {
     try {
       const { email, password } = data;
@@ -76,15 +75,53 @@ module.exports = {
         created_at: new Date(),
         updated_at: new Date(),
       });
-      const response = await model.User.findOne({
-        where: {
-          id: newUser.id,
-        },
-        attributes: { exclude: ["password"] },
-      });
-
       return {
-        data: response,
+        data: {
+          id: newUser.id,
+          username: newUser.username,
+          email: newUser.email,
+          created_at: newUser.created_at,
+          updated_at: newUser.updated_at,
+        },
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
+  recoverPassword: async (data) => {
+    try {
+      const { email } = data;
+      const checkUser = await model.User.findOne({ where: { email: email } });
+      if (!checkUser) {
+        return {
+          error: "Email not found",
+        };
+      }
+      return {
+        data: "Email is valid",
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
+  resetPassword: async (data) => {
+    try {
+      const { email, password } = data;
+
+      const checkUser = await model.User.findOne({ where: { email } });
+      if (!checkUser) {
+        return {
+          error: "Email not found",
+        };
+      }
+      checkUser.password = await bcrypt.hash(password, 10);
+      await checkUser.save();
+      return {
+        data: "Password reset successful.",
       };
     } catch (error) {
       return {

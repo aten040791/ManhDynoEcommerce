@@ -12,10 +12,12 @@ module.exports = {
           data: response,
         };
       }
-      return null;
+      return {
+        error: "Cannot find resouces",
+      };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
       };
     }
   },
@@ -33,7 +35,7 @@ module.exports = {
       };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
       };
     }
   },
@@ -145,7 +147,7 @@ module.exports = {
       };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
       };
     }
   },
@@ -222,7 +224,7 @@ module.exports = {
       };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
       };
     }
   },
@@ -250,7 +252,7 @@ module.exports = {
       };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
       };
     }
   },

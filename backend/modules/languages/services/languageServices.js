@@ -1,30 +1,57 @@
 const model = require("../../../models/index");
 
+const { Op } = require("sequelize");
 module.exports = {
   index: async () => {
     try {
       const response = await model.Language.findAll({});
-      return {
-        data: response,
-      };
+      if (response) {
+        return {
+          data: response,
+        };
+      }
+      return null;
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        error: error.message,
+      };
     }
   },
 
-  show: async (languageId) => {
+  show: async (data) => {
     try {
+      const { languageId } = data;
       const response = await model.Language.findByPk(languageId);
+      if (!response) {
+        return {
+          error: "Language not found",
+        };
+      }
       return {
         data: response,
       };
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        error: error.message,
+      };
     }
   },
 
-  create: async (name, locale, flag) => {
+  create: async (data) => {
+    const { name, locale, flag } = data;
     try {
+      const checkLanguage = await model.Language.findOne({
+        where: {
+          locale: {
+            [Op.eq]: locale,
+          },
+        },
+      });
+      if (checkLanguage) {
+        return {
+          error: "language locale has been used",
+        };
+      }
       const response = await model.Language.create({
         name: name,
         locale: locale,
@@ -32,63 +59,81 @@ module.exports = {
         created_at: new Date(),
         updated_at: new Date(),
       });
-      return {
-        data: response,
-      };
-    } catch (error) {
-      if (error.name === "SequelizeUniqueConstraintError") {
-        const field = error.errors[0].path;
-        const data = `${
-          field.charAt(0).toUpperCase() + field.slice(1)
-        } already exists`;
-        throw new Error(data);
+      if (response) {
+        return {
+          data: "Language created successfully",
+        };
       }
-      throw new Error(error.message);
+      return null;
+    } catch (error) {
+      return {
+        error: error.message,
+      };
     }
   },
 
-  update: async (id, name, locale, flag) => {
+  update: async (data) => {
     try {
-      const updateData = {};
-      updateData.name = name;
-      updateData.locale = locale;
-      updateData.flag = flag;
-      updateData.updated_at = new Date();
-
-      const response = await model.Language.update(updateData, {
+      const { name, locale, flag, languageId } = data;
+      const checkLanguage = await model.Language.findOne({
         where: {
-          id: id,
+          id: languageId,
         },
       });
+      if (!checkLanguage) {
+        return {
+          error: "Language not found",
+        };
+      }
 
-      if (response[0] === 1) {
+      const response = await model.Language.update(
+        {
+          name: name,
+          locale: locale,
+          flag: flag,
+          updated_at: new Date(),
+        },
+        {
+          where: {
+            id: checkLanguage.id,
+          },
+        }
+      );
+      if (response == 1) {
         return {
           data: "Language updated successfully",
         };
-      } else {
-        throw new Error("Language not found");
       }
+      return {
+        data: "Failed to update language",
+      };
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        error: error.message,
+      };
     }
   },
 
-  destroy: async (id) => {
+  destroy: async (data) => {
     try {
+      const { languageId } = data;
       const response = await model.Language.destroy({
         where: {
-          id: id,
+          id: languageId,
         },
       });
       if (response === 1) {
         return {
           data: "Language deleted successfully",
         };
-      } else {
-        throw new Error("Language not found");
       }
+      return {
+        error: "Failed to delete language",
+      };
     } catch (error) {
-      throw new Error(error.message);
+      return {
+        error: error.message,
+      };
     }
   },
 };

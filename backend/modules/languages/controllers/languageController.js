@@ -6,10 +6,12 @@ module.exports = {
   index: async (req, res) => {
     try {
       const response = await languageService.index();
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
       if (response) {
         return rs.ok(res, response);
       }
-      return rs.notFound(res);
     } catch (error) {
       return rs.error(res, error.message);
     }
@@ -21,14 +23,12 @@ module.exports = {
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-
-      const languageId = req.params.languageId;
-      const response = await languageService.show(languageId);
-
-      if (response.data) {
+      const response = await languageService.show(req.params);
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
+      if (response) {
         return rs.ok(res, response);
-      } else {
-        return rs.notFound(res);
       }
     } catch (error) {
       return rs.error(res, error.message);
@@ -41,12 +41,12 @@ module.exports = {
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const { name, locale, flag } = req.body;
-      const response = await languageService.create(name, locale, flag);
+      const response = await languageService.create(req.body);
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
       if (response) {
         return rs.ok(res, response);
-      } else {
-        return rs.error(res, "Failed to create language");
       }
     } catch (error) {
       return rs.error(res, error.message);
@@ -59,18 +59,16 @@ module.exports = {
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const languageId = req.params.languageId;
-      const { name, locale, flag } = req.body;
-      const response = await languageService.update(
-        languageId,
-        name,
-        locale,
-        flag
-      );
+
+      const response = await languageService.update({
+        ...req.body,
+        ...req.params,
+      });
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
       if (response) {
         return rs.ok(res, response);
-      } else {
-        return rs.error(res, "Failed to update language");
       }
     } catch (error) {
       return rs.error(res, error.message);
@@ -83,12 +81,12 @@ module.exports = {
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const languageId = req.params.languageId;
-      const response = await languageService.destroy(languageId);
+      const response = await languageService.destroy(req.params);
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
       if (response) {
         return rs.ok(res, response);
-      } else {
-        return rs.error(res, "Failed to delete language");
       }
     } catch (error) {
       return rs.error(res, error.message);

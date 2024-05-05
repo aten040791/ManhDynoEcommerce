@@ -39,4 +39,39 @@ module.exports = {
       return rs.error(res, error.message);
     }
   },
+  recoverPassword: async (req, res) => {
+    try {
+      const { error } = validation.recoverPassword(req.body);
+      if (error) {
+        return rs.error(res, error.details[0].message);
+      }
+      const response = await authService.recoverPassword(req.body);
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
+      if (response) {
+        return rs.ok(res, response);
+      }
+    } catch (error) {
+      return rs.error(res, error.message);
+    }
+  },
+
+  resetPassword: async (req, res) => {
+    try {
+      const { error } = validation.resetPassword(req.body);
+      if (error) {
+        return rs.error(res, error.details[0].message);
+      }
+      const response = await authService.resetPassword(req.body);
+      if (response.error) {
+        return rs.error(res, response.error);
+      }
+      if (response) {
+        return rs.ok(res, response);
+      }
+    } catch (error) {
+      return rs.error(res, error.message);
+    }
+  },
 };

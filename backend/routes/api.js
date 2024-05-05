@@ -8,14 +8,16 @@ const router = express.Router({ mergeParams: true });
 router.group("/auth", (router) => {
   router.post("/sign-in", authController.signIn);
   router.post("/sign-up", authController.signUp);
+  router.get("/recover-password", authController.recoverPassword);
+  router.put("/reset-password", authController.resetPassword);
 });
 
 router.group("/languages", (router) => {
   router.get("/", languagesController.index);
   router.get("/:languageId", languagesController.show);
   router.post("/create", languagesController.create);
-  router.put("/:languageId", languagesController.update);
-  router.delete("/:languageId", languagesController.destroy);
+  router.put("/update/:languageId", languagesController.update);
+  router.delete("/delete/:languageId", languagesController.destroy);
 });
 
 router.group("/posts", (router) => {

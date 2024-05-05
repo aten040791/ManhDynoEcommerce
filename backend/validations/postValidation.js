@@ -41,10 +41,13 @@ module.exports = {
       userId: Joi.number().required(),
       categoryId: Joi.number().required(),
       language: Joi.string()
-        .pattern(new RegExp("^[a-zA-Z_]{2,10}$"))
+        .pattern(new RegExp("^[a-z_]{2,10}$"))
         .required()
+        .min(2)
+        .max(10)
         .messages({
-          "string.pattern.base": "Language locale is invalid",
+          "string.pattern.base":
+            "The language locale contains only the characters a-z and _",
           "any.required": "Language locale is required",
         }),
     });
