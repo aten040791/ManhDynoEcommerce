@@ -241,6 +241,9 @@ body {
     .category-page {
         flex-direction: column;
     }
+    .category-detail {
+        width: 100%;
+    }
     .category-aside {
         width: 100%;
         padding: 0;
