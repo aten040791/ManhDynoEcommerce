@@ -2,398 +2,421 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Category</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
+
 <body>
-    <div class="header">
-        <div class="logo">
-            <i class="bx bxl-c-plus-plus"></i>
-            <span class="sidebar__logo-title">Coding Blog</span>
-        </div>
-        <ul class="header__nav" id="header__nav">
-            <li><a href="#"><i class="fa-solid fa-house"></i>Home</a></li>
-            <li><a href="#"><i class="fa-solid fa-circle-info"></i>About</a></li>
-            <li><a href="#"><i class="fa-solid fa-list"></i>Categories</a></li>
-            <li><a href="#"><i class="fa-regular fa-message"></i>Contact</a></li>
-            <li><a href="#"><i class="fa-solid fa-money-bill"></i>Sponsor</a></li>
-            <li><a href="#">Sign In</a></li>
-        </ul>
-        <div class="header__action">
-            <i class="fa-solid fa-user hide"></i>
-            <i class="fa-solid fa-bars hide"></i>
-        </div>
-    </div>
-    <div class="container">
-        <div class="post">
-            <div class="title">
-                Showing post from Algorithms
+    <header>
+        <div class="container p-0 d-flex py-3 gap-2 position-relative">
+            <div class="logo container-fluid p-0  fw-600 color-active m-0 fs-5 d-flex align-items-center ">
+                <i class="bx bxl-c-plus-plus fs-1"></i>
+                Coding Blog
             </div>
-            <div class="container-fluid mt-2">
-                <div class="row">
-                    <div class="col-4 mt-5">
-                        <div class="card">
-                            <img src="../../assets/images/1.svg" />
-                            <div class="card-body">
-                                <div class="article-header">
-                                    <div>
-                                        <h2>Future of Work</h2>
-                                        <p>
-                                            Majority of people will work in jobs that don't exist today.
-                                        </p>
-                                    </div>
-
-                                    <div class="author-info">
+            <div class="header-nav d-flex align-items-center gap-2" id="header-nav">
+                <div class="header-nav-item hover-bg-disabled hover-color-disabled  px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="../home/index.html">
+                        <i class="fa-solid fa-house d-none"></i>
+                        Home
+                    </a>
+                </div>
+                <div class="header-nav-item hover-bg-disabled hover-color-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none  color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="./index.html">
+                        <i class="fa-solid fa-list d-none"></i>
+                        Categories
+                    </a>
+                </div>
+                <div class="header-nav-item sign-out d-none hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                        href="../auth/sign-in/index.html">
+                        <i class="ri-logout-box-r-line fs-5"></i>
+                        Sign out
+                    </a>
+                </div>
+            </div>
+            <div class="header-lang">
+                <div class="dropdown">
+                    <button
+                        class="btn btn-secondary bg-transparent border-color color-disabled dropdown-toggle border-none outline-none"
+                        type="button" id="lang-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img src="../../../backend/owner/assets/images/flags/US.png" alt="English" class="w-40" />
+                        <a class="text-decoration-none color-disabled fw-600" href="./index.html">
+                            English</a>
+                    </button>
+                    <div class="dropdown-menu p-0 " aria-labelledby="lang-dropdown">
+                        <a class="dropdown-item" href="#"
+                            onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')">
+                            <img class="w-40" src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
+                            English
+                        </a>
+                        <a class="dropdown-item" href="#"
+                            onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
+                            <img class="w-40" src="../../../backend/owner/assets/images/flags/VN.png"
+                                alt="Tiếng Việt" />
+                            Tiếng Việt
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-sign-in mw-120 hover-pointer hover-bg-active hover-color-white  justify-content-center rounded-pill 
+                d-flex align-items-center border color-active border-3 border-primary">
+                <a href="../auth/sign-in/index.html" class="text-decoration-none  fw-bold ">Sign In</a>
+            </div>
+            <div class="header-avatar d-none">
+                <i class="fa-solid fa-user align"></i>
+            </div>
+            <div class="header-bars d-none">
+                <i class="fa-solid fa-bars" id="icon-bars"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container d-flex p-0">
+            <div class="col-lg-8 mb-lg-0">
+                <h3 class="title mt-3 mb-3 fw-bold">Showing Post From Algorithms</h3>
+                <div class="row row-cols-1 row-cols-lg-2 g-3">
+                    <div class="col">
+                        <a href="../post/index.html" class="cursor-pointer text-decoration-none color-disabled">
+                            <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+                                <img src="../../assets/images/post/blog39.jpg" class="card-img-top rounded-top-10"
+                                    alt="Hollywood Sign on The Hill" />
+                                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                                    <h5 class="card-title">Future of Work</h5>
+                                    <p class="card-text">
+                                        Majority of people will work in jobs that don't exist today.
+                                    </p>
+                                    <div class="author-info d-flex gap-3">
                                         <div class="author-avatar">
-                                            <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
+                                            <img class="rounded-circle wp-50" src="../../assets/images/avatar.jpg"
+                                                alt="">
                                         </div>
-                                        <div>
-                                            <p class="author-name">Địch Lệ Nhiệt Ba</p>
-                                            <div class="author-verify">
-                                                <i class="ri-checkbox-circle-fill"></i>
-                                                <p>Verified writer</p>
-                                            </div>
+                                        <div class="author-text d-flex flex-column">
+                                            <a href="#"
+                                                class="text-decoration-none color-disabled fw-600 fs-18 fst-italic">VCCorp</a>
+                                            <span class="fs-0">02 May,2019</span>
                                         </div>
-                                        <div class="publish-date">02 May</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4 mt-5">
-                        <div class="card">
-                            <img src="../../assets/images/2.svg" />
-                            <div class="card-body">
-                                <div class="article-header">
-                                    <div>
-                                        <h2>External It Support</h2>
-                                        <p>
-                                            Thanks to never-ending piles of data & the amount of
-                                            insight.
-                                        </p>
-                                    </div>
-
-                                    <div class="author-info">
+                    <div class="col">
+                        <a href="../post/index.html" class="cursor-pointer text-decoration-none color-disabled">
+                            <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+                                <img src="../../assets/images/post/blog40.jpg" class="card-img-top rounded-top-10"
+                                    alt="Hollywood Sign on The Hill" />
+                                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                                    <h5 class="card-title">Future of Work</h5>
+                                    <p class="card-text">
+                                        Majority of people will work in jobs that don't exist today.
+                                    </p>
+                                    <div class="author-info d-flex gap-3">
                                         <div class="author-avatar">
-                                            <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
+                                            <img class="rounded-circle wp-50" src="../../assets/images/avatar.jpg"
+                                                alt="">
                                         </div>
-                                        <div>
-                                            <p class="author-name">Địch Lệ Nhiệt Ba</p>
-                                            <div class="author-verify">
-                                                <i class="ri-checkbox-circle-fill"></i>
-                                                <p>Verified writer</p>
-                                            </div>
+                                        <div class="author-text d-flex flex-column">
+                                            <a href="#"
+                                                class="text-decoration-none color-disabled fw-600 fs-18 fst-italic">VCCorp</a>
+                                            <span class="fs-0">02 May,2019</span>
                                         </div>
-                                        <div class="publish-date">02 May</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4 mt-5">
-                        <div class="card">
-                            <img src="../../assets/images/3.svg" />
-                            <div class="card-body">
-                                <div class="article-header">
-                                    <div>
-                                        <h2>Future of Learning</h2>
-                                        <p>
-                                            A constant ability to learn will be on the most crucial
-                                            skills.
-                                        </p>
-                                    </div>
-
-                                    <div class="author-info">
+                    <div class="col">
+                        <a href="../post/index.html" class="cursor-pointer text-decoration-none color-disabled">
+                            <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+                                <img src="../../assets/images/post/blog40.jpg" class="card-img-top rounded-top-10"
+                                    alt="Hollywood Sign on The Hill" />
+                                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                                    <h5 class="card-title">Future of Work</h5>
+                                    <p class="card-text">
+                                        Majority of people will work in jobs that don't exist today.
+                                    </p>
+                                    <div class="author-info d-flex gap-3">
                                         <div class="author-avatar">
-                                            <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
+                                            <img class="rounded-circle wp-50" src="../../assets/images/avatar.jpg"
+                                                alt="">
                                         </div>
-                                        <div>
-                                            <p class="author-name">Địch Lệ Nhiệt Ba</p>
-                                            <div class="author-verify">
-                                                <i class="ri-checkbox-circle-fill"></i>
-                                                <p>Verified writer</p>
-                                            </div>
+                                        <div class="author-text d-flex flex-column">
+                                            <a href="#"
+                                                class="text-decoration-none color-disabled fw-600 fs-18 fst-italic">VCCorp</a>
+                                            <span class="fs-0">02 May,2019</span>
                                         </div>
-                                        <div class="publish-date">02 May</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4 mt-5">
-                        <div class="card">
-                            <img src="../../assets/images/4.svg" />
-                            <div class="card-body">
-                                <div class="article-header">
-                                    <div>
-                                        <h2>Help Finding Information Online</h2>
-                                        <p>
-                                            Majority of peole will work in jobs that don’t exist today.
-                                        </p>
-                                    </div>
-
-                                    <div class="author-info">
+                    <div class="col">
+                        <a href="../post/index.html" class="cursor-pointer text-decoration-none color-disabled">
+                            <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+                                <img src="../../assets/images/post/blog40.jpg" class="card-img-top rounded-top-10"
+                                    alt="Hollywood Sign on The Hill" />
+                                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                                    <h5 class="card-title">Future of Work</h5>
+                                    <p class="card-text">
+                                        Majority of people will work in jobs that don't exist today.
+                                    </p>
+                                    <div class="author-info d-flex gap-3">
                                         <div class="author-avatar">
-                                            <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
+                                            <img class="rounded-circle wp-50" src="../../assets/images/avatar.jpg"
+                                                alt="">
                                         </div>
-                                        <div>
-                                            <p class="author-name">Địch Lệ Nhiệt Ba</p>
-                                            <div class="author-verify">
-                                                <i class="ri-checkbox-circle-fill"></i>
-                                                <p>Verified writer</p>
-                                            </div>
+                                        <div class="author-text d-flex flex-column">
+                                            <a href="#"
+                                                class="text-decoration-none color-disabled fw-600 fs-18 fst-italic">VCCorp</a>
+                                            <span class="fs-0">02 May,2019</span>
                                         </div>
-                                        <div class="publish-date">02 May</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4 mt-5">
-                        <div class="card">
-                            <img src="../../assets/images/5.svg" />
-                            <div class="card-body">
-                                <div class="article-header">
-                                    <div>
-                                        <h2>How Does An Lcd Screen Work</h2>
-                                        <p>
-                                            Never-ending piles of data & the amount of
-                                            insight.
-                                        </p>
-                                    </div>
-
-                                    <div class="author-info">
+                    <div class="col">
+                        <a href="../post/index.html" class="cursor-pointer text-decoration-none color-disabled">
+                            <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+                                <img src="../../assets/images/post/blog40.jpg" class="card-img-top rounded-top-10"
+                                    alt="Hollywood Sign on The Hill" />
+                                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                                    <h5 class="card-title">Future of Work</h5>
+                                    <p class="card-text">
+                                        Majority of people will work in jobs that don't exist today.
+                                    </p>
+                                    <div class="author-info d-flex gap-3">
                                         <div class="author-avatar">
-                                            <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
+                                            <img class="rounded-circle wp-50" src="../../assets/images/avatar.jpg"
+                                                alt="">
                                         </div>
-                                        <div>
-                                            <p class="author-name">Địch Lệ Nhiệt Ba</p>
-                                            <div class="author-verify">
-                                                <i class=" ri-checkbox-circle-fill"></i>
-                                                <p>Verified writer</p>
-                                            </div>
+                                        <div class="author-text d-flex flex-column">
+                                            <a href="#"
+                                                class="text-decoration-none color-disabled fw-600 fs-18 fst-italic">VCCorp</a>
+                                            <span class="fs-0">02 May,2019</span>
                                         </div>
-                                        <div class="publish-date">02 May</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-4 mt-5">
-                        <div class="card">
-                            <img src="../../assets/images/6.svg" />
-                            <div class="card-body">
-                                <div class="article-header">
-                                    <div>
-                                        <h2>No Longer Wired For Sound</h2>
-                                        <p>
-                                            An ability to learn will be on the most crucial
-                                            skills.
-                                        </p>
-                                    </div>
-
-                                    <div class="author-info">
+                    <div class="col">
+                        <a href="../post/index.html" class="cursor-pointer text-decoration-none color-disabled">
+                            <div class="card h-100 rounded-10 border-none outline-none box-shadow-1">
+                                <img src="../../assets/images/post/blog40.jpg" class="card-img-top rounded-top-10"
+                                    alt="Hollywood Sign on The Hill" />
+                                <div class="card-body d-flex flex-column justify-content-between gap-3">
+                                    <h5 class="card-title">Future of Work</h5>
+                                    <p class="card-text">
+                                        Majority of people will work in jobs that don't exist today.
+                                    </p>
+                                    <div class="author-info d-flex gap-3">
                                         <div class="author-avatar">
-                                            <img src="../../assets/images/avatar.jpg" alt="Author's Avatar" />
+                                            <img class="rounded-circle wp-50" src="../../assets/images/avatar.jpg"
+                                                alt="">
                                         </div>
-                                        <div>
-                                            <p class="author-name">Địch Lệ Nhiệt Ba</p>
-                                            <div class="author-verify">
-                                                <i class="ri-checkbox-circle-fill"></i>
-                                                <p>Verified writer</p>
-                                            </div>
+                                        <div class="author-text d-flex flex-column">
+                                            <a href="#"
+                                                class="text-decoration-none color-disabled fw-600 fs-18 fst-italic">VCCorp</a>
+                                            <span class="fs-0">02 May,2019</span>
                                         </div>
-                                        <div class="publish-date">02 May</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
+                <div class="my-4 d-flex justify-content-center align-items-center">
+                    <nav aria-label="navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1"> <span>&laquo;</span>Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="./index.html">1</a></li>
+                            <li class="page-item"><a class="page-link" href="./index.html">2</a></li>
+                            <li class="page-item"><a class="page-link" href="./index.html">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="./index.html">Next <span>&raquo;</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-            <div class="centered-btn">
-                <a href="#" class="custom-btn">
-                    More articles <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
+            <div class="col-lg-4">
+                <div class="category box-shadow-2 rounded-5">
+                    <div class="list-category">
+                        <h4 class="fs-3 fw-600 text-center p-4">
+                            Category
+                        </h4>
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">Advice</a>
+                            </li>
+                            <hr/>
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">Algorithms</a>
+                            </li>
+                            <hr/>
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">ReactJs</a>
+                            </li>
+                            <hr/>
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">JavaScript</a>
 
-
-        <div class="categories">
-            <div class="title">
-                Categories
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Advice
-                    </div>
-                </div>
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Algorithms
-                    </div>
-                </div>
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Angular
-                    </div>
-                </div>
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Command line
-                    </div>
-                </div>
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Computer Science
-                    </div>
-                </div>
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Typescript
-                    </div>
-                </div>
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Review
-                    </div>
-                </div>
-            </div>
-            <div class="article__item">
-                <div class="article__item-text">
-                    <div class="article__title">
-                        Computer Science
+                            </li>
+                            <hr/>
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">Php</a>
+                            </li>
+                            <hr/>
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">NodeJs</a>
+                            </li>
+                            <hr/>
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">Command
+                                    Promp</a>
+                            </li>
+                            <hr/>
+                            <li class="d-flex align-items-center">
+                                <i class='bx bx-chevron-right fs-4'></i>
+                                <a href="./index.html"
+                                    class="fw-lighter cursor-pointer text-decoration-none color-disabled">Services</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer>
-        <div class="footer__container">
-            <div class="footer__group-icon">
-                <div class="footer__logo">
-                    <i class='bx bxl-c-plus-plus'></i>
-                    <span>Coding Blog</span>
-                </div>
-                <p>
-                    Build a modern and creative website with crealand
-                </p>
-            </div>
-            <div class="footer__group">
-                <h3>Product</h3>
-                <ul>
-                    <li>
-                        <a href="#">Landingpage</a>
-                    </li>
-                    <li>
-                        <a href="#">Features</a>
-                    </li>
-                    <li>
-                        <a href="#">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#">Referral Program</a>
-                    </li>
-                    <li>
-                        <a href="#">Pricing</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer__group">
-                <h3>Services</h3>
-                <ul>
-                    <li>
-                        <a href="#">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#">Design</a>
-                    </li>
-                    <li>
-                        <a href="#">Themes</a>
-                    </li>
-                    <li>
-                        <a href="#">Illustrations</a>
-                    </li>
-                    <li>
-                        <a href="#">UI Kit</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer__group">
-                <h3>Company</h3>
-                <ul>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Careers</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer__group">
-                <h3>More</h3>
-                <ul>
-                    <li>
-                        <a href="#">Documentation</a>
-                    </li>
-                    <li>
-                        <a href="#">License</a>
-                    </li>
-                    <li>
-                        <a href="#">Changelog</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>
-                Copyright © 2024.
-            </p>
-        </div>
+    </main>
+    <footer class="bg-disabled">
+        <div class="container pt-3">
+            <!-- START OF FOOTER INFO -->
+            <div class="row">
+                <div class="col-md-6 col-lg-8 px-0">
+                    <div class="row">
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <h2 class="text-light fs-18 mb-3">About</h2>
+                            <ul class="list-unstyled">
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block  text-decoration-none color-disabled-2">Out
+                                        story</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Awards</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Our
+                                        Team</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Career</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <h2 class="text-light fs-18 mb-3">Company</h2>
+                            <ul class="list-unstyled">
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Our
+                                        services</a>
+                                </li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Clients</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Contact</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Press</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <h2 class="text-light fs-18 mb-3">Company</h2>
+                            <ul class="list-unstyled">
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Our
+                                        services</a>
+                                </li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Clients</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Contact</a></li>
+                                <li class="hover-color-white"><a href="#"
+                                        class="d-block text-decoration-none color-disabled-2">Press</a></li>
+                            </ul>
+                        </div>
 
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 px-0">
+                    <h2 class="text-light fs-18 mb-3">Subcribe</h2>
+                    <form action="#">
+                        <div class="d-flex mb-0">
+                            <input type="text"
+                                class="border-none py-9 w-75 ps-2 outline-none border-radius-none rounded-start"
+                                placeholder="Enter email address...">
+                            <button type="submit"
+                                class="w-25 hp-45 border-radius-none border-none outline-none rounded-end text-light bg-light-active">Subscribe</button>
+                        </div>
+                        <span class="d-inline-block color-disabled-2 fs-0 mt-1 title">Get digital marketing updates in
+                            your
+                            mailbox</span>
+                    </form>
+                </div>
+            </div>
+            <!-- END OF FOOTER INFO -->
+
+            <!-- START OF FOOTER COPYRIGHT -->
+            <div class="copyright row mt-3 border-top border-secondary d-flex">
+                <div class="col-6 align-items-center d-flex p-0">
+                    <p class="copyright mb-0 color-disabled-2">
+                        Copyright &copy;
+                        2024 All rights reserved.
+                    </p>
+                </div>
+                <div class="social col-6 fs-3 bg-transparent p-0">
+                    <ul class="p-0 d-flex mb-0 gap-3 list-unstyled justify-content-end mt-2">
+                        <li class="ftco-animate text-light">
+                            <i class='bx bxl-twitter'></i>
+                        </li>
+                        <li class="ftco-animate text-light">
+                            <i class='bx bxl-facebook-square'></i>
+                        </li>
+                        <li class="ftco-animate text-light">
+                            <i class='bx bxl-instagram'></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END OF FOOTER COPYRIGHT -->
+        </div>
     </footer>
-
-    <script>
-        const iconBars = document.querySelector(".fa-bars");
-        const headerNav = document.querySelector("#header__nav");
-        iconBars.addEventListener("click", () => {
-            headerNav.classList.toggle("active");
-        })
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+    <script src="../../assets/js/nav-bar.js"></script>
 </body>
 
 </html>
