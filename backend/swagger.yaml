@@ -1,0 +1,182 @@
+openapi: 3.0.3
+info:
+  title: Swagger Coding Blog 
+  version: 1.0.11
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: auth
+    description: Sign In, Sign Up, Forgot Password
+  - name: user
+    description: Manage users
+  - name: language
+    description: Manage languages
+  - name: post
+    description: Manage posts
+  - name: category
+    description: Manage categories
+paths:
+   /auth/sign-in:
+    post:
+      tags:
+        - auth
+      description: Sign In to Coding Blog Website
+      operationId: sign-in
+      requestBody:
+        description: Sign In Information
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                email:
+                 type: string
+                 example: "manhnv2k1@gmail.com"
+                password:
+                 type: string
+                 example: "12345678"
+        required: true
+      responses:
+        '200':
+          description: Sign in successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: object
+                 properties:
+                   user:
+                    type: object
+                    properties:
+                     id:
+                       type: integer
+                       example: 1
+                     username:
+                       type: string
+                       example: "John Doe"
+                     email:
+                       type: string
+                       example: "johdoe134@gmail.com"
+                     role_code:
+                       type: integer
+                       example: 0
+                   access_token:
+                     type: string
+                     example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTcxNDk2NjIxNCwiZXhwIjoxNzE0OTY5ODE0fQ.9TGf42_7umYPLE2pXkOdQ-HQgreKKK5Nwm6OyZIRwIU"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+             
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Email not found"  
+   /posts:
+    get:
+      tags:
+        - post
+      description: Get a list of posts
+      operationId: get all posts
+      responses:
+        '200': 
+         description: "Get all posts successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: array
+                 items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    category_id:
+                      type: integer
+                      example: 6
+                    user_id:
+                      type: integer
+                      example: 6
+                    related_id:
+                      type: integer
+                      example: 0
+                    locale:
+                      type: string
+                      example: "en_us"
+                    title:
+                     type: string
+                     example: "Learn about Reactjs for beginners"
+                    slug:
+                     type: string
+                     example: "learn-about-reactjs-for-beginners"
+                    content:
+                     type: string
+                     example: "Content of post learn about Reactjs for beginners"
+                    created_at:
+                     type: string
+                     example: "2024-05-05T10:42:20.000Z"
+                    updated_at:
+                     type: string
+                     example: "2024-05-05T10:42:20.000Z"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404': 
+          description: "Get all posts failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get all posts failed"  
+ 
+components:
+  schemas:
+    User:
+      type: object
+     
+       
+
+
+     
+
+       
+   
+         
+    

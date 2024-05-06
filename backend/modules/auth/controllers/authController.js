@@ -14,6 +14,7 @@ module.exports = {
       if (response.error) {
         return rs.error(res, response.error);
       }
+      const data = response.data;
       if (response) {
         res
           .status(200)
@@ -22,7 +23,7 @@ module.exports = {
           })
           .send({
             success: true,
-            response,
+            data,
             status: 200,
             message: "ok",
           });
