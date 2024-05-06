@@ -97,6 +97,8 @@ paths:
         - post
       description: Get a list of posts
       operationId: list posts
+      security:
+        - BearerAuth: []
       responses:
         '200': 
          description: "Get all posts successfully"
@@ -171,6 +173,8 @@ paths:
         - post
       description: Get details of a post
       operationId: details post
+      security:
+        - BearerAuth: []
       parameters:
         - name: postId
           in: path
@@ -255,6 +259,8 @@ paths:
         - post
       description: Create new post
       operationId: create post
+      security:
+        - BearerAuth: []
       parameters:
         - in: query
           name: userId
@@ -366,6 +372,8 @@ paths:
         - post
       description: Update post
       operationId: update post
+      security:
+        - BearerAuth: []
       parameters:
         - in: path
           name: postId
@@ -448,6 +456,8 @@ paths:
         - post
       description: Delete post
       operationId: delete post
+      security:
+        - BearerAuth: []
       parameters:
         - name: postId
           in: path
@@ -492,8 +502,11 @@ components:
   schemas:
     User:
       type: object
-     
-       
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 
 
      

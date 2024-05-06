@@ -6,7 +6,7 @@ const languagesController = require("modules/languages/controllers/languageContr
 const { user, owner } = require("../middlewares/authMiddleware");
 const router = express.Router({ mergeParams: true });
 
-router.group("/auth", (router) => {
+router.group("/api/auth", (router) => {
   router.post("/sign-in", authController.signIn);
   router.post("/sign-up", authController.signUp);
   router.get("/recover-password", authController.recoverPassword);

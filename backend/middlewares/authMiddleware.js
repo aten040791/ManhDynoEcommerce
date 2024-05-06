@@ -2,7 +2,7 @@ const rs = require("../services/response");
 const jwt = require("jsonwebtoken");
 module.exports = {
   user: (req, res, next) => {
-    let access_token = req.headers.token;
+    let access_token = req.headers.authorization;
     if (access_token) {
       access_token = access_token.split(" ")[1];
       jwt.verify(access_token, process.env.JWT_SECRET_KEY, (error, user) => {
@@ -18,7 +18,7 @@ module.exports = {
     }
   },
   owner: (req, res, next) => {
-    let access_token = req.headers.token;
+    let access_token = req.headers.authorization;
     if (access_token) {
       access_token = access_token.split(" ")[1];
       jwt.verify(access_token, process.env.JWT_SECRET_KEY, (error, user) => {
