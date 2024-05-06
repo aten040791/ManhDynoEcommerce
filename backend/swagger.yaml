@@ -3,7 +3,7 @@ info:
   title: Swagger Coding Blog 
   version: 1.0.11
 servers:
-  - url: http://localhost:3000
+  - url: http://localhost:3000/api
 tags:
   - name: auth
     description: Sign In, Sign Up, Forgot Password
@@ -174,10 +174,15 @@ paths:
       parameters:
         - name: postId
           in: path
-          description: Id of post to get 
+          description: Id of post
           required: true
           schema:
             type: integer
+        - in: query
+          name: language
+          description: "Locale language (optional), default is en_us. If the locale is not en_us, query to retrieve related posts with the related_id as postId."
+          schema:
+            type: string
       responses:
         '200':
           description: "Get details post successfully"

@@ -3,7 +3,7 @@ const express = require("express");
 const authController = require("modules/auth/controllers/authController");
 const postsController = require("modules/post/controllers/postsController");
 const languagesController = require("modules/languages/controllers/languageController");
-// const { user } = require("../middlewares/authMiddleware");
+const { user, owner } = require("../middlewares/authMiddleware");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
@@ -21,9 +21,12 @@ router.group("/languages", (router) => {
   router.delete("/delete/:languageId", languagesController.destroy);
 });
 
-router.group("/posts", (router) => {
+router.group("/api/posts", user, (router) => {
   router.get("/", postsController.index);
   router.get("/:postId", postsController.show);
+});
+
+router.group("/api/posts", owner, (router) => {
   router.post("/create", postsController.create);
   router.put("/update/:postId", postsController.update);
   router.delete("/delete/:postId", postsController.destroy);

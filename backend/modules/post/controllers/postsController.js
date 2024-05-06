@@ -18,11 +18,11 @@ module.exports = {
   },
   show: async (req, res) => {
     try {
-      const { error } = validate.show(req.params);
+      const { error } = validate.show({ ...req.params, ...req.query });
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const response = await postService.show(req.params);
+      const response = await postService.show({ ...req.params, ...req.query });
       if (response.error) {
         return rs.error(res, response.error);
       }

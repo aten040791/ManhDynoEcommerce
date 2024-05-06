@@ -23,11 +23,25 @@ module.exports = {
   },
   show: async (data) => {
     try {
-      const postId = data.postId;
-      const response = await model.Post.findOne({
-        where: {
+      const { postId, language } = data;
+
+      let querySql = {};
+      //Nếu query params truyền vào chỉ mỗi postId: lấy như bình thường
+      if (!language || language == "en_us") {
+        querySql = {
           id: postId,
-        },
+        };
+      } else {
+        //Nếu query params truyền vào gồm cả postId và language: thì postId đó chính là relatedId
+        //Tức là lấy bài viết con của bài viết hiện tại
+        querySql = {
+          related_id: postId,
+          locale: language,
+        };
+      }
+
+      const response = await model.Post.findOne({
+        where: querySql,
         attributes: { exclude: ["user_id", "category_id"] },
         include: [
           {

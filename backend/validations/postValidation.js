@@ -4,6 +4,16 @@ module.exports = {
   show: (data) => {
     const schema = Joi.object({
       postId: Joi.number().required(),
+      language: Joi.string()
+        .pattern(new RegExp("^[a-z_]{2,10}$"))
+        .min(2)
+        .max(10)
+        .default("en_us")
+        .messages({
+          "string.pattern.base":
+            "The language locale contains only the characters a-z and _",
+          "any.required": "Language locale is required",
+        }),
     });
     return schema.validate(data, {
       errors: { wrap: { label: "" } },
