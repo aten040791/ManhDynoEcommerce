@@ -1,9 +1,8 @@
 const rs = require("../services/response");
 const jwt = require("jsonwebtoken");
 module.exports = {
-  guest: (req, res, next) => {
+  user: (req, res, next) => {
     let access_token = req.headers.token;
-
     if (access_token) {
       access_token = access_token.split(" ")[1];
       jwt.verify(access_token, process.env.JWT_SECRET_KEY, (error, user) => {

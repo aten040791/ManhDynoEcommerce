@@ -28,17 +28,17 @@ module.exports = {
         where: {
           id: postId,
         },
-        attributes: { exclude: ["category_id", "user_id"] },
-        includes: [
+        attributes: { exclude: ["user_id", "category_id"] },
+        include: [
           {
             model: model.User,
             as: "author",
-            // attributes: { exclude: ["password", "created_at", "updated_at"] },
+            attributes: { exclude: ["password", "created_at", "updated_at"] },
           },
           {
             model: model.Category,
             as: "category",
-            // attributes: { exclude: ["created_at", "updated_at"] },
+            attributes: { exclude: ["created_at", "updated_at"] },
           },
         ],
       });
