@@ -1,27 +1,31 @@
-const db = require('models')
-
 module.exports = {
-    getAllUsersService: () => new Promise(async (resolve, reject) => {
-        try {
-            const response = await db.User.findAll();
-            resolve({
-                data: response
-            });
-        } catch (err) {
-            reject(err);
-        }
-    }),
-    deleteUserService: (uid) => new Promise(async (resolve, reject) => {
-        try {
-            const user = await db.User.findOne({
-                where: { id: uid }
-            })
-            if (user) {
-                await user.destroy();
-            }
-            resolve();
-        } catch (err) {
-            reject(err);
-        }
-    }),
-}
+    ok: (res, data) => {
+        return res.status(200).send({
+            success: true,
+            ...data,
+            status: 200,
+            message: "ok",
+        });
+    },
+    notFound: (res) => {
+        return res.status(404).send({
+            success: false,
+            status: 404,
+            message: "Cannot find resouces",
+        });
+    },
+    error: (res, message) => {
+        return res.status(404).send({
+            success: false,
+            status: 404,
+            message: message,
+        });
+    },
+    authorization: (res, message) => {
+        return res.status(401).send({
+            success: false,
+            status: 401,
+            message: message,
+        });
+    },
+};

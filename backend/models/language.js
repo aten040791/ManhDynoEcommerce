@@ -3,10 +3,10 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Language extends Model {
         static associate(models) {
-            Language.hasMany(models.Language_Post, {
-                foreignKey: "language_id",
-                as: "language_post",
-            });
+            // Language.hasMany(models.Language_Post, {
+            //     foreignKey: "language_id",
+            //     as: "language_post",
+            // });
         }
     }
     Language.init(

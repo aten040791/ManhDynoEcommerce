@@ -3,22 +3,22 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Post extends Model {
         static associate(models) {
-            Post.belongsTo(models.Category, {
-                targetKey: "id",
-                foreignKey: "category_id",
-                as: "category",
-            });
+            // Post.belongsTo(models.Category, {
+            //     targetKey: "id",
+            //     foreignKey: "category_id",
+            //     as: "category",
+            // });
 
-            Post.belongsTo(models.User, {
-                targetKey: "id",
-                foreignKey: "user_id",
-                as: "user",
-            });
+            // Post.belongsTo(models.User, {
+            //     targetKey: "id",
+            //     foreignKey: "user_id",
+            //     as: "user",
+            // });
 
-            Post.hasMany(models.Language_Post, {
-                foreignKey: "post_id",
-                as: "language_post",
-            });
+            // Post.hasMany(models.Language_Post, {
+            //     foreignKey: "post_id",
+            //     as: "language_post",
+            // });
         }
     }
     Post.init(

@@ -1,5 +1,4 @@
 const db = require('models');
-const { Op, where } = require("sequelize");
 
 module.exports = {
     index: async () => {
