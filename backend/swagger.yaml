@@ -96,7 +96,7 @@ paths:
       tags:
         - post
       description: Get a list of posts
-      operationId: get all posts
+      operationId: list posts
       responses:
         '200': 
          description: "Get all posts successfully"
@@ -165,7 +165,174 @@ paths:
                message:
                  type: string
                  example: "Get all posts failed"  
- 
+   /posts/{postId}:
+    get:
+      tags:
+        - post
+      description: Get details of a post
+      operationId: details post
+      parameters:
+        - name: postId
+          in: path
+          description: Id of post to return
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Get details post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    category_id:
+                      type: integer
+                      example: 6
+                    user_id:
+                      type: integer
+                      example: 6
+                    related_id:
+                      type: integer
+                      example: 0
+                    locale:
+                      type: string
+                      example: "en_us"
+                    title:
+                     type: string
+                     example: "Learn about Reactjs for beginners"
+                    slug:
+                     type: string
+                     example: "learn-about-reactjs-for-beginners"
+                    content:
+                     type: string
+                     example: "Content of post learn about Reactjs for beginners"
+                    created_at:
+                     type: string
+                     example: "2024-05-05T10:42:20.000Z"
+                    updated_at:
+                     type: string
+                     example: "2024-05-05T10:42:20.000Z"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Get details post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Post not found"  
+   /posts/create:
+    post:
+      tags:
+        - post
+      description: Create new post
+      operationId: create post
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: Id of  user who wants to create a new post.
+        - in: query
+          name: categoryId
+          schema:
+            type: integer
+          description: Id of category  which the post will belong.
+        - in: query
+          name: relatedId
+          schema:
+            type: integer
+          description: Id of parent post(optional) - default(0)
+      responses:
+        '200':
+          description: "Get details post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    category_id:
+                      type: integer
+                      example: 6
+                    user_id:
+                      type: integer
+                      example: 6
+                    related_id:
+                      type: integer
+                      example: 0
+                    locale:
+                      type: string
+                      example: "en_us"
+                    title:
+                     type: string
+                     example: "Learn about Reactjs for beginners"
+                    slug:
+                     type: string
+                     example: "learn-about-reactjs-for-beginners"
+                    content:
+                     type: string
+                     example: "Content of post learn about Reactjs for beginners"
+                    created_at:
+                     type: string
+                     example: "2024-05-05T10:42:20.000Z"
+                    updated_at:
+                     type: string
+                     example: "2024-05-05T10:42:20.000Z"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Get details post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Post not found"  
+
 components:
   schemas:
     User:
