@@ -1,5 +1,6 @@
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("Users", {
@@ -18,9 +19,9 @@ module.exports = {
         unique: true,
         allowNull: false,
       },
-      role: {
+      role_code: {
         type: Sequelize.STRING(10),
-        defaultValue: "owner",
+        defaultValue: 0, //[0:guest/user , 1: owner,2: super-admin]
         allowNull: false,
       },
       password: {

@@ -1,5 +1,6 @@
 const model = require("../../../models");
 const { sequelize } = require("../../../models");
+const slugify = require("slugify");
 const { Op } = require("sequelize");
 
 module.exports = {
@@ -11,31 +12,33 @@ module.exports = {
           data: response,
         };
       }
-      return null;
+      return {
+        error: "Cannot find resouces",
+      };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
       };
     }
   },
-
   show: async (data) => {
     try {
       const postId = data.postId;
       const response = await model.Post.findByPk(postId);
-      if (response) {
+      if (!response) {
         return {
-          data: response,
+          error: "Post not found",
         };
       }
-      return null;
+      return {
+        data: response,
+      };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
       };
     }
   },
-
   create: async (data) => {
     try {
       const { title, content, userId, categoryId, relatedId, language } = data;
@@ -51,13 +54,13 @@ module.exports = {
             error: "Title has been used",
           };
         }
-        slug = title
-          .replace(/đ/g, "d") // Thay thế ký tự "đ" thành "d"
-          .normalize("NFKD") // Chuẩn hóa Unicode thành dạng "Compatibility Decomposition"
-          .replace(/[^\w\s-]/g, "") // Loại bỏ các ký tự không phải chữ cái, số, hoặc dấu gạch ngang
-          .split(" ")
-          .join("-")
-          .toLowerCase();
+        slug = slugify(title, {
+          replacement: "-",
+          remove: undefined,
+          lower: true,
+          locale: "vi",
+          trim: true,
+        });
       }
       if (userId) {
         const checkUser = await model.User.findByPk(userId);
@@ -87,7 +90,9 @@ module.exports = {
       if (language) {
         checkLanguage = await model.Language.findOne({
           where: {
-            locale: language,
+            locale: {
+              [Op.eq]: language,
+            },
           },
         });
         if (!checkLanguage) {
@@ -101,8 +106,8 @@ module.exports = {
             [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
           },
         });
-        locales = locales.map((post) => post.dataValues.locale);
-        if (locales.includes(language)) {
+        locales = locales.map((post) => post.dataValues.locale.toLowerCase());
+        if (locales.includes(language.toLowerCase())) {
           return {
             error: "Language has been used",
           };
@@ -114,7 +119,7 @@ module.exports = {
             user_id: userId,
             category_id: categoryId,
             related_id: relatedId,
-            locale: language,
+            locale: language.toLowerCase(),
             title: title,
             slug: slug,
             content: content,
@@ -142,7 +147,112 @@ module.exports = {
       };
     } catch (error) {
       return {
-        data: error.message,
+        error: error.message,
+      };
+    }
+  },
+  update: async (data) => {
+    try {
+      const { title, content, userId, categoryId, language, postId } = data;
+      let curPost = null;
+      if (postId) {
+        curPost = await model.Post.findByPk(postId);
+        if (!curPost) {
+          return {
+            error: "Post not found",
+          };
+        }
+      }
+      if (userId) {
+        const checkUser = await model.User.findByPk(userId);
+        if (!checkUser) {
+          return {
+            error: "User not found",
+          };
+        }
+      }
+      if (curPost.user_id != userId) {
+        return {
+          error: "No authorization",
+        };
+      }
+      if (categoryId) {
+        const checkCategory = await model.Category.findByPk(categoryId);
+        if (!checkCategory) {
+          return {
+            error: "Category not found",
+          };
+        }
+      }
+      if (language) {
+        const checkLanguage = await model.Language.findOne({
+          where: {
+            locale: language,
+          },
+        });
+        if (!checkLanguage) {
+          return {
+            error: "Language not found",
+          };
+        }
+      }
+      let slug = curPost.slug;
+      if (curPost.title !== title) {
+        slug = slugify(title, {
+          replacement: "-",
+          remove: undefined,
+          lower: true,
+          locale: "vi",
+          trim: true,
+        });
+      }
+      const response = await model.Post.update(
+        {
+          title: title,
+          category_id: categoryId,
+          content: content,
+          slug: slug,
+        },
+        {
+          where: {
+            id: postId,
+          },
+        }
+      );
+      return {
+        data: response ? "Post updated successfully" : "Post updated failed",
+      };
+    } catch (error) {
+      return {
+        error: error.message,
+      };
+    }
+  },
+  destroy: async (data) => {
+    try {
+      const postId = data.postId;
+      const checkPost = await model.Post.findByPk(postId);
+      if (!checkPost) {
+        return {
+          error: "Post not found or has been deleted",
+        };
+      }
+      await model.Language_Post.destroy({
+        where: {
+          post_id: checkPost.id,
+        },
+      });
+      const respone = await model.Post.destroy({
+        where: {
+          id: checkPost.id,
+        },
+      });
+      return {
+        data: respone ? "Post deleted successfully" : "Post deleted failed",
+      };
+    } catch (error) {
+      return {
+        error: error.message,
       };
     }
   },

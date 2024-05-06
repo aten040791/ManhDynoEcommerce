@@ -2,21 +2,38 @@ const Joi = require("joi");
 const { recoverPassword } = require("modules/auth/services/authService");
 
 module.exports = {
-  register: (data) => {
+  signIn: (data) => {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
+      email: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .messages({
+          "string.pattern.base":
+            "Email is not a valid pattern example214@gmail.com",
+        })
+        .required(),
       password: Joi.string().min(8).required(),
-      confirmPassword: Joi.string().min(8).required(),
     });
     return schema.validate(data, {
       errors: { wrap: { label: "" } },
     });
   },
 
-  login: (data) => {
+  signUp: (data) => {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
+      email: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .messages({
+          "string.pattern.base":
+            "Email is not a valid pattern example214@gmail.com",
+        })
+        .required(),
+      password: Joi.string().min(8).required(),
+      confirmPassword: Joi.string()
+        .valid(Joi.ref("password"))
+        .messages({
+          "any.only": "Password and confirm password do not match",
+        })
+        .required(),
     });
     return schema.validate(data, {
       errors: { wrap: { label: "" } },
@@ -25,7 +42,13 @@ module.exports = {
 
   recoverPassword: (data) => {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
+      email: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .messages({
+          "string.pattern.base":
+            "Email is not a valid pattern example214@gmail.com",
+        })
+        .required(),
     });
     return schema.validate(data, {
       errors: { wrap: { label: "" } },
@@ -34,9 +57,20 @@ module.exports = {
 
   resetPassword: (data) => {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
-      newPassword: Joi.string().min(8).required(),
-      confirmPassword: Joi.string().min(8).required(),
+      email: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .messages({
+          "string.pattern.base":
+            "Email is not a valid pattern example214@gmail.com",
+        })
+        .required(),
+      password: Joi.string().min(8).required(),
+      confirmPassword: Joi.string()
+        .valid(Joi.ref("password"))
+        .messages({
+          "any.only": "Password and confirm password do not match",
+        })
+        .required(),
     });
     return schema.validate(data, {
       errors: { wrap: { label: "" } },
