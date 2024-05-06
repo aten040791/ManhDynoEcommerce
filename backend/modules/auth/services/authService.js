@@ -43,8 +43,6 @@ module.exports = {
             id: checkUser.id,
             username: checkUser.username,
             email: checkUser.email,
-            created_at: checkUser.created_at,
-            update_at: checkUser.updated_at,
           },
           access_token: access_token,
         },

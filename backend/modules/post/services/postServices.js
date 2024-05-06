@@ -24,7 +24,24 @@ module.exports = {
   show: async (data) => {
     try {
       const postId = data.postId;
-      const response = await model.Post.findByPk(postId);
+      const response = await model.Post.findOne({
+        where: {
+          id: postId,
+        },
+        attributes: { exclude: ["category_id", "user_id"] },
+        includes: [
+          {
+            model: model.User,
+            as: "author",
+            // attributes: { exclude: ["password", "created_at", "updated_at"] },
+          },
+          {
+            model: model.Category,
+            as: "category",
+            // attributes: { exclude: ["created_at", "updated_at"] },
+          },
+        ],
+      });
       if (!response) {
         return {
           error: "Post not found",
@@ -78,7 +95,8 @@ module.exports = {
           };
         }
       }
-      if (relatedId) {
+      if (relatedId > 0) {
+        console.log("Run related Id");
         const checkPost = await model.Post.findByPk(relatedId);
         if (!checkPost) {
           return {
@@ -100,17 +118,19 @@ module.exports = {
             error: "Language not found",
           };
         }
-        let locales = await model.Post.findAll({
-          attributes: ["locale"],
-          where: {
-            [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
-          },
-        });
-        locales = locales.map((post) => post.dataValues.locale.toLowerCase());
-        if (locales.includes(language.toLowerCase())) {
-          return {
-            error: "Language has been used",
-          };
+        if (relatedId > 0) {
+          let locales = await model.Post.findAll({
+            attributes: ["locale"],
+            where: {
+              [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
+            },
+          });
+          locales = locales.map((post) => post.dataValues.locale.toLowerCase());
+          if (locales.includes(language.toLowerCase())) {
+            return {
+              error: "Language has been used",
+            };
+          }
         }
       }
       const result = await sequelize.transaction(async (t) => {
@@ -212,6 +232,7 @@ module.exports = {
           category_id: categoryId,
           content: content,
           slug: slug,
+          updated_at: new Date(),
         },
         {
           where: {
