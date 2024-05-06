@@ -214,14 +214,9 @@ body {
 }
 
 
-.category {
-    margin: 24px 24px 0 48px;
-    padding: 10px 55px 24px 35px;
-}
-
 @media (max-width: 1200px) {
 
-   /*================= START OF FOOTER =============== */
+    /*================= START OF FOOTER =============== */
     footer li a {
         font-size: 12px;
     }
@@ -238,11 +233,19 @@ body {
     .copyright .social {
         font-size: 20px !important;
     }
-    /*================= END OF FOOTER =============== */
 
+    /*================= END OF FOOTER =============== */
 }
 
-@media (max-width: 992px) {}
+@media (max-width: 992px) {
+    .category-page {
+        flex-direction: column;
+    }
+    .category-aside {
+        width: 100%;
+        padding: 0;
+    }
+}
 
 @media (max-width: 768px) {
 
