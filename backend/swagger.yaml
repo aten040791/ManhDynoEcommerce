@@ -174,7 +174,7 @@ paths:
       parameters:
         - name: postId
           in: path
-          description: Id of post to return
+          description: Id of post to get 
           required: true
           schema:
             type: integer
@@ -265,7 +265,6 @@ paths:
           description: Id of category  which the post will belong.
         - in: query
           name: relatedId
-          required: true
           schema:
             type: integer
             default: 0
@@ -355,8 +354,135 @@ paths:
                  example: 404
                message:
                  type: string
-                 example: "Post not found"  
-
+                 example: "Created post failed"  
+   /posts/update/{postId}:
+    put:
+      tags:
+        - post
+      description: Update post
+      operationId: update post
+      parameters:
+        - in: path
+          name: postId
+          description: Id of post to update
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: userId
+          required: true
+          schema:
+            type: integer
+          description: Id of  user who wants to create a new post.
+        - in: query
+          name: categoryId
+          required: true
+          schema:
+            type: integer
+          description: Id of category  which the post will belong.
+        - in: query
+          name: language
+          required: true
+          schema:
+            type: string
+          description: language locale contains only a-z _ 
+        
+      requestBody:
+        description: Information update
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                title:
+                 type: string
+                 example: "Learn about ReactJs for beginners"
+                content:
+                 type: string
+                 example: "Content of the post learn about ReactJs for beginners"
+        required: true
+      responses:
+        '200':
+          description: "Created post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: string
+                 example: Post updated successfully
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Updated post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Updated post failed"  
+   /posts/delete/{postId}:
+    delete:
+      tags:
+        - post
+      description: Delete post
+      operationId: delete post
+      parameters:
+        - name: postId
+          in: path
+          description: Id of post to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Deleted post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Post deleted successfully"
+        '404':
+          description: "Get details post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Post not found or has been deleted"  
 components:
   schemas:
     User:

@@ -78,7 +78,8 @@ module.exports = {
           };
         }
       }
-      if (relatedId) {
+      if (relatedId > 0) {
+        console.log("Run related Id");
         const checkPost = await model.Post.findByPk(relatedId);
         if (!checkPost) {
           return {
@@ -100,17 +101,19 @@ module.exports = {
             error: "Language not found",
           };
         }
-        let locales = await model.Post.findAll({
-          attributes: ["locale"],
-          where: {
-            [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
-          },
-        });
-        locales = locales.map((post) => post.dataValues.locale.toLowerCase());
-        if (locales.includes(language.toLowerCase())) {
-          return {
-            error: "Language has been used",
-          };
+        if (relatedId > 0) {
+          let locales = await model.Post.findAll({
+            attributes: ["locale"],
+            where: {
+              [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
+            },
+          });
+          locales = locales.map((post) => post.dataValues.locale.toLowerCase());
+          if (locales.includes(language.toLowerCase())) {
+            return {
+              error: "Language has been used",
+            };
+          }
         }
       }
       const result = await sequelize.transaction(async (t) => {
@@ -212,6 +215,7 @@ module.exports = {
           category_id: categoryId,
           content: content,
           slug: slug,
+          updated_at: new Date(),
         },
         {
           where: {
