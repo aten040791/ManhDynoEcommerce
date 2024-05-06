@@ -28,7 +28,7 @@ module.exports = {
           error: "Invalid password",
         };
       }
-      console.log(checkUser.role_code);
+      // console.log(checkUser.role_code);
 
       const access_token = jwt.sign(
         { userId: checkUser.id, role_code: checkUser.role_code },
