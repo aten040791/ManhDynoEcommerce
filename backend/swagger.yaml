@@ -253,22 +253,46 @@ paths:
       parameters:
         - in: query
           name: userId
+          required: true
           schema:
             type: integer
           description: Id of  user who wants to create a new post.
         - in: query
           name: categoryId
+          required: true
           schema:
             type: integer
           description: Id of category  which the post will belong.
         - in: query
           name: relatedId
+          required: true
           schema:
             type: integer
-          description: Id of parent post(optional) - default(0)
+            default: 0
+          description: Id of parent post(optional)
+        - in: query
+          name: language
+          required: true
+          schema:
+            type: string
+          description: language locale contains only a-z _ 
+      requestBody:
+        description: Information about the post
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                title:
+                 type: string
+                 example: "Learn about ReactJs for beginners"
+                content:
+                 type: string
+                 example: "Content of the post learn about ReactJs for beginners"
+        required: true
       responses:
         '200':
-          description: "Get details post successfully"
+          description: "Created post successfully"
           content:
            application/json:
             schema:
@@ -317,7 +341,7 @@ paths:
                  type: string
                  example: "ok"
         '404':
-          description: "Get details post failed"
+          description: "Created post failed"
           content:
            application/json:
             schema:
