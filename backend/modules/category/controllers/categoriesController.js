@@ -1,8 +1,7 @@
+const rs = require('services/response');
+const catService = require('modules/category/services/categoriesService');
+const validation = require('validations/categoryValidation');
+
 module.exports = {
-    index: (req, res) => {
-        return res.status(200).send({
-            success: true,
-            data: []
-        })
-    }
+    
 }

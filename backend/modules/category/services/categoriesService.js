@@ -1,76 +1,103 @@
 const db = require('models');
+const { Op, where } = require("sequelize");
 
 module.exports = {
     index: async () => {
         try {
             const response = await db.Category.findAll();
-            return {
-                data: response
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    },
-    destroy: async (cid) => {
-        try {
-            const category = await db.Category.findOne({
-                where: { id: cid },
-                raw: true
-            })
-            if (category) {
-                await category.destroy();
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    },
-    store: async (name) => {
-        try {
-            const response = await db.Category.create({
-                name,
-                created_at: new Date(),
-                updated_at: new Date(),
-            });
-            return {
-                data: response,
-            }
-        } catch (error) {
-            if (error.name === "SequelizeUniqueConstraintError") {
+            if (response) {
                 return {
-                    data: "Email already exists",
+                    data: response
+                }
+            }
+            return null;
+        } catch (error) {
+            return {
+                error: error.message
+            }
+        }
+    },
+    destroy: async (data) => {
+        try {
+            const { categoryId } = data;
+            const response = await db.Category.destroy({
+                where: {
+                    id: categoryId
+                }
+            });
+            if (response == 1) {
+                return {
+                    data: "Category deleted successfully"
                 };
             }
             return {
-                data: error.message,
+                error: "Failed to delete category"
+            }
+
+        } catch (error) {
+            return {
+                error: error.message
+            }
+
+        }
+    },
+    create: async (data) => {
+        try {
+            const { categoryName } = data;
+            const response = await db.Category.create({
+                name: categoryName,
+                created_at: new Date(),
+                updated_at: new Date(),
+            });
+            if(response) {
+                return {
+                    data: "Category created successfully"
+                }
+            }
+            return null;
+        } catch (error) {
+            return {
+                error: error.message,
             };
         }
 
     },
-    update: async (id, name) => {
+    update: async (data) => {
         try {
-            const updatedData = {};
-            if (name) {
-                updatedData.name = name;
-            }
-            updatedData.created_at = new Date();
-
-            const response = await db.Category.update(updatedData, {
+            const { categoryId, categoryName } = data;
+            const checkCategory = await db.Category.findOne({
                 where: {
-                    id: id,
+                    id: categoryId,
                 }
-            });
-
-            if (response[0] === 1) {
+            })
+            if (!checkCategory) {
                 return {
-                    data: response
+                    error: "Category not found"
+                }
+            }
+
+            const response = await db.Category.update({
+                name: categoryName,
+                updated_at: new Date(),
+            }, {
+                where: {
+                    id: checkCategory.id,
+                }
+            })
+
+            if (response === 1) {
+                return {
+                    data: "Category updated successfully"
                 }
             } else {
                 return {
-                    data: "Not found"
+                    data: "Failed to update category"
                 }
             }
         } catch (error) {
-            console.log(error);
+            return {
+                error: error.message
+            }
         }
     }
 }
