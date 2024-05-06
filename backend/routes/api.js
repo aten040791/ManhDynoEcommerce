@@ -3,6 +3,7 @@ const express = require("express");
 const authController = require("modules/auth/controllers/authController");
 const postsController = require("modules/post/controllers/postsController");
 const languagesController = require("modules/languages/controllers/languageController");
+const { guest } = require("../middlewares/authMiddleware");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
@@ -12,7 +13,7 @@ router.group("/auth", (router) => {
   router.put("/reset-password", authController.resetPassword);
 });
 
-router.group("/languages", (router) => {
+router.group("/languages", guest, (router) => {
   router.get("/", languagesController.index);
   router.get("/:languageId", languagesController.show);
   router.post("/create", languagesController.create);
