@@ -91,6 +91,510 @@ paths:
                message:
                  type: string
                  example: "Email not found"  
+
+   /auth/sign-up:
+    post:
+      tags:
+        - auth
+      description: Sign Up for Coding Blog Website
+      operationId: sign-up
+      requestBody:
+        description: Sign Up Information
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "user@example.com"
+                password:
+                  type: string
+                  example: "yourpassword"
+                confirmPassword:
+                  type: string
+                  example: "yourpassword"
+      responses:
+        '200':
+          description: Sign up successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: object
+                 properties:
+                   user:
+                    type: object
+                    properties:
+                     id:
+                       type: integer
+                       example: 1
+                     username:
+                       type: string
+                       example: "johdoe134@gmail.com"
+                     email:
+                       type: string
+                       example: "johdoe134@gmail.com"
+                     created_at:
+                       type: string
+                       example: "2024-05-05T10:42:20.000Z"
+                     updated_at:
+                        type: string
+                        example: "2024-05-05T10:42:20.000Z"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Email is already in used"  
+   /auth/recover-password:
+    post:
+      tags:
+        - auth
+      description: Recover Password for Coding Blog Website
+      operationId: recover-password
+      requestBody:
+        description: Recover Password Information
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "user@example.com"
+      responses:
+        '200':
+          description: Recover password successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: string
+                 example: "Email is valid"           
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Email not found"  
+   /auth/reset-password:
+    put:
+      tags:
+        - auth
+      description: Reset Password for Coding Blog Website
+      operationId: reset-password
+      requestBody:
+        description: Reset Password Information
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "user@example.com"
+                password:
+                  type: string
+                  example: "yourpassword"
+                confirmPassword:
+                  type: string
+                  example: "yourpassword"
+      responses:
+        '200':
+          description: Reset password successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: string
+                 example: "Password reset successful"           
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Password and confirm password do not match"
+
+   
+   /languages:
+    get:
+      tags:
+        - language
+      summary: Get a list of all languages
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: A list of languages.
+          content:
+            application/json:
+              schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: array
+                 items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "English"
+                    locale:
+                      type: string
+                      example: "en_us"
+                    flag:
+                      type: string
+                      example: "https://www.countryflags.io/us/flat/64.png"
+                    created_at:
+                      type: string
+                      example: "2024-05-05T10:42:20.000Z"
+                    updated_at:
+                      type: string
+                      example: "2024-05-05T10:42:20.000Z"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404': 
+          description: "Get all posts failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get all posts failed"  
+
+   /languages/{languageId}:
+    get:
+      tags:
+        - language
+      summary: Get details of a language
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: languageId
+          in: path
+          description: Id of language to get 
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Get details language successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "English"
+                    locale:
+                      type: string
+                      example: "en_us"
+                    flag:
+                      type: string
+                      example: "https://www.countryflags.io/us/flat/64.png"
+                    created_at:
+                      type: string
+                      example: "2024-05-05T10:42:20.000Z"
+                    updated_at:
+                      type: string
+                      example: "2024-05-05T10:42:20.000Z"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Get details language failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Language not found"
+
+   /languages/create:
+    post:
+      tags:
+        - language
+      description: Create new language
+      operationId: create language
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Information about the language
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                name:
+                 type: string
+                 example: "English"
+                locale:
+                 type: string
+                 example: "en_us"
+                flag:
+                 type: string
+                 example: "https://www.countryflags.io/us/flat/64.png"
+        required: true
+      responses:
+        '200':
+          description: "Created language successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: string
+                  example: "Language created successfully"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Created language failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "language locale has been used"
+
+   /languages/update/{languageId}:
+    put:
+      tags:
+        - language
+      description: Update language
+      operationId: update language
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: languageId
+          in: path
+          description: Id of language to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Information update
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                name:
+                 type: string
+                 example: "English"
+                locale:
+                 type: string
+                 example: "en_us"
+                flag:
+                 type: string
+                 example: "https://www.countryflags.io/us/flat/64.png"
+        required: true
+      responses:
+        '200':
+          description: "Created language successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: string
+                  example: "Language updated successfully"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Updated language failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Language not found"
+
+   /languages/delete/{languageId}:
+    delete:
+      tags:
+        - language
+      description: Delete language
+      operationId: delete language
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: languageId
+          in: path
+          description: Id of language to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Deleted language successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Language deleted successfully"
+        '404':
+          description: "Get details language failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Failed to delete language"
    /posts:
     get:
       tags:
@@ -484,7 +988,13 @@ paths:
                  type: string
                  example: "Post not found or has been deleted"  
 components:
-  schemas:
+   securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+   schemas:
     User:
       type: object
      

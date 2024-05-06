@@ -9,7 +9,7 @@ const router = express.Router({ mergeParams: true });
 router.group("/auth", (router) => {
   router.post("/sign-in", authController.signIn);
   router.post("/sign-up", authController.signUp);
-  router.get("/recover-password", authController.recoverPassword);
+  router.post("/recover-password", authController.recoverPassword);
   router.put("/reset-password", authController.resetPassword);
 });
 
