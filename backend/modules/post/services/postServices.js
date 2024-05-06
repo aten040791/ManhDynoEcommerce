@@ -24,7 +24,24 @@ module.exports = {
   show: async (data) => {
     try {
       const postId = data.postId;
-      const response = await model.Post.findByPk(postId);
+      const response = await model.Post.findOne({
+        where: {
+          id: postId,
+        },
+        attributes: { exclude: ["category_id", "user_id"] },
+        includes: [
+          {
+            model: model.User,
+            as: "author",
+            // attributes: { exclude: ["password", "created_at", "updated_at"] },
+          },
+          {
+            model: model.Category,
+            as: "category",
+            // attributes: { exclude: ["created_at", "updated_at"] },
+          },
+        ],
+      });
       if (!response) {
         return {
           error: "Post not found",

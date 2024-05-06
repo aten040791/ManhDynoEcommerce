@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       Post.belongsTo(models.User, {
         targetKey: "id",
         foreignKey: "user_id",
-        as: "user",
+        as: "author",
       });
 
       Post.hasMany(models.Language_Post, {
