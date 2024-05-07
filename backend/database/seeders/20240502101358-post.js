@@ -13,7 +13,7 @@ module.exports = {
     await queryInterface.bulkInsert("Posts", [
       {
         category_id: categories[0].id,
-        user_id: users[0].id,
+        user_id: users[1].id,
         related_id: 0,
         locale: "en_us",
         title: "Learn about Reactjs for beginners",
@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         category_id: categories[3].id,
-        user_id: users[1].id,
+        user_id: users[3].id,
         related_id: 0,
         locale: "en_us",
         title: "How to migrate Angular CoreModule to standalone APIs?",
@@ -63,7 +63,7 @@ module.exports = {
     await queryInterface.bulkInsert("Posts", [
       {
         category_id: categories[0].id,
-        user_id: users[2].id,
+        user_id: users[1].id,
         related_id: posts[0].id,
         locale: "vi",
         title: "Học về ReactJS cho người mới bắt đầu",

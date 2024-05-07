@@ -4,17 +4,17 @@ module.exports = {
   async up(queryInterface) {
     await queryInterface.bulkInsert("Users", [
       {
-        username: "SuperAdmin",
+        username: "admin",
         email: "superadmin123@gmail.com",
         password: await bcrypt.hash("123456789", 10),
-        role_code: 2,
+        role: "admin",
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         username: "John Doe",
         email: "johndoe1234@gmail.com",
-        role_code: 1,
+        role: "owner",
         password: await bcrypt.hash("123456789", 10),
         created_at: new Date(),
         updated_at: new Date(),
@@ -22,7 +22,7 @@ module.exports = {
       {
         username: "Dinomanh",
         email: "dinomanh1234@gmail.com",
-        role_code: 1,
+        role: "owner",
         password: await bcrypt.hash("123456789", 10),
         created_at: new Date(),
         updated_at: new Date(),
@@ -30,7 +30,7 @@ module.exports = {
       {
         username: "Hoang Nam",
         email: "hoangnam1234@gmail.com",
-        role_code: 1,
+        role: "owner",
         password: await bcrypt.hash("123456789", 10),
         created_at: new Date(),
         updated_at: new Date(),
@@ -38,7 +38,7 @@ module.exports = {
       {
         username: "Sam Smith",
         email: "samsmith1234@gmail.com",
-        role_code: 0,
+        role: "user",
         password: await bcrypt.hash("123456789", 10),
         created_at: new Date(),
         updated_at: new Date(),
