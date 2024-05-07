@@ -1,0 +1,12 @@
+
+tags:
+  - name: auth
+    description: Sign In, Sign Up, Forgot Password
+  - name: user
+    description: Manage users
+  - name: language
+    description: Manage languages
+  - name: post
+    description: Manage posts
+  - name: category
+    description: Manage categories

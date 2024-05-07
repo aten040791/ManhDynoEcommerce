@@ -6,7 +6,20 @@ const { Op } = require("sequelize");
 module.exports = {
   index: async () => {
     try {
-      const response = await model.Post.findAll({});
+      const response = await model.Post.findAll({
+        attributes: { exclude: ["user_id", "category_id"] },
+        include: [
+          {
+            model: model.User,
+            as: "author",
+            attributes: { exclude: ["password"] },
+          },
+          {
+            model: model.Category,
+            as: "category",
+          },
+        ],
+      });
       if (response) {
         return {
           data: response,
