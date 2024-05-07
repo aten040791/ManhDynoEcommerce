@@ -7,6 +7,9 @@ module.exports = {
   index: async () => {
     try {
       const response = await model.Post.findAll({
+        where: {
+          locale: "en_us",
+        },
         attributes: { exclude: ["user_id", "category_id"] },
         include: [
           {
