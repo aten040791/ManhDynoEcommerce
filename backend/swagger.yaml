@@ -3,7 +3,7 @@ info:
   title: Swagger Coding Blog 
   version: 1.0.11
 servers:
-  - url: http://localhost:3000/api
+  - url: http://localhost:3000
 tags:
   - name: auth
     description: Sign In, Sign Up, Forgot Password
