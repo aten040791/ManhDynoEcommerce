@@ -86,41 +86,31 @@ module.exports = {
     try {
       const { title, content, userId, categoryId, relatedId, language } = data;
       let slug = "";
-      if (title) {
-        const checkTitle = await model.Post.findOne({
-          where: {
-            title: title,
-          },
-        });
-        if (checkTitle) {
-          return {
-            error: "Title has been used",
-          };
-        }
-        slug = slugify(title, {
-          replacement: "-",
-          remove: undefined,
-          lower: true,
-          locale: "vi",
-          trim: true,
-        });
+
+      const checkTitle = await model.Post.findOne({
+        where: {
+          title: title,
+        },
+      });
+      if (checkTitle) {
+        return {
+          error: "Title has been used",
+        };
       }
-      if (userId) {
-        const checkUser = await model.User.findByPk(userId);
-        if (!checkUser) {
-          return {
-            error: "User not found",
-          };
-        }
-      }
-      if (categoryId) {
-        const checkCategory = await model.Category.findByPk(categoryId);
-        if (!checkCategory) {
-          return {
-            error: "Category not found",
-          };
-        }
-      }
+      slug = slugify(title, {
+        replacement: "-",
+        remove: undefined,
+        lower: true,
+        locale: "vi",
+        trim: true,
+      });
+
+      // const checkCategory = await model.Category.findByPk(categoryId);
+      // if (!checkCategory) {
+      //   return {
+      //     error: "Category not found",
+      //   };
+      // }
 
       if (relatedId > 0) {
         const checkPost = await model.Post.findByPk(relatedId);
