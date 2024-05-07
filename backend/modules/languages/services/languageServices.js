@@ -10,7 +10,9 @@ module.exports = {
           data: response,
         };
       }
-      return null;
+      return {
+        error: "Cannot find resouces",
+      };
     } catch (error) {
       return {
         error: error.message,
