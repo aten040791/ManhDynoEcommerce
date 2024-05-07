@@ -1,21 +1,21 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Language_Post extends Model {
+  class LanguagePost extends Model {
     static associate(models) {
-      Language_Post.belongsTo(models.Language, {
+      LanguagePost.belongsTo(models.Language, {
         targetKey: "id",
         foreignKey: "language_id",
         as: "language",
       });
-      Language_Post.belongsTo(models.Post, {
+      LanguagePost.belongsTo(models.Post, {
         targetKey: "id",
         foreignKey: "post_id",
         as: "post",
       });
     }
   }
-  Language_Post.init(
+  LanguagePost.init(
     {
       language_id: {
         type: DataTypes.STRING,
@@ -44,5 +44,5 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
-  return Language_Post;
+  return LanguagePost;
 };

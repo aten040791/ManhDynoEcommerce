@@ -181,59 +181,32 @@ module.exports = {
   update: async (data) => {
     try {
       const { title, content, userId, categoryId, language, postId } = data;
-      let curPost = null;
-      if (postId) {
-        curPost = await model.Post.findByPk(postId);
-        if (!curPost) {
-          return {
-            error: "Post not found",
-          };
-        }
+
+      const curPost = await model.Post.findByPk(postId);
+      if (!curPost) {
+        return {
+          error: "Post not found",
+        };
       }
-      if (userId) {
-        const checkUser = await model.User.findByPk(userId);
-        if (!checkUser) {
-          return {
-            error: "User not found",
-          };
-        }
-      }
+
       if (curPost.user_id != userId) {
         return {
           error: "No authorization",
         };
       }
-      if (categoryId) {
-        const checkCategory = await model.Category.findByPk(categoryId);
-        if (!checkCategory) {
-          return {
-            error: "Category not found",
-          };
-        }
 
-        if (checkCategory.id != curPost.category_id) {
-          return {
-            error: "Category not match with post",
-          };
-        }
+      if (categoryId != curPost.category_id) {
+        return {
+          error: "Category not match with post",
+        };
       }
-      if (language) {
-        const checkLanguage = await model.Language.findOne({
-          where: {
-            locale: language,
-          },
-        });
-        if (!checkLanguage) {
-          return {
-            error: "Language not found",
-          };
-        }
-        if (checkLanguage.locale != curPost.locale) {
-          return {
-            error: "Language not match with post",
-          };
-        }
+
+      if (language != curPost.locale) {
+        return {
+          error: "Language not match with post",
+        };
       }
+
       let slug = curPost.slug;
       if (curPost.title !== title) {
         slug = slugify(title, {

@@ -5,7 +5,7 @@ module.exports = {
     const schema = Joi.object({
       postId: Joi.number().required(),
       language: Joi.string()
-        .pattern(new RegExp("^[a-z_]{2,10}$"))
+        .pattern(/^[a-z_]$/)
         .min(2)
         .max(10)
         .default("en_us")
@@ -27,7 +27,7 @@ module.exports = {
       categoryId: Joi.number().required(),
       relatedId: Joi.number().required(),
       language: Joi.string()
-        .pattern(new RegExp("^[a-z_]{2,10}$"))
+        .pattern(/^[a-z_]$/)
         .required()
         .min(2)
         .max(10)
@@ -49,7 +49,7 @@ module.exports = {
       content: Joi.string().required(),
       categoryId: Joi.number().required(),
       language: Joi.string()
-        .pattern(new RegExp("^[a-z_]{2,10}$"))
+        .pattern(/^[a-z_]$/)
         .required()
         .min(2)
         .max(10)
