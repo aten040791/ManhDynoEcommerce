@@ -180,6 +180,7 @@ module.exports = {
   },
   update: async (data) => {
     try {
+      console.log("After updating");
       const { title, content, userId, categoryId, language, postId } = data;
 
       const curPost = await model.Post.findByPk(postId);
@@ -217,6 +218,7 @@ module.exports = {
           trim: true,
         });
       }
+      console.log("Before crea2");
       const response = await model.Post.update(
         {
           title: title,
