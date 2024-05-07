@@ -5,7 +5,7 @@ module.exports = {
   signIn: (data) => {
     const schema = Joi.object({
       email: Joi.string()
-        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .pattern(/^[a-zA-Z0-9]{8,20}@gmail.com$/)
         .messages({
           "string.pattern.base":
             "Email is not a valid pattern example214@gmail.com",
@@ -21,7 +21,7 @@ module.exports = {
   signUp: (data) => {
     const schema = Joi.object({
       email: Joi.string()
-        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .pattern(/^[a-zA-Z0-9]{8,20}@gmail.com$/)
         .messages({
           "string.pattern.base":
             "Email is not a valid pattern example214@gmail.com",
@@ -43,7 +43,8 @@ module.exports = {
   recoverPassword: (data) => {
     const schema = Joi.object({
       email: Joi.string()
-        .pattern(new RegExp("^[a-zA-Z0-9]{8,20}@gmail.com$"))
+        .pattern(/^[a-zA-Z0-9]{8,20}@gmail.com$/)
+
         .messages({
           "string.pattern.base":
             "Email is not a valid pattern example214@gmail.com",
