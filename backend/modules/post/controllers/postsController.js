@@ -66,7 +66,7 @@ module.exports = {
       if (!userId && role != "owner") {
         return rs.authorization(res, "Unauthorized");
       }
-      console.log("Befor updated");
+
       const { error } = validate.update({
         ...req.body,
         ...req.query,
