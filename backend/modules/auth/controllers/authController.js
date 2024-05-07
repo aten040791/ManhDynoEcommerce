@@ -69,7 +69,7 @@ module.exports = {
   },
   resetPassword: async (req, res) => {
     try {
-      const { error } = validation.resetPassword(req.body);
+      const { error } = validation.signUp(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
