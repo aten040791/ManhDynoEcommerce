@@ -6,6 +6,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const router = require("routes/api");
 const app = express();
+app.disable("x-powered-by");
 const port = 3000;
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
