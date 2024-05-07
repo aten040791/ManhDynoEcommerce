@@ -35,7 +35,6 @@ module.exports = {
   },
   create: async (req, res) => {
     try {
-      // console.log(req.user);
       const { role, userId } = req.user;
 
       if (!userId && role != "owner") {

@@ -39,14 +39,11 @@ module.exports = {
       const { postId, language } = data;
 
       let querySql = {};
-      //Nếu query params truyền vào chỉ mỗi postId: lấy như bình thường
       if (!language || language == "en_us") {
         querySql = {
           id: postId,
         };
       } else {
-        //Nếu query params truyền vào gồm cả postId và language: thì postId đó chính là relatedId
-        //Tức là lấy bài viết con của bài viết hiện tại
         querySql = {
           related_id: postId,
           locale: language,
@@ -105,13 +102,6 @@ module.exports = {
         trim: true,
       });
 
-      // const checkCategory = await model.Category.findByPk(categoryId);
-      // if (!checkCategory) {
-      //   return {
-      //     error: "Category not found",
-      //   };
-      // }
-
       if (relatedId > 0) {
         const checkPost = await model.Post.findByPk(relatedId);
         if (!checkPost) {
@@ -122,7 +112,6 @@ module.exports = {
       }
       let checkLanguage = null;
       if (language) {
-        // console.log("Running");
         checkLanguage = await model.Language.findOne({
           where: {
             locale: {
@@ -131,7 +120,6 @@ module.exports = {
           },
         });
         if (checkLanguage && relatedId == 0 && language != "en_us") {
-          // Tạo bài viết không phải là bài mặc định
           return {
             error: "Please make sure to create the post in English first.",
           };
