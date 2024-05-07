@@ -24,7 +24,6 @@ module.exports = {
     const schema = Joi.object({
       title: Joi.string().min(10).max(100).required(),
       content: Joi.string().required(),
-      userId: Joi.number().required(),
       categoryId: Joi.number().required(),
       relatedId: Joi.number().required(),
       language: Joi.string()
@@ -48,7 +47,6 @@ module.exports = {
       postId: Joi.number().required(),
       title: Joi.string().min(10).max(100).required(),
       content: Joi.string().required(),
-      userId: Joi.number().required(),
       categoryId: Joi.number().required(),
       language: Joi.string()
         .pattern(new RegExp("^[a-z_]{2,10}$"))

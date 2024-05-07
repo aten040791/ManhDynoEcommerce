@@ -47,12 +47,11 @@ module.exports = {
           {
             model: model.User,
             as: "author",
-            attributes: { exclude: ["password", "created_at", "updated_at"] },
+            attributes: { exclude: ["password"] },
           },
           {
             model: model.Category,
             as: "category",
-            attributes: { exclude: ["created_at", "updated_at"] },
           },
         ],
       });
@@ -109,8 +108,8 @@ module.exports = {
           };
         }
       }
+
       if (relatedId > 0) {
-        console.log("Run related Id");
         const checkPost = await model.Post.findByPk(relatedId);
         if (!checkPost) {
           return {
@@ -120,6 +119,7 @@ module.exports = {
       }
       let checkLanguage = null;
       if (language) {
+        // console.log("Running");
         checkLanguage = await model.Language.findOne({
           where: {
             locale: {
@@ -127,9 +127,10 @@ module.exports = {
             },
           },
         });
-        if (!checkLanguage) {
+        if (checkLanguage && relatedId == 0 && language != "en_us") {
+          // Tạo bài viết không phải là bài mặc định
           return {
-            error: "Language not found",
+            error: "Please make sure to create the post in English first.",
           };
         }
         if (relatedId > 0) {
@@ -147,6 +148,7 @@ module.exports = {
           }
         }
       }
+
       const result = await sequelize.transaction(async (t) => {
         const newPost = await model.Post.create(
           {
@@ -217,6 +219,12 @@ module.exports = {
             error: "Category not found",
           };
         }
+
+        if (checkCategory.id != curPost.category_id) {
+          return {
+            error: "Category not match with post",
+          };
+        }
       }
       if (language) {
         const checkLanguage = await model.Language.findOne({
@@ -227,6 +235,11 @@ module.exports = {
         if (!checkLanguage) {
           return {
             error: "Language not found",
+          };
+        }
+        if (checkLanguage.locale != curPost.locale) {
+          return {
+            error: "Language not match with post",
           };
         }
       }
@@ -265,11 +278,16 @@ module.exports = {
   },
   destroy: async (data) => {
     try {
-      const postId = data.postId;
+      const { postId, userId } = data;
       const checkPost = await model.Post.findByPk(postId);
       if (!checkPost) {
         return {
           error: "Post not found or has been deleted",
+        };
+      }
+      if (checkPost.user_id != userId) {
+        return {
+          error: "No authorization",
         };
       }
       await model.Language_Post.destroy({

@@ -52,19 +52,7 @@ paths:
                  properties:
                    user:
                     type: object
-                    properties:
-                     id:
-                       type: integer
-                       example: 1
-                     username:
-                       type: string
-                       example: "John Doe"
-                     email:
-                       type: string
-                       example: "johdoe134@gmail.com"
-                     role_code:
-                       type: integer
-                       example: 0
+                    $ref: '#/components/schemas/User'
                    access_token:
                      type: string
                      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTcxNDk2NjIxNCwiZXhwIjoxNzE0OTY5ODE0fQ.9TGf42_7umYPLE2pXkOdQ-HQgreKKK5Nwm6OyZIRwIU"
@@ -113,44 +101,14 @@ paths:
                 data:
                  type: array
                  items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      example: 1
-                    category_id:
-                      type: integer
-                      example: 6
-                    user_id:
-                      type: integer
-                      example: 6
-                    related_id:
-                      type: integer
-                      example: 0
-                    locale:
-                      type: string
-                      example: "en_us"
-                    title:
-                     type: string
-                     example: "Learn about Reactjs for beginners"
-                    slug:
-                     type: string
-                     example: "learn-about-reactjs-for-beginners"
-                    content:
-                     type: string
-                     example: "Content of post learn about Reactjs for beginners"
-                    created_at:
-                     type: string
-                     example: "2024-05-05T10:42:20.000Z"
-                    updated_at:
-                     type: string
-                     example: "2024-05-05T10:42:20.000Z"
+                   schema:
+                   $ref: '#/components/schemas/Post'
                 status:
                  type: integer
                  example: 200
                 message:
                  type: string
-                 example: "ok"
+                 example: "Get list of posts successfully"
         '404': 
           description: "Get all posts failed"
           content:
@@ -200,37 +158,8 @@ paths:
                  example: true
                 data:
                   type: object
-                  properties:
-                    id:
-                      type: integer
-                      example: 1
-                    category_id:
-                      type: integer
-                      example: 6
-                    user_id:
-                      type: integer
-                      example: 6
-                    related_id:
-                      type: integer
-                      example: 0
-                    locale:
-                      type: string
-                      example: "en_us"
-                    title:
-                     type: string
-                     example: "Learn about Reactjs for beginners"
-                    slug:
-                     type: string
-                     example: "learn-about-reactjs-for-beginners"
-                    content:
-                     type: string
-                     example: "Content of post learn about Reactjs for beginners"
-                    created_at:
-                     type: string
-                     example: "2024-05-05T10:42:20.000Z"
-                    updated_at:
-                     type: string
-                     example: "2024-05-05T10:42:20.000Z"
+                  schema:
+                  $ref: '#/components/schemas/DetailPost'
                 status:
                  type: integer
                  example: 200
@@ -262,12 +191,6 @@ paths:
       security:
         - BearerAuth: []
       parameters:
-        - in: query
-          name: userId
-          required: true
-          schema:
-            type: integer
-          description: Id of  user who wants to create a new post.
         - in: query
           name: categoryId
           required: true
@@ -313,43 +236,14 @@ paths:
                  example: true
                 data:
                   type: object
-                  properties:
-                    id:
-                      type: integer
-                      example: 1
-                    category_id:
-                      type: integer
-                      example: 6
-                    user_id:
-                      type: integer
-                      example: 6
-                    related_id:
-                      type: integer
-                      example: 0
-                    locale:
-                      type: string
-                      example: "en_us"
-                    title:
-                     type: string
-                     example: "Learn about Reactjs for beginners"
-                    slug:
-                     type: string
-                     example: "learn-about-reactjs-for-beginners"
-                    content:
-                     type: string
-                     example: "Content of post learn about Reactjs for beginners"
-                    created_at:
-                     type: string
-                     example: "2024-05-05T10:42:20.000Z"
-                    updated_at:
-                     type: string
-                     example: "2024-05-05T10:42:20.000Z"
+                  schema:
+                  $ref: '#/components/schemas/Post'
                 status:
                  type: integer
                  example: 200
                 message:
                  type: string
-                 example: "ok"
+                 example: "Created post successfully"
         '404':
           description: "Created post failed"
           content:
@@ -382,12 +276,6 @@ paths:
           schema:
             type: integer
         - in: query
-          name: userId
-          required: true
-          schema:
-            type: integer
-          description: Id of  user who wants to create a new post.
-        - in: query
           name: categoryId
           required: true
           schema:
@@ -398,8 +286,7 @@ paths:
           required: true
           schema:
             type: string
-          description: language locale contains only a-z _ 
-        
+          description: language locale contains only a-z _  
       requestBody:
         description: Information update
         content:
@@ -416,7 +303,7 @@ paths:
         required: true
       responses:
         '200':
-          description: "Created post successfully"
+          description: "Updated post successfully"
           content:
            application/json:
             schema:
@@ -483,7 +370,7 @@ paths:
                  type: string
                  example: "Post deleted successfully"
         '404':
-          description: "Get details post failed"
+          description: "Post deleted failed"
           content:
            application/json:
             schema:
@@ -500,8 +387,123 @@ paths:
                  example: "Post not found or has been deleted"  
 components:
   schemas:
-    User:
+    Post:
       type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        category_id:
+           type: integer
+           example: 6
+        user_id:
+           type: integer
+           example: 6
+        related_id:
+           type: integer
+           example: 0
+        locale:
+           type: string
+           example: "en_us"
+        title:
+          type: string
+          example: "Learn about Reactjs for beginners"
+        slug:
+          type: string
+          example: "learn-about-reactjs-for-beginners"
+        content:
+          type: string
+          example: "Content of post learn about Reactjs for beginners"
+        created_at:
+          type: string
+          example: "2024-05-05T10:42:20.000Z"
+        updated_at:
+          type: string
+          example: "2024-05-05T10:42:20.000Z"     
+    User:  
+     type: object
+     properties:
+      id:
+        type: integer
+        format: int64
+      username:
+        type: string
+        maxLength: 30
+      email:
+        type: string
+        format: email
+        maxLength: 30
+      role:
+        type: string
+        example: owner
+      password:
+        type: string
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+     example:
+      id: 1
+      username: "john_doe"
+      email: "john@example.com"
+      role: "owner"
+      created_at: "2024-05-06T12:00:00Z"
+      updated_at: "2024-05-06T12:00:00Z"
+    Category:
+     type: object
+     properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        maxLength: 20
+      created_at:
+        type: string
+        format: date-time
+      updated_at:
+        type: string
+        format: date-time
+     example:
+      id: 1
+      name: "reactjs"
+      created_at: "2024-05-06T12:00:00Z"
+      updated_at: "2024-05-06T12:00:00Z"
+    DetailPost:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        related_id:
+           type: integer
+           example: 0
+        locale:
+           type: string
+           example: "en_us"
+        title:
+          type: string
+          example: "Learn about Reactjs for beginners"
+        slug:
+          type: string
+          example: "learn-about-reactjs-for-beginners"
+        content:
+          type: string
+          example: "Content of post learn about Reactjs for beginners"
+        created_at:
+          type: string
+          example: "2024-05-05T10:42:20.000Z"
+        updated_at:
+          type: string
+          example: "2024-05-05T10:42:20.000Z" 
+        author: 
+          type: object
+          $ref: '#/components/schemas/User'
+        category:
+          type: object
+          $ref: '#/components/schemas/Category'
   securitySchemes:
     BearerAuth:
       type: http

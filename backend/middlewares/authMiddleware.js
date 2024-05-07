@@ -11,6 +11,8 @@ module.exports = {
         }
         if (user) {
           next();
+        } else {
+          return rs.authorization(res, "Unauthorized");
         }
       });
     } else {
@@ -26,7 +28,10 @@ module.exports = {
           return rs.authorization(res, "Unauthorized");
         }
         if (user.role == "owner") {
+          req.user = user;
           next();
+        } else {
+          return rs.authorization(res, "Unauthorized");
         }
       });
     } else {

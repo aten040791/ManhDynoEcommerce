@@ -35,11 +35,21 @@ module.exports = {
   },
   create: async (req, res) => {
     try {
+      // console.log(req.user);
+      const { role, userId } = req.user;
+
+      if (!userId && role != "owner") {
+        return rs.authorization(res, "Unauthorized");
+      }
       const { error } = validate.create({ ...req.body, ...req.query });
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const response = await postService.create({ ...req.body, ...req.query });
+      const response = await postService.create({
+        ...req.body,
+        ...req.query,
+        userId,
+      });
       if (response.error) {
         return rs.error(res, response.error);
       }
@@ -52,6 +62,11 @@ module.exports = {
   },
   update: async (req, res) => {
     try {
+      const { role, userId } = req.user;
+
+      if (!userId && role != "owner") {
+        return rs.authorization(res, "Unauthorized");
+      }
       const { error } = validate.update({
         ...req.body,
         ...req.query,
@@ -64,6 +79,7 @@ module.exports = {
         ...req.body,
         ...req.query,
         ...req.params,
+        userId,
       });
       if (response.error) {
         return rs.error(res, response.error);
@@ -77,11 +93,16 @@ module.exports = {
   },
   destroy: async (req, res) => {
     try {
+      const { role, userId } = req.user;
+      console.log(role, userId);
+      if (!userId && role != "owner") {
+        return rs.authorization(res, "Unauthorized");
+      }
       const { error } = validate.destroy(req.params);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const response = await postService.destroy(req.params);
+      const response = await postService.destroy({ ...req.params, userId });
       if (response.error) {
         return rs.error(res, response.error);
       }
