@@ -4,7 +4,7 @@ module.exports = {
   async up(queryInterface) {
     await queryInterface.bulkInsert("Users", [
       {
-        username: "SuperAdmin",
+        username: "admin",
         email: "superadmin123@gmail.com",
         password: await bcrypt.hash("123456789", 10),
         role: "admin",
