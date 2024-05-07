@@ -24,9 +24,14 @@ router.group("/languages", owner, (router) => {
   router.delete("/delete/:postId", postsController.destroy);
 });
 
-// router.group("/users", admin, (router) => {
-//   router.get("/", userController.index);
-//   router.delete("/", userController.destroy);
+// router.group("/categories", user, (router) => {
+//   router.get("/", categoriesController.index);
+// });
+
+// router.group("/categories", owner, (router) => {
+//   router.post("/create", categoriesController.create);
+//   router.put("/update/:id", categoriesController.update);
+//   router.delete("/delete/:id", categoriesController.destroy);
 // });
 
 router.group("/posts", user, (router) => {
