@@ -66,7 +66,7 @@ paths:
     get:
       tags:
         - post
-      description: Get a list of posts
+      description: Get detailed information about all post, allowing access only to authenticated users,at least.
       operationId: list posts
       security:
         - BearerAuth: []
@@ -112,7 +112,7 @@ paths:
     get:
       tags:
         - post
-      description: Get details of a post
+      description: Get detailed information about a post, allowing access only to authenticated users,at least.
       operationId: details post
       security:
         - BearerAuth: []
@@ -169,7 +169,7 @@ paths:
     post:
       tags:
         - post
-      description: Create new post
+      description: Create a new post permission roles to allow the owner
       operationId: create post
       security:
         - BearerAuth: []
@@ -247,7 +247,7 @@ paths:
     put:
       tags:
         - post
-      description: Update post
+      description: Update post permission roles to allow  the owner and the creator of the post to edit.
       operationId: update post
       security:
         - BearerAuth: []
@@ -324,7 +324,7 @@ paths:
     delete:
       tags:
         - post
-      description: Delete post
+      description: Delete post permission roles to allow the owner and the creator of the post to edit.
       operationId: delete post
       security:
         - BearerAuth: []
