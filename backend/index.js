@@ -5,7 +5,6 @@ require("rootpath")();
 const express = require("express");
 const bodyParser = require("body-parser");
 const router = require("routes/api");
-const cors = require("cors");
 const app = express();
 const port = 3000;
 const swaggerJsdoc = require("swagger-jsdoc");
@@ -30,7 +29,6 @@ const options = {
 const openapiSpecification = swaggerJsdoc(options);
 app.use("/api", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 app.use(bodyParser.json());
-app.use(cors());
 app.use("/", [], router);
 app.use(express.json());
 app.use((req, res) => {
