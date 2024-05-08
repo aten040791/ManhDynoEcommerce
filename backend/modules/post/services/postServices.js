@@ -220,6 +220,7 @@ module.exports = {
           trim: true,
         });
       }
+
       const response = await model.Post.update(
         {
           title: title,
