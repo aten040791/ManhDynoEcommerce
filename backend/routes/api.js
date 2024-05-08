@@ -37,9 +37,11 @@ router.group("/languages", owner, (router) => {
 
 router.group("/categories", (router) => {
   router.get("/", categoriesController.index);
+  router.get("/:categoryId", categoriesController.show);
   router.post("/create", categoriesController.create);
-  router.put("/update/:languageId", categoriesController.update);
-  router.delete("/delete/:languageId", categoriesController.destroy);
+  router.put("/update/:categoryId", categoriesController.update);
+  router.delete("/delete/:categoryId", categoriesController.destroy);
 });
+
 
 module.exports = router;

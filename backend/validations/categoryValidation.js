@@ -19,6 +19,7 @@ module.exports = {
     },
     update: (data) => {
         const schema = Joi.object({
+            categoryId: Joi.number().required(),
             name: Joi.string().max(20).required(),
         });
         return schema.validate(data, {
