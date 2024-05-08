@@ -1,26 +1,37 @@
-require('express-router-group');
-const express = require('express');
-const authController = require('modules/auth/controllers/authController');
-const categoriesController = require('modules/category/controllers/categoriesController');
-const router = express.Router({mergeParams: true})
+require("express-router-group");
+const express = require("express");
+const postsController = require("modules/post/controllers/postsController");
+const authController = require("modules/auth/controllers/authController");
+const languagesController = require("modules/languages/controllers/languageController");
+const { user, owner, admin } = require("../middlewares/authMiddleware");
+const router = express.Router({ mergeParams: true });
 
-//Single routing
-//Format: router.get(path, middlewareArray: optional = [], controllerAction)
-router.get('/helloworld', authController.helloWorld);
+router.group("/auth", (router) => {
+  router.post("/sign-in", authController.signIn);
+  router.post("/sign-up", authController.signUp);
+  router.post("/recover-password", authController.recoverPassword);
+  router.put("/reset-password", authController.resetPassword);
+});
 
-/** 
- * Nested routing
- * Format: router.group(path, middlewareArray: optional = [], (router) => {
- *      router.get(path, controllerAction)
- * })
- */
-router.group('/categories', (router) => {
-    router.get('/', categoriesController.index)
-})
+router.group("/posts", user, (router) => {
+  router.get("/", postsController.index);
+  router.get("/:postId", postsController.show);
+});
 
-router.group('/user', (router) => {
-    router.get('/', userController.getAllUsers);
-    router.delete('/', userController.deleteUser)
-})
+router.group("/posts", owner, (router) => {
+  router.post("/create", postsController.create);
+  router.put("/update/:postId", postsController.update);
+  router.delete("/delete/:postId", postsController.destroy);
+});
+router.group("/languages", user, (router) => {
+  router.get("/", languagesController.index);
+  router.get("/:languageId", languagesController.show);
+});
 
-module.exports = router
+router.group("/languages", owner, (router) => {
+  router.post("/create", languagesController.create);
+  router.put("/update/:languageId", languagesController.update);
+  router.delete("/delete/:languageId", languagesController.destroy);
+});
+
+module.exports = router;

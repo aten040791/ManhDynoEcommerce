@@ -1,0 +1,826 @@
+paths:
+   /auth/sign-in:
+    post:
+      tags:
+        - auth
+      description: Sign In to Coding Blog Website
+      operationId: sign-in
+      requestBody:
+        description: Sign In Information
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                email:
+                 type: string
+                 example: "manhnv2k1@gmail.com"
+                password:
+                 type: string
+                 example: "12345678"
+        required: true
+      responses:
+        '200':
+          description: Sign in successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: object
+                 properties:
+                   user:
+                    type: object
+                    $ref: '#/components/schemas/User'
+                   access_token:
+                     type: string
+                     example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTcxNDk2NjIxNCwiZXhwIjoxNzE0OTY5ODE0fQ.9TGf42_7umYPLE2pXkOdQ-HQgreKKK5Nwm6OyZIRwIU"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+             
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Email not found"  
+   /auth/sign-up:
+    post:
+      tags:
+        - auth
+      description: Sign Up for Coding Blog Website
+      operationId: sign-up
+      requestBody:
+        description: Sign Up Information
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "user@gmail.com"
+                password:
+                  type: string
+                  example: "yourpassword"
+                confirmPassword:
+                  type: string
+                  example: "yourpassword"
+      responses:
+        '200':
+          description: Sign up successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: object
+                 properties:
+                  user:
+                    type: object
+                    $ref: '#/components/schemas/User'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Email is already in used"  
+
+   /auth/recover-password:
+    post:
+      tags:
+        - auth
+      description: Recover Password for Coding Blog Website
+      operationId: recover-password
+      requestBody:
+        description: Recover Password Information
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "user@gmail.com"
+      responses:
+        '200':
+          description: Recover password successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: string
+                 example: "Email is valid"           
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Email not found"  
+   /auth/reset-password:
+    put:
+      tags:
+        - auth
+      description: Reset Password for Coding Blog Website
+      operationId: reset-password
+      requestBody:
+        description: Reset Password Information
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "user@gmail.com"
+                password:
+                  type: string
+                  example: "yourpassword"
+                confirmPassword:
+                  type: string
+                  example: "yourpassword"
+      responses:
+        '200':
+          description: Reset password successfully!
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: string
+                 example: "Password reset successful"           
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: Invalid Input 
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Password and confirm password do not match"
+
+   /languages:
+    get:
+      tags:
+        - language
+      description: Get a list of all languages
+      operationId: list languages
+      security:
+        - BearerAuth: []
+      responses:
+        '200': 
+         description: "Get all languages successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: array
+                 items:
+                   schema:
+                   $ref: '#/components/schemas/Language'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Get list of languages successfully"
+        '404': 
+          description: "Get all languages failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get all languages failed"  
+   /languages/{languageId}:
+    get:
+      tags:
+        - language
+      description: Get details of a language
+      operationId: detail language
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: languageId
+          in: path
+          description: Id of language to get 
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+         description: "Get detail of a language successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                   $ref: '#/components/schemas/Language'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Get detail of a language successfully"
+        '404': 
+          description: "Get detail of a language failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get detail of a language failed"  
+
+   /languages/create:
+    post:
+      tags:
+        - language
+      description: Create new language
+      operationId: create language
+      security:
+        - BearerAuth: []
+      requestBody:
+        description: Information about the language
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                name:
+                 type: string
+                 example: "English"
+                locale:
+                 type: string
+                 example: "en_us"
+                flag:
+                 type: string
+                 example: "https://www.countryflags.io/us/flat/64.png"
+        required: true
+      responses:
+        '200':
+          description: "Created language successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: string
+                  example: "Language created successfully"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Created language failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "language locale has been used"
+
+   /languages/update/{languageId}:
+    put:
+      tags:
+        - language
+      description: Update language
+      operationId: update language
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: languageId
+          in: path
+          description: Id of language to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Information update
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                name:
+                 type: string
+                 example: "English"
+                locale:
+                 type: string
+                 example: "en_us"
+                flag:
+                 type: string
+                 example: "https://www.countryflags.io/us/flat/64.png"
+        required: true
+      responses:
+        '200':
+          description: "Updated language successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: string
+                  example: "Language updated successfully"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Updated language failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Language not found"
+
+   /languages/delete/{languageId}:
+    delete:
+      tags:
+        - language
+      description: Delete language
+      operationId: delete language
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: languageId
+          in: path
+          description: Id of language to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Deleted language successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Language deleted successfully"
+        '404':
+          description: "Failed to delete language"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Failed to delete language"
+   
+   /posts:
+    get:
+      tags:
+        - post
+      description: Get detailed information about all post with locale default en_us, allowing access only to authenticated users,at least.
+      operationId: list posts
+      security:
+        - BearerAuth: []
+      responses:
+        '200': 
+         description: "Get all posts successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: array
+                 items:
+                   schema:
+                   $ref: '#/components/schemas/DetailPost'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Get list of posts successfully"
+        '404': 
+          description: "Get all posts failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get all posts failed"  
+   /posts/{postId}:
+    get:
+      tags:
+        - post
+      description: Get detailed information about a post, allowing access only to authenticated users,at least.
+      operationId: details post
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: postId
+          in: path
+          description: Id of post
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: language
+          description: "Locale language (optional), default is en_us. If the locale is not en_us, query to retrieve related posts with the related_id as postId."
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Get details post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: object
+                  schema:
+                  $ref: '#/components/schemas/DetailPost'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Get details post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Post not found"  
+   /posts/create:
+    post:
+      tags:
+        - post
+      description: Create a new post permission roles to allow the owner
+      operationId: create post
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: categoryId
+          required: true
+          schema:
+            type: integer
+          description: Id of category  which the post will belong.
+        - in: query
+          name: relatedId
+          schema:
+            type: integer
+            default: 0
+          description: Id of parent post(optional)
+        - in: query
+          name: language
+          required: true
+          schema:
+            type: string
+          description: language locale contains only a-z _ 
+      requestBody:
+        description: Information about the post
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                title:
+                 type: string
+                 example: "Learn about ReactJs for beginners"
+                content:
+                 type: string
+                 example: "Content of the post learn about ReactJs for beginners"
+        required: true
+      responses:
+        '200':
+          description: "Created post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: object
+                  schema:
+                  $ref: '#/components/schemas/Post'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Created post successfully"
+        '404':
+          description: "Created post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Created post failed"  
+   /posts/update/{postId}:
+    put:
+      tags:
+        - post
+      description: Update post permission roles to allow  the owner and the creator of the post to edit.
+      operationId: update post
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: postId
+          description: Id of post to update
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: categoryId
+          required: true
+          schema:
+            type: integer
+          description: Id of category  which the post will belong.
+        - in: query
+          name: language
+          required: true
+          schema:
+            type: string
+          description: language locale contains only a-z _  
+      requestBody:
+        description: Information update
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                title:
+                 type: string
+                 example: "Learn about ReactJs for beginners"
+                content:
+                 type: string
+                 example: "Content of the post learn about ReactJs for beginners"
+        required: true
+      responses:
+        '200':
+          description: "Updated post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: string
+                 example: Post updated successfully
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Updated post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Updated post failed"  
+   /posts/delete/{postId}:
+    delete:
+      tags:
+        - post
+      description: Delete post permission roles to allow the owner and the creator of the post to edit.
+      operationId: delete post
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: postId
+          in: path
+          description: Id of post to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Deleted post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Post deleted successfully"
+        '404':
+          description: "Post deleted failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Post not found or has been deleted"  
+
+
+

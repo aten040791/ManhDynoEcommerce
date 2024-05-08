@@ -129,11 +129,6 @@ body {
     max-width: 80px;
 }
 
-.py-9 {
-    padding: 9px 0;
-}
-
-
 .mw-120 {
     min-width: 120px !important;
 }
@@ -230,7 +225,6 @@ body {
     .category-page {
         flex-direction: column;
     }
-
     .category-aside {
         width: 100%;
         padding: 0;
