@@ -96,10 +96,6 @@ body {
     background: #F3F4F4;
 }
 
-/* .hover-bg-active:hover {
-    background: var(--blue-color);
-} */
-
 .hover-color-white:hover,
 .hover-color-white:hover a {
     color: #fff !important;
@@ -128,14 +124,6 @@ body {
 .w-80 {
     width: 80%;
 }
-
-/* .wm-80 {
-    max-width: 80px;
-} */
-
-/* .py-9 {
-    padding: 9px 0;
-} */
 
 .wm-80 {
     max-width: 80px;
