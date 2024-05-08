@@ -821,6 +821,97 @@ paths:
                message:
                  type: string
                  example: "Post not found or has been deleted"  
-
-
-
+   /users:
+    get:
+      tags:
+        - user
+      description: get list of all users
+      operationId: list users
+      security:
+        - BearerAuth: []
+      responses:
+        '200': 
+         description: "Get all users successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: array
+                 items:
+                   schema:
+                   $ref: '#/components/schemas/User'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Get list of users successfully"
+        '404': 
+          description: "Get all users failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get all users failed"  
+   /users/delete/{userId}:
+    delete:
+      tags:
+        - user
+      description: Delete User and all permissions granted
+      operationId: Delete User and all permissions granted
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: userId
+          in: path
+          description: Id of user to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Deleted user successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "User deleted successfully"
+        '404':
+          description: "User deleted failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "User not found or has been deleted"  
