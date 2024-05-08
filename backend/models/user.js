@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       role: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0, //[0:guest/user , 1: owner,2: super-admin]
+        type: DataTypes.STRING(10),
+        defaultValue: "guest",
         allowNull: false,
       },
       created_at: {

@@ -515,4 +515,312 @@ paths:
                  type: string
                  example: "Failed to delete language"
    
+   /posts:
+    get:
+      tags:
+        - post
+      description: Get detailed information about all post with locale default en_us, allowing access only to authenticated users,at least.
+      operationId: list posts
+      security:
+        - BearerAuth: []
+      responses:
+        '200': 
+         description: "Get all posts successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: array
+                 items:
+                   schema:
+                   $ref: '#/components/schemas/DetailPost'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Get list of posts successfully"
+        '404': 
+          description: "Get all posts failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get all posts failed"  
+   /posts/{postId}:
+    get:
+      tags:
+        - post
+      description: Get detailed information about a post, allowing access only to authenticated users,at least.
+      operationId: details post
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: postId
+          in: path
+          description: Id of post
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: language
+          description: "Locale language (optional), default is en_us. If the locale is not en_us, query to retrieve related posts with the related_id as postId."
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Get details post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: object
+                  schema:
+                  $ref: '#/components/schemas/DetailPost'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Get details post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Post not found"  
+   /posts/create:
+    post:
+      tags:
+        - post
+      description: Create a new post permission roles to allow the owner
+      operationId: create post
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: categoryId
+          required: true
+          schema:
+            type: integer
+          description: Id of category  which the post will belong.
+        - in: query
+          name: relatedId
+          schema:
+            type: integer
+            default: 0
+          description: Id of parent post(optional)
+        - in: query
+          name: language
+          required: true
+          schema:
+            type: string
+          description: language locale contains only a-z _ 
+      requestBody:
+        description: Information about the post
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                title:
+                 type: string
+                 example: "Learn about ReactJs for beginners"
+                content:
+                 type: string
+                 example: "Content of the post learn about ReactJs for beginners"
+        required: true
+      responses:
+        '200':
+          description: "Created post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: object
+                  schema:
+                  $ref: '#/components/schemas/Post'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Created post successfully"
+        '404':
+          description: "Created post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Created post failed"  
+   /posts/update/{postId}:
+    put:
+      tags:
+        - post
+      description: Update post permission roles to allow  the owner and the creator of the post to edit.
+      operationId: update post
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: postId
+          description: Id of post to update
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: categoryId
+          required: true
+          schema:
+            type: integer
+          description: Id of category  which the post will belong.
+        - in: query
+          name: language
+          required: true
+          schema:
+            type: string
+          description: language locale contains only a-z _  
+      requestBody:
+        description: Information update
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                title:
+                 type: string
+                 example: "Learn about ReactJs for beginners"
+                content:
+                 type: string
+                 example: "Content of the post learn about ReactJs for beginners"
+        required: true
+      responses:
+        '200':
+          description: "Updated post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: string
+                 example: Post updated successfully
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Updated post failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Updated post failed"  
+   /posts/delete/{postId}:
+    delete:
+      tags:
+        - post
+      description: Delete post permission roles to allow the owner and the creator of the post to edit.
+      operationId: delete post
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: postId
+          in: path
+          description: Id of post to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Deleted post successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Post deleted successfully"
+        '404':
+          description: "Post deleted failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Post not found or has been deleted"  
+
+
 

@@ -1,5 +1,6 @@
 require("express-router-group");
 const express = require("express");
+const postsController = require("modules/post/controllers/postsController");
 const authController = require("modules/auth/controllers/authController");
 const languagesController = require("modules/languages/controllers/languageController");
 const { user, owner, admin } = require("../middlewares/authMiddleware");
@@ -12,6 +13,16 @@ router.group("/auth", (router) => {
   router.put("/reset-password", authController.resetPassword);
 });
 
+router.group("/posts", user, (router) => {
+  router.get("/", postsController.index);
+  router.get("/:postId", postsController.show);
+});
+
+router.group("/posts", owner, (router) => {
+  router.post("/create", postsController.create);
+  router.put("/update/:postId", postsController.update);
+  router.delete("/delete/:postId", postsController.destroy);
+});
 router.group("/languages", user, (router) => {
   router.get("/", languagesController.index);
   router.get("/:languageId", languagesController.show);
