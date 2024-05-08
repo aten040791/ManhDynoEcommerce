@@ -18,6 +18,7 @@ module.exports = {
           key: "id",
         },
         allowNull: false,
+        onDelete: "CASCADE",
       },
       post_id: {
         type: Sequelize.INTEGER,
@@ -28,6 +29,7 @@ module.exports = {
           key: "id",
         },
         allowNull: false,
+        onDelete: "CASCADE",
       },
       locale: {
         type: Sequelize.STRING(20),

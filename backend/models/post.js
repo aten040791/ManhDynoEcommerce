@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       Post.hasMany(models.Language_Post, {
+        onDelete: "CASCADE",
         foreignKey: "post_id",
         as: "language_post",
       });

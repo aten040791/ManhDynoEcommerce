@@ -30,29 +30,14 @@ module.exports = {
                     error: "User not found",
                 }
             }
-            await db.Post.destroy({
-                where: {
-                    user_id: checkUser.id
-                }
-            });
-            await db.Language_Post.destroy({
-                where: {
-                    
-                }
-            });
             const response = await db.User.destroy({
                 where: {
                     id: checkUser.id,
                 }
             })
-            if (response === 1) {
-                return {
-                    data: "User deleted successfully",
-                };
-            }
             return {
-                error: "Failed to delete user",
-            };
+                data: response == 1 ? "User deleted successfully" : "User deleted failed",
+            }
         } catch (error) {
             return {
                 error: error.message

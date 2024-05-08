@@ -35,7 +35,7 @@ router.group("/languages", owner, (router) => {
   router.delete("/delete/:languageId", languagesController.destroy);
 });
 
-router.group("/users",admin ,(router) => {
+router.group("/users", admin ,(router) => {
   router.get("/", usersController.index)
   router.delete("/delete/:userId", usersController.destroy);
 });
