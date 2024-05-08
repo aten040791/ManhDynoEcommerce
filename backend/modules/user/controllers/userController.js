@@ -20,7 +20,6 @@ module.exports = {
     destroy: async (req, res) => {
         try {
             const { role, userId } = req.user;
-            console.log(role, userId);
             if (!userId && role != "admin") {
                 return rs.authorization(res, "Unauthorized");
             }
