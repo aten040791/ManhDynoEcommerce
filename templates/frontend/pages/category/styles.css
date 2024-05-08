@@ -96,10 +96,6 @@ body {
     background: #F3F4F4;
 }
 
-.hover-bg-active:hover {
-    background: var(--blue-color);
-}
-
 .hover-color-white:hover,
 .hover-color-white:hover a {
     color: #fff !important;
@@ -137,16 +133,9 @@ body {
     padding: 9px 0;
 }
 
-.wm-80 {
-    max-width: 80px;
-}
 
 .mw-120 {
     min-width: 120px !important;
-}
-
-.py-9 {
-    padding: 9px 0;
 }
 
 .py-10 {
