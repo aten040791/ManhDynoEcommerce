@@ -1,33 +1,15 @@
 
 import en from "../data/en.json" with { type: "json" };
 import vi from "../data/vi.json" with { type: "json" };
-
-
 document.addEventListener("DOMContentLoaded", function () {
-  const iconBars = document.querySelector("#icon-bars");
-  const headerNav = document.querySelector("#header-nav");
   const headerNavItems = document.querySelectorAll("#header-nav .header-nav-item");
   const langDropdown = document.querySelector("#lang-dropdown");
-  const textsLangChange = document.querySelectorAll("[data-section]");
-  let language = "English";
-  iconBars.addEventListener("click", function () {
-    if (langDropdown.classList.contains("show")) {
-      langDropdown.classList.remove("show");
-    }
-    headerNav.classList.toggle("active");
-  });
-
-  langDropdown.addEventListener("click", function () {
-    headerNav.classList.remove("active");
-    this.classList.add("show");
-  });
-
-
-
   const dropdownItems = document.querySelectorAll(".dropdown-item");
+  const textsLangChange = document.querySelectorAll("[data-section]");
   dropdownItems.forEach((item) => {
     item.addEventListener("click", function (event) {
       event.preventDefault();
+      let language = "English";
        language = this.textContent.trim();
       const flagPath = `../../../backend/owner/assets/images/flags/${
         language === "English" ? "US" : "VN"
@@ -52,7 +34,4 @@ document.addEventListener("DOMContentLoaded", function () {
       })
     });
   });
-
-
 });
-
