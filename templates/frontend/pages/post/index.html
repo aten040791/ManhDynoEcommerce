@@ -26,15 +26,14 @@
             </div>
             <div class="header-nav d-flex align-items-center gap-2" id="header-nav">
                 <div
-                    class="header-nav-item mw-120 d-flex align-items-center hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    class="header-nav-item  d-flex align-items-center hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
                     <i class="fa-solid fa-house d-none me-3"></i>
                     <a data-section="header" data-value="home"
                         class="text-decoration-none fs-6 color-disabled fw-600 mt-1 gap-2" href="../home/index.html">
                         Home
                     </a>
                 </div>
-                <div
-                    class="header-nav-item mw-130  hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                <div class="header-nav-item  hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
                     <i class="fa-solid fa-list d-none"></i>
                     <a data-section="header" data-value="category"
                         class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
@@ -76,7 +75,8 @@
             </div>
             <div class="header-sign-in mw-120 hover-pointer hover-bg-active hover-color-white justify-content-center rounded-pill 
                 d-flex align-items-center border color-active border-3 border-primary">
-                <a href="../auth/sign-in/index.html" class="text-decoration-none fw-bold ">Sign In</a>
+                <a href="../auth/sign-in/index.html" class="text-decoration-none fw-bold" data-section="header"
+                    data-value="signin">Sign In</a>
             </div>
             <div class="header-avatar d-none">
                 <i class="fa-solid fa-user align"></i>
@@ -113,46 +113,34 @@
                 <!-- END OF BREADCRUMB -->
                 <img class="w-100" src="../../assets/images/post/blog39.jpg" alt="lap-top-education">
                 <div class="mt-3 mb-1 letter-spacing-2 post-cate">
-                    <span class="color-active">EDUCATION</span>
+                    <span data-section="post" data-value="category" class="color-active">EDUCATION</span>
                 </div>
-                <h4 class="fw-bold"> Help children get better education</h4>
-                <p class="mt-2 lh-base content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                    rhoncus
-                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                    tristique senectus et netus.
-                    <br />
-                    Mattis pellentesque id nibh tortor id aliquet lectus proin
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                    rhoncus
-                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                    tristique
-                    senectus et netus.
-                    <br />
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                    rhoncus
-                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                    tristique
-                    senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et
-                    molestie
-                    ac feugiat sed lectus vestibulum.
-                    <br />
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris
-                    rhoncus
-                    aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi
-                    tristique
-                    senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et
-                    molestie
-                    ac feugiat sed lectus vestibulum.
-                </p>
+                <h4 class="fw-bold" data-section="post" data-value="title"> Help children get better education</h4>
+                <div class="mt-2 lh-base content">
+                    <p data-section="post" data-value="introduction">
+                        In today's interconnected world, education stands as one of the most powerful tools for
+                        transforming
+                        lives and shaping a brighter future.
+                    </p>
+                    <p data-section="post" data-value="body">
+                        However, millions of children worldwide still lack access to quality education, depriving them
+                        of essential opportunities for growth and development. Addressing this challenge requires
+                        concerted efforts to ensure that every child, regardless of their background or circumstances,
+                        has the opportunity to receive a meaningful education. Improving access to education begins with
+                        investing in infrastructure and resources. This includes building and renovating schools,
+                        equipping classrooms with modern facilities and technology, and providing educational materials
+                        and textbooks.
+                    </p>
+                    <p data-section="post" data-value="conclusion">
+                        In conclusion, empowering children through education is not only a moral imperative but also a
+                        strategic investment in the future of our societies. By ensuring equitable access to quality
+                        education and fostering a culture of lifelong learning, we can unlock the full potential of
+                        every
+                        child and build a more inclusive and prosperous world for generations to come. Let us join hands
+                        to
+                        make education a reality for every child and pave the way for a brighter tomorrow.
+                    </p>
+                </div>
             </div>
             <!-- END OF POST DETAIL -->
 
@@ -160,87 +148,87 @@
             <div class="article p-24 w-35">
                 <!-- START OF LATEST POST -->
                 <div class="latest-post">
-                    <h4 class="fs-5 fw-bold mb-2 ">
+                    <h4 data-section="latestpost" data-value="title" class="fs-5 fw-bold mb-2 ">
                         Latest Post
                     </h4>
                     <ul class="list-unstyled">
                         <li class="mb-3">
-                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                            <a class="d-flex text-decoration-none hover-color-active">
                                 <div class="w-20 latest-post-img wm-80">
                                     <img src="../../assets/images/article/machine.png"
                                         class="w-100 object-fit-contain" />
                                 </div>
                                 <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
-                                    <div class="title color-disabled">
+                                    <div class="title color-disabled" data-section="post" data-value="title">
                                         Help children get better education in the future over
                                         the whole world
                                     </div>
-                                    <span class="fs-0 color-disabled date">
+                                    <span class="fs-0 color-disabled date" data-section="post" data-value="date">
                                         Jun 27, 2022
                                     </span>
                                 </div>
                             </a>
                         </li>
                         <li class="mb-3">
-                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                            <a class="d-flex text-decoration-none hover-color-active">
                                 <div class="w-20 latest-post-img wm-80">
                                     <img src="../../assets/images/article/girl.png " class="w-100 object-fit-contain" />
                                 </div>
                                 <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
-                                    <div class="title color-disabled">
+                                    <div class="title color-disabled" data-section="post" data-value="title">
                                         Help children get better education in the future over
                                         the whole world
                                     </div>
-                                    <span class="fs-0 color-disabled date">
+                                    <span class="fs-0 color-disabled date" data-section="post" data-value="date">
                                         Jun 27, 2022
                                     </span>
                                 </div>
                             </a>
                         </li>
                         <li class="mb-3">
-                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                            <a class="d-flex text-decoration-none hover-color-active">
                                 <div class="w-20 latest-post-img wm-80">
                                     <img src="../../assets/images/article/man.png " class="w-100 object-fit-contain" />
                                 </div>
                                 <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
-                                    <div class=" title color-disabled">
+                                    <div class="title color-disabled" data-section="post" data-value="title">
                                         Help children get better education in the future over
                                         the whole world
                                     </div>
-                                    <span class="fs-0 color-disabled date">
+                                    <span class="fs-0 color-disabled date" data-section="post" data-value="date">
                                         Jun 27, 2022
                                     </span>
                                 </div>
                             </a>
                         </li>
                         <li class="mb-3">
-                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                            <a class="d-flex text-decoration-none hover-color-active">
                                 <div class="w-20 latest-post-img wm-80">
                                     <img src="../../assets/images/article/ipad.png " class="w-100 object-fit-contain" />
                                 </div>
                                 <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
-                                    <div class="title color-disabled">
+                                    <div class="title color-disabled" data-section="post" data-value="title">
                                         Help children get better education in the future over
                                         the whole world
                                     </div>
-                                    <span class="fs-0 color-disabled date">
+                                    <span class="fs-0 color-disabled date" data-section="post" data-value="date">
                                         Jun 27, 2022
                                     </span>
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a class="d-flex text-decoration-none hover-color-active" href="index.html">
+                            <a class="d-flex text-decoration-none hover-color-active">
                                 <div class="w-20 latest-post-img wm-80">
                                     <img src="../../assets/images/article/figma-icon.png "
                                         class="w-100 object-fit-contain" />
                                 </div>
                                 <div class="ms-2 latest-post-text d-flex flex-column justify-content-between w-80">
-                                    <div class="title color-disabled">
+                                    <div class="title color-disabled" data-section="post" data-value="title">
                                         Help children get better education in the future over
                                         the whole world
                                     </div>
-                                    <span class="fs-0 color-disabled date">
+                                    <span class="fs-0 color-disabled date" data-section="post" data-value="date">
                                         Jun 27, 2022
                                     </span>
                                 </div>
@@ -252,37 +240,43 @@
 
                 <!-- START OF TAGS -->
                 <div class="tags w-75">
-                    <h4 class="fs-5 fw-bold mb-2 ">
+                    <h4 class="fs-5 fw-bold mb-2 " data-section="tags" data-value="title">
                         Tags
                     </h4>
                     <ul class="d-flex flex-wrap list-unstyled gap-2 fs-0">
                         <li class="bg-active p-2 rounded-3 hover-pointer">
-                            <a href="../category/index.html" class="text-light text-decoration-none">
+                            <a data-section="tags" data-value="medical" href="../category/index.html"
+                                class="text-light text-decoration-none">
                                 Medical
                             </a>
                         </li>
                         <li class="bg-active p-2 rounded-3 hover-pointer">
-                            <a href="../category/index.html" class="text-light text-decoration-none">
+                            <a data-section="tags" data-value="lifestyle" href="../category/index.html"
+                                class="text-light text-decoration-none">
                                 Lifestyle
                             </a>
                         </li>
                         <li class="bg-active p-2  rounded-3 hover-pointer">
-                            <a href="../category/index.html" class="text-light text-decoration-none">
+                            <a data-section="tags" data-value="learn" href="../category/index.html"
+                                class="text-light text-decoration-none">
                                 Learn
                             </a>
                         </li>
                         <li class="bg-active p-2 rounded-3 hover-pointer">
-                            <a href="../category/index.html" class="text-light text-decoration-none">
+                            <a data-section="tags" data-value="healthy" href="../category/index.html"
+                                class="text-light text-decoration-none">
                                 Healthy
                             </a>
                         </li>
                         <li class="bg-active p-2 rounded-3 hover-pointer">
-                            <a href="../category/index.html" class="text-light text-decoration-none ">
+                            <a data-section="tags" data-value="food" href="../category/index.html"
+                                class="text-light text-decoration-none ">
                                 Food
                             </a>
                         </li>
                         <li class="bg-active p-2 rounded-3 hover-pointer">
-                            <a href="../category/index.html" class="text-light text-decoration-none">
+                            <a data-section="tags" data-value="education" href="../category/index.html"
+                                class="text-light text-decoration-none">
                                 Education
                             </a>
                         </li>

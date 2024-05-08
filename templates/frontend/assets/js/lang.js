@@ -32,6 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const flagPath = `../../../backend/owner/assets/images/flags/${
         language === "English" ? "US" : "VN"
       }.png`;
+      if(language !== "English"){
+        headerNavItems[0].classList.add("mw-120");
+        headerNavItems[1].classList.add("mw-130"); 
+      }else{
+        headerNavItems[0].classList.remove("mw-120");
+        headerNavItems[1].classList.remove("mw-130"); 
+      }
 
       langDropdown.innerHTML = `<img src="${flagPath}" class="w-40" alt="${language}"> <a href="#" class="text-decoration-none color-disabled fw-600">${language}</a>`; 
       textsLangChange.forEach((item) =>{
