@@ -235,7 +235,8 @@ module.exports = {
         }
       );
       return {
-        data: response ? "Post updated successfully" : "Post updated failed",
+        data:
+          response == 1 ? "Post updated successfully" : "Post updated failed",
       };
     } catch (error) {
       return {
@@ -257,18 +258,14 @@ module.exports = {
           error: "No authorization",
         };
       }
-      await model.Language_Post.destroy({
-        where: {
-          post_id: checkPost.id,
-        },
-      });
       const respone = await model.Post.destroy({
         where: {
           id: checkPost.id,
         },
       });
       return {
-        data: respone ? "Post deleted successfully" : "Post deleted failed",
+        data:
+          respone == 1 ? "Post deleted successfully" : "Post deleted failed",
       };
     } catch (error) {
       return {
