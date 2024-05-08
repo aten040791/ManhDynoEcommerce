@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
     static associate(models) {
       Category.hasMany(models.Post, {
+        onDelete: "CASCADE",
         foreignKey: "category_id",
         as: "post",
       });
