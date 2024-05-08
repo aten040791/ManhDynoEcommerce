@@ -29,7 +29,7 @@ function setSuccess(element) {
   parent.classList.add("success");
 }
 const isValidEmail = (email) => {
-  const RegexEmail = /^[a-zA-Z0-9_-]{6,}@[a-zA-Z]+.[a-zA-Z]{2,}$/;
+  const RegexEmail = /^[a-zA-Z0-9]{8,20}@gmail.com$/;
   return RegexEmail.test(String(email).toLowerCase());
 };
 

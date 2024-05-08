@@ -1,33 +1,27 @@
 "use strict";
 const { Model } = require("sequelize");
-const bcrypt = require("bcryptjs");
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class Language extends Model {
     static associate(models) {
-      User.hasMany(models.Post, {
-        foreignKey: "user_id",
-        as: "post",
+      Language.hasMany(models.Language_Post, {
+        foreignKey: "language_id",
+        as: "language_post",
       });
     }
   }
-  User.init(
+  Language.init(
     {
-      username: {
+      name: {
         type: DataTypes.STRING(20),
         allowNull: false,
       },
-      email: {
-        type: DataTypes.STRING(30),
+      locale: {
+        type: DataTypes.STRING(10),
         unique: true,
         allowNull: false,
       },
-      password: {
+      flag: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      role: {
-        type: DataTypes.STRING(10),
-        defaultValue: "guest",
         allowNull: false,
       },
       created_at: {
@@ -41,13 +35,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "User",
+      modelName: "Language",
       timestamps: false,
     }
   );
-  User.beforeCreate(async (user) => {
-    const hashedPassword = await bcrypt.hash(user.password, 10);
-    user.password = hashedPassword;
-  });
-  return User;
+  return Language;
 };
