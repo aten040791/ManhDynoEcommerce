@@ -25,24 +25,28 @@
                 Coding Blog
             </div>
             <div class="header-nav d-flex align-items-center gap-2" id="header-nav">
-                <div class="header-nav-item hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
-                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
-                        href="../home/index.html">
-                        <i class="fa-solid fa-house d-none"></i>
+                <div
+                    class="header-nav-item mw-120 d-flex align-items-center hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <i class="fa-solid fa-house d-none me-3"></i>
+                    <a data-section="header" data-value="home"
+                        class="text-decoration-none fs-6 color-disabled fw-600 mt-1 gap-2" href="../home/index.html">
                         Home
                     </a>
                 </div>
-                <div class="header-nav-item hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
-                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                <div
+                    class="header-nav-item mw-130  hover-color-disabled hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
+                    <i class="fa-solid fa-list d-none"></i>
+                    <a data-section="header" data-value="category"
+                        class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
                         href="../category/index.html">
-                        <i class="fa-solid fa-list d-none"></i>
                         Categories
                     </a>
                 </div>
                 <div class="header-nav-item sign-out d-none hover-bg-disabled px-3 py-10 hover-pointer rounded-3">
-                    <a class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
+                    <i class="ri-logout-box-r-line fs-5"></i>
+                    <a data-section="header" data-value="signout"
+                        class="text-decoration-none color-disabled fw-600 d-flex align-items-center gap-2"
                         href="../auth/sign-in/index.html">
-                        <i class="ri-logout-box-r-line fs-5"></i>
                         Sign out
                     </a>
                 </div>
@@ -58,13 +62,11 @@
                             English</a>
                     </button>
                     <div class="dropdown-menu p-0 " aria-labelledby="lang-dropdown">
-                        <a class="dropdown-item" href="#"
-                            onclick="changeLanguage('English', '../../../backend/owner/assets/images/flags/US.png')">
+                        <a class="dropdown-item" href="#">
                             <img class="w-40" src="../../../backend/owner/assets/images/flags/US.png" alt="English" />
                             English
                         </a>
-                        <a class="dropdown-item" href="#"
-                            onclick="changeLanguage('Tiếng Việt', '../../../backend/owner/assets/images/flags/VN.png')">
+                        <a class="dropdown-item" href="#">
                             <img class="w-40" src="../../../backend/owner/assets/images/flags/VN.png"
                                 alt="Tiếng Việt" />
                             Tiếng Việt
@@ -94,11 +96,16 @@
                 <!-- START OF BREADCRUMB -->
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb  bg-transparent mb-0 p-2 ps-0">
-                        <li class="breadcrumb-item"> <a href="../home/index.html" class="text-decoration-none">
-                                Home </a></li>
-                        <li class="breadcrumb-item"><a href="../category/index.html"
-                                class="text-decoration-none">Education</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Help children get better
+                        <li class="breadcrumb-item">
+                            <a href="../home/index.html" class="text-decoration-none" data-section="breadcrumbs"
+                                data-value="home"> Home </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="../category/index.html" class="text-decoration-none" data-section="breadcrumbs"
+                                data-value="category">Education</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page" data-section="breadcrumbs"
+                            data-value="title"> Help children get better
                             education
                         </li>
                     </ol>
@@ -384,7 +391,7 @@
             <!-- END OF FOOTER COPYRIGHT -->
         </div>
     </footer>
-    <script src="../../assets/js/nav-bar.js"></script>
+    <script type="module" src="../../assets/js/lang.js"></script>
 </body>
 
 </html>

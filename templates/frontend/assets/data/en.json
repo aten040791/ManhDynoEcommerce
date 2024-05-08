@@ -1,0 +1,12 @@
+{
+    "header": {
+        "home": "Home",
+        "category": "Categories",
+        "signout": "Sign out"
+    },
+    "breadcrumbs": {
+        "home": "Home",
+        "category": "Education",
+        "title": "Help children get better education"
+    }
+}
