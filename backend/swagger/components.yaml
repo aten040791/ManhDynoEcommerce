@@ -33,6 +33,27 @@ components:
         updated_at:
           type: string
           example: "2024-05-05T10:42:20.000Z"     
+    Language:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "English"
+        locale:
+          type: string
+          example: "en_us"
+        flag:
+          type: string
+          example: "https://www.countryflags.io/us/flat/64.png"
+        created_at:
+          type: string
+          example: "2024-05-05T10:42:20.000Z"
+        updated_at:
+          type: string
+          example: "2024-05-05T10:42:20.000Z"     
     User:  
      type: object
      properties:
@@ -59,8 +80,8 @@ components:
         format: date-time
      example:
       id: 1
-      username: "john_doe"
-      email: "john@example.com"
+      username: "john_doe@gmail.com"
+      email: "john_doe@gmail.com"
       role: "owner"
       created_at: "2024-05-06T12:00:00Z"
       updated_at: "2024-05-06T12:00:00Z"
