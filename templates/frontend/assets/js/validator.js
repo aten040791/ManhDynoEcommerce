@@ -5,7 +5,6 @@ const confirmPassword = document.getElementById("confirm-password");
 
 form.addEventListener("submit", (e) => {
   const status = validateInputs();
-  console.log(status);
   if (!status) {
     e.preventDefault();
   }

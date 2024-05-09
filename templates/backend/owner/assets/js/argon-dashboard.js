@@ -270,7 +270,6 @@ function navbarFixed(el) {
 // Set Navbar Minimized
 function navbarMinimize(el) {
   var sidenavShow = document.getElementsByClassName("g-sidenav-show")[0];
-  // console.log(sidenavShow);
   if (!el.getAttribute("checked")) {
     sidenavShow.classList.remove("g-sidenav-pinned");
     sidenavShow.classList.add("g-sidenav-hidden");

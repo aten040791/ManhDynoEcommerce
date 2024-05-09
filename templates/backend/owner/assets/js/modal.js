@@ -207,7 +207,6 @@ function addNewLanguage() {
             icon: "error",
           });
         } else {
-          console.log(obj);
           swalWithBootstrapButtons.fire({
             title: "Created Successfully",
             text: "Language, Locale and Flag have been created.",
@@ -285,7 +284,6 @@ function updateLanguage() {
 
         // Update UI or display success message using SweetAlert
         else {
-          console.log(obj);
           swalWithBootstrapButtons.fire({
             title: "Created Successfully",
             text: "Language, Locale and Flag have been updated.",
