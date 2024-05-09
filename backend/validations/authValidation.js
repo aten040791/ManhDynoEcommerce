@@ -1,5 +1,4 @@
 const Joi = require("joi");
-const { recoverPassword } = require("modules/auth/services/authService");
 
 module.exports = {
   signIn: (data) => {

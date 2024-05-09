@@ -914,4 +914,270 @@ paths:
                  example: 404
                message:
                  type: string
-                 example: "User not found or has been deleted"  
+                 example: "User not found or has been deleted"     
+   /categories:
+    get:
+      tags:
+        - category
+      description: Get a list of all categories
+      operationId: list categories
+      security:
+        - BearerAuth: []
+      responses:
+        '200': 
+         description: "Get all categories successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                 type: array
+                 items:
+                   schema:
+                   $ref: '#/components/schemas/Category'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Get list of categories successfully"
+        '404': 
+          description: "Get all categories failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get all categories failed"  
+   /categories/{categoryId}:
+    get:
+      tags:
+        - category
+      description: Get details of a category
+      operationId: detail category
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: categoryId
+          in: path
+          description: Id of category to get 
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200': 
+         description: "Get detail of a category successfully"
+         content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                   $ref: '#/components/schemas/Category'
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Get detail of a category successfully"
+        '404': 
+          description: "Get detail of a category failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Get detail of a category failed"  
+
+   /categories/create:
+    post:
+      tags:
+        - category
+      description: Create new category
+      operationId: create category
+      security:
+        - BearerAuth: []
+      requestBody:
+        description: Information about the category
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                name:
+                 type: string
+                 example: "reactjs"
+        required: true
+      responses:
+        '200':
+          description: "Created category successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: string
+                  example: "Category created successfully"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Created category failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Category has been used"
+
+   /categories/update/{categoryId}:
+    put:
+      tags:
+        - category
+      description: Update category
+      operationId: update category
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: categoryId
+          in: path
+          description: Id of category to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Information update
+        content:
+          application/json:
+            schema:
+               type: object
+               properties:
+                name:
+                 type: string
+                 example: "ReactNative"
+        required: true
+      responses:
+        '200':
+          description: "Updated category successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                data:
+                  type: string
+                  example: "Category updated successfully"
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "ok"
+        '404':
+          description: "Updated category failed"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Category not found"
+
+   /categories/delete/{categoryId}:
+    delete:
+      tags:
+        - category
+      description: Delete category
+      operationId: delete category
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: categoryId
+          in: path
+          description: Id of category to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: "Deleted category successfully"
+          content:
+           application/json:
+            schema:
+               type: object
+               properties:
+                success:
+                 type: string
+                 example: true
+                status:
+                 type: integer
+                 example: 200
+                message:
+                 type: string
+                 example: "Category deleted successfully"
+        '404':
+          description: "Failed to delete category"
+          content:
+           application/json:
+            schema:
+              type: object
+              properties:
+               success:
+                 type: string
+                 example: false
+               status:
+                 type: integer
+                 example: 404
+               message:
+                 type: string
+                 example: "Failed to delete category"
+
+

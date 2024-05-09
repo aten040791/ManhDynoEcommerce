@@ -3,6 +3,7 @@ const express = require("express");
 const postsController = require("modules/post/controllers/postsController");
 const authController = require("modules/auth/controllers/authController");
 const languagesController = require("modules/languages/controllers/languageController");
+const categoriesController = require("modules/category/controllers/categoryController");
 const usersController = require("modules/user/controllers/userController");
 const { user, owner, admin } = require("../middlewares/authMiddleware");
 const router = express.Router({ mergeParams: true });
@@ -33,6 +34,14 @@ router.group("/languages", owner, (router) => {
   router.post("/create", languagesController.create);
   router.put("/update/:languageId", languagesController.update);
   router.delete("/delete/:languageId", languagesController.destroy);
+});
+
+router.group("/categories", (router) => {
+  router.get("/", categoriesController.index);
+  router.get("/:categoryId", categoriesController.show);
+  router.post("/create", categoriesController.create);
+  router.put("/update/:categoryId", categoriesController.update);
+  router.delete("/delete/:categoryId", categoriesController.destroy);
 });
 
 router.group("/users", admin ,(router) => {
