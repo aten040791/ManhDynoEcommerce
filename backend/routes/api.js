@@ -4,6 +4,7 @@ const postsController = require("modules/post/controllers/postsController");
 const authController = require("modules/auth/controllers/authController");
 const languagesController = require("modules/languages/controllers/languageController");
 const categoriesController = require("modules/category/controllers/categoryController");
+const usersController = require("modules/user/controllers/userController");
 const { user, owner, admin } = require("../middlewares/authMiddleware");
 const router = express.Router({ mergeParams: true });
 
@@ -43,5 +44,9 @@ router.group("/categories", (router) => {
   router.delete("/delete/:categoryId", categoriesController.destroy);
 });
 
+router.group("/users", admin ,(router) => {
+  router.get("/", usersController.index)
+  router.delete("/delete/:userId", usersController.destroy);
+});
 
 module.exports = router;
