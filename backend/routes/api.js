@@ -3,6 +3,7 @@ const express = require("express");
 const postsController = require("modules/post/controllers/postsController");
 const authController = require("modules/auth/controllers/authController");
 const languagesController = require("modules/languages/controllers/languageController");
+const usersController = require("modules/user/controllers/userController");
 const { user, owner, admin } = require("../middlewares/authMiddleware");
 const router = express.Router({ mergeParams: true });
 
@@ -32,6 +33,11 @@ router.group("/languages", owner, (router) => {
   router.post("/create", languagesController.create);
   router.put("/update/:languageId", languagesController.update);
   router.delete("/delete/:languageId", languagesController.destroy);
+});
+
+router.group("/users", admin ,(router) => {
+  router.get("/", usersController.index)
+  router.delete("/delete/:userId", usersController.destroy);
 });
 
 module.exports = router;
