@@ -1,0 +1,33 @@
+{
+    "header": {
+        "home": "Trang chủ",
+        "category": "Chuyên mục",
+        "signout": "Đăng xuất",
+        "signin": "Đăng nhập"
+    },
+    "breadcrumbs": {
+        "home": "Trang chủ",
+        "category": "Giáo dục",
+        "title": "Giúp trẻ em có được nền giáo dục tốt hơn"
+    },
+    "latestpost": {
+        "title": "Bài viết mới nhất"
+    },
+    "post": {
+        "title": "Giúp trẻ em có được nền giáo dục tốt hơn trong tương lai",
+        "category": "GIÁO DỤC",
+        "introduction": "Trong thế giới kết nối ngày nay, giáo dục được coi là một trong những công cụ mạnh mẽ nhất để chuyển đổi sống và xây dựng một tương lai tươi sáng hơn.",
+        "body": "Tuy nhiên, hàng triệu trẻ em trên toàn cầu vẫn thiếu tiếp cận nền giáo dục có chất lượng, tước đi những cơ hội thiết yếu để tăng trưởng và phát triển. Việc giải quyết thách thức này đòi hỏi những nỗ lực phối hợp để đảm bảo rằng mọi trẻ em, bất kể xuất thân hoặc hoàn cảnh, có cơ hội nhận được một nền giáo dục có ý nghĩa. Cải thiện khả năng tiếp cận giáo dục bắt đầu bằng việc đầu tư vào cơ sở hạ tầng và nguồn lực. Điều này bao gồm xây dựng, cải tạo trường học, trang bị phòng học cơ sở vật chất, công nghệ hiện đại, cung cấp tài liệu, sách giáo khoa.",
+        "conclusion": "Trong kết luận, trao quyền cho trẻ em thông qua giáo dục không chỉ là một mệnh lệnh đạo đức mà còn là một đầu tư chiến lược vào tương lai của xã hội chúng ta. Bằng cách đảm bảo quyền tiếp cận công bằng tới chất lượng giáo dục và bồi dưỡng văn hóa học tập suốt đời, chúng ta có thể khai thác tối đa tiềm năng của mọi trẻ em và xây dựng một thế giới hòa nhập và thịnh vượng hơn cho các thế hệ mai sau. Chúng ta hãy chung tay để biến giáo dục thành hiện thực cho mọi trẻ em và mở đường cho một ngày mai tươi sáng hơn.",
+        "date": "Ngày 27 tháng 6,2022"
+    },
+    "tags": {
+        "title": "Thẻ",
+        "medical": "Y tế",
+        "lifestyle": "Lối sống",
+        "learn": "Học",
+        "healthy": "Sức khỏe",
+        "food": "Ẩm thực",
+        "education": "Giáo dục"
+    }
+}

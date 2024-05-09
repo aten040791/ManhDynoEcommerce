@@ -1,0 +1,33 @@
+{
+    "header": {
+        "home": "Home",
+        "category": "Categories",
+        "signout": "Sign out",
+        "signin": "Sign In"
+    },
+    "breadcrumbs": {
+        "home": "Home",
+        "category": "Education",
+        "title": "Help children get better education"
+    },
+    "latestpost": {
+        "title": "Latest Post"
+    },
+    "post": {
+        "title": " Help children get better education in the future",
+        "category": "Education",
+        "introduction": "In today's interconnected world, education is regarded as one of the most powerful tools for transforming lives and constructing a brighter future.",
+        "body": "However, millions of children worldwide still lack access to quality education, depriving them of essential opportunities for growth and development. Addressing this challenge requires concerted efforts to ensure that every child, regardless of their background or circumstances, has the opportunity to receive a meaningful education. Improving access to education begins with investing in infrastructure and resources. This includes building and renovating schools, equipping classrooms with modern facilities and technology, and providing educational materials and textbooks.",
+        "conclusion": "In conclusion, empowering children through education is not only a moral imperative but also a strategic investment in the future of our society. By ensuring equitable access to quality education and fostering a culture of lifelong learning, we can maximize the potential of every child and build a more inclusive and prosperous world for future generations. Let us come together to turn education into a reality for every child and pave the way for a brighter tomorrow.",
+        "date": "Jun 27, 2022"
+    },
+    "tags": {
+        "title": "Tags",
+        "medical": "Medical",
+        "lifestyle": "Lifestyle",
+        "learn": "Learn",
+        "healthy": "Healthy",
+        "food": "Food",
+        "education": "Education"
+    }
+}
