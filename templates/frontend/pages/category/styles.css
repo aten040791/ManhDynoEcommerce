@@ -133,10 +133,6 @@ body {
     min-width: 120px !important;
 }
 
-.py-9 {
-    padding: 9px 0;
-}
-
 .py-10 {
     padding: 10px 0;
 }
@@ -228,9 +224,6 @@ body {
 @media (max-width: 992px) {
     .category-page {
         flex-direction: column;
-    }
-    .category-detail {
-        width: 100%;
     }
     .category-aside {
         width: 100%;
