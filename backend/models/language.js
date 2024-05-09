@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class Language extends Model {
     static associate(models) {
       Language.hasMany(models.Language_Post, {
+        onDelete: "CASCADE",
         foreignKey: "language_id",
         as: "language_post",
       });
