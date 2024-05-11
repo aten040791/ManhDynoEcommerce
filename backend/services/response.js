@@ -7,6 +7,7 @@ module.exports = {
       message: "ok",
     });
   },
+
   notFound: (res) => {
     return res.status(404).send({
       success: false,
@@ -14,18 +15,20 @@ module.exports = {
       message: "Cannot find resouces",
     });
   },
+
   error: (res, message) => {
-    return res.status(404).send({
+    return res.status(500).send({
       success: false,
-      status: 404,
-      message: message,
+      status: 500,
+      message: "Internal server error",
     });
   },
-  authorization: (res, message) => {
+
+  unauthorized: (res, message) => {
     return res.status(401).send({
       success: false,
       status: 401,
-      message: message,
+      message: message || 'Unauthorized',
     });
   },
 };

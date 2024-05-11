@@ -1,6 +1,6 @@
-const postService = require("../services/postServices");
-const rs = require("../../../services/response");
-const validate = require("../../../validations/postValidation.js");
+const postService = require("modules/post/services/postService");
+const postValidation = require("modules/post/validations/postValidation");
+const rs = require("services/response");
 
 module.exports = {
   index: async (req, res) => {
@@ -18,7 +18,7 @@ module.exports = {
   },
   show: async (req, res) => {
     try {
-      const { error } = validate.show({ ...req.params, ...req.query });
+      const { error } = postValidation.show({ ...req.params, ...req.query });
       if (error) {
         return rs.error(res, error.details[0].message);
       }
@@ -40,7 +40,7 @@ module.exports = {
       if (!userId && role != "owner") {
         return rs.authorization(res, "Unauthorized");
       }
-      const { error } = validate.create({ ...req.body, ...req.query });
+      const { error } = postValidation.create({ ...req.body, ...req.query });
       if (error) {
         return rs.error(res, error.details[0].message);
       }
@@ -67,7 +67,7 @@ module.exports = {
         return rs.authorization(res, "Unauthorized");
       }
 
-      const { error } = validate.update({
+      const { error } = postValidation.update({
         ...req.body,
         ...req.query,
         ...req.params,
@@ -98,7 +98,7 @@ module.exports = {
       if (!userId && role != "owner") {
         return rs.authorization(res, "Unauthorized");
       }
-      const { error } = validate.destroy(req.params);
+      const { error } = postValidation.destroy(req.params);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
