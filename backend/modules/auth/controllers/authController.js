@@ -1,9 +1,9 @@
-const authService = require("../services/authService");
-const rs = require("../../../services/response");
-const validation = require("../../../validations/authValidation");
+const authService = require("modules/auth/services/authService");
+const rs = require("services/response");
+const validation = require("validations/authValidation");
 
 module.exports = {
-  signIn: async (req, res) => {
+  signIn: async (reqc, res) => {
     try {
       const { error } = validation.signIn(req.body);
       if (error) {
@@ -33,21 +33,17 @@ module.exports = {
     }
   },
   signUp: async (req, res) => {
-    try {
-      const { error } = validation.signUp(req.body);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await authService.signUp(req.body);
+    const { error } = validation.signUp(req.body);
+    if (error) {
+      return rs.error(res, error.details[0].message);
+    }
+    const response = await authService.signUp(req.body);
 
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    if (response.error) {
+      return rs.error(res, response.error);
+    }
+    if (response) {
+      return rs.ok(res, response);
     }
   },
   recoverPassword: async (req, res) => {
