@@ -794,6 +794,14 @@ express-router-group@^0.1.4:
   resolved "https://registry.npmjs.org/express-router-group/-/express-router-group-0.1.4.tgz"
   integrity sha512-w9t6nbH5gj3wZnLmbc8zpnMk38FmfvNcVZGgx6uX+3rFzwDPMxqFbkmzvIRd9GngLUoaU2QkJZmPuQBPpyHuxw==
 
+express-validator@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.npmjs.org/express-validator/-/express-validator-7.0.1.tgz"
+  integrity sha512-oB+z9QOzQIE8FnlINqyIFA8eIckahC6qc8KtqLdLJcU3/phVyuhXH3bA4qzcrhme+1RYaCSwrq+TlZ/kAKIARA==
+  dependencies:
+    lodash "^4.17.21"
+    validator "^13.9.0"
+
 express@^4.15.5, express@^4.19.2, "express@>=4.0.0 || >=5.0.0-beta":
   version "4.19.2"
   resolved "https://registry.npmjs.org/express/-/express-4.19.2.tgz"

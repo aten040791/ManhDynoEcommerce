@@ -7,11 +7,13 @@ const categoriesController = require("modules/category/controllers/categoryContr
 const usersController = require("modules/user/controllers/userController");
 const { role } = require("middlewares/roleMiddleware");
 const authenticated = require("middlewares/authMiddleware");
+const authRequest = require("modules/auth/requests/authRequest");
+const { validate } = require("kernels/validations");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
   router.post("/sign-in", authController.signIn);
-  router.post("/sign-up", authController.signUp);
+  router.post("/sign-up", validate([authRequest]), authController.signUp);
   router.post("/recover-password", authController.recoverPassword);
   router.put("/reset-password", authController.resetPassword);
 });

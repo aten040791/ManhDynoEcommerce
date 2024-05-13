@@ -1,11 +1,12 @@
 const authService = require("modules/auth/services/authService");
 const rs = require("services/response");
-const validation = require("validations/authValidation");
+const authValidation = require("modules/auth/validations/authValidation");
+const response = require("services/response");
 
 module.exports = {
-  signIn: async (reqc, res) => {
+  signIn: async (req, res) => {
     try {
-      const { error } = validation.signIn(req.body);
+      const { error } = authValidation.signIn(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
@@ -32,23 +33,16 @@ module.exports = {
       return rs.error(res, error.message);
     }
   },
-  signUp: async (req, res) => {
-    const { error } = validation.signUp(req.body);
-    if (error) {
-      return rs.error(res, error.details[0].message);
-    }
-    const response = await authService.signUp(req.body);
 
-    if (response.error) {
-      return rs.error(res, response.error);
-    }
-    if (response) {
-      return rs.ok(res, response);
-    }
+  signUp: async (req, res) => {
+    const data = await authService.signUp(req.body);
+    
+    return response.ok(res, data)
   },
+
   recoverPassword: async (req, res) => {
     try {
-      const { error } = validation.recoverPassword(req.body);
+      const { error } = authValidation.recoverPassword(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
@@ -63,9 +57,10 @@ module.exports = {
       return rs.error(res, error.message);
     }
   },
+
   resetPassword: async (req, res) => {
     try {
-      const { error } = validation.signUp(req.body);
+      const { error } = authValidation.signUp(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }

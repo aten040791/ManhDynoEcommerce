@@ -31,4 +31,14 @@ module.exports = {
       message: message || 'Unauthorized',
     });
   },
+
+  invalidated: (res, errors) => {
+    return res.status(422).send({
+      success: false,
+      status: 422,
+      data: [
+        errors
+      ]
+    })
+  }
 };
