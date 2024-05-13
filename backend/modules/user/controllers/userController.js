@@ -1,5 +1,5 @@
 const userService = require('modules/user/services/userServices');
-const rs = require('services/response');
+const rs = require('utils/responseUtils');
 const validate = require('validations/userValidation');
 
 
@@ -13,7 +13,7 @@ module.exports = {
             if (response) {
                 return rs.ok(res, response)
             }
-        } catch (error) {
+        }catch (error) {
             return rs.error(res, error.message);
         }
     },
@@ -22,7 +22,7 @@ module.exports = {
             const { role, userId } = req.user;
             if (!userId && role != "admin") {
                 return rs.authorization(res, "Unauthorized");
-            }
+            }vu
             const { error } = validate.destroy(req.params);
             if (error) {
                 return rs.error(res, error.details[0].message);

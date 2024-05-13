@@ -1,48 +1,24 @@
-const rs = require("../services/response");
 const jwt = require("jsonwebtoken");
+const response = require("utils/responseUtils");
 
-const verifyToken = (req, res) => {
+const authenticated = (req, res, next) => {
   let access_token = req.headers.authorization;
   if (access_token) {
     access_token = access_token.split(" ")[1];
     jwt.verify(access_token, process.env.JWT_SECRET_KEY, (error, user) => {
       if (error) {
-        return rs.error(res, "Unauthorized");
+        return response.unauthorized(res)
       }
       if (user) {
         req.user = user;
+        return next();
       } else {
-        return rs.error(res, "Unauthorized");
+        return response.error(res)
       }
     });
   } else {
-    return rs.error(res, "Access is required");
+    return response.error(res, "Access is required");
   }
 };
 
-module.exports = {
-  user: (req, res, next) => {
-    verifyToken(req, res);
-    if (req.user && req.user.role !== "admin") {
-      next();
-    } else {
-      return rs.error(res, "Unauthorized");
-    }
-  },
-  owner: (req, res, next) => {
-    verifyToken(req, res);
-    if (req.user.role === "owner") {
-      next();
-    } else {
-      return rs.authorization(res, "Unauthorized");
-    }
-  },
-  admin: (req, res, next) => {
-    verifyToken(req, res);
-    if (req.user.role === "admin") {
-      next();
-    } else {
-      return rs.authorization(res, "Unauthorized");
-    }
-  },
-};
+module.exports = authenticated

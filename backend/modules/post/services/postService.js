@@ -1,5 +1,5 @@
-const model = require("../../../models");
-const { sequelize } = require("../../../models");
+const model = require("models");
+const {sequelize} = require('models')
 const slugify = require("slugify");
 const { Op } = require("sequelize");
 

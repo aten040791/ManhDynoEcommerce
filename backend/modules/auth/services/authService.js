@@ -1,56 +1,92 @@
 const model = require("../../../models/index");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const jwtUtils = require("utils/jwtUtils");
 
 module.exports = {
-  signIn: async (data) => {
+
+  signIn: async (data) => 
+  {
+    const { email, password } = data;
+
+    const checkUser = await model.User.findOne({
+      where: {
+        email: email,
+      },
+    });
+
+    if (!checkUser) {
+      return {
+        error: "Email not found",
+      };
+    }
+
+    const isPasswordValid = await bcrypt.compare(
+      password,
+      checkUser.password
+    );
+
+    if (!isPasswordValid) {
+      return {
+        error: "Invalid credentials",
+      };
+    }
+
+    return {
+        user: checkUser,
+        access_token: jwtUtils.sign(checkUser.id, checkUser.role)
+    };
+  },
+
+  signUp: async (data) => {
+    const { email, password, username } = data;
+
+    const user = await model.User.create({
+      email: email,
+      password: password,
+      username: username,
+      role: 'user',
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
+
+    if (user) {
+      return {
+        user,
+        access_token: jwtUtils.sign(user.id, user.role)
+      }
+    }
+  },
+
+  recoverPassword: async (data) => {
+    const { email } = data;
+    const checkUser = await model.User.findOne({ where: { email: email } });
+    if (!checkUser) {
+      return {
+        error: "Email not found",
+      };
+    }
+    return true
+  },
+
+  resetPassword: async (data) => {
     try {
       const { email, password } = data;
 
-      const checkUser = await model.User.findOne({
-        where: {
-          email: email,
-        },
-      });
+      const checkUser = await model.User.findOne({ where: { email } });
       if (!checkUser) {
         return {
           error: "Email not found",
         };
       }
 
-      const isPasswordValid = await bcrypt.compare(
-        password,
-        checkUser.password
-      );
-
-      if (!isPasswordValid) {
-        return {
-          error: "Invalid password",
-        };
-      }
-
-      const access_token = jwt.sign(
-        { userId: checkUser.id, role: checkUser.role },
-        process.env.JWT_SECRET_KEY,
-        {
-          expiresIn: "1h",
-        }
-      );
+      await checkUser.save();
       return {
-        data: {
-          user: {
-            id: checkUser.id,
-            username: checkUser.username,
-            email: checkUser.email,
-            role: checkUser.role,
-          },
-          access_token: access_token,
-        },
+        data: "Password reset successful.",
       };
     } catch (error) {
-      return {
-        data: error.message,
-      };
+        return {
+          data: error.message,
+        };
     }
   },
 };

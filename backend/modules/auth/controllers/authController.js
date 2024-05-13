@@ -1,78 +1,53 @@
-const authService = require("../services/authService");
-const rs = require("../../../services/response");
-const validation = require("../../../validations/authValidation");
+const authService = require("modules/auth/services/authService");
+const response = require("utils/responseUtils");
 
 module.exports = {
   signIn: async (req, res) => {
-    try {
-      const { error } = validation.signIn(req.body);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-
-      const response = await authService.signIn(req.body);
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      const data = response.data;
-      if (response) {
-        res
-          .status(200)
-          .cookie("access_token", response.data.access_token, {
-            httpOnly: true,
-          })
-          .send({
-            success: true,
-            data,
-            status: 200,
-            message: "ok",
-          });
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    const data = await authService.signIn(req.body);
+    if (data.error) {
+      return response.error(res, data.error);
+    }
+    if (response) {
+      return response.ok(res, {
+        user: {
+          email: data.user.email,
+          username: data.user.username,
+          role: 'user',
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        access_token: data.access_token
+      })
     }
   },
+
   signUp: async (req, res) => {
-    try {
-      const { error } = validation.signUp(req.body);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await authService.signUp(req.body);
+    const data = await authService.signUp(req.body);
+    
+    return response.ok(res, {
+      user: {
+        email: data.user.email,
+        username: data.user.username,
+        role: 'user',
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      access_token: data.access_token
+    })
+  },
 
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
-    }
-  },
   recoverPassword: async (req, res) => {
-    try {
-      const { error } = validation.recoverPassword(req.body);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await authService.recoverPassword(req.body);
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    
+    const response = await authService.recoverPassword(req.body);
+    if (response.error) {
+      return response.error(res, response.error);
     }
+    
+    return response.ok(res, "Email sent");
   },
+
   resetPassword: async (req, res) => {
     try {
-      const { error } = validation.signUp(req.body);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
       const response = await authService.resetPassword(req.body);
       if (response.error) {
         return rs.error(res, response.error);

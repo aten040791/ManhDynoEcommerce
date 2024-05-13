@@ -1,11 +1,11 @@
-const languageService = require("../services/languageServices");
-const rs = require("../../../services/response");
-const validation = require("../../../validations/languageValidation");
+const languageServices = require("modules/languages/services/languageServices");
+const languageValidation = require("validations/languageValidation");
+const rs = require("utils/responseUtils");
 
 module.exports = {
   index: async (req, res) => {
     try {
-      const response = await languageService.index();
+      const response = await languageServices.index();
       if (response.error) {
         return rs.error(res, response.error);
       }
@@ -19,7 +19,7 @@ module.exports = {
 
   show: async (req, res) => {
     try {
-      const { error } = validation.show(req.params);
+      const { error } = languageValidation.show(req.params);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
@@ -37,11 +37,11 @@ module.exports = {
 
   create: async (req, res) => {
     try {
-      const { error } = validation.create(req.body);
+      const { error } = languageValidation.create(req.body);
       if (error) {
         return rs.error(res, error.details[0].message);
       }
-      const response = await languageService.create(req.body);
+      const response = await languageServices.create(req.body);
       if (response.error) {
         return rs.error(res, response.error);
       }
@@ -55,12 +55,12 @@ module.exports = {
 
   update: async (req, res) => {
     try {
-      const { error } = validation.update({ ...req.body, ...req.params });
+      const { error } = languageValidation.update({ ...req.body, ...req.params });
       if (error) {
         return rs.error(res, error.details[0].message);
       }
 
-      const response = await languageService.update({
+      const response = await languageServices.update({
         ...req.body,
         ...req.params,
       });

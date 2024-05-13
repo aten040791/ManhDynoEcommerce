@@ -2,7 +2,7 @@ const model = require("../../../models/index");
 
 const { Op } = require("sequelize");
 module.exports = {
-  index: async () => {
+  index: async (req, res) => {
     try {
       const response = await model.Language.findAll({});
       if (response) {
