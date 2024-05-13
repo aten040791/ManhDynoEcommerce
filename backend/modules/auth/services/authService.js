@@ -1,6 +1,8 @@
 const model = require("../../../models/index");
 const bcrypt = require("bcryptjs");
+const { config } = require("configs");
 const jwt = require("jsonwebtoken");
+const response = require("services/response");
 
 module.exports = {
   signIn: async (data) => {
@@ -12,6 +14,7 @@ module.exports = {
           email: email,
         },
       });
+
       if (!checkUser) {
         return {
           error: "Email not found",
@@ -31,7 +34,7 @@ module.exports = {
 
       const access_token = jwt.sign(
         { userId: checkUser.id, role: checkUser.role },
-        process.env.JWT_SECRET_KEY,
+        config.jwt.secret,
         {
           expiresIn: "1h",
         }
@@ -47,14 +50,11 @@ module.exports = {
           access_token: access_token,
         },
       };
-    } catch (error) {
-      return {
-        data: error.message,
-      };
+    } catch (e) {
+      throw new Error(e)
     }
   },
 
-  
   signUp: async (data) => {
     const { email, password } = data;
 
@@ -68,14 +68,15 @@ module.exports = {
 
     if (newUser) {
       return {
-          id: newUser.id,
-          username: newUser.username,
-          email: newUser.email,
-          created_at: newUser.created_at,
-          updated_at: newUser.updated_at,
+        id: newUser.id,
+        username: newUser.username,
+        email: newUser.email,
+        created_at: newUser.created_at,
+        updated_at: newUser.updated_at,
       };
     }
   },
+
   recoverPassword: async (data) => {
     try {
       const { email } = data;
@@ -110,9 +111,9 @@ module.exports = {
         data: "Password reset successful.",
       };
     } catch (error) {
-      return {
-        data: error.message,
-      };
+        return {
+          data: error.message,
+        };
     }
   },
 };

@@ -1,4 +1,3 @@
-const { body } = require("express-validator");
 const BodyWithLocale = require("kernels/rules");
 
 const emailValidator = new BodyWithLocale('email').isEmail().notEmpty()

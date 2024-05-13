@@ -4,7 +4,7 @@ module.exports = {
       success: true,
       data,
       status: 200,
-      message: "ok",
+      message: "ok"
     });
   },
 
@@ -20,7 +20,7 @@ module.exports = {
     return res.status(500).send({
       success: false,
       status: 500,
-      message: "Internal server error",
+      message: message || "Internal server error",
     });
   },
 
