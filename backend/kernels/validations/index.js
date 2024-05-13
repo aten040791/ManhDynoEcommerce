@@ -9,9 +9,9 @@ const { validationResult } = new ExpressValidator({}, {}, {
 });
 
 
-const validate = validations => {
+const validate = validationArray => {
     return async (req, res, next) => {
-        for (let validation of validations) {
+        for (let validation of validationArray) {
             for (let _validation of validation) {
                 await _validation.get().run(req);
             }

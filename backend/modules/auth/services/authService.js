@@ -65,10 +65,9 @@ module.exports = {
         error: "Email not found",
       };
     }
-    return {
-      data: "Email is valid",
-    };
+    return true
   },
+
   resetPassword: async (data) => {
     try {
       const { email, password } = data;
@@ -79,7 +78,7 @@ module.exports = {
           error: "Email not found",
         };
       }
-      checkUser.password = await bcrypt.hash(password, 10);
+
       await checkUser.save();
       return {
         data: "Password reset successful.",

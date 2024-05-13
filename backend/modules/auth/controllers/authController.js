@@ -16,6 +16,7 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
+        access_token: data.access_token
       })
     }
   },
@@ -41,10 +42,8 @@ module.exports = {
     if (response.error) {
       return response.error(res, response.error);
     }
-    if (response) {
-      return response.ok(res, response);
-    }
     
+    return response.ok(res, "Email sent");
   },
 
   resetPassword: async (req, res) => {
