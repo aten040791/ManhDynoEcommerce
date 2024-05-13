@@ -10,12 +10,13 @@ const authenticated = require("middlewares/authMiddleware");
 const { validate } = require("kernels/validations");
 const registerRequest = require("modules/auth/requests/registerRequest");
 const loginRequest = require("modules/auth/requests/loginRequest");
+const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordRequest");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
   router.post("/sign-in", validate([loginRequest]) ,authController.signIn);
   router.post("/sign-up", validate([registerRequest]), authController.signUp);
-  router.post("/recover-password", authController.recoverPassword);
+  router.post("/recover-password", validate([recoverPasswordRequest]), authController.recoverPassword);
   router.put("/reset-password", authController.resetPassword);
 });
 

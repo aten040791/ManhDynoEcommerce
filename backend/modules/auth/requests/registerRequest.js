@@ -1,4 +1,3 @@
-const { body } = require('express-validator');
 const BodyWithLocale = require('kernels/rules');
 const db = require('models/index');
 
