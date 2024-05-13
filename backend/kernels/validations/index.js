@@ -1,5 +1,5 @@
 const { ExpressValidator } = require('express-validator');
-const response = require('services/response');
+const response = require('utils/responseUtils');
 
 const { validationResult } = new ExpressValidator({}, {}, {
     errorFormatter: error => ({

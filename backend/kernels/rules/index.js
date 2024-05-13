@@ -1,5 +1,5 @@
 const { body } = require("express-validator");
-const { StringUtil } = require("services/utils");
+const stringUtils = require("utils/stringUtils");
 
 class BodyWithLocale 
 {
@@ -9,22 +9,22 @@ class BodyWithLocale
     }
 
     notEmpty() {
-        this.bodyWithLocale = this.bodyWithLocale.notEmpty().withMessage(StringUtil.capitalize(this.field) +" must be required").bail()
+        this.bodyWithLocale = this.bodyWithLocale.notEmpty().withMessage(stringUtils.capitalize(this.field) +" must be required").bail()
         return this
     }
 
     isEmail() {
-        this.bodyWithLocale = this.bodyWithLocale.isEmail().withMessage(StringUtil.capitalize(this.field)+" is not in correct format").bail()
+        this.bodyWithLocale = this.bodyWithLocale.isEmail().withMessage(stringUtils.capitalize(this.field)+" is not in correct format").bail()
         return this
     }
 
     isLength(options) {
         if (options.min) {
-            this.bodyWithLocale = this.bodyWithLocale.isLength({min: options.min}).withMessage(StringUtil.capitalize(this.field)+" must be at least " + options.min + " characters long").bail()
+            this.bodyWithLocale = this.bodyWithLocale.isLength({min: options.min}).withMessage(stringUtils.capitalize(this.field)+" must be at least " + options.min + " characters long").bail()
         }
 
         if (options.max) {
-            this.bodyWithLocale = this.bodyWithLocale.isLength({max: options.max}).withMessage(StringUtil.capitalize(this.field)+" must be at most " + options.max + " characters long").bail()
+            this.bodyWithLocale = this.bodyWithLocale.isLength({max: options.max}).withMessage(stringUtils.capitalize(this.field)+" must be at most " + options.max + " characters long").bail()
         }
 
         return this;
@@ -33,7 +33,7 @@ class BodyWithLocale
     confirmed(fieldToCompare) {
         this.bodyWithLocale = this.bodyWithLocale.custom((value, {req}) => {
             if (value !== req.body[fieldToCompare]) {
-                throw new Error(StringUtil.capitalize(this.field) + " and " + fieldToCompare + " do not match");
+                throw new Error(stringUtils.capitalize(this.field) + " and " + fieldToCompare + " do not match");
             }
             return true;
         }).bail();
@@ -50,7 +50,7 @@ class BodyWithLocale
             })
 
             if (recordExist) {
-                throw new Error(StringUtil.capitalize(this.field) + " must be unique")
+                throw new Error(stringUtils.capitalize(this.field) + " must be unique")
             }
         }).bail();
 
@@ -58,7 +58,7 @@ class BodyWithLocale
     }
 
     isNumberic() {
-        this.bodyWithLocale = this.bodyWithLocale.isNumeric().withMessage(StringUtil.capitalize(this.field)+" must be number").bail()
+        this.bodyWithLocale = this.bodyWithLocale.isNumeric().withMessage(stringUtils.capitalize(this.field)+" must be number").bail()
     }
 
     get() {

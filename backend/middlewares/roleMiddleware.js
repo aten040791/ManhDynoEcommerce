@@ -1,4 +1,4 @@
-const response = require("services/response");
+const response = require("utils/responseUtils");
 
 module.exports = {
     role: (roleName) => (req, res, next) => {

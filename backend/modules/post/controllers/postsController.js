@@ -1,6 +1,6 @@
 const postService = require("modules/post/services/postService");
 const postValidation = require("modules/post/validations/postValidation");
-const rs = require("services/response");
+const rs = require("utils/responseUtils");
 
 module.exports = {
   index: async (req, res) => {

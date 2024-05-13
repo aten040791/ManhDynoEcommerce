@@ -1,6 +1,6 @@
 const languageServices = require("modules/languages/services/languageServices");
 const languageValidation = require("validations/languageValidation");
-const rs = require("services/response");
+const rs = require("utils/responseUtils");
 
 module.exports = {
   index: async (req, res) => {

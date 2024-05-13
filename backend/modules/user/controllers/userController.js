@@ -1,5 +1,5 @@
 const userService = require('modules/user/services/userServices');
-const rs = require('services/response');
+const rs = require('utils/responseUtils');
 const validate = require('validations/userValidation');
 
 

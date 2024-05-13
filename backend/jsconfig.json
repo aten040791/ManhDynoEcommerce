@@ -9,7 +9,7 @@
          "database/*": ["./database/*"],
          "kernels/*": ["./kernels/*"],
          "models/*": ["./models/*"],
-         "services/*": ["./services/*"]
+         "services/*": ["utils/*"]
       }
    },
    "include": ["./**/*"]

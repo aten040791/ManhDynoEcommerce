@@ -1,5 +1,5 @@
 const categoryService = require('modules/category/services/categoryServices');
-const rs = require('services/response');
+const rs = require('utils/responseUtils');
 const validate = require('validations/categoryValidation');
 
 module.exports = {

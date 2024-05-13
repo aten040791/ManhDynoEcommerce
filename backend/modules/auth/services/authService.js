@@ -1,78 +1,59 @@
 const model = require("../../../models/index");
 const bcrypt = require("bcryptjs");
-const { config } = require("configs");
-const jwt = require("jsonwebtoken");
+const jwtUtils = require("utils/jwtUtils");
 
 module.exports = {
-  signIn: async (data) => {
-    try {
-      const { email, password } = data;
 
-      const checkUser = await model.User.findOne({
-        where: {
-          email: email,
-        },
-      });
+  signIn: async (data) => 
+  {
+    const { email, password } = data;
 
-      if (!checkUser) {
-        return {
-          error: "Email not found",
-        };
-      }
+    const checkUser = await model.User.findOne({
+      where: {
+        email: email,
+      },
+    });
 
-      const isPasswordValid = await bcrypt.compare(
-        password,
-        checkUser.password
-      );
-
-      if (!isPasswordValid) {
-        return {
-          error: "Invalid password",
-        };
-      }
-
-      const access_token = jwt.sign(
-        { userId: checkUser.id, role: checkUser.role },
-        config.jwt.secret,
-        {
-          expiresIn: config.jwt.ttl,
-        }
-      );
+    if (!checkUser) {
       return {
-        data: {
-          user: {
-            id: checkUser.id,
-            username: checkUser.username,
-            email: checkUser.email,
-            role: checkUser.role,
-          },
-          access_token: access_token,
-        },
+        error: "Email not found",
       };
-    } catch (e) {
-      throw new Error(e)
     }
+
+    const isPasswordValid = await bcrypt.compare(
+      password,
+      checkUser.password
+    );
+
+    if (!isPasswordValid) {
+      return {
+        error: "Invalid credentials",
+      };
+    }
+
+    return {
+        user: checkUser,
+        access_token: jwtUtils.sign(checkUser.id, checkUser.role)
+    };
   },
 
   signUp: async (data) => {
-    const { email, password } = data;
+    const { email, password, username } = data;
 
-    const newUser = await model.User.create({
+    const user = await model.User.create({
       email: email,
       password: password,
-      username: email,
+      username: username,
+      role: 'user',
       created_at: new Date(),
       updated_at: new Date(),
     });
 
-    if (newUser) {
+    if (user) {
       return {
-        id: newUser.id,
-        username: newUser.username,
-        email: newUser.email,
-        created_at: newUser.created_at,
-        updated_at: newUser.updated_at,
-      };
+        user,
+        access_token: jwtUtils.sign(user.id, user.role)
+      }
     }
   },
 
