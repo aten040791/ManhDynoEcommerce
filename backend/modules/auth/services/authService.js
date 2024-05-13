@@ -53,19 +53,11 @@ module.exports = {
       };
     }
   },
+
+  
   signUp: async (data) => {
     const { email, password } = data;
 
-    const checkUser = await model.User.findOne({
-      where: {
-        email: email,
-      },
-    });
-    if (checkUser) {
-      return {
-        error: "Email is already in used",
-      };
-    }
     const newUser = await model.User.create({
       email: email,
       password: password,
