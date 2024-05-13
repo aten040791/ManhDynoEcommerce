@@ -2,7 +2,7 @@ module.exports = {
   ok: (res, data) => {
     return res.status(200).send({
       success: true,
-      ...data,
+      data,
       status: 200,
       message: "ok",
     });
@@ -36,9 +36,7 @@ module.exports = {
     return res.status(422).send({
       success: false,
       status: 422,
-      data: [
-        errors
-      ]
+      data: errors
     })
   }
 };

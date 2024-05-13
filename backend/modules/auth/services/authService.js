@@ -53,4 +53,74 @@ module.exports = {
       };
     }
   },
+  signUp: async (data) => {
+    const { email, password } = data;
+
+    const checkUser = await model.User.findOne({
+      where: {
+        email: email,
+      },
+    });
+    if (checkUser) {
+      return {
+        error: "Email is already in used",
+      };
+    }
+    const newUser = await model.User.create({
+      email: email,
+      password: password,
+      username: email,
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
+
+    if (newUser) {
+      return {
+          id: newUser.id,
+          username: newUser.username,
+          email: newUser.email,
+          created_at: newUser.created_at,
+          updated_at: newUser.updated_at,
+      };
+    }
+  },
+  recoverPassword: async (data) => {
+    try {
+      const { email } = data;
+      const checkUser = await model.User.findOne({ where: { email: email } });
+      if (!checkUser) {
+        return {
+          error: "Email not found",
+        };
+      }
+      return {
+        data: "Email is valid",
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
+  resetPassword: async (data) => {
+    try {
+      const { email, password } = data;
+
+      const checkUser = await model.User.findOne({ where: { email } });
+      if (!checkUser) {
+        return {
+          error: "Email not found",
+        };
+      }
+      checkUser.password = await bcrypt.hash(password, 10);
+      await checkUser.save();
+      return {
+        data: "Password reset successful.",
+      };
+    } catch (error) {
+      return {
+        data: error.message,
+      };
+    }
+  },
 };

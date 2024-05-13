@@ -13,7 +13,7 @@ const validate = validations => {
     return async (req, res, next) => {
         for (let validation of validations) {
             for (let _validation of validation) {
-                await _validation.run(req);
+                await _validation.get().run(req);
             }
         }
 
@@ -22,7 +22,9 @@ const validate = validations => {
             return next();
         }
 
-        return response.invalidated(res, errors.array())
+        return response.invalidated(res, {
+            errors: errors.array()
+        })
     };
 };
 
