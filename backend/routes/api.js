@@ -14,7 +14,7 @@ const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordReq
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
-  router.post("/sign-in", validate([loginRequest]) ,authController.signIn);
+  router.post("/sign-in", validate([loginRequest]),authController.signIn);
   router.post("/sign-up", validate([registerRequest]), authController.signUp);
   router.post("/recover-password", validate([recoverPasswordRequest]), authController.recoverPassword);
   router.put("/reset-password", authController.resetPassword);

@@ -5,7 +5,7 @@ const validate = require('validations/categoryValidation');
 module.exports = {
     index: async (req, res) => {
         try {
-            const response = await categoryService.index();
+            const response = await categoryService.index(); //categories
             if (response.error) {
                 return rs.error(res, response.error);
             }

@@ -2,7 +2,6 @@ const model = require("../../../models/index");
 const bcrypt = require("bcryptjs");
 const { config } = require("configs");
 const jwt = require("jsonwebtoken");
-const response = require("services/response");
 
 module.exports = {
   signIn: async (data) => {
@@ -36,7 +35,7 @@ module.exports = {
         { userId: checkUser.id, role: checkUser.role },
         config.jwt.secret,
         {
-          expiresIn: "1h",
+          expiresIn: config.jwt.ttl,
         }
       );
       return {
@@ -78,22 +77,16 @@ module.exports = {
   },
 
   recoverPassword: async (data) => {
-    try {
-      const { email } = data;
-      const checkUser = await model.User.findOne({ where: { email: email } });
-      if (!checkUser) {
-        return {
-          error: "Email not found",
-        };
-      }
+    const { email } = data;
+    const checkUser = await model.User.findOne({ where: { email: email } });
+    if (!checkUser) {
       return {
-        data: "Email is valid",
-      };
-    } catch (error) {
-      return {
-        data: error.message,
+        error: "Email not found",
       };
     }
+    return {
+      data: "Email is valid",
+    };
   },
   resetPassword: async (data) => {
     try {

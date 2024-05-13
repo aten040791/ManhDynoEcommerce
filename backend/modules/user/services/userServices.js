@@ -1,7 +1,5 @@
 const db = require('models');
 
-
-
 module.exports = {
     index: async () => {
         try {

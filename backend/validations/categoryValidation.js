@@ -1,7 +1,11 @@
 const Joi = require('joi');
+const BodyWithLocale = require('kernels/rules');
 
 module.exports = {
     show: (data) => {
+
+        new BodyWithLocale('categoryId').notEmpty().isLength({max: 20})
+
         const schema = Joi.object({
             categoryId: Joi.number().required(),
         });
