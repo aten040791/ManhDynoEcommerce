@@ -12,13 +12,14 @@ const registerRequest = require("modules/auth/requests/registerRequest");
 const loginRequest = require("modules/auth/requests/loginRequest");
 const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordRequest");
 const middlewares = require("kernels/middlewares");
+const resetPasswordRequest = require("modules/auth/requests/resetPasswordRequest");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
   router.post("/sign-in", validate([loginRequest]),authController.signIn);
   router.post("/sign-up", validate([registerRequest]), authController.signUp);
   router.post("/recover-password", validate([recoverPasswordRequest]), authController.recoverPassword);
-  router.put("/reset-password", authController.resetPassword);
+  router.put("/reset-password", validate([resetPasswordRequest]), authController.resetPassword);
 });
 
 router.group("/posts", middlewares([authenticated, role('owner')]), (router) => {

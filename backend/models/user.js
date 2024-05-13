@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
-  User.beforeCreate(async (user) => {
+  User.beforeSave(async (user) => {
     const hashedPassword = await bcrypt.hash(user.password, config.hashing.bcrypt.rounds);
     user.password = hashedPassword;
   });
