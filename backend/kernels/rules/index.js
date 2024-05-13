@@ -57,6 +57,10 @@ class BodyWithLocale
         return this;
     }
 
+    isNumberic() {
+        this.bodyWithLocale = this.bodyWithLocale.isNumeric().withMessage(StringUtil.capitalize(this.field)+" must be number").bail()
+    }
+
     get() {
         return this.bodyWithLocale
     }
