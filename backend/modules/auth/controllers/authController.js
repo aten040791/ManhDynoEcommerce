@@ -38,12 +38,14 @@ module.exports = {
 
   recoverPassword: async (req, res) => {
     
-    const response = await authService.recoverPassword(req.body);
-    if (response.error) {
-      return response.error(res, response.error);
+    const data = await authService.recoverPassword(req.body);
+    if (data.error) {
+      return response.error(res, data.error);
     }
     
-    return response.ok(res, "Email sent");
+    return response.ok(res, {
+      message: "Email sent"
+    })
   },
 
   resetPassword: async (req, res) => {

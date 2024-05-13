@@ -69,24 +69,23 @@ module.exports = {
   },
 
   resetPassword: async (data) => {
-    try {
       const { email, password } = data;
 
-      const checkUser = await model.User.findOne({ where: { email } });
+      const checkUser = await model.User.update({
+        email,
+        password
+      },{ 
+        where: { 
+          email 
+        } 
+      });
       if (!checkUser) {
         return {
           error: "Email not found",
         };
       }
-
-      await checkUser.save();
       return {
         data: "Password reset successful.",
       };
-    } catch (error) {
-        return {
-          data: error.message,
-        };
-    }
   },
 };
