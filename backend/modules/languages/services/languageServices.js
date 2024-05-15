@@ -1,141 +1,106 @@
 const model = require("../../../models/index");
 
-const { Op } = require("sequelize");
 module.exports = {
-  index: async (req, res) => {
-    try {
-      const response = await model.Language.findAll({});
-      if (response) {
-        return {
-          data: response,
-        };
-      }
+  index: async (data) => {
+    const allLanguage = await model.Language.findAll({});
+    if (allLanguage) {
       return {
-        error: "Cannot find resouces",
-      };
-    } catch (error) {
-      return {
-        error: error.message,
+        allLanguage,
       };
     }
+    return {
+      error: "Cannot find resouces",
+    };
   },
 
   show: async (data) => {
-    try {
-      const { languageId } = data;
-      const response = await model.Language.findByPk(languageId);
-      if (!response) {
-        return {
-          error: "Language not found",
-        };
-      }
+    const { languageId } = data;
+    const language = await model.Language.findByPk(languageId);
+    if (language) {
       return {
-        data: response,
-      };
-    } catch (error) {
-      return {
-        error: error.message,
+        language,
       };
     }
+    return {
+      error: "Cannot find resouces",
+    };
   },
 
   create: async (data) => {
     const { name, locale, flag } = data;
-    try {
-      const checkLanguage = await model.Language.findOne({
-        where: {
-          locale: {
-            [Op.eq]: locale,
-          },
-        },
-      });
-      if (checkLanguage) {
-        return {
-          error: "language locale has been used",
-        };
-      }
-      const response = await model.Language.create({
-        name: name,
-        locale: locale,
-        flag: flag,
-        created_at: new Date(),
-        updated_at: new Date(),
-      });
-      if (response) {
-        return {
-          data: "Language created successfully",
-        };
-      }
-      return null;
-    } catch (error) {
+    const newLanguage = await model.Language.create({
+      name: name,
+      locale: locale,
+      flag: flag,
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
+    if (newLanguage) {
       return {
-        error: error.message,
+        newLanguage,
       };
     }
+    return {
+      error: "Failed to create new language",
+    };
   },
 
   update: async (data) => {
-    try {
-      const { name, locale, flag, languageId } = data;
-      const checkLanguage = await model.Language.findOne({
-        where: {
-          id: languageId,
-        },
-      });
-      if (!checkLanguage) {
-        return {
-          error: "Language not found",
-        };
-      }
-
-      const response = await model.Language.update(
-        {
-          name: name,
-          locale: locale,
-          flag: flag,
-          updated_at: new Date(),
-        },
-        {
-          where: {
-            id: checkLanguage.id,
-          },
-        }
-      );
-      if (response == 1) {
-        return {
-          data: "Language updated successfully",
-        };
-      }
+    const { name, locale, flag, languageId } = data;
+    const checkLanguage = await model.Language.findOne({
+      where: {
+        id: languageId,
+      },
+    });
+    if (!checkLanguage) {
       return {
-        data: "Failed to update language",
-      };
-    } catch (error) {
-      return {
-        error: error.message,
+        error: "Cannot find resouces",
       };
     }
+
+    const language = await model.Language.update(
+      {
+        name: name,
+        locale: locale,
+        flag: flag,
+        updated_at: new Date(),
+      },
+      {
+        where: {
+          id: checkLanguage.id,
+        },
+      }
+    );
+    if (language) {
+      return true;
+    }
+    return {
+      error: "Failed to update language",
+    };
   },
 
   destroy: async (data) => {
-    try {
-      const { languageId } = data;
-      const response = await model.Language.destroy({
-        where: {
-          id: languageId,
-        },
-      });
-      if (response === 1) {
-        return {
-          data: "Language deleted successfully",
-        };
-      }
+    const { languageId } = data;
+    const checkLanguage = await model.Language.findOne({
+      where: {
+        id: languageId,
+      },
+    });
+    if (!checkLanguage) {
       return {
-        error: "Failed to delete language",
-      };
-    } catch (error) {
-      return {
-        error: error.message,
+        error: "Cannot find resouces",
       };
     }
+    const destroyLanguage = await model.Language.destroy({
+      where: {
+        id: languageId,
+      },
+    });
+    if (destroyLanguage === 1) {
+      return true;
+    }
+    return {
+      error: "Failed to delete language",
+    };
   },
 };
