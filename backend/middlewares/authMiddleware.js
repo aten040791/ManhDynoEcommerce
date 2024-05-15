@@ -7,13 +7,12 @@ const authenticated = (req, res, next) => {
 
   if (access_token) {
     access_token = access_token.split(" ")[1];
-    console.log("access_token", access_token);
+
     jwt.verify(access_token, config.jwt.secret, (error, user) => {
       if (error) {
         return response.unauthorized(res);
       }
       if (user) {
-        console.log(user);
         req.user = user;
         return next();
       } else {
