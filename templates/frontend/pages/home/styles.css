@@ -270,6 +270,10 @@ body {
  
 
  @media (max-width: 576px) {
+  .header-nav.active {
+    width: 100%;
+  }
+  
   main,footer,header{
     padding:0 8px !important; 
   }
@@ -287,7 +291,7 @@ body {
    }
    .banner .popular-tags a{
     font-size:12px;
-    padding:
+    padding: 0px;
    }
 
    /*================= START OF FOOTER COPYRIGHT =============== */
@@ -306,9 +310,4 @@ body {
 }
 
 
-@media (max-width: 375px){
-  .header-nav.active{
-    width:100%;
-  }
-}
 /* ============================================ END OF MEDIA QUERIES =========================================== */
