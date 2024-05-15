@@ -3,9 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwtUtils = require("utils/jwtUtils");
 
 module.exports = {
-
-  signIn: async (data) => 
-  {
+  signIn: async (data) => {
     const { email, password } = data;
 
     const checkUser = await model.User.findOne({
@@ -20,10 +18,7 @@ module.exports = {
       };
     }
 
-    const isPasswordValid = await bcrypt.compare(
-      password,
-      checkUser.password
-    );
+    const isPasswordValid = await bcrypt.compare(password, checkUser.password);
 
     if (!isPasswordValid) {
       return {
@@ -32,8 +27,8 @@ module.exports = {
     }
 
     return {
-        user: checkUser,
-        access_token: jwtUtils.sign(checkUser.id, checkUser.role)
+      user: checkUser,
+      access_token: jwtUtils.sign(checkUser.id, checkUser.role),
     };
   },
 
@@ -44,7 +39,7 @@ module.exports = {
       email: email,
       password: password,
       username: username,
-      role: 'user',
+      role: "user",
       created_at: new Date(),
       updated_at: new Date(),
     });
@@ -52,8 +47,8 @@ module.exports = {
     if (user) {
       return {
         user,
-        access_token: jwtUtils.sign(user.id, user.role)
-      }
+        access_token: jwtUtils.sign(user.id, user.role),
+      };
     }
   },
 
@@ -65,27 +60,30 @@ module.exports = {
         error: "Email not found",
       };
     }
-    return true
+    return true;
   },
 
   resetPassword: async (data) => {
-      const { email, password } = data;
+    const { email, password } = data;
 
-      const checkUser = await model.User.update({
+    const checkUser = await model.User.update(
+      {
         email,
-        password
-      },{ 
-        where: { 
-          email 
-        } 
-      });
-      if (!checkUser) {
-        return {
-          error: "Email not found",
-        };
+        password,
+      },
+      {
+        where: {
+          email,
+        },
       }
+    );
+    if (!checkUser) {
       return {
-        data: "Password reset successful.",
+        error: "Email not found",
       };
+    }
+    return {
+      data: "Password reset successful.",
+    };
   },
 };
