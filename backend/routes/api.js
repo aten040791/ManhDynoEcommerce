@@ -13,6 +13,7 @@ const loginRequest = require("modules/auth/requests/loginRequest");
 const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordRequest");
 const middlewares = require("kernels/middlewares");
 const resetPasswordRequest = require("modules/auth/requests/resetPasswordRequest");
+const deleteUserRequest = require("modules/user/requests/deleteUserRequest");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
@@ -51,7 +52,7 @@ router.group("/categories", middlewares([role('admin')]), (router) => {
 
 router.group("/users", middlewares([role('admin')]) ,(router) => {
   router.get("/", usersController.index)
-  router.delete("/delete/:userId", usersController.destroy);
+  router.delete("/delete/:userId", validate([deleteUserRequest]), usersController.destroy);
 });
 
 module.exports = router;

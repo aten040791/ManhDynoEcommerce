@@ -12,7 +12,7 @@ module.exports = {
         user: {
           email: data.user.email,
           username: data.user.username,
-          role: 'user',
+          role: data.user.role,
           created_at: new Date(),
           updated_at: new Date(),
         },

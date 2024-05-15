@@ -2,44 +2,28 @@ const db = require('models');
 
 module.exports = {
     index: async () => {
-        try {
-            const response = await db.User.findAll();
-            if (response) {
-                return {
-                    data: response,
-                }
-            }
+        const users = await db.User.findAll();
+        if (users) {
             return {
-                error: "Cannot find resouces",
-            };
-        } catch (error) {
-            return {
-                error: error.message
+                users: users,
             }
         }
-
     },
     destroy: async (data) => {
-        try {
-            const { userId } = data;
-            const checkUser = await db.User.findByPk(userId);
-            if(!checkUser) {
-                return {
-                    error: "User not found",
-                }
-            }
-            const response = await db.User.destroy({
-                where: {
-                    id: checkUser.id,
-                }
-            })
+        const { userId } = data;
+        const checkUser = await db.User.findByPk(userId);
+        if (!checkUser) {
             return {
-                data: response == 1 ? "User deleted successfully" : "User deleted failed",
+                error: "User not found",
             }
-        } catch (error) {
-            return {
-                error: error.message
+        }
+        const user = await db.User.destroy({
+            where: {
+                id: checkUser.id,
             }
+        })
+        return {
+            data: user == 1 ? "User deleted successfully" : "User deleted failed",
         }
     }
 }
