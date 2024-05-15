@@ -45,7 +45,7 @@ router.group("/languages", middlewares([role('admin')]), (router) => {
   router.delete("/delete/:languageId", languagesController.destroy);
 });
 
-router.group("/categories",  (router) => {
+router.group("/categories", middlewares([role('admin')]), (router) => {
   router.get("/", categoriesController.index);
   router.get("/:id", validate([showCategoryRequest]), categoriesController.show);
   router.post("/create", validate([createCategoryRequest]), categoriesController.create);
