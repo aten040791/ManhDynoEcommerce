@@ -3,7 +3,7 @@ const db = require('models');
 module.exports = {
     index: async () => {
         const categories = await db.Category.findAll({});
-        if (response) {
+        if (categories) {
             return {
                 categories: categories,
             };
