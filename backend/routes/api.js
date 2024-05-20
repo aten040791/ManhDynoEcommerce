@@ -32,16 +32,12 @@ router.group("/auth", (router) => {
   );
 });
 
-router.group(
-  "/posts",
-  middlewares([authenticated, role("owner")]),
-  (router) => {
-    router.get("/", postsController.index);
-    router.get("/:postId", postsController.show);
-  }
-);
+router.group("/posts", (router) => {
+  router.get("/", postsController.index);
+  router.get("/:postId", postsController.show);
+});
 
-router.group("/posts", middlewares([role("owner")]), (router) => {
+router.group("/posts", (router) => {
   router.post("/create", postsController.create);
   router.put("/update/:postId", postsController.update);
   router.delete("/delete/:postId", postsController.destroy);

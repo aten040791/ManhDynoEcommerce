@@ -1,103 +1,69 @@
 const model = require("models");
-const {sequelize} = require('models')
+const { sequelize } = require("models");
 const slugify = require("slugify");
 const { Op } = require("sequelize");
 
 module.exports = {
   index: async () => {
-    try {
-      const response = await model.Post.findAll({
-        where: {
-          locale: "en_us",
+    const allPost = await model.Post.findAll({
+      where: {
+        locale: "en_us",
+      },
+      attributes: { exclude: ["user_id", "category_id"] },
+      include: [
+        {
+          model: model.User,
+          as: "author",
+          attributes: { exclude: ["password"] },
         },
-        attributes: { exclude: ["user_id", "category_id"] },
-        include: [
-          {
-            model: model.User,
-            as: "author",
-            attributes: { exclude: ["password"] },
-          },
-          {
-            model: model.Category,
-            as: "category",
-          },
-        ],
-      });
-      if (response) {
-        return {
-          data: response,
-        };
-      }
+        {
+          model: model.Category,
+          as: "category",
+        },
+      ],
+    });
+
+    if (allPost) {
+      return allPost;
+    } else {
       return {
         error: "Cannot find resouces",
-      };
-    } catch (error) {
-      return {
-        error: error.message,
       };
     }
   },
   show: async (data) => {
-    try {
-      const { postId, language } = data;
-
-      let querySql = {};
-      if (!language || language == "en_us") {
-        querySql = {
-          id: postId,
-        };
-      } else {
-        querySql = {
-          related_id: postId,
-          locale: language,
-        };
-      }
-
-      const response = await model.Post.findOne({
-        where: querySql,
-        attributes: { exclude: ["user_id", "category_id"] },
-        include: [
-          {
-            model: model.User,
-            as: "author",
-            attributes: { exclude: ["password"] },
-          },
-          {
-            model: model.Category,
-            as: "category",
-          },
-        ],
-      });
-      if (!response) {
-        return {
-          error: "Post not found",
-        };
-      }
+    const { postId, language } = data;
+    const detailsPost = await model.Post.findOne({
+      where: {
+        post_id: postId,
+        locale: language,
+      },
+      attributes: { exclude: ["user_id", "category_id"] },
+      include: [
+        {
+          model: model.User,
+          as: "author",
+          attributes: { exclude: ["password"] },
+        },
+        {
+          model: model.Category,
+          as: "category",
+        },
+      ],
+    });
+    if (!detailsPost) {
       return {
-        data: response,
-      };
-    } catch (error) {
-      return {
-        error: error.message,
+        error: "Post not found",
       };
     }
+    return detailsPost;
   },
+
   create: async (data) => {
     try {
       const { title, content, userId, categoryId, relatedId, language } = data;
-      let slug = "";
 
-      const checkTitle = await model.Post.findOne({
-        where: {
-          title: title,
-        },
-      });
-      if (checkTitle) {
-        return {
-          error: "Title has been used",
-        };
-      }
-      slug = slugify(title, {
+      const slug = slugify(title, {
         replacement: "-",
         remove: undefined,
         lower: true,
@@ -105,43 +71,43 @@ module.exports = {
         trim: true,
       });
 
-      if (relatedId > 0) {
-        const checkPost = await model.Post.findByPk(relatedId);
-        if (!checkPost) {
-          return {
-            error: "relatedId not found",
-          };
-        }
+      if (relatedId == 0 && language != "en_us") {
+        return {
+          error: "Please make sure to create the post in English first.",
+        };
       }
-      let checkLanguage = null;
-      if (language) {
-        checkLanguage = await model.Language.findOne({
+
+      if (relatedId > 0) {
+        let locales = await model.Post.findAll({
+          attributes: ["locale"],
           where: {
-            locale: {
-              [Op.eq]: language,
-            },
+            [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
           },
         });
-        if (checkLanguage && relatedId == 0 && language != "en_us") {
+        locales = locales.map((post) => post.dataValues.locale.toLowerCase());
+        if (locales.includes(language.toLowerCase())) {
           return {
-            error: "Please make sure to create the post in English first.",
+            error: "Language has been used",
           };
         }
-        if (relatedId > 0) {
-          let locales = await model.Post.findAll({
-            attributes: ["locale"],
-            where: {
-              [Op.or]: [{ related_id: relatedId }, { id: relatedId }],
-            },
-          });
-          locales = locales.map((post) => post.dataValues.locale.toLowerCase());
-          if (locales.includes(language.toLowerCase())) {
-            return {
-              error: "Language has been used",
-            };
-          }
-        }
       }
+
+      // let checkLanguage = null;
+      // if (language) {
+      //   checkLanguage = await model.Language.findOne({
+      //     where: {
+      //       locale: {
+      //         [Op.eq]: language,
+      //       },
+      //     },
+      //   });
+      //   if (checkLanguage && relatedId == 0 && language != "en_us") {
+      //     return {
+      //       error: "Please make sure to create the post in English first.",
+      //     };
+      //   }
+
+      // }
 
       const result = await sequelize.transaction(async (t) => {
         const newPost = await model.Post.create(
@@ -161,7 +127,7 @@ module.exports = {
 
         await model.Language_Post.create(
           {
-            language_id: checkLanguage.id,
+            // language_id: checkLanguage.id,
             post_id: newPost.id,
             locale: language,
             created_at: new Date(),

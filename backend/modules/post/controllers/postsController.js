@@ -1,70 +1,45 @@
 const postService = require("modules/post/services/postService");
 const postValidation = require("modules/post/validations/postValidation");
-const rs = require("utils/responseUtils");
+const response = require("utils/responseUtils");
 
 module.exports = {
-  index: async (req, res) => {
-    try {
-      const response = await postService.index();
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
-    }
-  },
-  show: async (req, res) => {
-    try {
-      const { error } = postValidation.show({ ...req.params, ...req.query });
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await postService.show({ ...req.params, ...req.query });
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
-    }
-  },
-  create: async (req, res) => {
-    try {
-      const { role, userId } = req.user;
 
-      if (!userId && role != "owner") {
-        return rs.authorization(res, "Unauthorized");
-      }
-      const { error } = postValidation.create({ ...req.body, ...req.query });
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await postService.create({
-        ...req.body,
-        ...req.query,
-        userId,
-      });
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+
+  index: async (req, res) => {
+    const data = await postService.index();
+    if (data.error) {
+      return response.error(res, data.error);
     }
+    return response.ok(res, data);
+  },
+  
+  show: async (req, res) => {
+    const data = await postService.show({ ...req.params, ...req.query });
+    if (data.error) {
+      return response.error(res, response.error);
+    }
+    return response.ok(res, response);
+  },
+
+
+  create: async (req, res) => {
+    const { userId } = req.user;
+    const data = await postService.create({
+      ...req.body,
+      ...req.query,
+      userId,
+    });
+    if (data.error) {
+      return response.error(res, response.error);
+    }
+    return response.ok(res, data);
   },
   update: async (req, res) => {
     try {
       const { role, userId } = req.user;
 
       if (!userId && role != "owner") {
-        return rs.authorization(res, "Unauthorized");
+        return response.authorization(res, "Unauthorized");
       }
 
       const { error } = postValidation.update({
@@ -73,7 +48,7 @@ module.exports = {
         ...req.params,
       });
       if (error) {
-        return rs.error(res, error.details[0].message);
+        return response.error(res, error.details[0].message);
       }
       const response = await postService.update({
         ...req.body,
@@ -82,13 +57,13 @@ module.exports = {
         userId,
       });
       if (response.error) {
-        return rs.error(res, response.error);
+        return response.error(res, response.error);
       }
       if (response) {
-        return rs.ok(res, response);
+        return response.ok(res, response);
       }
     } catch (error) {
-      return rs.error(res, error.message);
+      return response.error(res, error.message);
     }
   },
   destroy: async (req, res) => {
@@ -96,21 +71,21 @@ module.exports = {
       const { role, userId } = req.user;
 
       if (!userId && role != "owner") {
-        return rs.authorization(res, "Unauthorized");
+        return response.authorization(res, "Unauthorized");
       }
       const { error } = postValidation.destroy(req.params);
       if (error) {
-        return rs.error(res, error.details[0].message);
+        return response.error(res, error.details[0].message);
       }
       const response = await postService.destroy({ ...req.params, userId });
       if (response.error) {
-        return rs.error(res, response.error);
+        return response.error(res, response.error);
       }
       if (response) {
-        return rs.ok(res, response);
+        return response.ok(res, response);
       }
     } catch (error) {
-      return rs.error(res, error.message);
+      return response.error(res, error.message);
     }
   },
 };
