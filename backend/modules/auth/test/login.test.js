@@ -18,6 +18,7 @@ describe("Auth Controller - Sign In", () => {
     jest.clearAllMocks();
   });
 
+  //OK
   it("return 200 if successful login", async () => {
     const mockUser = {
       email: "test@gmail.com",
@@ -58,6 +59,7 @@ describe("Auth Controller - Sign In", () => {
     });
   });
 
+  //Email not found
   it("return 500 if email not found", async () => {
     authService.signIn.mockResolvedValue({ error: "Email not found" });
 
@@ -78,6 +80,7 @@ describe("Auth Controller - Sign In", () => {
     });
   });
 
+  //Password is incorrect
   it("return 500 if password is incorrect", async () => {
     authService.signIn.mockResolvedValue({ error: "Invalid credentials" });
 
@@ -98,6 +101,8 @@ describe("Auth Controller - Sign In", () => {
   });
 
   // Kiểm thử validate cho email và password
+
+  //Email is empty
   it("return 422 if email is empty", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
@@ -111,6 +116,7 @@ describe("Auth Controller - Sign In", () => {
     });
   });
 
+  //Email is invalid
   it("return 422 if email is invalid", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
@@ -126,6 +132,7 @@ describe("Auth Controller - Sign In", () => {
     });
   });
 
+  //Password is empty
   it("return 422 if password is empty", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
@@ -141,6 +148,7 @@ describe("Auth Controller - Sign In", () => {
     });
   });
 
+  //Password is too short
   it("return 422 if password is too short", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
@@ -152,6 +160,98 @@ describe("Auth Controller - Sign In", () => {
       status: 422,
       data: {
         errors: [
+          {
+            field: "password",
+            message: "Password must be at least 8 characters long",
+          },
+        ],
+      },
+    });
+  });
+
+  //Email and password empty
+  it("should return 422 if Email and password are empty", async () => {
+    const res = await request(app).post("/auth/sign-in").send({
+      email: "",
+      password: "",
+    });
+
+    expect(res.statusCode).toBe(422);
+    expect(res.body).toEqual({
+      success: false,
+      status: 422,
+      data: {
+        errors: [
+          { field: "email", message: "Email must be required" },
+          {
+            field: "password",
+            message: "Password must be required",
+          },
+        ],
+      },
+    });
+  });
+
+  //Email empty and pass short
+  it("should return 422 if Email is empty password is too short", async () => {
+    const res = await request(app).post("/auth/sign-in").send({
+      email: "",
+      password: "short",
+    });
+
+    expect(res.statusCode).toBe(422);
+    expect(res.body).toEqual({
+      success: false,
+      status: 422,
+      data: {
+        errors: [
+          { field: "email", message: "Email must be required" },
+          {
+            field: "password",
+            message: "Password must be at least 8 characters long",
+          },
+        ],
+      },
+    });
+  });
+
+  //Email not correct and pass empty
+  it("should return 422 if Email is empty password is too short", async () => {
+    const res = await request(app).post("/auth/sign-in").send({
+      email: "abcd",
+      password: "",
+    });
+
+    expect(res.statusCode).toBe(422);
+    expect(res.body).toEqual({
+      success: false,
+      status: 422,
+      data: {
+        errors: [
+          { field: "email", message: "Email is not in correct format" },
+          {
+            field: "password",
+            message: "Password must be required",
+          },
+        ],
+      },
+    });
+  });
+
+  //Email not correct and pass short
+  it("should return 422 if Email is not correct form password is too short", async () => {
+    const res = await request(app).post("/auth/sign-in").send({
+      email: "abcd",
+      password: "abcd",
+    });
+
+    expect(res.statusCode).toBe(422);
+    expect(res.body).toEqual({
+      success: false,
+      status: 422,
+      data: {
+        errors: [
+          { field: "email", message: "Email is not in correct format" },
           {
             field: "password",
             message: "Password must be at least 8 characters long",
