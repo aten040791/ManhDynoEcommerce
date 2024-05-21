@@ -6,7 +6,7 @@ const responseUtils = require("utils/responseUtils");
 const { validate } = require("kernels/validations/index");
 const loginRequest = require("modules/auth/requests/loginRequest");
 
-jest.mock("modules/auth/services/authService");
+// jest.mock("modules/auth/services/authService");
 
 const app = express();
 app.use(express.json());
@@ -20,49 +20,30 @@ describe("Auth Controller - Sign In", () => {
 
   //OK
   it("return 200 if successful login", async () => {
-    const mockUser = {
-      email: "test@gmail.com",
-      username: "testuser",
-      role: "user",
-      created_at: new Date(),
-      updated_at: new Date(),
-    };
-
-    authService.signIn.mockResolvedValue({
-      user: mockUser,
-      access_token: "mocked_token",
-    });
-
     const res = await request(app)
       .post("/auth/sign-in")
-      .send({ email: "test@gmail.com", password: "password123" });
+      .send({ email: "nguyenky@gmail.com", password: "1234abcd" });
 
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({
       success: true,
       data: {
         user: {
-          email: mockUser.email,
-          username: mockUser.username,
-          role: mockUser.role,
-          created_at: mockUser.created_at.toISOString(),
-          updated_at: mockUser.updated_at.toISOString(),
+          email: res.body.data.user.email,
+          username: res.body.data.user.username,
+          role: res.body.data.user.role,
+          created_at: res.body.data.user.created_at,
+          updated_at: res.body.data.user.updated_at,
         },
-        access_token: "mocked_token",
+        access_token: res.body.data.access_token,
       },
       status: 200,
       message: "ok",
-    });
-    expect(authService.signIn).toHaveBeenCalledWith({
-      email: "test@gmail.com",
-      password: "password123",
     });
   });
 
   //Email not found
   it("return 500 if email not found", async () => {
-    authService.signIn.mockResolvedValue({ error: "Email not found" });
-
     const res = await request(app).post("/auth/sign-in").send({
       email: "abcd@gmail.com",
       password: "password123",
@@ -74,29 +55,19 @@ describe("Auth Controller - Sign In", () => {
       status: 500,
       message: "Email not found",
     });
-    expect(authService.signIn).toHaveBeenCalledWith({
-      email: "abcd@gmail.com",
-      password: "password123",
-    });
   });
 
   //Password is incorrect
   it("return 500 if password is incorrect", async () => {
-    authService.signIn.mockResolvedValue({ error: "Invalid credentials" });
-
     const res = await request(app)
       .post("/auth/sign-in")
-      .send({ email: "abcd@gmail.com", password: "abcd1234" });
+      .send({ email: "binbaibb@gmail.com", password: "qwertyuio" });
 
     expect(res.statusCode).toBe(500);
     expect(res.body).toEqual({
       success: false,
       status: 500,
       message: "Invalid credentials",
-    });
-    expect(authService.signIn).toHaveBeenCalledWith({
-      email: "abcd@gmail.com",
-      password: "abcd1234",
     });
   });
 

@@ -6,7 +6,7 @@ const responseUtils = require("utils/responseUtils");
 const { validate } = require("kernels/validations/index");
 const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordRequest");
 
-jest.mock("modules/auth/services/authService");
+// jest.mock("modules/auth/services/authService");
 // jest.mock("utils/responseUtils");
 
 const app = express();
@@ -25,11 +25,9 @@ describe("Auth Controller - Recover Password", () => {
 
   // OK
   it("should return 200 if email is found and email sent", async () => {
-    authService.recoverPassword.mockResolvedValue(true);
-
     const res = await request(app)
       .post("/auth/recover-password")
-      .send({ email: "test@gmail.com" });
+      .send({ email: "binbaibb@gmail.com" });
 
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({
@@ -40,15 +38,10 @@ describe("Auth Controller - Recover Password", () => {
       status: 200,
       message: "ok",
     });
-    expect(authService.recoverPassword).toHaveBeenCalledWith({
-      email: "test@gmail.com",
-    });
   });
 
   // Email not found
   it("should return 500 if email not found", async () => {
-    authService.recoverPassword.mockResolvedValue({ error: "Email not found" });
-
     const res = await request(app)
       .post("/auth/recover-password")
       .send({ email: "nonexistent@gmail.com" });
@@ -58,9 +51,6 @@ describe("Auth Controller - Recover Password", () => {
       success: false,
       status: 500,
       message: "Email not found",
-    });
-    expect(authService.recoverPassword).toHaveBeenCalledWith({
-      email: "nonexistent@gmail.com",
     });
   });
 

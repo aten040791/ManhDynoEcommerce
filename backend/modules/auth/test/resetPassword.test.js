@@ -6,7 +6,7 @@ const responseUtils = require("utils/responseUtils");
 const { validate } = require("kernels/validations/index");
 const resetPasswordRequest = require("modules/auth/requests/resetPasswordRequest");
 
-jest.mock("modules/auth/services/authService");
+// jest.mock("modules/auth/services/authService");
 // jest.mock("utils/responseUtils");
 
 const app = express();
@@ -25,12 +25,10 @@ describe("Auth Controller - Reset Password", () => {
 
   // OK
   it("should return 200 if password reset successfully", async () => {
-    authService.resetPassword.mockResolvedValue(true);
-
     const res = await request(app).put("/auth/reset-password").send({
-      email: "test@gmail.com",
-      password: "newpassword123",
-      confirmPassword: "newpassword123",
+      email: "binbaibb@gmail.com",
+      password: "1234abcd",
+      confirmPassword: "1234abcd",
     });
 
     expect(res.statusCode).toBe(200);
@@ -46,8 +44,6 @@ describe("Auth Controller - Reset Password", () => {
 
   //Email not found
   it("should return 500 if email not found", async () => {
-    authService.resetPassword.mockResolvedValue({ error: "Email not found" });
-
     const res = await request(app).put("/auth/reset-password").send({
       email: "nonexistent@gmail.com",
       password: "newpassword123",
@@ -134,13 +130,11 @@ describe("Auth Controller - Reset Password", () => {
 
   //không có pass và confirmP không match
   it("should return 422 if password is empty and confirmPassword do not match", async () => {
-    const res = await request(app)
-      .put("/auth/reset-password")
-      .send({
-        email: "test@gmail.com",
-        password: "",
-        confirmPassword: "abcd1234",
-      });
+    const res = await request(app).put("/auth/reset-password").send({
+      email: "test@gmail.com",
+      password: "",
+      confirmPassword: "abcd1234",
+    });
 
     expect(res.statusCode).toBe(422);
     expect(res.body).toEqual({
