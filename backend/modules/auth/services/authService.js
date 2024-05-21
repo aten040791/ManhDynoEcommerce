@@ -3,58 +3,49 @@ const bcrypt = require("bcryptjs");
 const jwtUtils = require("utils/jwtUtils");
 
 module.exports = {
-
-  signIn: async (data) => 
-  {
+  signIn: async (data) => {
     const { email, password } = data;
-
     const checkUser = await model.User.findOne({
       where: {
         email: email,
       },
     });
-
     if (!checkUser) {
       return {
         error: "Email not found",
       };
     }
-
-    const isPasswordValid = await bcrypt.compare(
-      password,
-      checkUser.password
-    );
-
+    const isPasswordValid = await bcrypt.compare(password, checkUser.password);
     if (!isPasswordValid) {
       return {
         error: "Invalid credentials",
       };
     }
-
     return {
-        user: checkUser,
-        access_token: jwtUtils.sign(checkUser.id, checkUser.role)
+      user: checkUser,
+      access_token: jwtUtils.sign(checkUser.id, checkUser.role),
     };
   },
 
   signUp: async (data) => {
     const { email, password, username } = data;
-
     const user = await model.User.create({
       email: email,
       password: password,
       username: username,
-      role: 'user',
+      role: "user",
       created_at: new Date(),
       updated_at: new Date(),
     });
-
     if (user) {
       return {
         user,
-        access_token: jwtUtils.sign(user.id, user.role)
-      }
+        access_token: jwtUtils.sign(user.id, user.role),
+      };
     }
+    return {
+      error: "Failed to create user",
+    };
   },
 
   recoverPassword: async (data) => {
@@ -65,27 +56,27 @@ module.exports = {
         error: "Email not found",
       };
     }
-    return true
+    return true;
   },
 
   resetPassword: async (data) => {
-      const { email, password } = data;
-
-      const checkUser = await model.User.update({
+    const { email, password } = data;
+    const checkUser = await model.User.update(
+      {
         email,
-        password
-      },{ 
-        where: { 
-          email 
-        } 
-      });
-      if (!checkUser) {
-        return {
-          error: "Email not found",
-        };
+        password,
+      },
+      {
+        where: {
+          email,
+        },
       }
+    );
+    if (!checkUser) {
       return {
-        data: "Password reset successful.",
+        error: "Email not found",
       };
+    }
+    return true;
   },
 };
