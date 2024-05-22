@@ -1,5 +1,6 @@
 const model = require("../../../models/index");
 const bcrypt = require("bcryptjs");
+
 const jwtUtils = require("utils/jwtUtils");
 
 module.exports = {
@@ -61,22 +62,20 @@ module.exports = {
 
   resetPassword: async (data) => {
     const { email, password } = data;
-    const checkUser = await model.User.update(
-      {
-        email,
-        password,
-      },
-      {
-        where: {
-          email,
-        },
-      }
-    );
+    const checkUser = await model.User.findOne({ where: { email: email } });
     if (!checkUser) {
       return {
         error: "Email not found",
       };
     }
-    return true;
+    const updateUser = await checkUser.update({
+      password: password,
+    });
+    if (updateUser) {
+      return true;
+    }
+    return {
+      error: "Failed to update user",
+    };
   },
 };
