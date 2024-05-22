@@ -24,7 +24,7 @@ describe("Auth Controller - Reset Password", () => {
   });
 
   // OK
-  it("should return 200 if password reset successfully", async () => {
+  test("should return 200 if password reset successfully", async () => {
     const res = await request(app).put("/auth/reset-password").send({
       email: "binbaibb@gmail.com",
       password: "1234abcd",
@@ -43,7 +43,7 @@ describe("Auth Controller - Reset Password", () => {
   });
 
   //Email not found
-  it("should return 500 if email not found", async () => {
+  test("should return 500 if email not found", async () => {
     const res = await request(app).put("/auth/reset-password").send({
       email: "nonexistent@gmail.com",
       password: "newpassword123",
@@ -61,7 +61,7 @@ describe("Auth Controller - Reset Password", () => {
   // Kiểm thử validate cho password và password confirmation
 
   //Không có confirmPassword
-  it("should return 422 if confirmPassword is empty", async () => {
+  test("should return 422 if confirmPassword is empty", async () => {
     const res = await request(app).put("/auth/reset-password").send({
       email: "test@gmail.com",
       password: "abcd1234",
@@ -84,7 +84,7 @@ describe("Auth Controller - Reset Password", () => {
   });
 
   //   confirmPassword ko match
-  it("should return 422 if passwords do not match", async () => {
+  test("should return 422 if passwords do not match", async () => {
     const res = await request(app).put("/auth/reset-password").send({
       email: "test@gmail.com",
       password: "newpassword123",
@@ -107,7 +107,7 @@ describe("Auth Controller - Reset Password", () => {
   });
 
   //không có cả pass và confirmPassword
-  it("should return 422 if both password and password confirmation are empty", async () => {
+  test("should return 422 if both password and password confirmation are empty", async () => {
     const res = await request(app)
       .put("/auth/reset-password")
       .send({ email: "test@gmail.com", password: "", confirmPassword: "" });
@@ -129,7 +129,7 @@ describe("Auth Controller - Reset Password", () => {
   });
 
   //không có pass và confirmP không match
-  it("should return 422 if password is empty and confirmPassword do not match", async () => {
+  test("should return 422 if password is empty and confirmPassword do not match", async () => {
     const res = await request(app).put("/auth/reset-password").send({
       email: "test@gmail.com",
       password: "",

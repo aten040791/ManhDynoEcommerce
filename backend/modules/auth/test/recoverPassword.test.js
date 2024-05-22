@@ -24,7 +24,7 @@ describe("Auth Controller - Recover Password", () => {
   });
 
   // OK
-  it("should return 200 if email is found and email sent", async () => {
+  test("should return 200 if email is found and email sent", async () => {
     const res = await request(app)
       .post("/auth/recover-password")
       .send({ email: "binbaibb@gmail.com" });
@@ -41,7 +41,7 @@ describe("Auth Controller - Recover Password", () => {
   });
 
   // Email not found
-  it("should return 500 if email not found", async () => {
+  test("should return 500 if email not found", async () => {
     const res = await request(app)
       .post("/auth/recover-password")
       .send({ email: "nonexistent@gmail.com" });
@@ -57,7 +57,7 @@ describe("Auth Controller - Recover Password", () => {
   // Kiểm thử validate cho email
 
   //Email is empty
-  it("should return 422 if email is empty", async () => {
+  test("should return 422 if email is empty", async () => {
     const res = await request(app)
       .post("/auth/recover-password")
       .send({ email: "" });
@@ -71,7 +71,7 @@ describe("Auth Controller - Recover Password", () => {
   });
 
   //Email is invalid
-  it("should return 422 if email is invalid", async () => {
+  test("should return 422 if email is invalid", async () => {
     const res = await request(app)
       .post("/auth/recover-password")
       .send({ email: "invalid-email" });

@@ -19,7 +19,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //OK
-  it("return 200 if successful login", async () => {
+  test("return 200 if successful login", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
       .send({ email: "nguyenky@gmail.com", password: "1234abcd" });
@@ -43,7 +43,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Email not found
-  it("return 500 if email not found", async () => {
+  test("return 500 if email not found", async () => {
     const res = await request(app).post("/auth/sign-in").send({
       email: "abcd@gmail.com",
       password: "password123",
@@ -58,7 +58,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Password is incorrect
-  it("return 500 if password is incorrect", async () => {
+  test("return 500 if password is incorrect", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
       .send({ email: "binbaibb@gmail.com", password: "qwertyuio" });
@@ -74,7 +74,7 @@ describe("Auth Controller - Sign In", () => {
   // Kiểm thử validate cho email và password
 
   //Email is empty
-  it("return 422 if email is empty", async () => {
+  test("return 422 if email is empty", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
       .send({ email: "", password: "password123" });
@@ -88,7 +88,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Email is invalid
-  it("return 422 if email is invalid", async () => {
+  test("return 422 if email is invalid", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
       .send({ email: "invalid-email", password: "password123" });
@@ -104,7 +104,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Password is empty
-  it("return 422 if password is empty", async () => {
+  test("return 422 if password is empty", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
       .send({ email: "vccorp@gmail.com", password: "" });
@@ -120,7 +120,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Password is too short
-  it("return 422 if password is too short", async () => {
+  test("return 422 if password is too short", async () => {
     const res = await request(app)
       .post("/auth/sign-in")
       .send({ email: "vccorp@gmail.com", password: "short" });
@@ -141,7 +141,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Email and password empty
-  it("should return 422 if Email and password are empty", async () => {
+  test("should return 422 if Email and password are empty", async () => {
     const res = await request(app).post("/auth/sign-in").send({
       email: "",
       password: "",
@@ -164,7 +164,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Email empty and pass short
-  it("should return 422 if Email is empty password is too short", async () => {
+  test("should return 422 if Email is empty password is too short", async () => {
     const res = await request(app).post("/auth/sign-in").send({
       email: "",
       password: "short",
@@ -187,7 +187,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Email not correct and pass empty
-  it("should return 422 if Email is empty password is too short", async () => {
+  test("should return 422 if Email is empty password is too short", async () => {
     const res = await request(app).post("/auth/sign-in").send({
       email: "abcd",
       password: "",
@@ -210,7 +210,7 @@ describe("Auth Controller - Sign In", () => {
   });
 
   //Email not correct and pass short
-  it("should return 422 if Email is not correct form password is too short", async () => {
+  test("should return 422 if Email is not correct form password is too short", async () => {
     const res = await request(app).post("/auth/sign-in").send({
       email: "abcd",
       password: "abcd",
