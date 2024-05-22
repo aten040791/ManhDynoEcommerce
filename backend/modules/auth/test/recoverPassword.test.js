@@ -1,8 +1,5 @@
 const request = require("supertest");
-
-// jest.mock("modules/auth/services/authService");
-// jest.mock("utils/responseUtils");
-
+const app = require('index')
 
 
 describe("Auth Controller - Recover Password", () => {

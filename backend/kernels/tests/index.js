@@ -17,4 +17,7 @@ const umzug = new Umzug({
     logger: console,
 })
 
-module.exports = umzug
+module.exports = {
+    umzug,
+    sequelize
+}

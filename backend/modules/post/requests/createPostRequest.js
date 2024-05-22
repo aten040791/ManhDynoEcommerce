@@ -1,4 +1,4 @@
-const {BodyWithLocale} = require("kernels/rules");
+const BodyWithLocale = require("kernels/rules");
 const db = require("models/index");
 
 const titleValidator = new BodyWithLocale("title")
@@ -16,12 +16,13 @@ const contentValidator = new BodyWithLocale("content").notEmpty();
 //   .notEmpty()
 //   .isNumberic();
 
-const localeValidator = new ParamWithLocale("language")
-  .notEmpty()
-  .isLength({ min: 2, max: 10 })
+// const localeValidator = new BodyWithLocale("language")
+//   .notEmpty()
+//   .isLength({ min: 2, max: 10 })
+//   .unique(db.Language, "language");
 
 module.exports = [
-  localeValidator,
+  // localeValidator,
   titleValidator,
   contentValidator,
   // categoryIdValidator,

@@ -20,3 +20,5 @@ app.use("/api-docs", swaggerUIServe, swaggerUISetup);
 app.listen(port, () => {
   console.log(`Running on http://localhost:${port}`);
 });
+
+module.exports = app

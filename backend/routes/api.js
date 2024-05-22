@@ -30,10 +30,8 @@ router.group("/auth", (router) => {
 });
 
 router.group("/posts",middlewares([authenticated, role("owner")]),(router) => {
-    router.get("/", postsController.index);
-    router.get("/:postId", postsController.show);
-    router.post("/create", postsController.create);
-    router.put("/update/:postId", postsController.update);
+    router.post("/create",validate([createPostRequest]),postsController.create);
+    router.put("/update/:postId",validate([updatePostRequest]),postsController.update);
     router.delete("/delete/:postId", postsController.destroy);
   }
 );
