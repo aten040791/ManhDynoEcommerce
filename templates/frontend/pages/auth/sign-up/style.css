@@ -243,6 +243,9 @@
  
 
 @media (max-width: 576px) {
+  .header-nav.active {
+        width: 100%;
+  }
   footer,main,header{
     padding:0 8px !important;
   }
@@ -260,10 +263,6 @@
 
 
 @media only screen and (max-width: 375px){
-  .header-nav.active{
-    width:100%;
-  }
-
   .form{
      margin-top:50px;
   }

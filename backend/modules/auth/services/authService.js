@@ -62,12 +62,14 @@ module.exports = {
 
   resetPassword: async (data) => {
     const { email, password } = data;
+
     const checkUser = await model.User.findOne({ where: { email: email } });
     if (!checkUser) {
       return {
         error: "Email not found",
       };
     }
+
     const updateUser = await checkUser.update({
       password: password,
     });

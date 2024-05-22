@@ -260,6 +260,10 @@
 
 
 @media (max-width: 576px) {
+  .header-nav.active {
+      width: 100%;
+  }
+  
   main,footer,header{
     padding:0 8px;
   }
@@ -298,11 +302,7 @@
   }
    /*================= END OF FOOTER COPYRIGHT =============== */
 }
-@media (max-width: 375px){
-  .header-nav.active{
-    width:100%;
-  }
-}
+
 /* ============================================ END OF MEDIA QUERIES =========================================== */
 
  
