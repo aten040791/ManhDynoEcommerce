@@ -1,11 +1,11 @@
-const { param } = require("express-validator");
+const { query } = require("express-validator");
 const WithLocale = require("kernels/rules/base");
 
-class ParamWithLocale extends WithLocale 
+class QueryWithLocale extends WithLocale 
 {
     constructor(field) {
         super(field)
-        this.withLocale = param(field)
+        this.withLocale = query(field)
     }
 
     matches(regex) {
@@ -14,4 +14,4 @@ class ParamWithLocale extends WithLocale
     }
 }
 
-module.exports = ParamWithLocale
+module.exports = QueryWithLocale

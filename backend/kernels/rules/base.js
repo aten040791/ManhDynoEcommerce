@@ -1,3 +1,4 @@
+const { body } = require("express-validator");
 const stringUtils = require("utils/stringUtils");
 
 class WithLocale 
