@@ -10,7 +10,7 @@ class ParamWithLocale extends BodyWithLocale
 
     matches(regex) {
         this.withLocale = this.withLocale.matches(regex)
-        return this
+        return this;
     }
 }
 
