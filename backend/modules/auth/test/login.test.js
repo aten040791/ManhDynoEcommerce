@@ -8,11 +8,6 @@ const loginRequest = require("modules/auth/requests/loginRequest");
 
 // jest.mock("modules/auth/services/authService");
 
-const app = express();
-app.use(express.json());
-
-app.post("/auth/sign-in", validate([loginRequest]), authController.signIn);
-
 describe("Auth Controller - Sign In", () => {
   afterEach(() => {
     jest.clearAllMocks();
