@@ -1,90 +1,53 @@
 const categoryService = require('modules/category/services/categoryServices');
-const rs = require('utils/responseUtils');
-const validate = require('validations/categoryValidation');
+const response = require('utils/responseUtils');
 
 module.exports = {
     index: async (req, res) => {
-        try {
-            const response = await categoryService.index(); //categories
-            if (response.error) {
-                return rs.error(res, response.error);
-            }
-            if (response) {
-                return rs.ok(res, response);
-            }
-        } catch (error) {
-            return rs.error(res, error.message);
+        const categories = await categoryService.index(); //categories
+        if (categories.error) {
+            return response.error(res, categories.error);
+        }
+        if (categories) {
+            return response.ok(res, categories);
         }
     },
     show: async (req, res) => {
-        try {
-            const { error } = validate.show(req.params);
-            if (error) {
-                return rs.error(res, error.details[0].message);
-            }
-            const response = await categoryService.show(req.params);
-            if (response.error) {
-                return rs.error(res, response.error);
-            }
-            if (response) {
-                return rs.ok(res, response);
-            }
-        } catch (error) {
-            return rs.error(res, error.message);
+        const category = await categoryService.show(req.params);
+        if (category.error) {
+            return response.error(res, category.error);
+        }
+        if (category) {
+            return response.ok(res, category);
         }
     },
     create: async (req, res) => {
-        try {
-            const { error } = validate.create(req.body);
-            if (error) {
-                return rs.error(res, error.details[0].message);
-            }
-            const response = await categoryService.create(req.body);
-            if (response.error) {
-                return rs.error(res, response.error);
-            }
-            if (response) {
-                return rs.ok(res, response);
-            }
-        } catch (error) {
-            return rs.error(res, error.message);
+        const category = await categoryService.create(req.body);
+        if (category.error) {
+            return response.error(res, category.error);
+        }
+        if (category) {
+            return response.ok(res, category);
         }
     },
     update: async (req, res) => {
-        try {
-            const { error } = validate.update({ ...req.body, ...req.params });
-            if (error) {
-                return rs.error(res, error.details[0].message);
-            }
-            const response = await categoryService.update({
-                ...req.body,
-                ...req.params,
-            });
-            if (response.error) {
-                return rs.error(res, response.error);
-            }
-            if (response) {
-                return rs.ok(res, response);
-            }
-        } catch (error) {
-            return rs.error(res, error.message);
+        const category = await categoryService.update({
+            ...req.body,
+            ...req.params,
+        });
+        if (category.error) {
+            return response.error(res, category.error);
+        }
+        if (category) {
+            return response.ok(res, category);
         }
     },
     destroy: async (req, res) => {
-        try {
-            const { error } = validate.destroy(req.params);
-            if (error) {
-                return rs.error(res, error.details[0].message);
-            }
-            const response = await categoryService.destroy(req.params);
-            if (response.error) {
-                return rs.error(res, response.error);
-            }
-            if (response) {
-                return rs.ok(res, response);
-            }
-        } catch (error) {
-            return rs.error(res, error.message);
+        const category = await categoryService.destroy(req.params);
+        if (category.error) {
+            return response.error(res, category.error);
+        }
+        if (category) {
+            return response.ok(res, category);
         }
     }
 }

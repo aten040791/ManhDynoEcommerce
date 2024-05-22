@@ -13,6 +13,10 @@ const loginRequest = require("modules/auth/requests/loginRequest");
 const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordRequest");
 const middlewares = require("kernels/middlewares");
 const resetPasswordRequest = require("modules/auth/requests/resetPasswordRequest");
+const createCategoryRequest = require("modules/category/requests/createCategoryRequest");
+const deleteCategoryRequest = require("modules/category/requests/deleteCategoryRequest");
+const showCategoryRequest = require("modules/category/requests/showCategoryRequest");
+const updateCategoryRequest = require("modules/category/requests/updateCategoryRequest");
 const createLanguageRequest = require("modules/languages/requests/createLanguageRequest");
 const updateLanguageRequest = require("modules/languages/requests/updateLanguageRequest");
 const router = express.Router({ mergeParams: true });
@@ -44,10 +48,10 @@ router.group("/languages",middlewares([authenticated, role("admin")]),(router) =
 
 router.group("/categories", middlewares([authenticated,role("admin")]), (router) => {
   router.get("/", categoriesController.index);
-  router.get("/:categoryId", categoriesController.show);
-  router.post("/create", categoriesController.create);
-  router.put("/update/:categoryId", categoriesController.update);
-  router.delete("/delete/:categoryId", categoriesController.destroy);
+  router.get("/:id", validate([showCategoryRequest]), categoriesController.show);
+  router.post("/create", validate([createCategoryRequest]), categoriesController.create);
+  router.put("/update/:id", validate([updateCategoryRequest]), categoriesController.update);
+  router.delete("/delete/:id", validate([deleteCategoryRequest]), categoriesController.destroy);
 });
 
 router.group("/users", middlewares([authenticated, role("admin")]), (router) => {
