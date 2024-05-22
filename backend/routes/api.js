@@ -20,16 +20,8 @@ const router = express.Router({ mergeParams: true });
 router.group("/auth", (router) => {
   router.post("/sign-in", validate([loginRequest]), authController.signIn);
   router.post("/sign-up", validate([registerRequest]), authController.signUp);
-  router.post(
-    "/recover-password",
-    validate([recoverPasswordRequest]),
-    authController.recoverPassword
-  );
-  router.put(
-    "/reset-password",
-    validate([resetPasswordRequest]),
-    authController.resetPassword
-  );
+  router.post("/recover-password",validate([recoverPasswordRequest]),authController.recoverPassword);
+  router.put("/reset-password",validate([resetPasswordRequest]),authController.resetPassword);
 });
 
 router.group("/posts",middlewares([authenticated, role("owner")]),(router) => {
@@ -50,7 +42,7 @@ router.group("/languages",middlewares([authenticated, role("admin")]),(router) =
   }
 );
 
-router.group("/categories", middlewares([role("admin")]), (router) => {
+router.group("/categories", middlewares([authenticated,role("admin")]), (router) => {
   router.get("/", categoriesController.index);
   router.get("/:categoryId", categoriesController.show);
   router.post("/create", categoriesController.create);
@@ -58,7 +50,7 @@ router.group("/categories", middlewares([role("admin")]), (router) => {
   router.delete("/delete/:categoryId", categoriesController.destroy);
 });
 
-router.group("/users", middlewares([role("admin")]), (router) => {
+router.group("/users", middlewares([authenticated, role("admin")]), (router) => {
   router.get("/", usersController.index);
   router.delete("/delete/:userId", usersController.destroy);
 });
