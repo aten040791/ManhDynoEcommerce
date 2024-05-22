@@ -1,4 +1,4 @@
-const BodyWithLocale = require("kernels/rules");
+const {BodyWithLocale} = require("kernels/rules");
 
 const passwordValidator = new BodyWithLocale('password').notEmpty()
 
