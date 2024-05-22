@@ -1,12 +1,16 @@
 const { param } = require("express-validator");
 const {BodyWithLocale} = require("kernels/rules");
 
-class ParamsWithLocale extends BodyWithLocale 
+class ParamWithLocale extends BodyWithLocale 
 {
     constructor(field) {
         super(field)
-        this.field = param(field)
+        this.withLocale = param(field)
+    }
+
+    matches(regex) {
+        this.withLocale = this.withLocale.matches(regex)
     }
 }
 
-module.exports = ParamsWithLocale
+module.exports = ParamWithLocale
