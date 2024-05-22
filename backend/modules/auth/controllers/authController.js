@@ -12,53 +12,49 @@ module.exports = {
         user: {
           email: data.user.email,
           username: data.user.username,
-          role: 'user',
-          created_at: new Date(),
-          updated_at: new Date(),
+          role: data.user.role,
+          created_at: data.user.created_at,
+          updated_at: data.user.updated_at,
         },
-        access_token: data.access_token
-      })
+        access_token: data.access_token,
+      });
     }
   },
 
   signUp: async (req, res) => {
     const data = await authService.signUp(req.body);
-    
+    if (data.error) {
+      return response.error(res, data.error);
+    }
     return response.ok(res, {
       user: {
         email: data.user.email,
         username: data.user.username,
-        role: 'user',
-        created_at: new Date(),
-        updated_at: new Date(),
+        role: "user",
+        created_at: data.user.created_at,
+        updated_at: data.user.updated_at,
       },
-      access_token: data.access_token
-    })
+      access_token: data.access_token,
+    });
   },
 
   recoverPassword: async (req, res) => {
-    
     const data = await authService.recoverPassword(req.body);
     if (data.error) {
       return response.error(res, data.error);
     }
-    
     return response.ok(res, {
-      message: "Email sent"
-    })
+      message: "Email sent",
+    });
   },
 
   resetPassword: async (req, res) => {
-    try {
-      const response = await authService.resetPassword(req.body);
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    const data = await authService.resetPassword(req.body);
+    if (data.error) {
+      return response.error(res, data.error);
     }
+    return response.ok(res, {
+      message: "Reset password successfully",
+    });
   },
 };

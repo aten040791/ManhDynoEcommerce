@@ -17,35 +17,36 @@ const createCategoryRequest = require("modules/category/requests/createCategoryR
 const deleteCategoryRequest = require("modules/category/requests/deleteCategoryRequest");
 const showCategoryRequest = require("modules/category/requests/showCategoryRequest");
 const updateCategoryRequest = require("modules/category/requests/updateCategoryRequest");
+const createLanguageRequest = require("modules/languages/requests/createLanguageRequest");
+const updateLanguageRequest = require("modules/languages/requests/updateLanguageRequest");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
   router.post("/sign-in", validate([loginRequest]), authController.signIn);
   router.post("/sign-up", validate([registerRequest]), authController.signUp);
-  router.post("/recover-password", validate([recoverPasswordRequest]), authController.recoverPassword);
-  router.put("/reset-password", validate([resetPasswordRequest]), authController.resetPassword);
+  router.post("/recover-password",validate([recoverPasswordRequest]),authController.recoverPassword);
+  router.put("/reset-password",validate([resetPasswordRequest]),authController.resetPassword);
 });
 
-router.group("/posts", middlewares([authenticated, role('owner')]), (router) => {
-  router.get("/", postsController.index);
-  router.get("/:postId", postsController.show);
-});
+router.group("/posts",middlewares([authenticated, role("owner")]),(router) => {
+    router.get("/", postsController.index);
+    router.get("/:postId", postsController.show);
+    router.post("/create", postsController.create);
+    router.put("/update/:postId", postsController.update);
+    router.delete("/delete/:postId", postsController.destroy);
+  }
+);
 
-router.group("/posts", middlewares([role('owner')]), (router) => {
-  router.post("/create", postsController.create);
-  router.put("/update/:postId", postsController.update);
-  router.delete("/delete/:postId", postsController.destroy);
-});
+router.group("/languages",middlewares([authenticated, role("admin")]),(router) => {
+    router.get("/", languagesController.index);
+    router.get("/:languageId", languagesController.show);
+    router.post("/create",validate([createLanguageRequest]),languagesController.create);
+    router.put("/update/:languageId",validate([updateLanguageRequest]),languagesController.update);
+    router.delete("/delete/:languageId", languagesController.destroy);
+  }
+);
 
-router.group("/languages", middlewares([role('admin')]), (router) => {
-  router.get("/", languagesController.index);
-  router.get("/:languageId", languagesController.show);
-  router.post("/create", languagesController.create);
-  router.put("/update/:languageId", languagesController.update);
-  router.delete("/delete/:languageId", languagesController.destroy);
-});
-
-router.group("/categories", middlewares([role('admin')]), (router) => {
+router.group("/categories", middlewares([authenticated,role("admin")]), (router) => {
   router.get("/", categoriesController.index);
   router.get("/:id", validate([showCategoryRequest]), categoriesController.show);
   router.post("/create", validate([createCategoryRequest]), categoriesController.create);
@@ -53,8 +54,8 @@ router.group("/categories", middlewares([role('admin')]), (router) => {
   router.delete("/delete/:id", validate([deleteCategoryRequest]), categoriesController.destroy);
 });
 
-router.group("/users", middlewares([role('admin')]), (router) => {
-  router.get("/", usersController.index)
+router.group("/users", middlewares([authenticated, role("admin")]), (router) => {
+  router.get("/", usersController.index);
   router.delete("/delete/:userId", usersController.destroy);
 });
 
