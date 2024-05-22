@@ -1,95 +1,57 @@
 const languageServices = require("modules/languages/services/languageServices");
-const languageValidation = require("validations/languageValidation");
-const rs = require("utils/responseUtils");
+const response = require("utils/responseUtils");
 
 module.exports = {
   index: async (req, res) => {
-    try {
-      const response = await languageServices.index();
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    const data = await languageServices.index();
+    if (data.error) {
+      return response.error(res, data.error);
     }
+    return response.ok(res, {
+      languages: data.allLanguage,
+    });
   },
 
   show: async (req, res) => {
-    try {
-      const { error } = languageValidation.show(req.params);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await languageService.show(req.params);
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    const data = await languageServices.show(req.params);
+    if (data.error) {
+      return response.error(res, data.error);
     }
+    return response.ok(res, {
+      language: data.language,
+    });
   },
 
   create: async (req, res) => {
-    try {
-      const { error } = languageValidation.create(req.body);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await languageServices.create(req.body);
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    const data = await languageServices.create(req.body);
+    if (data.error) {
+      return response.error(res, data.error);
     }
+    return response.ok(res, {
+      newlanguage: data.newLanguage,
+    });
   },
 
   update: async (req, res) => {
-    try {
-      const { error } = languageValidation.update({ ...req.body, ...req.params });
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-
-      const response = await languageServices.update({
-        ...req.body,
-        ...req.params,
-      });
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    const data = await languageServices.update({
+      ...req.body,
+      ...req.params,
+    });
+    if (data.error) {
+      return response.error(res, data.error);
     }
+    return response.ok(res, {
+      message: "Language updated successfully",
+    });
   },
 
   destroy: async (req, res) => {
-    try {
-      const { error } = validation.destroy(req.params);
-      if (error) {
-        return rs.error(res, error.details[0].message);
-      }
-      const response = await languageService.destroy(req.params);
-      if (response.error) {
-        return rs.error(res, response.error);
-      }
-      if (response) {
-        return rs.ok(res, response);
-      }
-    } catch (error) {
-      return rs.error(res, error.message);
+    const data = await languageServices.destroy(req.params);
+    if (data.error) {
+      return response.error(res, data.error);
     }
+    return response.ok(res, {
+      message: "Language deleted successfully",
+    });
   },
 };

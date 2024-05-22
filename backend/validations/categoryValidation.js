@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const BodyWithLocale = require('kernels/rules');
+const {BodyWithLocale} = require('kernels/rules');
 
 module.exports = {
     show: (data) => {
