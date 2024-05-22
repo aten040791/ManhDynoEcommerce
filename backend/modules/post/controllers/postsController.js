@@ -1,5 +1,5 @@
 const postService = require("modules/post/services/postService");
-const postValidation = require("modules/post/validations/postValidation");
+const postValidation = require("modules/post/requests/");
 const rs = require("utils/responseUtils");
 
 module.exports = {
