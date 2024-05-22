@@ -1,3 +1,4 @@
+require("rootpath")();
 const { umzug,sequelize } = require("kernels/tests");
 
 module.exports = async () => {
