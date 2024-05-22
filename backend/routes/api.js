@@ -32,37 +32,20 @@ router.group("/auth", (router) => {
   );
 });
 
-router.group(
-  "/posts",
-  middlewares([authenticated, role("owner")]),
-  (router) => {
+router.group("/posts",middlewares([authenticated, role("owner")]),(router) => {
     router.get("/", postsController.index);
     router.get("/:postId", postsController.show);
+    router.post("/create", postsController.create);
+    router.put("/update/:postId", postsController.update);
+    router.delete("/delete/:postId", postsController.destroy);
   }
 );
 
-router.group("/posts", middlewares([role("owner")]), (router) => {
-  router.post("/create", postsController.create);
-  router.put("/update/:postId", postsController.update);
-  router.delete("/delete/:postId", postsController.destroy);
-});
-
-router.group(
-  "/languages",
-  middlewares([authenticated, role("admin")]),
-  (router) => {
+router.group("/languages",middlewares([authenticated, role("admin")]),(router) => {
     router.get("/", languagesController.index);
     router.get("/:languageId", languagesController.show);
-    router.post(
-      "/create",
-      validate([createLanguageRequest]),
-      languagesController.create
-    );
-    router.put(
-      "/update/:languageId",
-      validate([updateLanguageRequest]),
-      languagesController.update
-    );
+    router.post("/create",validate([createLanguageRequest]),languagesController.create);
+    router.put("/update/:languageId",validate([updateLanguageRequest]),languagesController.update);
     router.delete("/delete/:languageId", languagesController.destroy);
   }
 );
