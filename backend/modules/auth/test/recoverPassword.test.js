@@ -1,22 +1,9 @@
 const request = require("supertest");
-const express = require("express");
-const authController = require("modules/auth/controllers/authController");
-const authService = require("modules/auth/services/authService");
-const responseUtils = require("utils/responseUtils");
-const { validate } = require("kernels/validations/index");
-const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordRequest");
 
 // jest.mock("modules/auth/services/authService");
 // jest.mock("utils/responseUtils");
 
-const app = express();
-app.use(express.json());
 
-app.post(
-  "/auth/recover-password",
-  validate([recoverPasswordRequest]),
-  authController.recoverPassword
-);
 
 describe("Auth Controller - Recover Password", () => {
   afterEach(() => {

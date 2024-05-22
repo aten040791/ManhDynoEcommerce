@@ -1,10 +1,4 @@
 const request = require("supertest");
-const express = require("express");
-const authController = require("modules/auth/controllers/authController");
-const authService = require("modules/auth/services/authService");
-const responseUtils = require("utils/responseUtils");
-const { validate } = require("kernels/validations/index");
-const loginRequest = require("modules/auth/requests/loginRequest");
 
 // jest.mock("modules/auth/services/authService");
 
