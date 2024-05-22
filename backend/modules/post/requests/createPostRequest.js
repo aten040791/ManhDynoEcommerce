@@ -1,19 +1,30 @@
 const BodyWithLocale = require("kernels/rules");
 const db = require("models/index");
 
-// lowercase
-const localeValidator = new BodyWithLocale("language")
-  .isLength({ min: 2, max: 10 })
-  .unique(db.Language, "language")
-  .notEmpty();
-
-// String
-const title = new BodyWithLocale("title")
+const titleValidator = new BodyWithLocale("title")
+  .notEmpty()
   .isLength({ min: 10, max: 100 })
-  .unique(db.Post, "title")
-  .notEmpty();
-const content = new BodyWithLocale("content").notEmpty(); //String
-const categoryId = new BodyWithLocale("categoryId").isNumberic().notEmpty();
-const relatedId = new BodyWithLocale("relatedId").isNumberic().notEmpty(); //Not Found
+  .unique(db.Post, "title");
 
-module.exports = [localeValidator, title, content, categoryId, relatedId];
+const contentValidator = new BodyWithLocale("content").notEmpty();
+
+// const categoryIdValidator = new BodyWithLocale("categoryId")
+//   .notEmpty()
+//   .isNumberic();
+
+// const relatedIdValidator = new BodyWithLocale("relatedId")
+//   .notEmpty()
+//   .isNumberic();
+
+// const localeValidator = new BodyWithLocale("language")
+//   .notEmpty()
+//   .isLength({ min: 2, max: 10 })
+//   .unique(db.Language, "language");
+
+module.exports = [
+  // localeValidator,
+  titleValidator,
+  contentValidator,
+  // categoryIdValidator,
+  // relatedIdValidator,
+];

@@ -15,6 +15,8 @@ const middlewares = require("kernels/middlewares");
 const resetPasswordRequest = require("modules/auth/requests/resetPasswordRequest");
 const createLanguageRequest = require("modules/languages/requests/createLanguageRequest");
 const updateLanguageRequest = require("modules/languages/requests/updateLanguageRequest");
+// const detailPostRequest = require("modules/post/requests/detailPostRequest");
+const createPostRequest = require("modules/post/requests/createPostRequest");
 const router = express.Router({ mergeParams: true });
 
 router.group("/auth", (router) => {
@@ -34,14 +36,23 @@ router.group("/auth", (router) => {
 
 router.group("/posts", (router) => {
   router.get("/", postsController.index);
+  // router.get("/:postId", validate([detailPostRequest]), postsController.show);
   router.get("/:postId", postsController.show);
 });
 
-router.group("/posts", (router) => {
-  router.post("/create", postsController.create);
-  router.put("/update/:postId", postsController.update);
-  router.delete("/delete/:postId", postsController.destroy);
-});
+router.group(
+  "/posts",
+  middlewares([authenticated, role("owner")]),
+  (router) => {
+    router.post(
+      "/create",
+      validate([createPostRequest]),
+      postsController.create
+    );
+    router.put("/update/:postId", postsController.update);
+    router.delete("/delete/:postId", postsController.destroy);
+  }
+);
 
 router.group(
   "/languages",

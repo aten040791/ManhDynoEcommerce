@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.bulkInsert("Languages", [
       {
         name: "English",
-        locale: "en_us",
+        locale: "en",
         flag: "https://i.ibb.co/23W0ztT/US.png",
         created_at: new Date(),
         updated_at: new Date(),
