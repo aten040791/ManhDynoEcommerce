@@ -7,7 +7,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "prepare": "husky",
-    "postinstall": "npx husky install"
+    "postinstall": "npx husky install",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -31,7 +32,9 @@
   "devDependencies": {
     "git-branch-is": "^4.0.0",
     "husky": "^9.0.11",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.0",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "supertest": "^7.0.0"
   }
 }

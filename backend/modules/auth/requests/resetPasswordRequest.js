@@ -1,10 +1,9 @@
 const {BodyWithLocale} = require("kernels/rules");
 
-const passwordValidator = new BodyWithLocale('password').notEmpty()
+const passwordValidator = new BodyWithLocale("password").notEmpty();
 
-const passwordConfirmationValidator = new BodyWithLocale('password').notEmpty().confirmed('password')
+const passwordConfirmationValidator = new BodyWithLocale("confirmPassword")
+  .notEmpty()
+  .confirmed("password");
 
-module.exports = [
-    passwordValidator,
-    passwordConfirmationValidator
-]
+module.exports = [passwordValidator, passwordConfirmationValidator];
