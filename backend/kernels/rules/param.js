@@ -4,6 +4,7 @@ const {BodyWithLocale} = require("kernels/rules");
 class ParamsWithLocale extends BodyWithLocale 
 {
     constructor(field) {
+        super(field)
         this.field = param(field)
     }
 }
