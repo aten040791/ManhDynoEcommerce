@@ -13,6 +13,7 @@ const loginRequest = require("modules/auth/requests/loginRequest");
 const recoverPasswordRequest = require("modules/auth/requests/recoverPasswordRequest");
 const middlewares = require("kernels/middlewares");
 const resetPasswordRequest = require("modules/auth/requests/resetPasswordRequest");
+const deleteUserRequest = require("modules/user/requests/deleteUserRequest");
 const createCategoryRequest = require("modules/category/requests/createCategoryRequest");
 const deleteCategoryRequest = require("modules/category/requests/deleteCategoryRequest");
 const showCategoryRequest = require("modules/category/requests/showCategoryRequest");
@@ -54,9 +55,9 @@ router.group("/categories", middlewares([authenticated,role("admin")]), (router)
   router.delete("/delete/:id", validate([deleteCategoryRequest]), categoriesController.destroy);
 });
 
-router.group("/users", middlewares([authenticated, role("admin")]), (router) => {
-  router.get("/", usersController.index);
-  router.delete("/delete/:userId", usersController.destroy);
+router.group("/users", middlewares([authenticated, role("admin")]) ,(router) => {
+  router.get("/", usersController.index)
+  router.delete("/delete/:userId", validate([deleteUserRequest]), usersController.destroy);
 });
 
 module.exports = router;

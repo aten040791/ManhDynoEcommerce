@@ -1,41 +1,23 @@
 const userService = require('modules/user/services/userServices');
-const rs = require('utils/responseUtils');
-const validate = require('validations/userValidation');
-
+const response = require('utils/responseUtils');
 
 module.exports = {
     index: async (req, res) => {
-        try {
-            const response = await userService.index();
-            if (response.error) {
-                return rs.error(res, response.error)
-            }
-            if (response) {
-                return rs.ok(res, response)
-            }
-        }catch (error) {
-            return rs.error(res, error.message);
+        const users = await userService.index();
+        if (users.error) {
+            return response.error(res, users.error)
+        }
+        if (users) {
+            return response.ok(res, users)
         }
     },
     destroy: async (req, res) => {
-        try {
-            const { role, userId } = req.user;
-            if (!userId && role != "admin") {
-                return rs.authorization(res, "Unauthorized");
-            }vu
-            const { error } = validate.destroy(req.params);
-            if (error) {
-                return rs.error(res, error.details[0].message);
-            }
-            const response = await userService.destroy({ ...req.params });
-            if (response.error) {
-                return rs.error(res, response.error);
-            }
-            if (response) {
-                return rs.ok(res, response);
-            }
-        } catch (error) {
-            return rs.error(res, error.message);
+        const user = await userService.destroy({ ...req.params });
+        if (user.error) {
+            return response.error(res, user.error);
+        }
+        if (user) {
+            return response.ok(res, user);
         }
     }
 }
