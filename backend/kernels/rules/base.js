@@ -4,7 +4,7 @@ const stringUtils = require("utils/stringUtils");
 class WithLocale 
 {
     constructor(field) {
-        this.withLocale = null
+        this.withLocale = body(field)
         this.field = field;
     }
 
@@ -57,13 +57,18 @@ class WithLocale
         return this;
     }
 
+    isString() {
+        this.withLocale = this.withLocale.isString().withMessage(stringUtils.capitalize(this.field)+" must be text").bail()
+        return this;
+    }
+
     isNumberic() {
         this.withLocale = this.withLocale.isNumeric().withMessage(stringUtils.capitalize(this.field)+" must be number").bail()
         return this;
     }
 
     isIn(check, against) {
-        this.withLocale = this.withLocale.isIn(check, against);
+        this.withLocale = this.withLocale.isIn(check, against).withMessage(this.field + " must be in allowable range").bail();
         return this
     }
 
