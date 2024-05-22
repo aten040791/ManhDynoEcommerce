@@ -6,7 +6,7 @@ module.exports = async () => {
         await sequelize.authenticate()
         await umzug.up()
     } catch (error) {
-        console.error('Unable to connect to the database:', error);
+        console.error(error);
         process.exit(1);
     }
 }
