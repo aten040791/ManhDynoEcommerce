@@ -58,10 +58,12 @@ class WithLocale
 
     isNumberic() {
         this.withLocale = this.withLocale.isNumeric().withMessage(stringUtils.capitalize(this.field)+" must be number").bail()
+        return this;
     }
 
-    isIn(values) {
-        
+    isIn(check, against) {
+        this.withLocale = this.withLocale.isIn(check, against);
+        return this
     }
 
     get() {
