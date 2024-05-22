@@ -15,14 +15,15 @@ module.exports = {
     },
   },
   test: {
-    username: process.env.CI_DB_USERNAME,
-    password: process.env.CI_DB_PASSWORD,
-    database: process.env.CI_DB_NAME,
-    host: "127.0.0.1",
-    port: 3306,
+    username: process.env.DATABASE_TEST_USERNAME,
+    password: process.env.DATABASE_TEST_PASSWORD,
+    database: process.env.DATABASE_TEST_NAME,
+    host: process.env.DATABASE_TEST_HOST || "127.0.0.1",
+    port: process.env.DATABASE_TEST_PORT || 3306,
     dialect: "mysql",
     dialectOptions: {
       bigNumberStrings: true,
+      socketPath: process.env.DATABASE_TEST_SOCKET || "",
     },
   },
   production: {
