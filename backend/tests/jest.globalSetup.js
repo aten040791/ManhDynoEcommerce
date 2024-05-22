@@ -12,3 +12,4 @@ module.exports = async () => {
 }
 
 global.__SEQUELIZE__ = sequelize;
+global.__UMZUG__=umzug;
