@@ -1,4 +1,4 @@
-const {BodyWithLocale} = require("kernels/rules");
+const BodyWithLocale = require("kernels/rules");
 const db = require("models/index");
 
 const localeValidator = new BodyWithLocale("language")
