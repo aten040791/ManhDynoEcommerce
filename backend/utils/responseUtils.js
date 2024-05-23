@@ -4,7 +4,7 @@ module.exports = {
       success: true,
       data,
       status: 200,
-      message: "ok"
+      message: "ok",
     });
   },
 
@@ -28,7 +28,7 @@ module.exports = {
     return res.status(401).send({
       success: false,
       status: 401,
-      message: message || 'Unauthorized',
+      message: message || "Unauthorized",
     });
   },
 
@@ -36,7 +36,7 @@ module.exports = {
     return res.status(422).send({
       success: false,
       status: 422,
-      data: errors
-    })
-  }
+      data: errors,
+    });
+  },
 };

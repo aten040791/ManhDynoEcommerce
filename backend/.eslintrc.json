@@ -17,6 +17,7 @@
                 "ignoreRestSiblings": false 
             }
         ],
-        "no-async-promise-executor": "error"
+        "no-async-promise-executor": "error",
+        "no-undef":"off"
     }
 }

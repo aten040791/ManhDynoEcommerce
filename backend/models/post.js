@@ -69,5 +69,8 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
+  Post.beforeSave(async (post) => {
+    post.locale = post.locale.toLowerCase();
+  });
   return Post;
 };

@@ -100,6 +100,11 @@ module.exports = {
           locale: language,
         },
       });
+      if (!checkLanguage) {
+        return {
+          error: "Language not found",
+        };
+      }
       if (checkLanguage && relatedId == 0 && language != "en_us") {
         return {
           error: "Please make sure to create the post in English first.",

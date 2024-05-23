@@ -7,26 +7,19 @@ const db = require("models/index");
 
 const localeValidator = new QueryWithLocale("language")
   .isLength({ min: 2, max: 10 })
-  .unique(db.Language, "language")
-  .isString()
   .notEmpty();
 
 const titleValidator = new BodyWithLocale("title")
   .notEmpty()
   .isLength({ min: 10, max: 100 })
-  .unique(db.Post, "title")
-  .isString();
+  .unique(db.Post, "title");
 
 const contentValidator = new BodyWithLocale("content").notEmpty().isString();
 
 const categoryIdValidator = new QueryWithLocale("categoryId")
   .notEmpty()
-  .isNumberic()
-  .isIn();
-const postIdValidator = new ParamWithLocale("postId")
-  .notEmpty()
-  .isNumberic()
-  .isIn();
+  .isNumberic();
+const postIdValidator = new ParamWithLocale("postId").notEmpty().isNumberic();
 
 module.exports = [
   localeValidator,
