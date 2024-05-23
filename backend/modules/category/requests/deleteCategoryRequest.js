@@ -1,7 +1,7 @@
-const BodyWithLocale = require("kernels/rules");
+const { BodyWithLocale } = require("kernels/rules");
 
-const categoryIdValidation = new BodyWithLocale('id').notEmpty().isNumberic()
+const categoryIdValidation = new BodyWithLocale("id").notEmpty().isNumberic();
 
 module.exports = {
-    categoryIdValidation
-}
+  categoryIdValidation,
+};

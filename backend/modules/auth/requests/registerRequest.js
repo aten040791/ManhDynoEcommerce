@@ -1,7 +1,5 @@
-
-const BodyWithLocale = require("kernels/rules");
+const { BodyWithLocale } = require("kernels/rules");
 const db = require("models/index");
-
 
 const emailValidator = new BodyWithLocale("email")
   .notEmpty()

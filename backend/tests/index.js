@@ -1,17 +1,17 @@
-const umzug = require("kernels/tests")
+const umzug = require("kernels/tests");
 
 const migrateAll = async () => {
-    await umzug.up()
-}
+  await umzug.up();
+};
 
 const rollbackAll = async () => {
-    await umzug.down({to: 0})
-}
+  await umzug.down({ to: 0 });
+};
 
 beforeAll(() => {
-    migrateAll()
-})
+  migrateAll();
+});
 
 afterAll(() => {
-    rollbackAll()
-})
+  rollbackAll();
+});

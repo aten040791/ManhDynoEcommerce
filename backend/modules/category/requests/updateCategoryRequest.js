@@ -1,5 +1,4 @@
-const BodyWithLocale = require("kernels/rules");
-const db = require("models/index");
+const { BodyWithLocale } = require("kernels/rules");
 
 const categoryNameValidation = new BodyWithLocale("name")
   .isLength({ max: 20 })

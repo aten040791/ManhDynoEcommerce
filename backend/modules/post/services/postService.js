@@ -7,7 +7,7 @@ module.exports = {
   index: async () => {
     const allPost = await model.Post.findAll({
       where: {
-        locale: "en",
+        locale: "en_us",
       },
       attributes: { exclude: ["user_id", "category_id"] },
       include: [
@@ -35,7 +35,7 @@ module.exports = {
     const { postId, language } = data;
 
     let whereCondition = {};
-    if (language === "en") {
+    if (language === "en_us") {
       whereCondition = {
         id: postId,
       };

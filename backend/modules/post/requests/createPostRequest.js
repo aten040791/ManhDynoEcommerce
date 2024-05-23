@@ -1,4 +1,4 @@
-const BodyWithLocale = require("kernels/rules");
+const { BodyWithLocale, QueryWithLocale } = require("kernels/rules");
 const db = require("models/index");
 
 const titleValidator = new BodyWithLocale("title")
@@ -8,23 +8,22 @@ const titleValidator = new BodyWithLocale("title")
 
 const contentValidator = new BodyWithLocale("content").notEmpty();
 
-// const categoryIdValidator = new BodyWithLocale("categoryId")
-//   .notEmpty()
-//   .isNumberic();
+const categoryIdValidator = new QueryWithLocale("categoryId")
+  .notEmpty()
+  .isNumberic();
 
-// const relatedIdValidator = new BodyWithLocale("relatedId")
-//   .notEmpty()
-//   .isNumberic();
+const relatedIdValidator = new QueryWithLocale("relatedId")
+  .notEmpty()
+  .isNumberic();
 
-// const localeValidator = new BodyWithLocale("language")
-//   .notEmpty()
-//   .isLength({ min: 2, max: 10 })
-//   .unique(db.Language, "language");
+const localeValidator = new QueryWithLocale("language")
+  .notEmpty()
+  .isLength({ min: 2, max: 10 });
 
 module.exports = [
-  // localeValidator,
+  localeValidator,
   titleValidator,
   contentValidator,
-  // categoryIdValidator,
-  // relatedIdValidator,
+  categoryIdValidator,
+  relatedIdValidator,
 ];

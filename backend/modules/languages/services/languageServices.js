@@ -1,7 +1,7 @@
 const model = require("../../../models/index");
 
 module.exports = {
-  index: async (data) => {
+  index: async () => {
     const allLanguage = await model.Language.findAll({});
     if (allLanguage) {
       return {

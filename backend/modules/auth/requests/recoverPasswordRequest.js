@@ -1,8 +1,5 @@
-const {BodyWithLocale} = require('kernels/rules');
-const db = require('models/index');
+const { BodyWithLocale } = require("kernels/rules");
 
-const emailValidator = new BodyWithLocale('email').notEmpty().isEmail()
+const emailValidator = new BodyWithLocale("email").notEmpty().isEmail();
 
-module.exports = [
-    emailValidator
-]
+module.exports = [emailValidator];
