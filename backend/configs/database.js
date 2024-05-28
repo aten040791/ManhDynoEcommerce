@@ -24,8 +24,9 @@ module.exports = {
     dialectOptions: {
       bigNumberStrings: true,
       socketPath: process.env.DATABASE_TEST_SOCKET || "",
-      charset: "utf8mb4"
+      charset: "utf8mb4",
     },
+    logging: false,
   },
   production: {
     username: process.env.PROD_DB_USERNAME,

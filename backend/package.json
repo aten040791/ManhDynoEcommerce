@@ -8,8 +8,7 @@
     "dev": "nodemon index.js",
     "prepare": "husky",
     "postinstall": "npx husky install",
-    "test": "jest",
-    "test2": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles --collect-coverage"
   },
   "author": "",
   "license": "ISC",

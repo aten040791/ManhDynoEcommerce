@@ -34,6 +34,16 @@ module.exports = {
   show: async (data) => {
     const { postId, language } = data;
 
+    const checkLanguage = await model.Language.findOne({
+      where: {
+        locale: language,
+      },
+    });
+    if (!checkLanguage) {
+      return {
+        error: "Language not found",
+      };
+    }
     let whereCondition = {};
     if (language === "en_us") {
       whereCondition = {
@@ -78,6 +88,7 @@ module.exports = {
         error: "Category not found",
       };
     }
+
     if (relatedId > 0) {
       let locales = await model.Post.findAll({
         attributes: ["locale"],
@@ -141,9 +152,7 @@ module.exports = {
       return newPost;
     });
 
-    return {
-      data: result,
-    };
+    return result;
   },
   update: async (data) => {
     const { title, content, userId, categoryId, language, postId } = data;
